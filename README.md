@@ -4,17 +4,18 @@ third project for CS373
 
 Models:
 ========
-Artist:
-name
-date of birth
-date of death
-Nationality
-country of origin
-image
 
-connects to works
-connects to centuries
-connects to styles
+##Artist:
+-name
+-date of birth
+-date of death
+-Nationality
+-country of origin
+-image
+###Connections:
+-connects to works
+-connects to centuries
+-connects to styles
 
 Work:
 medium
