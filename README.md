@@ -51,3 +51,7 @@ Models:
 - connects to works
 - connects to artists
 - connects to centuries
+
+
+# Google Doc for our technical report (this link allows you to edit)
+https://docs.google.com/document/d/1GdcxVpxK2OqV5jX1nx5vna8D56v27KsXv1sreU_bGB8/edit?usp=sharing
