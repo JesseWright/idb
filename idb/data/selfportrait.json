@@ -1,0 +1,39 @@
+{
+    "work":
+    {
+    "physicalMedium": "painting",
+    "year": 1887,
+    "style": "",
+    "dimensions": [
+      {
+        "unit": "cm",
+        "type": "height",
+        "part": null,
+        "value": "42"
+      },
+      {
+        "unit": "cm",
+        "type": "width",
+        "part": null,
+        "value": "34"
+      },
+      {
+        "unit": "cm",
+        "type": "depth",
+        "part": null,
+        "value": "8"
+      }
+    ],
+    "colors": [
+      "#52686D",
+      " #50524C",
+      " #9CA097",
+      " #936D59",
+      " #C2C1B8",
+      " #6A84A2",
+      " #2F3031"
+    ],
+    "image": "http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0"
+    }
+}
+    

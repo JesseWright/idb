@@ -1,0 +1,32 @@
+{
+    "work":
+    {
+    "physicalMedium": "oil on canvas",
+    "year": 1660,
+    "style": "",
+    "dimensions": [
+      {
+        "unit": "cm",
+        "type": "height",
+        "part": null,
+        "value": "45.5"
+      },
+      {
+        "unit": "cm",
+        "type": "width",
+        "part": null,
+        "value": "41"
+      }
+    ],
+    "colors": [
+      "#7E6E50",
+      " #E3E0CB",
+      " #B7AD89",
+      " #3C4C76",
+      " #7587A4",
+      " #201D20"
+    ],
+    "image": "http://lh3.ggpht.com/XUw3NdeiA0MsT-mygp8NT1oPUd17GB3BK2nSRYvyTAY-N64KwsLOO5QU3muSDEk2AdMzonIVLgjge581mOobVqsQrA=s0"
+    }
+}
+    

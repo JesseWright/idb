@@ -1,0 +1,37 @@
+{
+    "style":
+    {
+    "colors": [
+      " #261808",
+      " #5E3C14",
+      " #9C8238",
+      " #885617",
+      " #AF9F6B",
+      " #6C6238",
+      " #D7CB9E"
+    ],
+    "avgeage": "312",
+    "artists": [
+      "Rembrandt Harmensz. van Rijn"
+    ],
+    "avgdimensions": [
+      {
+        "unit": "cm",
+        "type": "height",
+        "part": null,
+        "value": "359.5"
+      },
+      {
+        "unit": "cm",
+        "type": "width",
+        "part": null,
+        "value": "253.5"
+      }
+    ],
+    "images": [
+      "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0",
+      "http://lh3.ggpht.com/XUw3NdeiA0MsT-mygp8NT1oPUd17GB3BK2nSRYvyTAY-N64KwsLOO5QU3muSDEk2AdMzonIVLgjge581mOobVqsQrA=s0"
+      
+    ]
+    }
+}

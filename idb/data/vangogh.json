@@ -1,0 +1,11 @@
+{
+    "artist":
+    {
+    "name": "Vincent van Gogh",
+    "dateOfBirth": "1853-03-30",
+    "dateOfDeath": "1890-07-29",
+    "nationality": "Nederlands",
+    "countryOfOrigin": "Netherlands",
+    "image": ""
+    }
+}

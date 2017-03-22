@@ -1,0 +1,34 @@
+{
+    "style":
+    {
+    "colors": [
+      "#CFC1A7",
+      " #B8AA91",
+      " #9E9078",
+      " #564D40",
+      " #796C59",
+      " #3B3732"
+    ],
+    "avgeage": "140",
+    "artists": [
+      "Johannes Bosboom"
+    ],
+    "avgdimensions": [
+      {
+        "unit": "cm",
+        "type": "height",
+        "part": null,
+        "value": "20"
+      },
+      {
+        "unit": "cm",
+        "type": "width",
+        "part": null,
+        "value": "14"
+      }
+    ],
+    "images": [
+      "http://lh5.ggpht.com/ohkR0_wbALcKpvNjORXyrhQj5Qb-6XnZcp29yKXR5oBU2UPb72uQyzWokxJ_R-ETxnFeYB339314O50we0QK5dNtwQ=s0"
+    ]
+    }
+}
