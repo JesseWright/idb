@@ -1,0 +1,25 @@
+{
+    "century":
+    {
+    "artists": [
+      "Vincent van Gogh",
+      "Jan Willem Pieneman"
+    ],
+    "works": [
+      "Self Portrait",
+      "Triumvirate Assuming Power in the Name of the Prince of Orange"
+    ],
+    "styles": [
+      ""
+    ],
+    "countries": [
+      "Netherlands",
+      "Japan"
+    ],
+    "mediums": [
+      "oil on canvas",
+      "painting",
+      "parchment"
+    ]
+    }
+}

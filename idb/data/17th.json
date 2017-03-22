@@ -1,0 +1,24 @@
+{
+    "century":
+    {
+    "artists": [
+      "Rembrandt Harmensz. van Rijn",
+      "Johannes Vermeer"
+    ],
+    "works": [
+      "The Milkmaid",
+      "Night Watch"
+    ],
+    "styles": [
+      ""
+    ],
+    "countries": [
+      "Dutch Republic",
+      "Italy"
+    ],
+    "mediums": [
+      "oil on canvas",
+      "paiting"
+    ]
+    }
+}
