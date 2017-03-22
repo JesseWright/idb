@@ -1,1 +1,1 @@
-import idb import app
+from idb import app
