@@ -1,4 +1,4 @@
-runtime: python3
+runtime: python27
 api_version: 1
 threadsafe: yes
 
@@ -9,3 +9,5 @@ handlers:
 libraries:
 - name: jinja2
   version: "2.6"
+- name: markupsafe
+  version: "0.15"
