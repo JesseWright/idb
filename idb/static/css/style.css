@@ -3,6 +3,20 @@ body {
     height: 100%;
 }
 
+
+
+.overlay { 
+  color:#fff;
+  position:absolute;
+  z-index:12;
+  top:20%;
+  width:100%;
+  text-align:center;
+  font-family: "Open Sans";
+  font-size: 40px;
+  text-shadow: 4px 4px black;
+}
+
 .carousel,
 .item,
 .active {
@@ -12,8 +26,6 @@ body {
 .carousel-inner {
     height: 100%;
 }
-
-/* Background images are set within the HTML using inline CSS, not here */
 
 .fill {
     width: 100%;
