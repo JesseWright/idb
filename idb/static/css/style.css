@@ -3,13 +3,20 @@ body {
     height: 100%;
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> frontend_dev
 .overlay { 
   color:#fff;
   position:absolute;
   z-index:12;
+<<<<<<< HEAD
   top:20%;
+=======
+  top:5%;
+>>>>>>> frontend_dev
   width:100%;
   text-align:center;
   font-family: "Open Sans";
@@ -37,6 +44,48 @@ body {
     -o-background-size: cover;
 }
 
+<<<<<<< HEAD
 footer {
     margin: 50px 0;
 }
+=======
+/* navbar customization adapated from Bootply example: http://www.bootply.com/70L8wKvIkO */ 
+
+.navbar-custom {
+	background-color:#410000;
+    color:#ffffff;
+  	border-radius:0;
+  	font-family: "Open Sans";
+}
+  
+.navbar-custom .navbar-nav > li > a {
+  	color:#fff;
+  	padding-left:20px;
+  	padding-right:20px;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+	background-color:transparent;
+}
+      
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #590000;
+}
+      
+.navbar-custom .navbar-brand {
+  	color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+  	background-color:#eeeeee;
+}
+
+.img-center {
+	margin: 0 auto;
+}
+
+.container {
+  color:#ffffff;
+}
+
+>>>>>>> frontend_dev
