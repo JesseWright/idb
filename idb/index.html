@@ -17,6 +17,22 @@
 
     </head>
 
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-absolute">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Rijksmuseum</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Page 2</a></li>
+          <li><a href="#">Page 3</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="overlay"><h1>Welcome to the Rijksmuseum!</h1></div>
+    
     <div id="myCarousel" class="carousel slide">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -24,28 +40,30 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-
-        <!-- Wrapper for Slides -->
+        
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('static/images/nightwatch.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                    <h2>The Night Watch</h2>
+                    <h4>Rembrandt van Rijn</h4>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                <div class="fill" style="background-image:url('static/images/vangogh.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                    <h2>Self-portrait</h2>
+                    <h4>Vincent van Gogh</h4>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                <div class="fill" style="background-image:url('static/images/milkmaid.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+                    <h2>The Milkmaid</h2>
+                    <h4>Johannes Vermeer</h4>
                 </div>
             </div>
         </div>
