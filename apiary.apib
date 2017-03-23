@@ -10,6 +10,8 @@ The ArtistTree API is a basic API built from the Rijksmuseum data, focused on ar
 
 ### List All Artists [GET]
 
+This call just provides a list of all the artists we have in our database. (This may be a sizable request!)
+
 + Response 200 (application/json)
 
         [
@@ -33,6 +35,178 @@ The ArtistTree API is a basic API built from the Rijksmuseum data, focused on ar
                     }
                 ]
                 
+            }
+        ]
+
+## Get Specific Artist [/artists/search/]
+
+### Retrieve a specific artist [POST]
+
+This call is intended to retrieve an artist based on certain search criteria. 
+You MUST include one of the fields in your request, but the rest are optional. 
+Returns a list of artist objects.
+
++ Request (application/json)
+        
+        {
+            "name": "Vincent VanGogh",
+            "century": "1600",
+            "nationality": "Dutch"
+        }
+        
++ Response 201 (application/json)
+
+        [
+            {
+                "artists": [
+                    {
+                        "name": "Vincent VanGogh",
+                        "dateOfBirth": "1853-3-30",
+                        "dateOfDeath": "1890-7-29",
+                        "nationality": "Dutch",
+                        "countryOfOrigin": "The Netherlands",
+                        "image": ""
+                    }
+                ]
+            }
+        ]
+        
+## Get all artworks [/works/all]
+
+### List all artworks [GET]
+
+Returns a list of all our artworks. (Could be a very large request!)
+
++ Response 200 (application/json)
+
+        [
+            {
+                "works":[
+                    {
+                    "name":"Night Watch",
+                    "physicalMedium": "oil on canvas",
+                    "year": 1642,
+                    "style": "",
+                    "dimensions": [
+                      {
+                        "unit": "cm",
+                        "type": "height",
+                        "part": null,
+                        "value": "379.5"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "width",
+                        "part": null,
+                        "value": "453.5"
+                      }
+                    ],
+                    "colors": [
+                      "#261808",
+                      " #5E3C14",
+                      " #9C8238",
+                      " #885617",
+                      " #AF9F6B",
+                      " #6C6238",
+                      " #D7CB9E"
+                    ],
+                    "image": "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0"
+                    },
+                    {
+                    "name":"Self Portrait"
+                    "physicalMedium": "painting",
+                    "year": 1887,
+                    "style": "",
+                    "dimensions": [
+                      {
+                        "unit": "cm",
+                        "type": "height",
+                        "part": null,
+                        "value": "42"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "width",
+                        "part": null,
+                        "value": "34"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "depth",
+                        "part": null,
+                        "value": "8"
+                      }
+                    ],
+                    "colors": [
+                      "#52686D",
+                      " #50524C",
+                      " #9CA097",
+                      " #936D59",
+                      " #C2C1B8",
+                      " #6A84A2",
+                      " #2F3031"
+                    ],
+                    "image": "http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0"
+                    }
+                ]
+                
+            }
+        ]
+
+## Get a specifc work of art [/works/search]
+
+Same as the search for artists, this will search our artworks. One field is required, but the others are optional.
+Rather than search for the colors you give us exactly, we'll return works with similar colors.  
+
++ Request (application/json)
+        
+        {
+            "name": "Night Watch",
+            "century": "1800",
+            "year": 1887,
+            "colors":[
+            "#885617",
+            "#9CA097"
+            ]
+            
+        }
+
++ Response 201 (application/json)
+
+        [
+            {
+                "works":[
+                    {
+                    "name":"Night Watch",
+                    "physicalMedium": "oil on canvas",
+                    "year": 1642,
+                    "style": "",
+                    "dimensions": [
+                      {
+                        "unit": "cm",
+                        "type": "height",
+                        "part": null,
+                        "value": "379.5"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "width",
+                        "part": null,
+                        "value": "453.5"
+                      }
+                    ],
+                    "colors": [
+                      "#261808",
+                      " #5E3C14",
+                      " #9C8238",
+                      " #885617",
+                      " #AF9F6B",
+                      " #6C6238",
+                      " #D7CB9E"
+                    ],
+                    "image": "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0"
+                    }
+                ]
             }
         ]
 
