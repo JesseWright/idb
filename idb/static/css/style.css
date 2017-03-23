@@ -3,20 +3,11 @@ body {
     height: 100%;
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> frontend_dev
 .overlay { 
   color:#fff;
   position:absolute;
   z-index:12;
-<<<<<<< HEAD
-  top:20%;
-=======
   top:5%;
->>>>>>> frontend_dev
   width:100%;
   text-align:center;
   font-family: "Open Sans";
@@ -44,11 +35,6 @@ body {
     -o-background-size: cover;
 }
 
-<<<<<<< HEAD
-footer {
-    margin: 50px 0;
-}
-=======
 /* navbar customization adapated from Bootply example: http://www.bootply.com/70L8wKvIkO */ 
 
 .navbar-custom {
@@ -88,4 +74,3 @@ footer {
   color:#ffffff;
 }
 
->>>>>>> frontend_dev
