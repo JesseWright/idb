@@ -35,7 +35,7 @@ body {
     -o-background-size: cover;
 }
 
-/* navbar customization */ 
+/* navbar customization adapated from Bootply example: http://www.bootply.com/70L8wKvIkO */ 
 
 .navbar-custom {
 	background-color:#410000;
@@ -64,5 +64,13 @@ body {
 }
 .navbar-custom .navbar-toggle {
   	background-color:#eeeeee;
+}
+
+.img-center {
+	margin: 0 auto;
+}
+
+.container {
+  color:#ffffff;
 }
 
