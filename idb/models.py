@@ -1,3 +1,11 @@
+# pylint: disable = bad-whitespace
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = line-too-long
+# pylint: disable = no-init
+
+
+
 from idb import db
 from sqlalchemy import Column, String, Integer, Date, ForeignKey, Table, UniqueConstraint, Float
 

@@ -1,3 +1,7 @@
+# pylint: disable = bad-whitespace
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 

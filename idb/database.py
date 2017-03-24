@@ -1,3 +1,8 @@
+# pylint: disable = bad-whitespace
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = line-too-long
+
 from datetime import date
 from models import Work, Artist, Style, Era
 
