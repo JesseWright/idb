@@ -1,6 +1,8 @@
 from idb import db
 from sqlalchemy import Column, String, Integer, Date, ForeignKey, Table, UniqueConstraint, Float
 
+
+
 # These below allow for many-to-many relationships - see http://flask-sqlalchemy.pocoo.org/2.2/models/
 
 # Many-to-many relationship between artists and works
