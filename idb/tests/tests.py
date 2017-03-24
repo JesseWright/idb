@@ -1,14 +1,19 @@
-import unittest, models, os, datetime
+import unittest, models, datetime
 from idb import app, db
 
 test_string = 'test'
-test_db = 'test.db'
+test_db = 'tests/test.db'
 
 
 class TestApp(unittest.TestCase):
+    """" A base ``TestCase`` class to handle setup and tear down of app tests """
     future_date = datetime.datetime.now() + datetime.timedelta(days=2)
 
     def setUp(self):
+        """
+        Sets up and configures the application as a test client
+        and sets up a testing database
+        """
         app.config['TESTING'] = True
         app.config['DEBUG'] = False
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + test_db
@@ -16,10 +21,13 @@ class TestApp(unittest.TestCase):
         db.create_all()
 
     def tearDown(self):
+        """ Resets the testing database """
         db.drop_all()
 
 
 class TestArtistModel(TestApp):
+    """ A test suite to verify ``Artist`` models """
+
     def test_null_name(self):
         self.assertRaises(Exception,
                           models.Artist,
@@ -56,6 +64,7 @@ class TestArtistModel(TestApp):
 
 
 class TestWorkModel(TestApp):
+    """ A test suite to verify ``Work`` models """
     def test_null_title(self):
         self.assertRaises(Exception,
                           models.Work,
@@ -96,6 +105,21 @@ class TestWorkModel(TestApp):
                           title=test_string,
                           height=-1)
 
+    def test_zero_width(self):
+        self.assertRaises(Exception,
+                          models.Work,
+                          title=test_string,
+                          width=0)
+
+    def test_negative_width(self):
+        self.assertRaises(Exception,
+                          models.Work,
+                          title=test_string,
+                          width=-1)
+
+
+# TODO: Fix issue with validation of name/title attributes on Model creation
+# TODO: Test for expected successes as well
 # TODO: Finish tests for remaining two models
 
 if __name__ == '__main__':
