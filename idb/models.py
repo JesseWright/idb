@@ -1,7 +1,17 @@
+# pylint: disable = bad-whitespace
+# pylint: disable = invalid-name
+# pylint: disable = missing-docstring
+# pylint: disable = line-too-long
+# pylint: disable = no-init
+
+
+
 from idb import db
 from sqlalchemy import Column, String, Integer, Date, Float, ForeignKey
 from sqlalchemy.orm import validates
 from datetime import datetime
+
+
 
 # These below allow for many-to-many relationships - see http://flask-sqlalchemy.pocoo.org/2.2/models/
 
