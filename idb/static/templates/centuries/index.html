@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <!-- maybe add angular dependency here? -->
+    <!-- <script src="somecdn.angular2.js"></script> not for this stage -->
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+    <title>Centuries</title>
+
+  </head>
+
+
+  <body>
+    <nav class="navbar navbar-custom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Rijksmuseum</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/static/about.html">About</a></li>
+          <li><a href="/static/templates/artists/index.html">Artists</a></li>
+          <li><a href="/static/templates/styles/index.html">Styles</a></li>
+          <li><a href="/static/templates/works/index.html">Works</a></li>
+          <li><a href="/static/templates/centuries/index.html">Centuries</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/static/report.html">Report</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="content" class="container-fluid">
+      <div class="page-header">
+        <h1>Centuries</h1>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Sort by:
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">Ascending</a></li>
+          <li><a href="#">Descending</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Filter styles:
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">All</a></li>
+          <li><a href="#">Rococo</a></li>
+          <li><a href="#">Impressionism</a></li>
+          <li><a href="#">Baroque</a></li>
+        </ul>
+      </div>
+      <div class="row kw-grid">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div class="kw-background">
+              <span class="kw-grid-helper"></span>
+              <img src="http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0" alt="...">
+              <span class="kw-grid-helper"></span>
+            </div>
+            <div class="caption">
+              <h3>19th Century</h3>
+              <p><a href="/templates/centuries/19th.html" class="btn btn-primary" role="button">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div class="kw-background">
+              <span class="kw-grid-helper"></span>
+              <img src="http://images.fineartamerica.com/images/artworkimages/mediumlarge/1/portrait-of-a-member-of-the-van-der-mersch-family-motionage-designs.jpg" alt="...">
+              <span class="kw-grid-helper"></span>
+            </div>
+            <div class="caption">
+              <h3>18th Century</h3>
+              <p><a href="/templates/centuries/18th.html" class="btn btn-primary" role="button">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div class="kw-background">
+              <span class="kw-grid-helper"></span>
+              <img src="http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0" alt="...">
+              <span class="kw-grid-helper"></span>
+            </div>
+            <div class="caption">
+              <h3>17th Century</h3>
+              <p><a href="/templates/centuries/18th.html" class="btn btn-primary" role="button">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+
+</html>

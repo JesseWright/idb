@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+      <!-- maybe add angular dependency here? -->
+
+      <!-- Bootstrap -->
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+      <!-- fonts -->
+      <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans' rel='stylesheet' type='text/css'>
+
+      <!-- style -->
+      <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+      {% block head %}
+      <title>{% block title %}{% endblock %} - ArtistTree</title>
+        {% endblock %}
+    </head>
+
+
+    <body>
+        <div id="content" class="container-fluid">
+          <p>this is coming from base.hmtl</p>
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+
+</html>
