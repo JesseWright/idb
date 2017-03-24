@@ -1,18 +1,15 @@
-# pylint: disable = bad-whitespace
-# pylint: disable = invalid-name
-# pylint: disable = missing-docstring
-# pylint: disable = line-too-long
-
 from datetime import date
 from models import Work, Artist, Style, Era
 
 
 def get_default_model_instances():
-    """
-    Generates a container of test instances of :class:`Model`s defined  in models.py.
-    This method is only meant for testing purposes or to initialize a database for the first time.
+    """ Generate a container of test instances of :class:`Model`s
+    defined in models.py.
 
-    :return: An iterable container of :class:`Model` instances.
+    This method is only meant for testing purposes or to initialize a
+    database for the first time.
+
+    Return an iterable container of :class:`Model` instances.
     """
 
     # Works
@@ -22,29 +19,34 @@ def get_default_model_instances():
                     height=45.5,
                     width=41,
                     colors='#7E6E50,#E3E0CB,#B7AD89,#3C4C76,#7587A4,#201D20',
-                    image='http://lh3.ggpht.com/XUw3NdeiA0MsT-mygp8NT1oPUd17GB3BK2nSRYvyTAY-N64KwsLO\
-                           O5QU3muSDEk2AdMzonIVLgjge581mOobVqsQrA=s0')
+                    image='http://lh3.ggpht.com/XUw3NdeiA0MsT-mygp8NT1oPUd17G\
+                           B3BK2nSRYvyTAY-N64KwsLOO5QU3muSDEk2AdMzonIVLgjge58\
+                           1mOobVqsQrA=s0')
 
-    selfportrait = Work(title='Self Portrait',
+    self_portrait = Work(title='Self Portrait',
                         date=date(1887, 1, 1),
                         medium='painting',
                         height=42,
                         width=34,
-                        colors='#52686D,#50524C,#9CA097,#936D59,#C2C1B8,#6A84A2,#2F3031',
-                        image='http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWI\
-                               rELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0')
+                        colors='#52686D,#50524C,#9CA097,#936D59,#C2C1B8,'
+                               '#6A84A2,#2F3031',
+                        image='http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oU\
+                               oJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkR\
+                               CzpFdvjweUBjlcr2I4dl_=s0')
 
     nightwatch = Work(title='Nightwatch',
                       date=date(1642, 1, 1),
                       medium='oil on canvas',
                       height=379.5,
                       width=453.5,
-                      colors='#261808,#5E3C14,#9C8238,#885617,#AF9F6B,#6C6238,#D7CB9E',
-                      image='http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudD\
-                             L1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0')
+                      colors='#261808,#5E3C14,#9C8238,#885617,#AF9F6B,'
+                             '#6C6238,#D7CB9E',
+                      image='http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCS\
+                             r3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0\
+                             H7rbIws0Js4d7s_M=s0')
 
     # Artists
-    vanGogh = Artist(name='Vincent van Gogh',
+    van_gogh = Artist(name='Vincent van Gogh',
                      dob=date(1606, 7, 15),
                      dod=date(1669, 10, 8),
                      nationality='Noord-Nederlands',
@@ -62,41 +64,49 @@ def get_default_model_instances():
                      nationality='Noord-Nederlands',
                      country='Dutch Republic')
 
-    # Relationships between artists and works (not accurate information yet!)
-    vanGogh.works.append(milkmaid)
-    rembrandt.works.append(selfportrait)
+    # Relationships between artists and works
+    # (not accurate information yet!)
+    van_gogh.works.append(milkmaid)
+    rembrandt.works.append(self_portrait)
     vermeer.works.append(nightwatch)
 
     # Styles
     baroque = Style(name='Baroque',
-                    colors='#261808,#5E3C14,#9C8238,#885617,#AF9F6B,#6C6238,#D7CB9E',
+                    colors='#261808,#5E3C14,#9C8238,#885617,#AF9F6B,#6C6238,'
+                           '#D7CB9E',
                     averageAge=312,
                     avgHeight=359.5,
                     avgWidth=253.5,
-                    images='"http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudD\
-                             L1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0",\
-                            "http://lh3.ggpht.com/XUw3NdeiA0MsT-mygp8NT1oPUd17GB3BK2nSRYvyTAY-N64Kws\
-                             LOO5QU3muSDEk2AdMzonIVLgjge581mOobVqsQrA=s0"')
+                    images='"http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCS\
+                             r3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0\
+                             H7rbIws0Js4d7s_M=s0",\
+                            "http://lh3.ggpht.com/XUw3NdeiA0MsT-mygp8NT1oPUd1\
+                             7GB3BK2nSRYvyTAY-N64KwsLOO5QU3muSDEk2AdMzonIVLgj\
+                             ge581mOobVqsQrA=s0"')
 
     impressionism = Style(name='Impressionism',
-                          colors='#52686D,#50524C,#9CA097,#936D59,#C2C1B8,#6A84A2,#2F3031',
+                          colors='#52686D,#50524C,#9CA097,#936D59,#C2C1B8,'
+                                 '#6A84A2,#2F3031',
                           averageAge=112,
                           avgHeight=55.5,
                           avgWidth=30.5,
-                          images='"http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERis\
-                                   svWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0"')
+                          images='"http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp\
+                                   71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0Pe\
+                                   Anf6WLkRCzpFdvjweUBjlcr2I4dl_=s0"')
 
     rococo = Style(name='Rococo',
                    colors='#CFC1A7,#B8AA91,#9E9078,#564D40,#796C59,#3B3732',
                    averageAge=140,
                    avgHeight=20,
                    avgWidth=14,
-                   images='"http://lh5.ggpht.com/ohkR0_wbALcKpvNjORXyrhQj5Qb-6XnZcp29yKXR5oBU2UPb72u\
+                   images='"http://lh5.ggpht.com/ohkR0_wbALcKpvNjORXyrhQj5Qb'
+                          '-6XnZcp29yKXR5oBU2UPb72u\
                             QyzWokxJ_R-ETxnFeYB339314O50we0QK5dNtwQ=s0"')
 
-    # Relationships between styles and artists (not accurate information yet!)
+    # Relationships between styles and artists
+    # (not accurate information yet!)
     baroque.artists.append(rembrandt)
-    impressionism.artists.append(vanGogh)
+    impressionism.artists.append(van_gogh)
     rococo.artists.append(vermeer)
 
     # Eras
@@ -105,17 +115,20 @@ def get_default_model_instances():
                       countries='Dutch Republic,Italy',
                       media='oil on canvas, painting')
 
-    # Relationships between eras and artists (not accurate information yet!)
+    # Relationships between eras and artists
+    # (not accurate information yet!)
     seventeenth.artists.append(rembrandt)
-    seventeenth.artists.append(vanGogh)
+    seventeenth.artists.append(van_gogh)
     seventeenth.artists.append(vermeer)
 
-    # Relationships between works and artists (not accurate information yet!)
+    # Relationships between works and artists
+    # (not accurate information yet!)
     seventeenth.works.append(milkmaid)
-    seventeenth.works.append(selfportrait)
+    seventeenth.works.append(self_portrait)
     seventeenth.works.append(nightwatch)
 
-    # Relationships between styles and artists (not accurate information yet!)
+    # Relationships between styles and artists
+    # (not accurate information yet!)
     seventeenth.styles.append(baroque)
     seventeenth.styles.append(impressionism)
     seventeenth.styles.append(rococo)
@@ -125,17 +138,20 @@ def get_default_model_instances():
                      countries='Netherlands,Japan',
                      media='')
 
-    # Relationships between artists and artists (not accurate information yet!)
+    # Relationships between artists and artists
+    # (not accurate information yet!)
     eighteenth.artists.append(rembrandt)
-    eighteenth.artists.append(vanGogh)
+    eighteenth.artists.append(van_gogh)
     eighteenth.artists.append(vermeer)
 
-    # Relationships between works and artists (not accurate information yet!)
+    # Relationships between works and artists
+    # (not accurate information yet!)
     eighteenth.works.append(milkmaid)
-    eighteenth.works.append(selfportrait)
+    eighteenth.works.append(self_portrait)
     eighteenth.works.append(nightwatch)
 
-    # Relationships between styles and artists (not accurate information yet!)
+    # Relationships between styles and artists
+    # (not accurate information yet!)
     eighteenth.styles.append(baroque)
     eighteenth.styles.append(impressionism)
     eighteenth.styles.append(rococo)
@@ -145,34 +161,38 @@ def get_default_model_instances():
                      countries='',
                      media='')
 
-    # Relationships between artists and artists (not accurate information yet!)
+    # Relationships between artists and artists
+    # (not accurate information yet!)
     nineteenth.artists.append(rembrandt)
-    nineteenth.artists.append(vanGogh)
+    nineteenth.artists.append(van_gogh)
     nineteenth.artists.append(vermeer)
 
-    # Relationships between works and artists (not accurate information yet!)
+    # Relationships between works and artists
+    # (not accurate information yet!)
     nineteenth.works.append(milkmaid)
-    nineteenth.works.append(selfportrait)
+    nineteenth.works.append(self_portrait)
     nineteenth.works.append(nightwatch)
 
-    # Relationships between styles and artists (not accurate information yet!)
+    # Relationships between styles and artists
+    # (not accurate information yet!)
     nineteenth.styles.append(baroque)
     nineteenth.styles.append(impressionism)
     nineteenth.styles.append(rococo)
 
-    artists = (vanGogh, rembrandt, vermeer)
+    artists = (van_gogh, rembrandt, vermeer)
     eras = (seventeenth, eighteenth, nineteenth)
-    works = (milkmaid, selfportrait, nightwatch)
+    works = (milkmaid, self_portrait, nightwatch)
     styles = (baroque, impressionism, rococo)
 
     return artists + eras + works + styles
 
 
 def addInstances(db=None, instances=None):
-    """
-    Adds :class:`Model` instances to a database and commits them.
+    """ Add :class:`Model` instances to a database and commits them.
+
     If ``db`` is ``None``, the database from ``idb`` will be used.
-    If ``instances`` is ``None``, a default set of instances will be generated with ``get_default_model_instances``.
+    If ``instances`` is ``None``, a default set of instances will be
+    generated with ``get_default_model_instances``.
 
     :param db: The database to which the instances will be added.
     :param instances: A container of :class:`Model` instances.

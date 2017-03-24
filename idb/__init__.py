@@ -1,5 +1,4 @@
 # pylint: disable = bad-whitespace
-# pylint: disable = invalid-name
 # pylint: disable = missing-docstring
 
 from flask import Flask
@@ -12,5 +11,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+# Setup routes for Flask
 import idb.views
-import idb.models
+
+# Setup models for SQLAlchemy
+# import idb.models
+# TODO: Resolve circular imports and dependencies (namely idb and mdoels)

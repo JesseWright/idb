@@ -6,14 +6,13 @@ test_db = 'tests/test.db'
 
 
 class TestApp(unittest.TestCase):
-    """" A base ``TestCase`` class to handle setup and tear down of app tests """
+    """" A base ``TestCase`` class to handle setup and tear down
+    of app tests. """
     future_date = datetime.datetime.now() + datetime.timedelta(days=2)
 
     def setUp(self):
-        """
-        Sets up and configures the application as a test client
-        and sets up a testing database
-        """
+        """ Set up and configures the application
+        as a test client and create a testing database. """
         app.config['TESTING'] = True
         app.config['DEBUG'] = False
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + test_db
@@ -21,12 +20,12 @@ class TestApp(unittest.TestCase):
         db.create_all()
 
     def tearDown(self):
-        """ Resets the testing database """
+        """ Reset the testing database. """
         db.drop_all()
 
 
 class TestArtistModel(TestApp):
-    """ A test suite to verify ``Artist`` models """
+    """ A test suite to verify ``Artist`` models. """
 
     def test_null_name(self):
         self.assertRaises(Exception,
@@ -65,6 +64,7 @@ class TestArtistModel(TestApp):
 
 class TestWorkModel(TestApp):
     """ A test suite to verify ``Work`` models """
+
     def test_null_title(self):
         self.assertRaises(Exception,
                           models.Work,
