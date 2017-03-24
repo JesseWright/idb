@@ -6,7 +6,4 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tmp/phase1.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/phase1.db'
 db = SQLAlchemy(app)
 
-
-@app.route('/')
-def index():
-    return "walter is cool"
+import idb.views

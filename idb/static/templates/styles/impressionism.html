@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <!-- maybe add angular dependency here? -->
+    <!-- <script src="somecdn.angular2.js"></script> not for this stage -->
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="https://cs373-project-345.appspot.com/static/css/style.css">
+
+    <title>Impressionism</title>
+
+  </head>
+
+
+  <body>
+    <nav class="navbar navbar-custom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Rijksmuseum</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/static/about.html">About</a></li>
+          <li><a href="/static/templates/artists/index.html">Artists</a></li>
+          <li><a href="/static/templates/styles/index.html">Styles</a></li>
+          <li><a href="/static/templates/works/index.html">Works</a></li>
+          <li><a href="/static/templates/centuries/index.html">Centuries</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/static/report.html">Report</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="content" class="container-fluid">
+      <h2>Average age of works in this style</h2>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          112
+        </div>
+      </div>
+
+      <h2>Artists using this style</h2>
+      <div class="row kw-grid">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div class="kw-background">
+              <span class="kw-grid-helper"></span>
+              <img src="http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0" alt="...">
+              <span class="kw-grid-helper"></span>
+            </div>
+            <div class="caption">
+              <h3>Vincent van Gogh</h3>
+              <p><a href="/static/templates/artists/vangogh.html" class="btn btn-primary" role="button">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Works in this style </h2>
+      <div class="row kw-grid">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div class="kw-background">
+              <span class="kw-grid-helper"></span>
+              <img src="http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0" alt="...">
+              <span class="kw-grid-helper"></span>
+            </div>
+            <div class="caption">
+              <h3>Self Portrait</h3>
+              <p><a href="/static/templates/works/selfportrait.html" class="btn btn-primary" role="button">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Centuries during which this style was used</h2>
+      <p>
+        <a href="/static/templates/centruries/19th.html">19th</a>
+      </p>
+    </div>
+  </body>
+
+</html>
