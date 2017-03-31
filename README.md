@@ -12,10 +12,12 @@ Models:
 - Nationality
 - country of origin
 - image
+- bio
+
 ### Connections:
 - connects to works
 - connects to centuries
-- connects to styles
+- connects to mediums
 
 ## Work:
 - medium
@@ -24,10 +26,12 @@ Models:
 - size
 - colorset (colors used in work)
 - image
+- motifs (where available)
+
 ### Connections:
 - connects to artist
 - connects to centuries
-- connects to styles
+- connects to mediums
 
 
 ## Centuries:
@@ -36,17 +40,21 @@ Models:
 - Styles
 - countries of note
 - mediums of note
+
 ### Connections
 - connects to works
 - connects to artists
-- connects to styles
+- connects to mediums
 
-## Styles:
+## Mediums:
 - common colors (the api has a good set for this)
-- average age of a piece in this style
+- average age of a piece in this medium
 - founding artists
 - avg dimensions
-- images of the style
+- images of the medium
+- contributing artists
+- contributing countries 
+
 ### Connections:
 - connects to works
 - connects to artists
