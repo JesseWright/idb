@@ -8,31 +8,19 @@ body {
   background-color:#252525;
 }
 
-.kw-grid .kw-background {
-  width: 100%;
-  height: 350px;
-  text-align: center;
-  white-space: nowrap;
-  padding: 9px;
-}
-.kw-grid-helper {
-  display: inline-block;
+#content {
   height: 100%;
-  vertical-align: middle;
 }
-.kw-grid img {
-  vertical-align: middle;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
+
+.no-padding {
+  padding: 0px;
 }
 
 .page-header {
-  color: #fff;
+  color: #eee;
 }
 
-.overlay { 
-  color:#fff;
+.overlay {
   position:absolute;
   z-index:12;
   top:5%;
@@ -44,7 +32,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  color: #fff;
+  color: #eee;
 }
 
 .carousel,
@@ -67,7 +55,7 @@ h1, h2, h3, h4, h5 {
     -o-background-size: cover;
 }
 
-/* navbar customization adapated from Bootply example: http://www.bootply.com/70L8wKvIkO */ 
+/* navbar customization adapated from Bootply example: http://www.bootply.com/70L8wKvIkO */
 
 .navbar-custom {
   background-color:#410000;
@@ -75,7 +63,7 @@ h1, h2, h3, h4, h5 {
     border-radius:0;
     font-family: "Open Sans";
 }
-  
+
 .navbar-custom .navbar-nav > li > a {
     color:#fff;
     padding-left:20px;
@@ -85,12 +73,12 @@ h1, h2, h3, h4, h5 {
     color: #ffffff;
   background-color:transparent;
 }
-      
+
 .navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background-color: #590000;
 }
-      
+
 .navbar-custom .navbar-brand {
     color:#eeeeee;
 }
@@ -105,4 +93,3 @@ h1, h2, h3, h4, h5 {
 .container {
   color:#ffffff;
 }
-

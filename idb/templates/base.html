@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      {% block head %}
+
       <!-- jQuery -->
       <script src="https://code.jquery.com/jquery-latest.js"></script>
 
@@ -17,15 +19,32 @@
       <!-- style -->
       <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
-      {% block head %}
       <title>{% block title %}{% endblock %} - ArtistTree</title>
         {% endblock %}
     </head>
 
 
     <body>
-        <div id="content" class="container-fluid">
-          <p>this is coming from base.hmtl</p>
+      <nav class="navbar navbar-custom navbar-fixed-top navbar-absolute">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Rijksmuseum</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="/static/about.html">About</a></li>
+            <li><a href="/static/templates/artists/index.html">Artists</a></li>
+            <li><a href="/static/templates/styles/index.html">Styles</a></li>
+            <li><a href="/static/templates/works/index.html">Works</a></li>
+            <li><a href="/static/templates/centuries/index.html">Centuries</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/static/report.html">Report</a></li>
+          </ul>
+        </div>
+      </nav>
+
+        <div id="content" class="container-fluid no-padding">
             {% block content %}{% endblock %}
         </div>
     </body>
