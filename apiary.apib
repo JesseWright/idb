@@ -1,0 +1,402 @@
+FORMAT: 1A
+HOST: http://artisttree.me/api
+
+# ArtistTree API
+
+The ArtistTree API is a basic API built from the Rijksmuseum data, focused on art and artworks from history.
+
+
+### A brief note about the current state of our API:
+ode
+For phase one, this API is pretty basic. Large responses are the norm. When we go to implement, a major change
+that we plan to make (assuming there's time,) is to make the responses more compact and give the caller more 
+options in what the get back in responses. For example, it doesn't make much sense to get back ALL the data for 
+ALL the models of a certain type ALL the time. We'll give the user more granular options in the future.
+
+### A brief note about searching using our API:
+
+For any search request, you MUST provide one of the fields. But any additional fields are optional. 
+The search will attempt to narrow down the results using all the fields you provide, so if one of the fields
+is invalid or nothing comes back for that field, we'll search using the other fields. We combine search results
+across all fields given, so if you include a specific name and a set of colors, you'll get the artwork matching 
+that name and all artworks that have similar colors.
+
+## Get all artists [/artists/all]
+
+### List All Artists [GET]
+
+This call just provides a list of all the artists we have in our database. (This may be a sizable request!)
+
++ Response 200 (application/json)
+
+        [
+            {
+                "artists": [
+                    {
+                        "name": "Vincent VanGogh",
+                        "dateOfBirth": "1853-3-30",
+                        "dateOfDeath": "1890-7-29",
+                        "nationality": "Dutch",
+                        "countryOfOrigin": "The Netherlands",
+                        "image": ""
+                    },
+                   {
+                    "name": "Johannes Vermeer",
+                    "dateOfBirth": "1632-10-31",
+                    "dateOfDeath": "1675-12-15",
+                    "nationality": "Noord-Nederlands",
+                    "countryOfOrigin": "Dutch Republic",
+                    "image": ""
+                    }
+                ]
+                
+            }
+        ]
+
+## Get Specific Artist [/artists/search/]
+
+### Retrieve a specific artist [POST]
+
+This call is intended to retrieve an artist based on certain search criteria. 
+You MUST include one of the fields in your request, but the rest are optional. 
+Returns a list of artist objects.
+
++ Request (application/json)
+        
+        {
+            "name": "Vincent VanGogh",
+            "century": "1600",
+            "nationality": "Dutch"
+        }
+        
++ Response 201 (application/json)
+
+        [
+            {
+                "artists": [
+                    {
+                        "name": "Vincent VanGogh",
+                        "dateOfBirth": "1853-3-30",
+                        "dateOfDeath": "1890-7-29",
+                        "nationality": "Dutch",
+                        "countryOfOrigin": "The Netherlands",
+                        "image": ""
+                        "bio":""
+                    }
+                ]
+            }
+        ]
+        
+## Get all artworks [/works/all]
+
+### List all artworks [GET]
+
+Returns a list of all our artworks.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "works":[
+                    {
+                    "name":"Night Watch",
+                    "physicalMedium": "oil on canvas",
+                    "year": 1642,
+                    "style": "",
+                    "dimensions": [
+                      {
+                        "unit": "cm",
+                        "type": "height",
+                        "part": null,
+                        "value": "379.5"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "width",
+                        "part": null,
+                        "value": "453.5"
+                      }
+                    ],
+                    "colors": [
+                      "#261808",
+                      " #5E3C14",
+                      " #9C8238",
+                      " #885617",
+                      " #AF9F6B",
+                      " #6C6238",
+                      " #D7CB9E"
+                    ],
+                    "image": "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0",
+                    "motifs": null
+                    },
+                    {
+                    "name":"Self Portrait"
+                    "physicalMedium": "painting",
+                    "year": 1887,
+                    "style": "",
+                    "dimensions": [
+                      {
+                        "unit": "cm",
+                        "type": "height",
+                        "part": null,
+                        "value": "42"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "width",
+                        "part": null,
+                        "value": "34"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "depth",
+                        "part": null,
+                        "value": "8"
+                      }
+                    ],
+                    "colors": [
+                      "#52686D",
+                      " #50524C",
+                      " #9CA097",
+                      " #936D59",
+                      " #C2C1B8",
+                      " #6A84A2",
+                      " #2F3031"
+                    ],
+                    "image": "http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0",
+                    "motifs": null
+                    }
+                ]
+                
+            }
+        ]
+
+
+## Get a specifc work of art [/works/search]
+
+### Get a specific work of art [POST]
+
+Same as the search for artists, this will search our artworks. One field is required, but the others are optional.
+Rather than search for the colors you give us exactly, we'll return works with similar colors.  
+
++ Request (application/json)
+        
+        {
+            "name": "Night Watch",
+            "century": "1800",
+            "year": 1887,
+            "colors":[
+            "#885617",
+            "#9CA097"
+            ]
+            
+        }
+
++ Response 201 (application/json)
+
+        [
+            {
+                "works":[
+                    {
+                    "name":"Night Watch",
+                    "physicalMedium": "oil on canvas",
+                    "year": 1642,
+                    "style": "",
+                    "dimensions": [
+                      {
+                        "unit": "cm",
+                        "type": "height",
+                        "part": null,
+                        "value": "379.5"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "width",
+                        "part": null,
+                        "value": "453.5"
+                      }
+                    ],
+                    "colors": [
+                      "#261808",
+                      " #5E3C14",
+                      " #9C8238",
+                      " #885617",
+                      " #AF9F6B",
+                      " #6C6238",
+                      " #D7CB9E"
+                    ],
+                    "image": "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0"
+                    }
+                ]
+            }
+        ]
+
+## Get all centuries [/centuries/all]
+
+### List all centuries [GET]
+
+Gives you all the data we have for the different centuries.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "centuries":[
+                    {
+                    "century":1600,
+                    "artists": [
+                      "Rembrandt Harmensz. van Rijn",
+                      "Johannes Vermeer"
+                    ],
+                    "works": [
+                      "The Milkmaid",
+                      "Night Watch"
+                    ],
+                    "styles": [
+                      ""
+                    ],
+                    "countries": [
+                      "Dutch Republic",
+                      "Italy"
+                    ],
+                    "mediums": [
+                      "oil on canvas",
+                      "paiting"
+                    ]
+                    },
+                    {
+                    "century":1700,
+                    "artists": [
+                      "Cornelis Troost",
+                      "Jean-Étienne Liotard"
+                    ],
+                    "works": [
+                      "Portrait of a Member of the Van der Mersch Family",
+                      "Portret van Marie Fargues"
+                    ],
+                    "styles": [
+                      ""
+                    ],
+                    "countries": [
+                      "Netherlands",
+                      "France"
+                    ],
+                    "mediums": [
+                      "oil on panel",
+                      "pastel and watercolor",
+                      "parchment"
+                    ]
+                    },
+                    {
+                    "century": 1800,
+                    "artists": [
+                      "Vincent van Gogh",
+                      "Jan Willem Pieneman"
+                    ],
+                    "works": [
+                      "Self Portrait",
+                      "Triumvirate Assuming Power in the Name of the Prince of Orange"
+                    ],
+                    "styles": [
+                      ""
+                    ],
+                    "countries": [
+                      "Netherlands",
+                      "Japan"
+                    ],
+                    "mediums": [
+                      "oil on canvas",
+                      "painting",
+                      "parchment"
+                    ]
+                    }
+                ]
+            }
+        ]
+        
+        
+        
+## Get all mediums [/mediums/all]
+
+### Get all mediums [GET]
+
+Returns a list of all of the mediums of art represented in our database.
+
++ Response 200 (application/json)
+        
+        [
+            {
+                "mediums": [
+                    {
+                    "name": "Sculpture",
+                    "colors": [
+                      " #261808",
+                      " #5E3C14",
+                      " #9C8238",
+                      " #885617",
+                      " #AF9F6B",
+                      " #6C6238",
+                      " #D7CB9E"
+                    ],
+                    "averageage": "312",
+                    "artists": [
+                      "Rembrandt Harmensz. van Rijn"
+                    ],
+                    "avgdimensions": [
+                      {
+                        "unit": "cm",
+                        "type": "height",
+                        "part": null,
+                        "value": "359.5"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "width",
+                        "part": null,
+                        "value": "253.5"
+                      }
+                    ],
+                    "images": [
+                      "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0",
+                      "http://lh3.ggpht.com/XUw3NdeiA0MsT-mygp8NT1oPUd17GB3BK2nSRYvyTAY-N64KwsLOO5QU3muSDEk2AdMzonIVLgjge581mOobVqsQrA=s0"
+                      
+                    ]
+                    },
+                    {
+                    "name":"Oil on canvas",
+                    "colors": [
+                      "#52686D",
+                      " #50524C",
+                      " #9CA097",
+                      " #936D59",
+                      " #C2C1B8",
+                      " #6A84A2",
+                      " #2F3031"
+                    ],
+                    "averageage": "112",
+                    "artists": [
+                      "Vincent van Gogh"
+                    ],
+                    "avgdimensions": [
+                      {
+                        "unit": "cm",
+                        "type": "height",
+                        "part": null,
+                        "value": "55.5"
+                      },
+                      {
+                        "unit": "cm",
+                        "type": "width",
+                        "part": null,
+                        "value": "30.5"
+                      }
+                    ],
+                    "images": [
+                      "http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0"
+                    ]
+                    }
+                
+                ]
+            }
+        
+        ]
