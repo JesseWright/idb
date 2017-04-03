@@ -63,9 +63,9 @@ def get_default_model_instances():
                      country='Dutch Republic')
 
     # Relationships between artists and works (not accurate information yet!)
-    vanGogh.works.append(milkmaid)
-    rembrandt.works.append(selfportrait)
-    vermeer.works.append(nightwatch)
+    vanGogh.works.append(selfportrait)
+    rembrandt.works.append(nightwatch)
+    vermeer.works.append(milkmaid)
 
     # Styles
     baroque = Style(name='Baroque',

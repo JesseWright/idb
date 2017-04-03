@@ -18,8 +18,6 @@ def about():
 def report():
     return render_template('report.html')
 
-
-
 @app.route('/artists')
 def artists():
     artists = Artist.query.all()
@@ -28,7 +26,14 @@ def artists():
 @app.route('/artist/<int:id>')
 def artist(id):
     artist = Artist.query.filter_by(id=id).first()
+    print(artist.works)
     return render_template('artist_instance.html', artist=artist)
+
+@app.route('/work/<int:id>')
+def work(id):
+    work = Work.query.filter_by(id=id).first()
+    work.colors = work.colors.split(",")
+    return render_template('work_instance.html', work=work)
 
 @app.route('/report_text')
 def report_text():
