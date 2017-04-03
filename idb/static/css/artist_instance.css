@@ -1,0 +1,24 @@
+.idb-artist-instance-portrait {
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+    max-height: 889px;
+    border: 50px solid darkgray;
+    padding: 5px;
+    margin-top: 50px;
+}
+.idb-artist-info-container {
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    padding-top: 20px;
+}
+.idb-name {
+    padding-bottom: 5px;
+    font-size: x-large;
+}
+.idb-dates{
+    font-style: italic;
+    font-size: medium;
+    padding-bottom: 20px;
+}
