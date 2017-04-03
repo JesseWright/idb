@@ -20,7 +20,7 @@ def report():
 
 
 
-@app.route('/artist')
+@app.route('/artists')
 def artists():
     artists = Artist.query.all()
     return render_template('artists.html', artists=artists)
@@ -29,3 +29,7 @@ def artists():
 def artist(id):
     artist = Artist.query.filter_by(id=id)
     return render_template('artists.html', artist=artist)
+
+@app.route('/report_text')
+def report_text():
+	return render_template('report_text.html')
