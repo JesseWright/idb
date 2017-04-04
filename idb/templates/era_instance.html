@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<style>
+.idb-era-title {
+    text-align: center;
+    font-size: 72px;
+    color: #fff;
+    padding-top: 50px;
+}
+.idb-era-data-container {
+    margin: 0 auto;
+    font-size: 16px;
+    color: #fff;
+}
+.idb-country-desc {
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <!-- TODO: change this to era.name-->
+    <div class = "idb-era-title">17th {{era.type}}</div>
+    <div class = "idb-country-desc"> This century saw artworks and artists from the following countries:</div>
+    <div class = "idb-era-data-container">{{era.countries}}</div>
+    <div>{{era.media}}</div>
+
+</div>
+
+
+{% endblock %}

@@ -26,14 +26,24 @@ def artists():
 @app.route('/artist/<int:id>')
 def artist(id):
     artist = Artist.query.filter_by(id=id).first()
-    print(artist.works)
     return render_template('artist_instance.html', artist=artist)
 
 @app.route('/work/<int:id>')
 def work(id):
     work = Work.query.filter_by(id=id).first()
-    work.colors = work.colors.split(",")
-    return render_template('work_instance.html', work=work)
+    colors = work.colors.replace("[","").replace("]","").replace("'","").split(",")
+    artists = []
+    for i in range(5):
+        artists.append(work.artists[i])
+    len_dict = {}
+    len_dict['colors'] = len(colors)
+    len_dict['media'] = len(work.media)
+    return render_template('work_instance.html', work=work, artists=artists,colors=colors,lendict=len_dict)
+
+@app.route('/eras/<int:id>')
+def era(id):
+    era = Era.query.filter_by(id=id).first()
+    return render_template('era_instance.html',era=era)
 
 @app.route('/report_text')
 def report_text():

@@ -38,6 +38,25 @@
 .row {
   padding:  5% 10% 0px 10%;
 }
+
+a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: red;
+    text-decoration: underline;
+}
 </style>
 {% endblock %}
 
@@ -48,13 +67,34 @@
 <div class= "idb-work-info-container">
     <div class = "idb-name">{{work.title}}</div>
     <div class = "idb-dates">{{work.date}}</div>
-    <div> {{work.medium}} </div>
-    <div>{{work.height}}cm x {{work.width}}cm</div>
 
-    <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">Some of the colors used in this work:</div>
-    {% for color in work.colors %}
-    <div class = "idb-color-card" style = "background-color: {{color}}"></div>
+    <div style = "padding-bottom: 20px">{{work.height}}cm x {{work.width}}cm</div>
+
+
+    <div> Created by: </div>
+    {% for artist in artists %}
+    <div><a href = "/artist/{{artist.id}}">{{artist.name}}</a></div>
     {% endfor %}
+
+    {% if lendict['media'] == 1 %}
+    <div style = "font-style: italic; padding-bottom: 20px;">Unfortunately, this work does not have medium data available.</div>
+    {% else %}
+    <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">This work is made from:</div>
+        {% for medium in work.media %}
+        <div><a href="/mediums/{{medium.id}}">{{medium.name}}</a></div>
+        {% endfor %}
+    {% endif %}
+
+
+    {% if lendict['colors'] == 1 %}
+        <div style = "font-style: italic; padding-top: 20px; adding-bottom: 20px;">Unfortunately, this work does not have color data available.</div>
+    {% else %}
+        <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">Some of the colors used in this work:</div>
+        {% for color in colors %}
+        <div class = "idb-color-card" style = "background-color: {{color}}"></div>
+        {% endfor %}
+    {% endif %}
+
 
 
     </div>
