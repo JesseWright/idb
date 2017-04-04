@@ -65,11 +65,11 @@ def era(id):
 @app.route('/media/<int:id>')
 def medium(id):
     medium = Medium.query.filter_by(id=id).first()
-    if medium.images:
-        images = medium.images.replace("[","").replace("]","").replace("'","").split(",")
-    else:
-        images = None
-    return render_template('medium_instance.html',medium=medium,images = images)
+    medium._image = medium.images.replace("[","").replace("]","").replace("'","")
+    #TODO: remove this after testing is done
+    if medium.id % 2:
+        medium.countries = "The USA, America, 'Murica, Lamborghini'"
+    return render_template('medium_instance.html',medium=medium)
 
 @app.route('/report_text')
 def report_text():

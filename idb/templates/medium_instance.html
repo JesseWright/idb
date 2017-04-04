@@ -10,13 +10,20 @@
 }
 .idb-medium-data-container {
     margin: 0 auto;
+    text-align: center;
     font-size: 16px;
     color: #fff;
 }
 .idb-country-desc {
+    padding-top: 20px;
     text-align: center;
     font-size: 16px;
     color: #fff;
+}
+.idb-medium-image {
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
 }
 </style>
 
@@ -26,13 +33,14 @@
 
 <div>
     <div class = "idb-medium-title">{{medium.name}}</div>
-        <div style="color:#fff;">{{images}}<div>
-            <div>{{medium.images}}</div>
+    <img class = "idb-medium-image" src = "{{medium._image}}"></img>
+
+    {% if medium.countries %}
     <div class = "idb-country-desc"> This century saw artworks and artists from the following countries:</div>
     <div class = "idb-medium-data-container">{{medium.countries}}</div>
-
-    <div>{{medium.media}}</div>
-
+    {% else %}
+    <div class = "idb-medium-data-container" style = "padding-top: 50px"><i>Unfortunately there is no data for where this medium was prominent.</i></div>
+    {% endif %}
 </div>
 
 
