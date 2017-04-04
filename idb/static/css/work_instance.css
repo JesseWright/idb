@@ -1,4 +1,4 @@
-.idb-artist-instance-portrait {
+.idb-work-instance-image {
     display: block;
     margin: 0 auto;
     max-width: 500px;
@@ -7,12 +7,11 @@
     padding: 5px;
     margin-top: 50px;
 }
-.idb-artist-info-container {
+.idb-work-info-container {
     margin: 0 auto;
     text-align: center;
     color: #fff;
     padding-top: 20px;
-    padding-bottom: 20px;
 }
 .idb-name {
     padding-bottom: 5px;
@@ -23,10 +22,17 @@
     font-size: medium;
     padding-bottom: 20px;
 }
-.idb-bio {
-    font-size: medium;
-    width: 60%;
+.idb-color-card {
+    height: 20px;
+    width: 20%;
     margin: 0 auto;
+    /*padding: 10px;*/
+}
+.idb-color-card-container {
+    margin: 0 auto;
+}
+.row {
+  padding:  5% 10% 0px 10%;
 }
 
 a:link {

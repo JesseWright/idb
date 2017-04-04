@@ -26,17 +26,33 @@ def artists():
 @app.route('/artist/<int:id>')
 def artist(id):
     artist = Artist.query.filter_by(id=id).first()
-    return render_template('artist_instance.html', artist=artist)
+    works = []
+    media = []
+    for i in range(len(artist.works)):
+        if i > 5:
+            break
+        works.append(artist.works[i])
+    for j in range(len(artist.media)):
+        if j > 5:
+            break
+        media.append(artist.media[j])
+    return render_template('artist_instance.html', artist=artist, works=works, media=media)
 
 @app.route('/work/<int:id>')
 def work(id):
     work = Work.query.filter_by(id=id).first()
-    colors = work.colors.replace("[","").replace("]","").replace("'","").split(",")
+    if work.colors:
+        colors = work.colors.replace("[","").replace("]","").replace("'","").split(",")
+    else:
+        colors = None
     artists = []
     for i in range(5):
         artists.append(work.artists[i])
     len_dict = {}
-    len_dict['colors'] = len(colors)
+    if colors:
+        len_dict['colors'] = len(colors)
+    else:
+        len_dict['colors'] = 1
     len_dict['media'] = len(work.media)
     return render_template('work_instance.html', work=work, artists=artists,colors=colors,lendict=len_dict)
 
