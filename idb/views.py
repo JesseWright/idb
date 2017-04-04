@@ -24,20 +24,19 @@ def artists():
     return render_template('artists.html', artists=artists)
 
 @app.route('/works')
-def artists():
-    artists = Works.query.all()
+def works():
+    works = Work.query.all()
     return render_template('works.html', works=works)
 
 @app.route('/eras')
-def artists():
-    artists = Artist.query.all()
-    return render_template('artists.html', artists=artists)
+def eras():
+    eras = Era.query.all()
+    return render_template('eras.html', eras=eras)
 
 @app.route('/media')
-def artists():
-    artists = Artist.query.all()
-    return render_template('artists.html', artists=artists)
-
+def media():
+    media = Medium.query.all()
+    return render_template('media.html', media=media)
 
 
 @app.route('/artist/<int:id>')

@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{% block title %}Artist{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/css/artists.css">
+{% endblock %}
+
+{% block content %}
+
+
+{% for artist in artists %}
+  {% if (loop.index-1) is divisibleby 4 %}
+    {% if (loop.index-1) is not equalto 0 %}
+  </div>
+    {% endif %}
+      <div class="row">
+  {% endif %}
+        <div class="col-md-3">
+          <a href="/artist/{{artist.id}}">
+            <div class="idb-card">
+              <img class="idb-artist-portrait" src={{artist.image or "/static/img/vangogh.jpg"}}>
+
+              <div class="idb-artist-name">{{artist.name or "Anonymous"}}</div>
+              <div class="idb-artist-birth-death">{{artist.dob or "unknown"}} - {{artist.dod or "unknown"}}</div>
+            </div>
+          </a>
+
+        </div>
+{% endfor %}
+
+{% if (artists|length is not divisibleby 4) %}
+  </div>
+{% endif %}
+
+{% endblock %}
