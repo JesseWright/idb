@@ -12,6 +12,8 @@
 
   border-style: hidden;
   border-radius: 5px;
+
+  max-height: 260px;
 }
 
 .idb-artist-name {

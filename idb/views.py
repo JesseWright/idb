@@ -26,7 +26,7 @@ def artists():
 @app.route('/artist/<int:id>')
 def artist(id):
     artist = Artist.query.filter_by(id=id).first()
-    print(artist.works)
+    #print(artist.works)
     return render_template('artist_instance.html', artist=artist)
 
 @app.route('/work/<int:id>')
