@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% block title %}Artist{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/css/artists.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+{% for artist in artists %}
+    <div class="col-md-3">
+      <a href="/artist/{{artist.id}}">
+        <div class="idb-card">
+          <img class="idb-artist-portrait" src={{artist.image or "/static/img/vangogh.jpg"}}>
+
+          <div class="idb-artist-name">{{artist.name}}</div>
+          <div class="idb-artist-birth-death">{{artist.dob}} - {{artist.dod}}</div>
+        </div>
+    </a>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

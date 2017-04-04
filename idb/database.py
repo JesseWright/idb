@@ -184,6 +184,7 @@ def generate_random_medium(name=None):
                   images=images)
 
 
+
 def get_random_model_instances(count=1000, spread=0.3):
     """ Generate a container of test instances of :class:`Model`s
     defined in models.py.
@@ -192,6 +193,7 @@ def get_random_model_instances(count=1000, spread=0.3):
     database for the first time.
 
     Return an iterable container of Model instances.
+
     """
 
     if not count: return []
