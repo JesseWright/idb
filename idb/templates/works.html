@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{% block title %}Works{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/css/works.css">
+{% endblock %}
+
+{% block content %}
+
+
+{% for work in works %}
+  {% if (loop.index-1) is divisibleby 4 %}
+    {% if (loop.index-1) is not equalto 0 %}
+  </div>
+    {% endif %}
+      <div class="row">
+  {% endif %}
+        <div class="col-md-3">
+          <a href="/work/{{work.id}}">
+            <div class="idb-card">
+              <img class="idb-work-img" src={{work.image or "/static/img/vangogh.jpg"}}>
+
+              <div class="idb-work-title">{{work.title or "Untitled"}}</div>
+              <div class="idb-work-date">{{work.date or "Unknown"}}</div>
+            </div>
+          </a>
+
+        </div>
+{% endfor %}
+
+{% if (works|length is not divisibleby 4) %}
+  </div>
+{% endif %}
+
+{% endblock %}
