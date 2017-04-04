@@ -25,7 +25,7 @@
     {% else %}
     <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">This work is made from:</div>
         {% for medium in work.media %}
-        <div><a href="/mediums/{{medium.id}}">{{medium.name}}</a></div>
+        <div><a href="/media/{{medium.id}}">{{medium.name}}</a></div>
         {% endfor %}
     {% endif %}
 

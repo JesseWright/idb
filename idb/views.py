@@ -76,7 +76,26 @@ def work(id):
 @app.route('/eras/<int:id>')
 def era(id):
     era = Era.query.filter_by(id=id).first()
-    return render_template('era_instance.html',era=era)
+    if era.countries:
+        countries = era.countries.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
+    else:
+        countries = None
+    works = []
+    media = []
+    artists = []
+    for i in range(len(era.works)):
+        if i > 5:
+            break
+        works.append(era.works[i])
+    for j in range(len(era.media)):
+        if j > 5:
+            break
+        media.append(era.media[j])
+    for k in range(len(era.artists)):
+        if k > 5:
+            break
+        artists.append(era.artists[k])
+    return render_template('era_instance.html',era=era, countries = countries, works = works, media = media, artists = artists)
 
 @app.route('/media/<int:id>')
 def medium(id):
