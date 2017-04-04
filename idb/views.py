@@ -61,6 +61,15 @@ def era(id):
     era = Era.query.filter_by(id=id).first()
     return render_template('era_instance.html',era=era)
 
+@app.route('/media/<int:id>')
+def medium(id):
+    medium = Medium.query.filter_by(id=id).first()
+    if medium.images:
+        images = medium.images.replace("[","").replace("]","").replace("'","").split(",")
+    else:
+        images = None
+    return render_template('medium_instance.html',medium=medium,images = images)
+
 @app.route('/report_text')
 def report_text():
 	return render_template('report_text.html')
