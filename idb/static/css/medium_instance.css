@@ -1,0 +1,47 @@
+.idb-medium-title {
+    text-align: center;
+    font-size: 72px;
+    color: #fff;
+    padding-top: 50px;
+}
+.idb-medium-data-container {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+.idb-country-desc {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+.idb-medium-image {
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+}
+.idb-color-card {
+    height: 20px;
+    width: 20%;
+    margin: 0 auto;
+    /*padding: 10px;*/
+}
+a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: red;
+    text-decoration: underline;
+}
