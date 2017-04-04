@@ -23,6 +23,7 @@ def artists():
     artists = Artist.query.all()
     return render_template('artists.html', artists=artists)
 
+
 @app.route('/works')
 def works():
     works = Work.query.all()
@@ -39,7 +40,6 @@ def media():
     media = Medium.query.all()
     images = [medium.images[0] for medium in media]
     return render_template('media.html', media=media, images=images)
-
 
 @app.route('/artist/<int:id>')
 def artist(id):
@@ -79,6 +79,20 @@ def work(id):
 def era(id):
     era = Era.query.filter_by(id=id).first()
     return render_template('era_instance.html',era=era)
+
+@app.route('/media/<int:id>')
+def medium(id):
+    medium = Medium.query.filter_by(id=id).first()
+    medium._image = medium.images.replace("[","").replace("]","").replace("'","")
+    #TODO: remove this after testing is done
+    if medium.id % 2:
+        medium.countries = "The USA, America, 'Murica, Lamborghini"
+
+    if len(medium.colors) > 6:
+        colors = medium.colors.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
+    else:
+        colors = None
+    return render_template('medium_instance.html',medium=medium, colors = colors)
 
 @app.route('/report_text')
 def report_text():
