@@ -31,12 +31,14 @@ def works():
 @app.route('/eras')
 def eras():
     eras = Era.query.all()
-    return render_template('eras.html', eras=eras)
+    images = [era.works[0].image for era in eras]
+    return render_template('eras.html', eras=eras, images=images)
 
 @app.route('/media')
 def media():
     media = Medium.query.all()
-    return render_template('media.html', media=media)
+    images = [medium.images[0] for medium in media]
+    return render_template('media.html', media=media, images=images)
 
 
 @app.route('/artist/<int:id>')

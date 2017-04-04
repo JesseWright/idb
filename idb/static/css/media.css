@@ -1,0 +1,22 @@
+.row {
+  padding:  5% 10% 0px 10%;
+}
+
+
+
+.idb-medium-img {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+
+  border-style: hidden;
+  border-radius: 5px;
+
+  max-height: 260px;
+}
+
+.idb-medium-name {
+  font-size: 16px;
+  padding-top: 5px;
+}
