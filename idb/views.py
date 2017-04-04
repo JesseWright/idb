@@ -23,6 +23,23 @@ def artists():
     artists = Artist.query.all()
     return render_template('artists.html', artists=artists)
 
+@app.route('/works')
+def artists():
+    artists = Works.query.all()
+    return render_template('works.html', works=works)
+
+@app.route('/eras')
+def artists():
+    artists = Artist.query.all()
+    return render_template('artists.html', artists=artists)
+
+@app.route('/media')
+def artists():
+    artists = Artist.query.all()
+    return render_template('artists.html', artists=artists)
+
+
+
 @app.route('/artist/<int:id>')
 def artist(id):
     artist = Artist.query.filter_by(id=id).first()
