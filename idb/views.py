@@ -55,7 +55,7 @@ def artist(id):
         if j > 5:
             break
         media.append(artist.media[j])
-    
+
     return render_template('artist_instance.html', artist=artist, works=works, media=media)
 
 
@@ -107,7 +107,7 @@ def medium(id):
     medium._image = medium.images.replace("[","").replace("]","").replace("'","")
     #TODO: remove this after testing is done
     if medium.id % 2:
-        medium.countries = "The USA, America, 'Murica, Lamborghini"
+        medium.countries = "Test country 1, test country 2, test country 3, Texas"
 
     if len(medium.colors) > 6:
         colors = medium.colors.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
