@@ -1,44 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
-<style>
-.idb-work-instance-image {
-    display: block;
-    margin: 0 auto;
-    max-width: 500px;
-    max-height: 889px;
-    border: 50px solid darkgray;
-    padding: 5px;
-    margin-top: 50px;
-}
-.idb-work-info-container {
-    margin: 0 auto;
-    text-align: center;
-    color: #fff;
-    padding-top: 20px;
-}
-.idb-name {
-    padding-bottom: 5px;
-    font-size: x-large;
-}
-.idb-dates{
-    font-style: italic;
-    font-size: medium;
-    padding-bottom: 20px;
-}
-.idb-color-card {
-    height: 20px;
-    width: 20%;
-    margin: 0 auto;
-    /*padding: 10px;*/
-}
-.idb-color-card-container {
-    margin: 0 auto;
-}
-.row {
-  padding:  5% 10% 0px 10%;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="/static/css/work_instance.css">
 {% endblock %}
 
 {% block content %}
@@ -48,13 +11,34 @@
 <div class= "idb-work-info-container">
     <div class = "idb-name">{{work.title}}</div>
     <div class = "idb-dates">{{work.date}}</div>
-    <div> {{work.medium}} </div>
-    <div>{{work.height}}cm x {{work.width}}cm</div>
 
-    <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">Some of the colors used in this work:</div>
-    {% for color in work.colors %}
-    <div class = "idb-color-card" style = "background-color: {{color}}"></div>
+    <div style = "padding-bottom: 20px">{{work.height}}cm x {{work.width}}cm</div>
+
+
+    <div> Created by: </div>
+    {% for artist in artists %}
+    <div><a href = "/artist/{{artist.id}}">{{artist.name}}</a></div>
     {% endfor %}
+
+    {% if lendict['media'] == 1 %}
+    <div style = "font-style: italic; padding-bottom: 20px;">Unfortunately, this work does not have medium data available.</div>
+    {% else %}
+    <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">This work is made from:</div>
+        {% for medium in work.media %}
+        <div><a href="/mediums/{{medium.id}}">{{medium.name}}</a></div>
+        {% endfor %}
+    {% endif %}
+
+
+    {% if lendict['colors'] == 1 %}
+        <div style = "font-style: italic; padding-top: 20px; padding-bottom: 20px;">Unfortunately, this work does not have color data available.</div>
+    {% else %}
+        <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">Some of the colors used in this work:</div>
+        {% for color in colors %}
+        <div class = "idb-color-card" style = "background-color: {{color}}"></div>
+        {% endfor %}
+    {% endif %}
+
 
 
     </div>
