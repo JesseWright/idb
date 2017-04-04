@@ -90,6 +90,7 @@ def generate_random_work():
 
     height = random.uniform(1, 250) if random.random() >= _low_prob else None
     width = random.uniform(1, 250) if random.random() >= _low_prob else None
+    depth = random.uniform(1, 250) if random.random() >= _low_prob else None
 
     motifs = str(random.sample(_motif_selection, motif_sample_k)) \
         if (random.random() >= _low_prob) \
@@ -105,6 +106,7 @@ def generate_random_work():
                 date=work_date,
                 height=height,
                 width=width,
+                depth=depth,
                 motifs=motifs,
                 colors=colors,
                 image=image)
