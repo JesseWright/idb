@@ -26,6 +26,7 @@ def artists():
 @app.route('/artist/<int:id>')
 def artist(id):
     artist = Artist.query.filter_by(id=id).first()
+
     works = []
     media = []
     for i in range(len(artist.works)):
