@@ -55,7 +55,9 @@ def artist(id):
         if j > 5:
             break
         media.append(artist.media[j])
+    
     return render_template('artist_instance.html', artist=artist, works=works, media=media)
+
 
 @app.route('/work/<int:id>')
 def work(id):

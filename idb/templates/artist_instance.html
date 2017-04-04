@@ -35,9 +35,19 @@
         {% for medium in media %}
         <div style= "font-size: medium"><a href="/media/{{medium.id}}">{{medium.name}}</a></div>
         {% endfor %}
-        <div style:"padding-bottom: 20px">   </div>
     {% else %}
     <div style = "font-size: medium; padding-top:10px"><i>No medium data is available for this artist.</i></div>
+    {% endif %}
+
+    {% if artist.eras %}
+    <div style= "font-size: large; padding-top: 20px; padding-bottom: 10px">This artist is known for their work in such eras or periods as:</div>
+        {% for era in artist.eras %}
+        <div style= "font-size: medium"><a href="/eras/{{era.id}}">{{era.name}}</a></div>
+        {% endfor %}
+        <div style:"padding-bottom: 20px">   </div>
+    {% else %}
+    <div style = "font-size: medium; padding-top:10px"><i>No data is available about the eras or periods when this artist worked.</i></div>
+    <div style:"padding-bottom: 20px">   </div>
     {% endif %}
 
 </div>
