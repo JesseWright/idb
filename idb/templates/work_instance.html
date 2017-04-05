@@ -6,7 +6,11 @@
 
 {% block content %}
 
-<img class= "idb-work-instance-image" src = "/static/img/nightwatch.jpg"></img>
+{% if work._image %}
+    <img class = "idb-work-instance-image" src = "{{work._image}}"></img>
+{% else %}
+    <img class = "idb-work-instance-image" src = "https://placehold.it/400?txtsize=36&text=No+image+available"></img>
+{% endif %}
 
 <div class= "idb-work-info-container">
     <div class = "idb-name">{{work.title}}</div>

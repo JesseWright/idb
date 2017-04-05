@@ -44,7 +44,7 @@ def media():
             medium._image = medium.images.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")[0]
         else:
             medium._image = None
-            
+
     return render_template('media.html', media=media)
 
 @app.route('/artist/<int:id>')
@@ -81,6 +81,10 @@ def work(id):
     else:
         len_dict['colors'] = 1
     len_dict['media'] = len(work.media)
+    if work.image:
+        work._image = work.image.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")[0]
+    else:
+        work._image = None
     return render_template('work_instance.html', work=work, artists=artists,colors=colors,lendict=len_dict)
 
 @app.route('/eras/<int:id>')
