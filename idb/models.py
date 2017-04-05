@@ -165,6 +165,23 @@ class Artist(db.Model):
                                           self.bio,
                                           works)
 
+    def serialize(self):
+        """ Return a formatted String representation
+        of a given Artist. """
+        works = [[work.id, work.title] for work in self.works]
+        return {
+            "id"   : self.id,
+            "name" : self.name,
+            "dob" : self.dob,
+            "dod" : self.dod,
+            "nationality" : self.nationality,
+            "country" : self.country,
+            "image" : self.image,
+            "bio" : self.bio,
+            "works" : works
+        }
+
+
 
 class Work(db.Model):
     """ A Model that houses information on artworks. """
@@ -284,7 +301,7 @@ class Medium(db.Model):
     Medium. """
 
     countries = Column(String(255))
-    """ A String representation of a list of countries associated with a 
+    """ A String representation of a list of countries associated with a
     Medium. """
 
     artists = db.relationship(Artist,

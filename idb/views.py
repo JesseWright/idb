@@ -24,6 +24,7 @@ def artists():
     return render_template('artists.html', artists=artists)
 
 
+
 @app.route('/works')
 def works():
     works = Work.query.all()
