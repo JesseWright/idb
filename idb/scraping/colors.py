@@ -16,37 +16,35 @@ Session = sessionmaker(bind=engine)
 session = Session()
 metadata = MetaData(bind=engine)
 
-mediums = session.query(Medium).first()
+mediums = session.query(Medium).all()
 
-print(mediums.name)
 
 colors = [(0,0,0), (255,255,255), (255,0,0), (0,255,0), (0,0,255),
           (255,255,0), (0,255,255), (255,0,255), (192,192,192),
           (128,128,128), (128,0,0), (128,128,0), (0,128,0),
           (128,0,128), (0,128,128), (0,0,128)]
 
-results = []
-#loop through every color
-for color in colors:
-    total = 0
-    for work in mediums.works:
-        for s in work.colors.split("#"):
-            fixed = re.sub('\W', '', s)
-            if fixed:
-                rgb = tuple(int(fixed[i:i+2], 16) for i in (0, 2 ,4))
-                diff = (color[0] - rgb[0])**2 + (color[1] - rgb[1])**2 + (color[1] - rgb[1])**2
-                total += diff
-    results.append(total)
-        
-print(results)
-
-ix = 0
-m = results[0]
-for i in range(len(results)):
-    if results[i] < m:
-        ix = i
-        
-print(colors[ix])
+for medium in mediums:
+    print(medium.name)
+    results = {}
+    #loop through every color
+    for color in colors:
+        total = 0
+        for work in medium.works:
+            for s in work.colors.split("#"):
+                fixed = re.sub('\W', '', s)
+                if fixed:
+                    rgb = tuple(int(fixed[i:i+2], 16) for i in (0, 2 ,4))
+                    diff = (color[0] - rgb[0])**2 + (color[1] - rgb[1])**2 + (color[1] - rgb[1])**2
+                    total += diff
+        results[total] = color
+            
+    sort = sorted(results)
+    print("common colors: ")
+    print(results[sort[0]])
+    print(results[sort[1]])
+    print(results[sort[2]])
+    print("")
         
     
     
