@@ -5,13 +5,13 @@ HOST: http://artisttree.me/api
 
 The ArtistTree API is a basic API built from the Rijksmuseum data, focused on art and artworks from history.
 
-
-### A brief note about the current state of our API:
-
-For phase one, this API is pretty basic. Large responses are the norm. When we go to implement, a major change
-that we plan to make (assuming there's time,) is to make the responses more compact and give the caller more 
-options in what the get back in responses. For example, it doesn't make much sense to get back ALL the data for 
-ALL the models of a certain type ALL the time. We'll give the user more granular options in the future.
+When we spent some time looking at our API, we determined that for the most part, it was pretty alright as it
+stood at the end of last phase. We've added a couple of search functions for specific models though, to give 
+more options to our users. Our data is really — for  the most part anyways — a polite and logical repacking 
+of the Rijksmuseum data, and our API makes it available in a much more digestible format than we found it in. 
+We've also added/plan to add additional data scraped from wikipedia or other similar sources where possible, which
+will be retrievable via our API if and when that data is available. Search options should be pretty granular if you
+need them to be -- think of the search functions like externally available queries of our database.
 
 ### A brief note about searching using our API:
 
@@ -38,7 +38,8 @@ This call just provides a list of all the artists we have in our database. (This
                         "dateOfDeath": "1890-7-29",
                         "nationality": "Dutch",
                         "countryOfOrigin": "The Netherlands",
-                        "image": ""
+                        "image": "",
+                        "bio":"lorem ipsum"
                     },
                    {
                     "name": "Johannes Vermeer",
@@ -46,7 +47,8 @@ This call just provides a list of all the artists we have in our database. (This
                     "dateOfDeath": "1675-12-15",
                     "nationality": "Noord-Nederlands",
                     "countryOfOrigin": "Dutch Republic",
-                    "image": ""
+                    "image": "",
+                    "bio":"lorem ipsum"
                     }
                 ]
                 
@@ -65,7 +67,7 @@ Returns a list of artist objects.
         
         {
             "name": "Vincent VanGogh",
-            "century": "1600",
+            "era": "1600",
             "nationality": "Dutch"
         }
         
@@ -81,6 +83,7 @@ Returns a list of artist objects.
                         "nationality": "Dutch",
                         "countryOfOrigin": "The Netherlands",
                         "image": ""
+                        "bio":""
                     }
                 ]
             }
@@ -90,7 +93,7 @@ Returns a list of artist objects.
 
 ### List all artworks [GET]
 
-Returns a list of all our artworks. (Could be a very large request!)
+Returns a list of all our artworks.
 
 + Response 200 (application/json)
 
@@ -125,7 +128,8 @@ Returns a list of all our artworks. (Could be a very large request!)
                       " #6C6238",
                       " #D7CB9E"
                     ],
-                    "image": "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0"
+                    "image": "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0",
+                    "motifs": null
                     },
                     {
                     "name":"Self Portrait"
@@ -161,7 +165,8 @@ Returns a list of all our artworks. (Could be a very large request!)
                       " #6A84A2",
                       " #2F3031"
                     ],
-                    "image": "http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0"
+                    "image": "http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0",
+                    "motifs": null
                     }
                 ]
                 
@@ -180,7 +185,7 @@ Rather than search for the colors you give us exactly, we'll return works with s
         
         {
             "name": "Night Watch",
-            "century": "1800",
+            "era": "18th century",
             "year": 1887,
             "colors":[
             "#885617",
@@ -228,19 +233,19 @@ Rather than search for the colors you give us exactly, we'll return works with s
             }
         ]
 
-## Get all centuries [/centuries/all]
+## Get all eras [/eras/all]
 
-### List all centuries [GET]
+### List all eras [GET]
 
-Gives you all the data we have for the different centuries.
+Gives you all the data we have for the different eras/periods.
 
 + Response 200 (application/json)
 
         [
             {
-                "centuries":[
+                "eras":[
                     {
-                    "century":1600,
+                    "era":"17th century",
                     "artists": [
                       "Rembrandt Harmensz. van Rijn",
                       "Johannes Vermeer"
@@ -262,7 +267,7 @@ Gives you all the data we have for the different centuries.
                     ]
                     },
                     {
-                    "century":1700,
+                    "era":"18th century",
                     "artists": [
                       "Cornelis Troost",
                       "Jean-Étienne Liotard"
@@ -285,7 +290,7 @@ Gives you all the data we have for the different centuries.
                     ]
                     },
                     {
-                    "century": 1800,
+                    "era": "19th century",
                     "artists": [
                       "Vincent van Gogh",
                       "Jan Willem Pieneman"
@@ -311,21 +316,71 @@ Gives you all the data we have for the different centuries.
             }
         ]
         
-        
-        
-## Get all styles [/styles/all]
+## Get a specific era [/eras/search]
 
-### Get all styles [GET]
+### Get specific era [POST]
 
-Returns a list of all of the styles of art represented in our database.
++ Request (application/json)
+        
+        {
+            "name": "17th century",
+            "type": "century",
+            "countries": [
+                "Italy",
+                "Dutch Republic"
+            ],
+            "artists": [
+                "Rembrandt Harmensz. van Rijn"
+            ],
+            "works":[
+                "Night Watch"
+            ],
+            "media":[
+                "oil on canvas"
+            ]
+            
+        }
+        
++ Response 201 (application/json)
+
+        [
+            {
+                "eras":[
+                    {
+                        "era":"17th century",
+                        "artists": [
+                          "Rembrandt Harmensz. van Rijn",
+                          "Johannes Vermeer"
+                        ],
+                        "works": [
+                          "The Milkmaid",
+                          "Night Watch"
+                        ],
+                        "countries": [
+                          "Dutch Republic",
+                          "Italy"
+                        ],
+                        "mediums": [
+                          "oil on canvas",
+                          "painting"
+                        ]
+                    }
+            }
+        ]
+        
+## Get all mediums [/mediums/all]
+
+### Get all mediums [GET]
+
+Returns a list of all of the mediums of art represented in our database.
 
 + Response 200 (application/json)
         
         [
             {
-                "styles": [
+                "mediums": [
                     {
-                    "name": "Baroque",
+                    "name": "Sculpture",
                     "colors": [
                       " #261808",
                       " #5E3C14",
@@ -335,7 +390,7 @@ Returns a list of all of the styles of art represented in our database.
                       " #6C6238",
                       " #D7CB9E"
                     ],
-                    "avgeage": "312",
+                    "averageage": "312",
                     "artists": [
                       "Rembrandt Harmensz. van Rijn"
                     ],
@@ -360,7 +415,7 @@ Returns a list of all of the styles of art represented in our database.
                     ]
                     },
                     {
-                    "name":"Impressionism",
+                    "name":"Oil on canvas",
                     "colors": [
                       "#52686D",
                       " #50524C",
@@ -370,7 +425,7 @@ Returns a list of all of the styles of art represented in our database.
                       " #6A84A2",
                       " #2F3031"
                     ],
-                    "avgeage": "112",
+                    "averageage": "112",
                     "artists": [
                       "Vincent van Gogh"
                     ],

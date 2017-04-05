@@ -21,7 +21,8 @@ def report():
 @app.route('/artists')
 def artists():
     artists = Artist.query.all()
-    return render_template('artists.html', artists=artists)
+    first_page = artists[0:16]
+    return render_template('artists.html', artists=first_page)
 
 
 
@@ -39,8 +40,13 @@ def eras():
 @app.route('/media')
 def media():
     media = Medium.query.all()
-    images = [medium.images[0] for medium in media]
-    return render_template('media.html', media=media, images=images)
+    for medium in media:
+        if medium.images:
+            medium._image = medium.images.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")[0]
+        else:
+            medium._image = None
+
+    return render_template('media.html', media=media)
 
 @app.route('/artist/<int:id>')
 def artist(id):
@@ -56,7 +62,9 @@ def artist(id):
         if j > 5:
             break
         media.append(artist.media[j])
+
     return render_template('artist_instance.html', artist=artist, works=works, media=media)
+
 
 @app.route('/work/<int:id>')
 def work(id):
@@ -74,12 +82,35 @@ def work(id):
     else:
         len_dict['colors'] = 1
     len_dict['media'] = len(work.media)
+    if work.image:
+        work._image = work.image.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")[0]
+    else:
+        work._image = None
     return render_template('work_instance.html', work=work, artists=artists,colors=colors,lendict=len_dict)
 
 @app.route('/eras/<int:id>')
 def era(id):
     era = Era.query.filter_by(id=id).first()
-    return render_template('era_instance.html',era=era)
+    if era.countries:
+        countries = era.countries.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
+    else:
+        countries = None
+    works = []
+    media = []
+    artists = []
+    for i in range(len(era.works)):
+        if i > 5:
+            break
+        works.append(era.works[i])
+    for j in range(len(era.media)):
+        if j > 5:
+            break
+        media.append(era.media[j])
+    for k in range(len(era.artists)):
+        if k > 5:
+            break
+        artists.append(era.artists[k])
+    return render_template('era_instance.html',era=era, countries = countries, works = works, media = media, artists = artists)
 
 @app.route('/media/<int:id>')
 def medium(id):
@@ -87,12 +118,13 @@ def medium(id):
     medium._image = medium.images.replace("[","").replace("]","").replace("'","")
     #TODO: remove this after testing is done
     if medium.id % 2:
-        medium.countries = "The USA, America, 'Murica, Lamborghini"
+        medium.countries = "Test country 1, test country 2, test country 3, Texas"
 
     if len(medium.colors) > 6:
         colors = medium.colors.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
     else:
         colors = None
+
     return render_template('medium_instance.html',medium=medium, colors = colors)
 
 @app.route('/report_text')
