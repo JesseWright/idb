@@ -8,7 +8,11 @@
 
 <div style = "padding-bottom: 20px">
     <div class = "idb-medium-title">{{medium.name}}</div>
-    <img class = "idb-medium-image" src = "{{medium._image}}"></img>
+    {% if medium._image %}
+        <img class = "idb-medium-image" src = "{{medium._image}}"></img>
+    {% else %}
+        <img class = "idb-medium-image" src = "https://placehold.it/300?text=No+image+available"></img>
+    {% endif %}
     <div class = "idb-medium-data-container" style = "padding-top: 20px"> Average age of a work in this medium:{{medium.average_age or "Unavailable"}}</div>
     <div class = "idb-medium-data-container">Average height of a work in this medium: {{medium.avg_height or "Unavailable"}}</div>
     <div class = "idb-medium-data-container">Average width of a work in this medium: {{medium.avg_width or "Unavailable"}}</div>

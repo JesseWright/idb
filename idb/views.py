@@ -21,7 +21,8 @@ def report():
 @app.route('/artists')
 def artists():
     artists = Artist.query.all()
-    return render_template('artists.html', artists=artists)
+    first_page = artists[0:16]
+    return render_template('artists.html', artists=first_page)
 
 
 @app.route('/works')
@@ -38,8 +39,13 @@ def eras():
 @app.route('/media')
 def media():
     media = Medium.query.all()
-    images = [medium.images[0] for medium in media]
-    return render_template('media.html', media=media, images=images)
+    for medium in media:
+        if medium.images:
+            medium._image = medium.images.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")[0]
+        else:
+            medium._image = None
+            
+    return render_template('media.html', media=media)
 
 @app.route('/artist/<int:id>')
 def artist(id):
@@ -113,6 +119,7 @@ def medium(id):
         colors = medium.colors.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
     else:
         colors = None
+
     return render_template('medium_instance.html',medium=medium, colors = colors)
 
 @app.route('/report_text')
