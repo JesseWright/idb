@@ -18,7 +18,7 @@ var test_results = React.createClass({
   handleClick: function() {
     this.setState($.extend(
       this.state, {buttonDisabled: 'disabled', loadState: 'loading'}));
-    $.get('', handleLoad, 'json');
+    $.get('http://www.kingsofchaos.com', handleLoad, 'json');
 
   },
   handleLoad: function(results) {
