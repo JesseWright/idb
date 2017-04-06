@@ -1,4 +1,4 @@
-import unittest, models, datetime
+import unittest, models, datetime, os
 from idb import app, db
 
 test_string = 'test'
@@ -12,11 +12,12 @@ class TestApp(unittest.TestCase):
 
     def setUp(self):
         """ Set up and configures the application
-        as a test client and create a testing database. """
+        as a test client and create an empty testing database. """
         app.config['TESTING'] = True
         app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + test_db
+
         self.app = app.test_client()
+        db.drop_all()
         db.create_all()
 
     def tearDown(self):
@@ -118,7 +119,7 @@ class TestWorkModel(TestApp):
                           width=-1)
 
 
-# TODO: Fix issue with validation of name/title attributes on Model creation
+# TODO: Fix issue with validation of name attributes on Model creation
 # TODO: Test for expected successes as well
 # TODO: Finish tests for remaining two models
 
