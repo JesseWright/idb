@@ -20,6 +20,11 @@ def url_query_artist():
     serialized_models = list(map(lambda x: x.serialize(), artists))
     return response(200, serialized_models, page_count)
 
+@app.route("/query_work")
+def url_query_work():
+    works, page_count  = query_work(request.args.to_dict())
+    serialized_models = list(map(lambda x: x.serialize(), works))
+    return response(200, serialized_models, page_count)
 
 def query_artist(args):
     artists = Artist.query
@@ -42,6 +47,28 @@ def query_artist(args):
         artists = artists[int(args["page"]) * ITEMS_PER_PAGE : (int(args["page"]) + 1) * ITEMS_PER_PAGE]
 
     return artists, page_count
+
+def query_work(args):
+    works = Work.query
+    if "order_by" in args and args["order_by"]:
+        if args["order_by"] == "title" or  args["order_by"] == "date":
+            works = works.order_by(args["order_by"])
+    works = works.all()
+    if "name_filter" in args and args["name_filter"]:
+        works = string_filter(works, "title", args["name_filter"])
+    if "date_after" in args and args["date_after"]:
+        works = date_filter(works, lambda x : x > int(args["date_after"]), "date")
+    if "date_before" in args and args["date_before"]:
+        works = date_filter(works, lambda x : x < int(args["date_before"]), "date")
+    if "ascending" in args and args["ascending"] == "0":
+        works = works[::-1]
+
+    page_count = int(ceil(len(works) / float(ITEMS_PER_PAGE)))
+
+    if "page" in args and args["page"]:
+        works = works[int(args["page"]) * ITEMS_PER_PAGE : (int(args["page"]) + 1) * ITEMS_PER_PAGE]
+
+    return works, page_count
 
 def date_filter(models, func, attribute):
     filtered = []
