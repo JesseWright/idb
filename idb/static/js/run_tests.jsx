@@ -6,7 +6,7 @@ var test_results = React.createClass({
     var state = this.state;
     return (
       <div>
-      <button disabled={state.buttonDisabled} onClick={this.handleClick()}/>
+      <button disabled={state.buttonDisabled} onClick={this.handleClick}/>
         <div className="test-results {state.loadState}">
           <div className="overlay">
             <div className="spinner">
