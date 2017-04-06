@@ -21,7 +21,7 @@
               },
               render: function() {
                   return(
-                    <div class="idb-card">
+                    <div className="idb-card">
                       <img className = "idb-artist-portrait"src={this.props.image}></img>
                       <div className = "idb-artist-name">{this.props.name}</div>
                       <div className = "idb-artist-birth-death">{this.props.dob}</div>
@@ -33,17 +33,6 @@
 
         var load = function(){
             update(1,1,document.title);
-            for (i = 0; i < 16; i++){
-                ReactDOM.render(
-                    React.createElement(artist_card, null, null),
-                    document.getElementById('card-' + i)
-                );
-            }
-            ReactDOM.render(
-                React.createElement(page_ident, {page_num:1,max_page_num:7 }, null),
-                document.getElementById('page-identifier')
-            );
-
         }
 
         //load cards when page loads
@@ -170,10 +159,10 @@
                     var filters = {
                         "order_by": order_by,
                         "ascending":ascending,
-                        "string_filter":name,
+                        "name_filter":name,
                         "date_after":dateStart,
                         "date_before":dateEnd,
-                        "page":page_num
+                        "page":(page_num-1)
                     }
 
                 }
@@ -194,31 +183,49 @@
                 old_endDate = dateEnd;
                 first_run = 0;
             }
-            get_new_card_data(filters,request_page);
+            get_new_card_data(filters,request_page,page_num);
 
-            ReactDOM.render(
-                React.createElement(page_ident, {page_num:page_num,max_page_num:7 }, null),
-                document.getElementById('page-identifier')
-            );
+
             cur_page = page_num;
 
 
 
         }
 
-        function get_new_card_data(filters,request_page)
+        function get_new_card_data(filters,request_page,page_num)
         {
             var url = "/query_" + request_page + "?";
-            url = url + 'order_by=' + filters.order_by + '&string_filter=' + filters.string_filter
+            url = url + 'order_by=' + filters.order_by + '&name_filter=' + filters.name_filter
                 + '&date_after=' + filters.date_after + '&date_before=' + filters.date_before + '&ascending='
                 + filters.ascending + '&page=' + filters.page;
-
+            console.log(url);
             $.get(url,function(data,status){
-                console.log(data);
+                update_cards(data);
+                ReactDOM.render(
+                    React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),
+                    document.getElementById('page-identifier')
+                );
             });
 
         }
-
+        function update_cards(data){
+            for (i = 0; i < data.data.length; i++){
+                d = data.data[i];
+                console.log(d);
+                ReactDOM.render(
+                    React.createElement(artist_card, {name:d.name,dob:d.dob,image:d.image}, null),
+                    document.getElementById('card-' + i)
+                );
+            }
+            console.log()
+            for(j = i; j < 16; j ++)
+            {
+                ReactDOM.render(
+                    React.createElement('div', null, null),
+                    document.getElementById('card-' + j)
+                );
+            }
+        }
         function get_page_enum(){
             return page_enum;
         }

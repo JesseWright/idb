@@ -15,9 +15,13 @@ def response(status, data, pages):
     return jsonify(ret)
 
 @app.route("/query_artist")
-def query_artist():
-    args = request.args.to_dict()
-    print(args)
+def url_query_artist():
+    artists, page_count  = query_artist(request.args.to_dict())
+    serialized_models = list(map(lambda x: x.serialize(), artists))
+    return response(200, serialized_models, page_count)
+
+
+def query_artist(args):
     artists = Artist.query
     if "order_by" in args and args["order_by"]:
         if args["order_by"] == "name" or  args["order_by"] == "dob":
@@ -29,19 +33,15 @@ def query_artist():
         artists = date_filter(artists, lambda x : x > int(args["date_after"]), "dob")
     if "date_before" in args and args["date_before"]:
         artists = date_filter(artists, lambda x : x < int(args["date_before"]), "dob")
-
     if "ascending" in args and args["ascending"] == "0":
         artists = artists[::-1]
 
     page_count = int(ceil(len(artists) / float(ITEMS_PER_PAGE)))
 
-
     if "page" in args and args["page"]:
         artists = artists[int(args["page"]) * ITEMS_PER_PAGE : (int(args["page"]) + 1) * ITEMS_PER_PAGE]
 
-    serialized_models = list(map(lambda x: x.serialize(), artists))
-
-    return response(200, serialized_models, page_count)
+    return artists, page_count
 
 def date_filter(models, func, attribute):
     filtered = []

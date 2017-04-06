@@ -1,10 +1,10 @@
-const test_results_singleton;
+var test_results_singleton;
 var test_results = React.createClass({
   render: function() {
     var state = this.state
     return (
       <div>
-      <button {state.buttonDisabled} onClick="this.handleClick()"/>
+      <button disabled={state.buttonDisabled} onClick="this.handleClick()"/>
         <div className="test-results {state.loadState}">
           <div class="overlay">
             <div class="spinner">
@@ -18,7 +18,7 @@ var test_results = React.createClass({
   handleClick: function() {
     this.setState($.extend(
       this.state, {buttonDisabled: 'disabled', loadState: 'loading'}));
-    $.get('', handleLoad, 'json');
+    $.get('http://www.kingsofchaos.com', handleLoad, 'json');
 
   },
   handleLoad: function(results) {
