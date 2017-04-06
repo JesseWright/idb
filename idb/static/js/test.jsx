@@ -5,10 +5,11 @@
         var old_startDate = undefined;
         var old_endDate = undefined;
         var page_enum = {
-            ARTISTS: 'artists',
-            WORKS: 'works',
-            MEDIA: 'media'
+            ARTISTS: 'artist',
+            WORKS: 'work',
+            MEDIA: 'medium'
         };
+        var new_card_data = undefined;
 
         var artist_card = React.createClass({
               getDefaultProps: function(){
@@ -193,8 +194,8 @@
                 old_endDate = dateEnd;
                 first_run = 0;
             }
-            data = get_new_card_data(filters,request_page)
-            console.log(data);
+            get_new_card_data(filters,request_page);
+
             ReactDOM.render(
                 React.createElement(page_ident, {page_num:page_num,max_page_num:7 }, null),
                 document.getElementById('page-identifier')
@@ -211,11 +212,11 @@
             url = url + 'order_by=' + filters.order_by + '&string_filter=' + filters.string_filter
                 + '&date_after=' + filters.date_after + '&date_before=' + filters.date_before + '&ascending='
                 + filters.ascending + '&page=' + filters.page;
-            console.log(url);
-            /*$.get(url,function(data,status){
-                console.log("Data:" + data + ", status: " + status);
-            });*/
-            return "nice!";
+
+            $.get(url,function(data,status){
+                console.log(data);
+            });
+
         }
 
         function get_page_enum(){
