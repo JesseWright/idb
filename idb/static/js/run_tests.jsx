@@ -1,4 +1,3 @@
-var test_results_singleton;
 var test_results = React.createClass({
   render: function() {
     var state = this.state
@@ -28,9 +27,11 @@ var test_results = React.createClass({
   }
 });
 
-function make_tests() {
+var make_tests = function() {
   ReactDOM.render(
       React.createElement(test_results, {results: '', state: 'inactive', buttonDisabled: ''}, null),
       document.getElementById('test-results')
   );
 }
+
+$document.ready(make_tests);
