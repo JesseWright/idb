@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+
 <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="https://cs373-project-345.appspot.com/static/css/style.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+<script type = "text/jsx" src= "/static/js/run_tests.jsx"></script>
 <style>
 .idb-std-image {
     width: 255px;
@@ -97,6 +102,18 @@
             <p>Flask - Python web framework for our backend</p>
             <p>GCP - Google Cloud Platform for hosting</p>
             <p>TravisCI - integrates with GitHub repo to automatically test and build</p>
+          </div>
+          <script>
+            make_tests();
+          </script>
+          <div class="col-lg-12">
+            <h2 class="page-header">Tests</h2>
+            <div id="tests-results-container"></div>
+          </div>
+
+          <div class="col-lg-12">
+            <h2 class="page-header">Attributions</h2>
+            <p>Loading spinner from <a href="http://www.mytreedb.com/">mytreedb</a></p>
           </div>
       </div>
 {% endblock %}
