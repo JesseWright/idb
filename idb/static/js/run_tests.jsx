@@ -30,7 +30,7 @@ var test_results = React.createClass({
 var make_tests = function() {
   ReactDOM.render(
       React.createElement(test_results, {results: '', state: 'inactive', buttonDisabled: ''}, null),
-      document.getElementById('test-results')
+      document.getElementById('test-results-container')
   );
 }
 
