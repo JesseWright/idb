@@ -1,3 +1,13 @@
+
+var make_tests = function() {
+  ReactDOM.render(
+      React.createElement(test_results, {results: '', state: 'inactive', buttonDisabled: ''}, null),
+      document.getElementById('test')
+  );
+}
+
+
+
 var test_results = React.createClass({
   render: function() {
     var state = this.state
@@ -26,12 +36,4 @@ var test_results = React.createClass({
 
   }
 });
-
-var make_tests = function() {
-  ReactDOM.render(
-      React.createElement(test_results, {results: '', state: 'inactive', buttonDisabled: ''}, null),
-      document.getElementById('test-results-container')
-  );
-}
-
-$document.ready(make_tests);
+$(document).ready(make_tests);
