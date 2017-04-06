@@ -1,6 +1,9 @@
 var test_results = React.createClass({
+  getInitialState: function() {
+    return this.props;
+  },
   render: function() {
-    var state = this.state
+    var state = this.state;
     return (
       <div>
       <button disabled={state.buttonDisabled} onClick="this.handleClick()"/>
@@ -29,8 +32,8 @@ var test_results = React.createClass({
 
 var make_tests = function() {
   ReactDOM.render(
-      React.createElement(test_results, {results: '', state: 'inactive', buttonDisabled: ''}, null),
-      document.getElementById('test-results-container')
+      React.createElement(test_results, {results: '', loadState: 'inactive', buttonDisabled: ''}, null),
+      document.getElementById('tests')
   );
 }
 
