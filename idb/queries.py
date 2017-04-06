@@ -19,15 +19,15 @@ def query_artist():
     args = request.args.to_dict()
     print(args)
     artists = Artist.query
-    if "order_by" in args:
+    if "order_by" in args and args["order_by"]:
         if args["order_by"] == "name" or  args["order_by"] == "dob":
             artists = artists.order_by(args["order_by"])
     artists = artists.all()
-    if "name_filter" in args:
+    if "name_filter" in args and args["name_filter"]:
         artists = string_filter(artists, "name", args["name_filter"])
-    if "date_after" in args:
+    if "date_after" in args and args["date_after"]:
         artists = date_filter(artists, lambda x : x > int(args["date_after"]), "dob")
-    if "date_before" in args:
+    if "date_before" in args and args["date_before"]:
         artists = date_filter(artists, lambda x : x < int(args["date_before"]), "dob")
 
     if "ascending" in args and args["ascending"] == "0":
@@ -36,7 +36,7 @@ def query_artist():
     page_count = int(ceil(len(artists) / float(ITEMS_PER_PAGE)))
 
 
-    if "page" in args:
+    if "page" in args and args["page"]:
         artists = artists[int(args["page"]) * ITEMS_PER_PAGE : (int(args["page"]) + 1) * ITEMS_PER_PAGE]
 
     serialized_models = list(map(lambda x: x.serialize(), artists))
