@@ -8,9 +8,6 @@ runtime_config:
 
 threadsafe: true
 
-env_variables:
-  SWE_IDB_PGDB_ADDR: 'localhost:5432'
-
 # Set the password environment variable on local machine to prevent exposing
 # Use '?unix_socket=/cloudsql/cs373-project-345:us-central1:idb-artistree:
 #  us-central1:idb-artistree' for local DB testing with the Cloud SQL proxy

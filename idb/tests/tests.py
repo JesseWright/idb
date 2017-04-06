@@ -1,9 +1,6 @@
 import unittest, models, datetime, os
 from idb import app, db
 
-test_string = 'test'
-test_db = 'tests/test.db'
-
 
 class TestApp(unittest.TestCase):
     """" A base ``TestCase`` class to handle setup and tear down

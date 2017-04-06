@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/css/medium_instance.css">
+{% endblock %}
+
+{% block content %}
+
+<div style = "padding-bottom: 20px">
+    <div class = "idb-medium-title">{{medium.name}}</div>
+    {% if medium._image %}
+        <img class = "idb-medium-image" src = "{{medium._image}}"></img>
+    {% else %}
+        <img class = "idb-medium-image" src = "https://placehold.it/400?txtsize=36&text=No+image+available"></img>
+    {% endif %}
+    <div class = "idb-medium-data-container" style = "padding-top: 20px"> Average age of a work in this medium:{{medium.average_age or "Unavailable"}}</div>
+    <div class = "idb-medium-data-container">Average height of a work in this medium: {{medium.avg_height or "Unavailable"}}</div>
+    <div class = "idb-medium-data-container">Average width of a work in this medium: {{medium.avg_width or "Unavailable"}}</div>
+    <div class = "idb-medium-data-container">Average depth of a work in this medium: {{medium.avg_depth or "Unavailable"}}</div>
+
+    {% if medium.countries %}
+    <div class = "idb-country-desc"> This century saw artworks and artists from the following countries:</div>
+    <div class = "idb-medium-data-container">{{medium.countries}}</div>
+    {% else %}
+    <div class = "idb-medium-data-container" style = "padding-top: 50px"><i>Unfortunately, there is no data for where this medium was prominent.</i></div>
+    {% endif %}
+
+    <div class = "idb-medium-data-container" style = "padding-top: 20px"> This medium was popular with artists such as: </div>
+    {% for artist in medium.artists %}
+    <div style = "text-align: center"><a href = "/artist/{{artist.id}}">{{artist.name}}</a></div>
+    {% endfor %}
+
+    {% if colors %}
+        <div class = "idb-country-desc">Some of the colors used in this medium:</div>
+        {% for color in colors %}
+            <div class = "idb-color-card" style = "background-color: {{color}}"></div>
+        {% endfor %}
+
+    {% else %}
+    <div class = "idb-medium-data-container"  style = "padding-top: 20px"><i>Unfortunately, there is no color data for this medium. </i></div>
+    {% endif %}
+</div>
+
+
+{% endblock %}
