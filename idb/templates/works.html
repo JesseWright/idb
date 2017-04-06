@@ -24,7 +24,8 @@
 {% if (works|length is not divisibleby 4) %}
   </div>
 {% endif %}
-<nav class="navbar navbar-default navbar-fixed-bottom" style = "margin-bottom:45px">
+
+<nav class="navbar navbar-default navbar-fixed-top" style = "margin-top: 45px">
   <div class="container-fluid">
       <div>
           <p class = "navbar-text navbar-left idb-no-form-padding"> Filter by: </p>
@@ -46,28 +47,20 @@
          </div>
        </form>
 
+                  <p class = "navbar-text navbar-left idb-no-form-padding" style = "padding-right: 10px"> Sort results by name: </p>
+                <button type="button" class="btn btn-default navbar-btn navbar-left" style= "margin-right:10px" onclick="update(1,1,get_page_enum().WORKS)">A-Z</button>
+                <button type="button" class="btn btn-default navbar-btn navbar-left" onclick="update(2,1,get_page_enum().WORKS)">Z-A</button>
+                <p class = "navbar-text navbar-left"> or by age:</p>
+                <button type="button" class="btn btn-default navbar-btn navbar-left" style= "margin-right:10px" onclick = "update(3,1,get_page_enum().WORKS)">Oldest first</button>
+                <button type="button" class="btn btn-default navbar-btn navbar-left" onclick = "update(4,1,get_page_enum().WORKS)">Contemporary first</button>
+               <!-- right elements -->
+               <button type="button" class="btn btn-default navbar-btn navbar-right" id = "next-button" onclick="handle_page_change(0,get_page_enum().WORKS)">Next Page</button>
+               <div id = "page-identifier" class = "navbar-text navbar-right"></div>
+               <button type="button" class="btn btn-default navbar-btn navbar-right" id = "prev-button" onclick="handle_page_change(1,get_page_enum().WORKS)">Previous page</button>
+
        <p id = "errorText" class = "navbar-text navbar-right idb-no-form-padding"></p>
 
       </div>
-  </div>
-</nav>
-
-<!--Extra navbar -->
-<nav class="navbar navbar-default navbar-fixed-bottom" style = "max-height: 40px">
-  <div class="container-fluid">
-          <p class = "navbar-text navbar-left idb-no-form-padding" style = "padding-right: 10px"> Sort results by name: </p>
-
-
-         <button type="button" class="btn btn-default navbar-btn navbar-left" style= "margin-right:10px" onclick="update(1,1,get_page_enum().WORKS)">A-Z</button>
-         <button type="button" class="btn btn-default navbar-btn navbar-left" onclick="update(2,1,get_page_enum().WORKS)">Z-A</button>
-         <p class = "navbar-text navbar-left"> or by age:</p>
-         <button type="button" class="btn btn-default navbar-btn navbar-left" style= "margin-right:10px" onclick = "update(3,1,get_page_enum().WORKS)">Oldest first</button>
-         <button type="button" class="btn btn-default navbar-btn navbar-left" onclick = "update(4,1,get_page_enum().WORKS)">Contemporary first</button>
-        <!-- right elements -->
-        <button type="button" class="btn btn-default navbar-btn navbar-right" id = "next-button" onclick="handle_page_change(0,get_page_enum().WORKS)">Next Page</button>
-        <div id = "page-identifier" class = "navbar-text navbar-right"></div>
-        <button type="button" class="btn btn-default navbar-btn navbar-right" id = "prev-button" onclick="handle_page_change(1,get_page_enum().WORKS)">Previous page</button>
-
   </div>
 </nav>
 

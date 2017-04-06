@@ -1,5 +1,6 @@
 
         var cur_page = 1;
+        var max_page = -1;
         var first_run = 1;
         var old_name = undefined;
         var old_startDate = undefined;
@@ -29,6 +30,30 @@
                           <img className = "idb-artist-portrait"src={this.props.image}></img>
                           <div className = "idb-artist-name">{this.props.name}</div>
                           <div className = "idb-artist-birth-death">{this.props.dob}</div>
+                        </div>
+                    </a>
+                  );
+              }
+            });
+
+        var work_card = React.createClass({
+              getDefaultProps: function(){
+                  return {
+                      'name': "default",
+                      'dob' : "1899",
+                      'image' : '/static/img/vangogh.jpg',
+                      'id': 1,
+                      'link': "/work/"
+                  };
+              },
+              render: function() {
+                  var link_to_use = ""+ this.props.link + this.props.id;
+                  return(
+                    <a href={link_to_use}>
+                        <div className="idb-card">
+                          <img className = "idb-work-img"src={this.props.image}></img>
+                          <div className = "idb-work-title">{this.props.name}</div>
+                          <div className = "idb-work-date">{this.props.dob}</div>
                         </div>
                     </a>
                   );
@@ -66,16 +91,16 @@
                 {
                     cur_page = cur_page - 1;
                 }
-
             }
             else
             {
-                cur_page = cur_page + 1;
+                if(cur_page + 1 <= max_page)
+                    cur_page = cur_page + 1;
             }
             if (prev_page !== cur_page)
                 update(1,cur_page,request_page);
             else
-                console.log("Tried to go back from page 1. Nice try! I'm like, maybe 1 step ahead of you.")
+                console.log("Tried to go to invalid page!");
         }
 
         function update(sort_order,page_num,request_page)
@@ -97,19 +122,22 @@
 
             //first check to make sure neither date is zero
             if (dateStart < 0 || dateEnd < 0)
+            {
                 document.getElementById('errorText').textContent = "Error: don't use a negative value.";
+                return false;
+            }
             //if neither of them were, then we're good to build our filters
             else
             {
                 if (request_page != page_enum.MEDIA && (dateEnd < dateStart))
+                {
                     document.getElementById('errorText').textContent = "Error: end date < start date.";
+                    return false;
+                }
                 else
                 {
-                    document.getElementById('errorText').textContent = "";
                     if (request_page == page_enum.MEDIA)
                     {
-
-
                             //we have to do a little math on the media page
                             base = parseInt(dateEnd);
                             delta = parseInt(dateStart);
@@ -199,7 +227,7 @@
 
             cur_page = page_num;
 
-
+            return true;
 
         }
 
@@ -209,19 +237,22 @@
             url = url + 'order_by=' + filters.order_by + '&name_filter=' + filters.name_filter
                 + '&date_after=' + filters.date_after + '&date_before=' + filters.date_before + '&ascending='
                 + filters.ascending + '&page=' + filters.page;
-            console.log(url);
+
             $.get(url,function(data,status){
-                if(status == 200)
+                console.log(status);
+                if(status == 'success')
                 {
-                    update_cards(data);
+
+                    update_cards(data,request_page);
                     ReactDOM.render(
                         React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),
                         document.getElementById('page-identifier')
                     );
+                    max_page = data.pages;
                 }
                 else
                 {
-                    update_cards(undefined);
+                    update_cards(undefined,request_page);
                     ReactDOM.render(
                         React.createElement(page_ident, {page_num:-1,max_page_num:0 }, null),
                         document.getElementById('page-identifier')
@@ -232,22 +263,50 @@
             });
 
         }
-        function update_cards(data){
-            if(!data)
+        function update_cards(data,request_page)
+        {
+            var card_to_render = undefined;
+            if (request_page == page_enum.ARTISTS)
+                card_to_render = artist_card;
+            else if (request_page == page_enum.WORKS)
+                card_to_render = work_card;
+
+            if(data === undefined)
             {
+                console.log("Empty response from database!");
                 for (i = 0; i < 16; i++){
-                    d = data.data[i];
+                    d = {
+                        name : "default",
+                        dob: "1899",
+                        image: "/static/img/vangogh.jpg",
+                        id: -1
+                    };
                     ReactDOM.render(
-                        React.createElement(artist_card, {name:d.name,dob:d.dob,image:d.image,id:d.id,}, null),
+                        React.createElement(card_to_render, {name:d.name,dob:d.dob,image:d.image,id:d.id,}, null),
                         document.getElementById('card-' + i)
                     );
                 }
             }
-            else {
+            else
+            {
+
                 for (i = 0; i < data.data.length; i++){
                     d = data.data[i];
+                    if (request_page == page_enum.WORKS)
+                    {
+                        name = d.title;
+                        year = d.date;
+                    }
+                    else if (request_page == page_enum.ARTISTS){
+                        name = d.name;
+                        year = d.dob;
+                    }
+                    else {
+                        name = d.name;
+                        year = "FIX ME";
+                    }
                     ReactDOM.render(
-                        React.createElement(artist_card, {name:d.name,dob:d.dob,image:d.image,id:d.id,}, null),
+                        React.createElement(card_to_render, {name:name,dob:year,image:d.image,id:d.id,}, null),
                         document.getElementById('card-' + i)
                     );
                 }
