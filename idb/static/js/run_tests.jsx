@@ -1,4 +1,4 @@
-const test_results_singleton;
+var test_results_singleton;
 var test_results = React.createClass({
   render: function() {
     var state = this.state
