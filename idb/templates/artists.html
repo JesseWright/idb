@@ -17,17 +17,7 @@
       <div class="row">
   {% endif %}
         <div class="col-md-3">
-          <a href="/artist/{{artist.id}}">
-                <div id = "card-{{loop.index-1}}">
-            <!--
-              <img class="idb-artist-portrait" src={{artist.image or "/static/img/vangogh.jpg"}}>
-
-              <div class="idb-artist-name">{{artist.name or "Anonymous"}}</div>
-              <div class="idb-artist-birth-death">{{artist.dob or "unknown"}} - {{artist.dod or "unknown"}}</div>
-          -->
-            </div>
-          </a>
-
+                <div id = "card-{{loop.index-1}}"></div>
         </div>
 {% endfor %}
 

@@ -16,16 +16,21 @@
                   return {
                       'name': "default",
                       'dob' : "1899",
-                      'image' : '/static/img/vangogh.jpg'
+                      'image' : '/static/img/vangogh.jpg',
+                      'id': 1,
+                      'link': "/artist/"
                   };
               },
               render: function() {
+                  var link_to_use = ""+ this.props.link + this.props.id;
                   return(
-                    <div className="idb-card">
-                      <img className = "idb-artist-portrait"src={this.props.image}></img>
-                      <div className = "idb-artist-name">{this.props.name}</div>
-                      <div className = "idb-artist-birth-death">{this.props.dob}</div>
-                    </div>
+                    <a href={link_to_use}>
+                        <div className="idb-card">
+                          <img className = "idb-artist-portrait"src={this.props.image}></img>
+                          <div className = "idb-artist-name">{this.props.name}</div>
+                          <div className = "idb-artist-birth-death">{this.props.dob}</div>
+                        </div>
+                    </a>
                   );
               }
             });
@@ -129,11 +134,17 @@
                     switch (sort_order)
                     {
                         case 1:
-                            order_by = "name";
+                            if (request_page == page_enum.WORKS)
+                                order_by = "title";
+                            else
+                                order_by = "name";
                             ascending = 1;
                             break;
                         case 2:
-                            order_by = "name";
+                            if (request_page == page_enum.WORKS)
+                                order_by = "title";
+                            else
+                                order_by = "name";
                             ascending = 0;
                             break;
                         case 3:
@@ -211,13 +222,11 @@
         function update_cards(data){
             for (i = 0; i < data.data.length; i++){
                 d = data.data[i];
-                console.log(d);
                 ReactDOM.render(
-                    React.createElement(artist_card, {name:d.name,dob:d.dob,image:d.image}, null),
+                    React.createElement(artist_card, {name:d.name,dob:d.dob,image:d.image,id:d.id,}, null),
                     document.getElementById('card-' + i)
                 );
             }
-            console.log()
             for(j = i; j < 16; j ++)
             {
                 ReactDOM.render(
