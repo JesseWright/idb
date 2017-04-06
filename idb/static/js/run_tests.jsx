@@ -4,9 +4,10 @@ var test_results = React.createClass({
   },
   render: function() {
     var state = this.state;
+    var btnClass = buttonDisabled ? 'btn-disabled' : '';
     return (
       <div>
-      <button disabled={state.buttonDisabled} onClick={this.handleClick}/>
+      <button className="{btnClass}" onClick={this.handleClick}>Run Tests</button>
         <div className="test-results {state.loadState}">
           <div className="overlay">
             <div className="spinner">
@@ -18,21 +19,24 @@ var test_results = React.createClass({
       </div>);
   },
   handleClick: function() {
-    this.setState($.extend(
-      this.state, {buttonDisabled: 'disabled', loadState: 'loading'}));
-    $.get('http://www.kingsofchaos.com', this.handleLoad, 'json');
+    if(!this.state.buttonDisabled) {
+      this.setState($.extend(
+        this.state, {buttonDisabled: true, loadState: 'loading'}));
+      $.get('/artists/', this.handleLoad, 'json');
+    }
 
   },
   handleLoad: function(results) {
     this.setState($.extend(
-      this.state, {buttonDisabled: '', loadState: 'done', results: results}));
+      this.state, {buttonDisabled: false, loadState: 'done', results: results}));
 
   }
 });
 
 var make_tests = function() {
   ReactDOM.render(
-      React.createElement(test_results, {results: '', loadState: 'inactive', buttonDisabled: ''}, null),
+      React.createElement(test_results,
+        {results: '', loadState: 'inactive', buttonDisabled: false}, null),
       document.getElementById('test')
   );
 }
