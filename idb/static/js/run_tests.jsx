@@ -4,7 +4,7 @@ var test_results = React.createClass({
     var state = this.state
     return (
       <div>
-      <button {state.buttonDisabled} onClick="this.handleClick()"/>
+      <button disabled={state.buttonDisabled} onClick="this.handleClick()"/>
         <div className="test-results {state.loadState}">
           <div class="overlay">
             <div class="spinner">
