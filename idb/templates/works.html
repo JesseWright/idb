@@ -16,17 +16,9 @@
         {% endif %}
           <div class="row">
       {% endif %}
-            <div class="col-md-3">
-              <a href="/work/{{work.id}}">
-                <div class="idb-card">
-                  <img class="idb-work-img" src={{work.image or "/static/img/vangogh.jpg"}}>
-
-                  <div class="idb-work-title">{{work.title or "Untitled"}}</div>
-                  <div class="idb-work-date">{{work.date or "Unknown"}}</div>
-                </div>
-              </a>
-
-            </div>
+          <div class="col-md-3">
+                  <div id = "card-{{loop.index-1}}"></div>
+          </div>
     {% endfor %}
 </div>
 {% if (works|length is not divisibleby 4) %}

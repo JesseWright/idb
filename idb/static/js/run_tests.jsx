@@ -6,7 +6,7 @@ var test_results = React.createClass({
     var state = this.state;
     return (
       <div>
-      <button disabled={state.buttonDisabled} onClick={this.handleClick}/>
+      <button disabled={state.buttonDisabled} onClick={this.handleClick}>Run Tests</button>
         <div className="test-results {state.loadState}">
           <div className="overlay">
             <div className="spinner">
@@ -20,7 +20,7 @@ var test_results = React.createClass({
   handleClick: function() {
     this.setState($.extend(
       this.state, {buttonDisabled: 'disabled', loadState: 'loading'}));
-    $.get('http://www.kingsofchaos.com', this.handleLoad, 'json');
+    $.get('/artists', this.handleLoad, 'json');
 
   },
   handleLoad: function(results) {

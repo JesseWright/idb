@@ -211,29 +211,55 @@
                 + filters.ascending + '&page=' + filters.page;
             console.log(url);
             $.get(url,function(data,status){
-                update_cards(data);
-                ReactDOM.render(
-                    React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),
-                    document.getElementById('page-identifier')
-                );
+                if(status == 200)
+                {
+                    update_cards(data);
+                    ReactDOM.render(
+                        React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),
+                        document.getElementById('page-identifier')
+                    );
+                }
+                else
+                {
+                    update_cards(undefined);
+                    ReactDOM.render(
+                        React.createElement(page_ident, {page_num:-1,max_page_num:0 }, null),
+                        document.getElementById('page-identifier')
+                    );
+                }
+
+
             });
 
         }
         function update_cards(data){
-            for (i = 0; i < data.data.length; i++){
-                d = data.data[i];
-                ReactDOM.render(
-                    React.createElement(artist_card, {name:d.name,dob:d.dob,image:d.image,id:d.id,}, null),
-                    document.getElementById('card-' + i)
-                );
-            }
-            for(j = i; j < 16; j ++)
+            if(!data)
             {
-                ReactDOM.render(
-                    React.createElement('div', null, null),
-                    document.getElementById('card-' + j)
-                );
+                for (i = 0; i < 16; i++){
+                    d = data.data[i];
+                    ReactDOM.render(
+                        React.createElement(artist_card, {name:d.name,dob:d.dob,image:d.image,id:d.id,}, null),
+                        document.getElementById('card-' + i)
+                    );
+                }
             }
+            else {
+                for (i = 0; i < data.data.length; i++){
+                    d = data.data[i];
+                    ReactDOM.render(
+                        React.createElement(artist_card, {name:d.name,dob:d.dob,image:d.image,id:d.id,}, null),
+                        document.getElementById('card-' + i)
+                    );
+                }
+                for(j = i; j < 16; j ++)
+                {
+                    ReactDOM.render(
+                        React.createElement('div', null, null),
+                        document.getElementById('card-' + j)
+                    );
+                }
+            }
+
         }
         function get_page_enum(){
             return page_enum;

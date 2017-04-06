@@ -117,7 +117,7 @@ def era(id):
 def medium(id):
     medium = Medium.query.filter_by(id=id).first()
     medium._image = medium.images.replace("[","").replace("]","").replace("'","")
-    
+
     if len(medium.colors) > 6:
         colors = medium.colors.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
     else:
