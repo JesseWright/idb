@@ -267,6 +267,24 @@ class Work(db.Model):
                                                             self.motifs,
                                                             media)
 
+    def serialize(self):
+        """ Return a formatted String representation
+        of a given Artist. """
+        media = [[medium.id, medium.name] for medium in self.media]
+        return {
+            "id"   : self.id,
+            "title" : self.title,
+            "date" : self.date,
+            "colors" : self.colors,
+            "colors" : self.colors,
+            "height" : self.height,
+            "width" : self.width,
+            "depth" : self.depth,
+            "image" : self.image,
+            "motifs" : self.motifs,
+            "media" : media
+        }
+
 
 class Medium(db.Model):
     """ A Model that houses information on artistic media. """
