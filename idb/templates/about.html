@@ -6,8 +6,12 @@
 
 <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="https://cs373-project-345.appspot.com/static/css/style.css">
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-<script type = "text/jsx" src= "/static/js/run_tests.jsx"></script>
+<script type = "text/jsx" src= "/static/js/run_tests.jsx"></script
+<link rel="stylesheet" type="text/css" href="/static/css/about.css">
 <style>
 .idb-std-image {
     width: 255px;
@@ -103,12 +107,10 @@
             <p>GCP - Google Cloud Platform for hosting</p>
             <p>TravisCI - integrates with GitHub repo to automatically test and build</p>
           </div>
-          <script>
-            make_tests();
-          </script>
+
           <div class="col-lg-12">
             <h2 class="page-header">Tests</h2>
-            <div id="tests-results-container"></div>
+            <div id="test"></div>
           </div>
 
           <div class="col-lg-12">

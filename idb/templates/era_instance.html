@@ -39,7 +39,7 @@
     {% if era.works %}
         <div class = "idb-era-data-container" style = "padding-top: 20px"> This era saw such artworks as: </div>
         {% for work in works %}
-        <div style = "text-align: center"><a href = "/artist/{{work.id}}">{{work.title}}</a></div>
+        <div style = "text-align: center"><a href = "/work/{{work.id}}">{{work.title}}</a></div>
         {% endfor %}
     {% else %}
         <div class = "idb-era-data-container" style = "padding-top: 50px"><i>Unfortunately there is no data about famous artworks from this era.</i></div>

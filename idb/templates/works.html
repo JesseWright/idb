@@ -1,34 +1,34 @@
 
 {% extends "card_base.html" %}
-{% block title %}Works{% endblock %}
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" type="text/css" href="/static/css/works.css">
+<title>work</title>
 {% endblock %}
 
 {% block content %}
 
+<div id = "container" onload="load">
+    {% for work in works %}
+      {% if (loop.index-1) is divisibleby 4 %}
+        {% if (loop.index-1) is not equalto 0 %}
+      </div>
+        {% endif %}
+          <div class="row">
+      {% endif %}
+            <div class="col-md-3">
+              <a href="/work/{{work.id}}">
+                <div class="idb-card">
+                  <img class="idb-work-img" src={{work.image or "/static/img/vangogh.jpg"}}>
 
-{% for work in works %}
-  {% if (loop.index-1) is divisibleby 4 %}
-    {% if (loop.index-1) is not equalto 0 %}
-  </div>
-    {% endif %}
-      <div class="row">
-  {% endif %}
-        <div class="col-md-3">
-          <a href="/work/{{work.id}}">
-            <div class="idb-card">
-              <img class="idb-work-img" src={{work.image or "/static/img/vangogh.jpg"}}>
+                  <div class="idb-work-title">{{work.title or "Untitled"}}</div>
+                  <div class="idb-work-date">{{work.date or "Unknown"}}</div>
+                </div>
+              </a>
 
-              <div class="idb-work-title">{{work.title or "Untitled"}}</div>
-              <div class="idb-work-date">{{work.date or "Unknown"}}</div>
             </div>
-          </a>
-
-        </div>
-{% endfor %}
-
+    {% endfor %}
+</div>
 {% if (works|length is not divisibleby 4) %}
   </div>
 {% endif %}
@@ -73,7 +73,7 @@
          <button type="button" class="btn btn-default navbar-btn navbar-left" onclick = "update(4,1,get_page_enum().WORKS)">Contemporary first</button>
         <!-- right elements -->
         <button type="button" class="btn btn-default navbar-btn navbar-right" id = "next-button" onclick="handle_page_change(0,get_page_enum().WORKS)">Next Page</button>
-        <p id = "page-identifier" class = "navbar-text navbar-right"></p>
+        <div id = "page-identifier" class = "navbar-text navbar-right"></div>
         <button type="button" class="btn btn-default navbar-btn navbar-right" id = "prev-button" onclick="handle_page_change(1,get_page_enum().WORKS)">Previous page</button>
 
   </div>

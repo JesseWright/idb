@@ -1,13 +1,15 @@
-const test_results_singleton;
 var test_results = React.createClass({
+  getInitialState: function() {
+    return $.extend({},this.props);
+  },
   render: function() {
-    var state = this.state
+    var state = this.state;
     return (
       <div>
-      <button {state.buttonDisabled} onClick="this.handleClick()"/>
+      <button disabled={state.buttonDisabled} onClick={this.handleClick}/>
         <div className="test-results {state.loadState}">
-          <div class="overlay">
-            <div class="spinner">
+          <div className="overlay">
+            <div className="spinner">
               <img src="/static/img/spinner.gif"/>
             </div>
           </div>
@@ -18,7 +20,7 @@ var test_results = React.createClass({
   handleClick: function() {
     this.setState($.extend(
       this.state, {buttonDisabled: 'disabled', loadState: 'loading'}));
-    $.get('', handleLoad, 'json');
+    $.get('http://www.kingsofchaos.com', this.handleLoad, 'json');
 
   },
   handleLoad: function(results) {
@@ -28,9 +30,11 @@ var test_results = React.createClass({
   }
 });
 
-function make_tests() {
+var make_tests = function() {
   ReactDOM.render(
-      React.createElement(test_results, {results: '', state: 'inactive', buttonDisabled: ''}, null),
-      document.getElementById('test-results')
+      React.createElement(test_results, {results: '', loadState: 'inactive', buttonDisabled: ''}, null),
+      document.getElementById('test')
   );
 }
+
+$(document).ready(make_tests);

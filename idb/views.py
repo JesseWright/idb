@@ -29,7 +29,8 @@ def artists():
 @app.route('/works')
 def works():
     works = Work.query.all()
-    return render_template('works.html', works=works)
+    first_page = works[0:16]
+    return render_template('works.html', works=first_page)
 
 @app.route('/eras')
 def eras():
@@ -45,8 +46,8 @@ def media():
             medium._image = medium.images.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")[0]
         else:
             medium._image = None
-
-    return render_template('media.html', media=media)
+    first_page = media[0:16]
+    return render_template('media.html', media=first_page)
 
 @app.route('/artist/<int:id>')
 def artist(id):
@@ -116,10 +117,7 @@ def era(id):
 def medium(id):
     medium = Medium.query.filter_by(id=id).first()
     medium._image = medium.images.replace("[","").replace("]","").replace("'","")
-    #TODO: remove this after testing is done
-    if medium.id % 2:
-        medium.countries = "Test country 1, test country 2, test country 3, Texas"
-
+    
     if len(medium.colors) > 6:
         colors = medium.colors.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
     else:
