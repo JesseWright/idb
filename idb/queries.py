@@ -17,7 +17,7 @@ def response(status, data, pages):
 @app.route("/query_artist")
 def query_artist():
     args = request.args.to_dict()
-
+    print(args)
     artists = Artist.query
     if "order_by" in args:
         if args["order_by"] == "name" or  args["order_by"] == "dob":

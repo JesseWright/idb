@@ -9,6 +9,45 @@
             WORKS: 'works',
             MEDIA: 'media'
         };
+
+        var artist_card = React.createClass({
+              getDefaultProps: function(){
+                  return {
+                      'name': "default",
+                      'dob' : "1899",
+                      'image' : '/static/img/vangogh.jpg'
+                  };
+              },
+              render: function() {
+                  return(
+                    <div class="idb-card">
+                      <img className = "idb-artist-portrait"src={this.props.image}></img>
+                      <div className = "idb-artist-name">{this.props.name}</div>
+                      <div className = "idb-artist-birth-death">{this.props.dob}</div>
+                    </div>
+                  );
+              }
+            });
+
+
+        var load = function(){
+            update(1,1,document.title);
+            for (i = 0; i < 16; i++){
+                ReactDOM.render(
+                    React.createElement(artist_card, null, null),
+                    document.getElementById('card-' + i)
+                );
+            }
+            ReactDOM.render(
+                React.createElement(page_ident, {page_num:1,max_page_num:7 }, null),
+                document.getElementById('page-identifier')
+            );
+
+        }
+
+        //load cards when page loads
+        $(document).ready(load);
+
         var page_ident = React.createClass({
                 getDefaultProps: function(){
                     return {
@@ -16,14 +55,12 @@
                     };
                 },
                 render: function() {
-                  return (<p>{this.props.page_num}/{this.props.max_page_num}</p>);
+                  return (<div>{this.props.page_num}/{this.props.max_page_num}</div>);
               }
               });
 
-        ReactDOM.render(
-            React.createElement(page_ident, {page_num:1,max_page_num:7 }, null),
-            document.getElementById('page-identifier')
-        );
+
+
 
         function handle_page_change(isPrev,request_page)
         {
@@ -76,11 +113,22 @@
                     document.getElementById('errorText').textContent = "";
                     if (request_page == page_enum.MEDIA)
                     {
+
+
                             //we have to do a little math on the media page
                             base = parseInt(dateEnd);
                             delta = parseInt(dateStart);
-                            dateStart = base - delta;
-                            dateEnd = base + delta;
+                            if(isNaN(base) || isNaN(delta))
+                            {
+                                dateStart = "";
+                                dateEnd = "";
+                            }
+                            else
+                            {
+                                dateStart = base - delta;
+                                dateEnd = base + delta;
+                            }
+
                     }
 
                     //clear the error text
@@ -160,8 +208,8 @@
         function get_new_card_data(filters,request_page)
         {
             var url = "/query_" + request_page + "?";
-            url = url + 'order_by="' + filters.order_by +'"&string_filter="' + filters.string_filter
-                + '"&date_after=' + filters.date_after +'&date_before=' + filters.date_before +'&ascending='
+            url = url + 'order_by=' + filters.order_by + '&string_filter=' + filters.string_filter
+                + '&date_after=' + filters.date_after + '&date_before=' + filters.date_before + '&ascending='
                 + filters.ascending + '&page=' + filters.page;
             console.log(url);
             /*$.get(url,function(data,status){
