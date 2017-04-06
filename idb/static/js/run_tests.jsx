@@ -37,4 +37,4 @@ var make_tests = function() {
   );
 }
 
-$document.ready(make_tests);
+$(document).ready(make_tests);
