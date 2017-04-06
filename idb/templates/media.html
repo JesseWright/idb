@@ -1,9 +1,10 @@
 
 {% extends "card_base.html" %}
-{% block title %}medium{% endblock %}
+
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" type="text/css" href="/static/css/media.css">
+<title>media</title>
 {% endblock %}
 
 {% block content %}
@@ -76,7 +77,7 @@
          <button type="button" class="btn btn-default navbar-btn navbar-left" onclick = "update(4,1,get_page_enum().MEDIA)">Contemporary first</button>
         <!-- right elements -->
         <button type="button" class="btn btn-default navbar-btn navbar-right" id = "next-button" onclick="handle_page_change(0,get_page_enum().MEDIA)">Next Page</button>
-        <p id = "page-identifier" class = "navbar-text navbar-right"></p>
+        <div id = "page-identifier" class = "navbar-text navbar-right"></div>
         <button type="button" class="btn btn-default navbar-btn navbar-right" id = "prev-button" onclick="handle_page_change(1,get_page_enum().MEDIA)">Previous page</button>
 
   </div>
