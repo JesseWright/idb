@@ -5,6 +5,7 @@
 from flask import render_template
 from idb import app
 from idb.models import *
+from idb.queries import *
 
 from subprocess import call
 
