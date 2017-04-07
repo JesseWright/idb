@@ -1,13 +1,10 @@
-[Artist| ID: Integer; name : String;DOB : datetime.date ;DOD : datetime.date ;Nationality : String;Country of Origin : String;image : URI; Bio: String| getWorksByArtist()], 
-, [Work| Title : String;Artist : Integer (Foreign Key) ;medium : String;date: datetime.date;style : string;size : Integer;colors: Integer;image : URI; Motifs: Table(string)| getWorks()], 
-, [Era| ID: Integer; Type: String; Artists Table: Table; Artist;Works : Table: Work ; Styles : Table; Countries of note: Table; Mediums of note: Table | getArtistsInCentury(); getWorksInCentury()], 
-, [Medium| Common Colors: String; average age of piece in medium: Integer; Contributing Artists: Table; Contributing Countries: Table; Average Height: Integer; Average Width: Integer; Images of the medium: String; Artists Table: Table; |getArtistsInMedium();getWorksInMedium()], 
+[Artist| ID: Integer; name : String;DOB : datetime.date ;DOD : datetime.date ;Nationality : Stringc;image : URI; Bio: String| getWorksByArtist()], , , [Work| Title : String;Artist : Integer (Foreign Key) ;medium : String;date: datetime.date;era: string;size : Integer;colors: Integer;image : URI; Motifs: Table(string)| getWorks()], , , [Era| ID: Integer; Type: String; Artists Table: Table; Artist;Works : Table: Work ; Countries of note: Table; Mediums of note: Table | getArtistsInCentury(); getWorksInCentury()], , , [Medium| Common Colors: String; average age of piece in medium: Integer; Contributing Artists: Table; Contributing Countries: Table; Average Height: Integer; Average Width: Integer; Images of the medium: String; Artists Table: Table; |getArtistsInMedium();getWorksInMedium()], , , , , 
 
 
-, %2F%2Fassociations, 
+%2F%2Fassociations, 
 [Artist]<>-1..*[Work], 
-[Artist]1..*-1..*[Medium], 
-[Artist]0..*-1..2[Era], 
-[Work]0..*-0..*[Medium], 
-[Work]0..*-<>[Era], 
+[Artist]1..*-1..*[Medium],
+[Artist]0..*-1..2[Era],
+[Work]0..*-0..*[Medium],
+[Work]0..*-<>[Era],
 [Medium]1..*-1..*[Era]
