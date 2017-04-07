@@ -4,9 +4,6 @@ from sqlalchemy.dialects.postgresql import TEXT
 from sqlalchemy.orm import validates
 from datetime import datetime
 
-# TODO: Consider using cdecimal as per Numeric's SQLAlchemy documentation
-# (Ignore^ if using Python 3.3 or greater
-
 # These below allow for many-to-many relationships.
 # See http://flask-sqlalchemy.pocoo.org/2.2/models/ for reference.
 
