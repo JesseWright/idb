@@ -1,11 +1,13 @@
-# pylint: disable = bad-whitespace
-# pylint: disable = missing-docstring
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from idb.database_tools import build_db_connection_uri_string
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/phase2_test.db'
+app.config['TESTING'] = False
+app.config['DEBUG'] = False
+
+# Setup DB from environment variables or defaults
+app.config['SQLALCHEMY_DATABASE_URI'] = build_db_connection_uri_string()
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
