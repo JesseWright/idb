@@ -7,7 +7,11 @@ app.config['TESTING'] = False
 app.config['DEBUG'] = False
 
 # Setup DB from environment variables or defaults
-app.config['SQLALCHEMY_DATABASE_URI'] = build_db_connection_uri_string()
+app.config['SQLALCHEMY_DATABASE_URI'] = build_db_connection_uri_string(
+    table='postgres'
+          '?unix_socket=/cloudsql/'
+          'cs373-project-345:us-central1:idb-artistree',
+    address='localhost')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
