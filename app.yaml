@@ -8,9 +8,8 @@ runtime_config:
 
 threadsafe: true
 
-# Modify the following locally to set a password via environment variables
+# Use env_variables locally to set a password via environment variables
 #  or do so manually by setting an environment variable in console or globally
-
 # Please do not put passwords in source control
 # env_variables:
 #   SWE_IDB_PGDB_PW: '<PASSWORD>'
