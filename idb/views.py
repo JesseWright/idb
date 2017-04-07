@@ -43,8 +43,14 @@ def works():
 
 @app.route('/eras')
 def eras():
+    images = []
     eras = Era.query.all()
-    images = [era.works[0].image for era in eras]
+    for era in eras:
+        if era.works:
+            images.append(era.works[0])
+        else:
+            images.append(None)
+   # images = [if era.works: era.works[0].image for era in eras]
     return render_template('eras.html', eras=eras, images=images)
 
 @app.route('/media')
@@ -52,9 +58,13 @@ def media():
     media = Medium.query.all()
     for medium in media:
         if medium.images:
-            medium._image = medium.images.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")[0]
+            print(type(medium.images))
+            print(medium.images)
+            medium._image = medium.images.replace(
+                "{","").replace("}","").replace("'","").split(",")[0]
         else:
             medium._image = None
+    print(medium._image)
     first_page = media[0:16]
     return render_template('media.html', media=first_page)
 

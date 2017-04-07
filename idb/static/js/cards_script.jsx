@@ -76,8 +76,8 @@
                       return(
                         <a href={link_to_use}>
                             <div className="idb-card">
-                                <object className = "idb-work-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
-                                    <img className = "idb-work-img" src={this.props.image}/>
+                                <object className = "idb-medium-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
+                                    <img className = "idb-medium-img" src={this.props.image}/>
                                 </object>
                               <div className = "idb-medium-name">{this.props.name}</div>
                               <div className = "idb-medium-name">{this.props.dob}</div>
@@ -94,7 +94,7 @@
                           'dob' : "1899",
                           'image' : '/static/img/vangogh.jpg',
                           'id': 1,
-                          'link': "/era/"
+                          'link': "/eras/"
                       };
                   },
                   render: function() {
@@ -314,7 +314,7 @@
                 console.log(url);
                 if(status == 'success')
                 {
-
+                    console.log("data got");
                     update_cards(data,request_page);
                     ReactDOM.render(
                         React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),

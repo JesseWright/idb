@@ -1,8 +1,14 @@
-from idb import db
+"""These models are used by the database"""
+
+from datetime import datetime
 from sqlalchemy import Column, Integer, Date, ForeignKey, Numeric
 from sqlalchemy.dialects.postgresql import TEXT
 from sqlalchemy.orm import validates
-from datetime import datetime
+from idb import db
+
+# pylint: disable=W0612,W0613,R0201,R0903,C0103, W0622
+# pylint warnings disabled because they conflict with proper usage of SQLAlchemy
+# (Ignore^ if using Python 3.3 or greater
 
 # These below allow for many-to-many relationships.
 # See http://flask-sqlalchemy.pocoo.org/2.2/models/ for reference.
@@ -82,19 +88,6 @@ _MEDIA_WORKS_RELATIONSHIP = db.Table('_media_works_relationship',
 between Medium instances and Era instances and vice versa. """
 
 
-# TODO: Remove circular nature of each Model's reference to each of the
-# other Models.
-# TODO: Add placeholder attributes in Model classes
-# for documenting attributes created by SQLAlchemy backrefs
-# TODO: Update data types to reflect actual content (e.g., lists, URIs,
-# etc.) for all Model attributes
-# TODO: Add index constructs on all Model classes' attributes where relevant
-#  and viable
-# TODO: Complete validation for all models' attributes and all ORM events,
-# especially construction
-# TODO: Look into query/tables w.r.t. speed and efficiency
-
-
 class Artist(db.Model):
     """ A Model that houses information on artists. """
 
@@ -141,8 +134,8 @@ class Artist(db.Model):
         """ Validate the Artist.name attribute.
         Called by the ORM. """
         assert not is_remove \
-               and name is not None \
-               and name != '', \
+            and name is not None \
+            and name != '', \
             "An artist must have a name"
         return name
 
@@ -173,17 +166,16 @@ class Artist(db.Model):
         """ Return JSON representation of artist. """
         works = [[work.id, work.title] for work in self.works]
         return {
-            "id"   : self.id,
-            "name" : self.name,
-            "dob" : self.dob,
-            "dod" : self.dod,
-            "nationality" : self.nationality,
-            "country" : self.country,
-            "image" : self.image,
-            "bio" : self.bio,
-            "works" : works
+            "id": self.id,
+            "name": self.name,
+            "dob": self.dob,
+            "dod": self.dod,
+            "nationality": self.nationality,
+            "country": self.country,
+            "image": self.image,
+            "bio": self.bio,
+            "works": works
         }
-
 
 
 class Work(db.Model):
@@ -237,8 +229,8 @@ class Work(db.Model):
         """ Validate the Work.title attribute.
         Called by the ORM. """
         assert not is_remove \
-               and title is not None \
-               and not title == '', \
+            and title is not None \
+            and not title, \
             "An artwork must have a title"
         return title
 
@@ -254,7 +246,6 @@ class Work(db.Model):
     def _validates_height(self, key, dimension):
         """ Validate the Work.height and Work.width attributes.
         Called by the ORM. """
-        # TODO: Assert types (since going into typed database)
         assert not dimension or dimension > 0, \
             "An artwork must have positive dimensions"
         return dimension
@@ -280,16 +271,16 @@ class Work(db.Model):
         """ Return JSON representation of work. """
         media = [[medium.id, medium.name] for medium in self.media]
         return {
-            "id"   : self.id,
-            "title" : self.title,
-            "date" : self.date,
-            "colors" : self.colors,
-            "height" : self.height,
-            "width" : self.width,
-            "depth" : self.depth,
-            "image" : self.image,
-            "motifs" : self.motifs,
-            "media" : media
+            "id": self.id,
+            "title": self.title,
+            "date": self.date,
+            "colors": self.colors,
+            "height": self.height,
+            "width": self.width,
+            "depth": self.depth,
+            "image": self.image,
+            "motifs": self.motifs,
+            "media": media
         }
 
 
@@ -319,8 +310,6 @@ class Medium(db.Model):
     avg_depth = Column(Numeric)
     """ The average depth in centimeters of artwork for a given Medium. """
 
-    # TODO: Add avg_depth attribute
-
     images = Column(TEXT)
     """ A String representation of a list of image URIs associated with a
     Medium. """
@@ -347,8 +336,8 @@ class Medium(db.Model):
         """ Validate the Medium.name attribute.
         Called by the ORM. """
         assert not is_remove \
-               and name is not None \
-               and not name == '', \
+            and name is not None \
+            and not name, \
             "A medium must have a name"
         return name
 
@@ -356,7 +345,6 @@ class Medium(db.Model):
     def _validates_average_age(self, key, average_age):
         """ Validate the Medium.average_age attribute.
         Called by the ORM. """
-        # TODO: Convert average age to update on updates via trigger
         assert not average_age or average_age > 0, \
             "A medium must have a positive average age"
         return average_age
@@ -390,18 +378,17 @@ class Medium(db.Model):
         """ Return JSON representation of medium. """
         artists = [[artist.id, artist.name] for artist in self.artists]
         return {
-            "id"   : self.id,
-            "name" : self.name,
-            "colors" : self.colors,
-            "average_age" : self.average_age,
-            "avg_height" : self.avg_height,
-            "avg_width" : self.avg_width,
-            "avg_depth" : self.avg_depth,
-            "countries" : self.countries,
-            "images" : self.images,
-            "artists" : artists
+            "id": self.id,
+            "name": self.name,
+            "colors": self.colors,
+            "average_age": self.average_age,
+            "avg_height": self.avg_height,
+            "avg_width": self.avg_width,
+            "avg_depth": self.avg_depth,
+            "countries": self.countries,
+            "images": self.images,
+            "artists": artists
         }
-
 
 
 class Era(db.Model):
@@ -446,8 +433,8 @@ class Era(db.Model):
         """ Validate the Era.name attribute.
         Called by the ORM. """
         assert not is_remove \
-               and name is not None \
-               and not name == '', \
+            and name is not None \
+            and not name, \
             "An era must have a name"
         return name
 
@@ -455,10 +442,9 @@ class Era(db.Model):
     def validate_type(self, key, type, is_remove):
         """ Validate the Era.type attribute.
         Called by the ORM. """
-        # TODO: Make 'type' an Enum
         assert not is_remove \
-               and type is not None \
-               and not type == '', \
+            and type is not None \
+            and not type, \
             "An era must have a type"
         return type
 
@@ -483,11 +469,11 @@ class Era(db.Model):
         works = [[work.id, work.title] for work in self.works]
         media = [[medium.id, medium.name] for medium in self.media]
         return {
-            "id"   : self.id,
-            "name" : self.name,
-            "type" : self.type,
-            "countries" : self.countries,
-            "artists" : artists,
-            "works" : works,
-            "media" : media
+            "id": self.id,
+            "name": self.name,
+            "type": self.type,
+            "countries": self.countries,
+            "artists": artists,
+            "works": works,
+            "media": media
         }
