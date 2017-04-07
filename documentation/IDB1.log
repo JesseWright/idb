@@ -1,3 +1,799 @@
+commit 2e8ccf2918ea982d456d0e201faaaa9a649f0e47
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:54:59 2017 -0500
+
+    import
+
+commit c2b7cb0d45decec5b6930ba166b9b4783832b0dd
+Merge: 7e39167 3e45f36
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:52:52 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 7e39167829cd33d945b0e6b65da28eab955d31f0
+Merge: 6a0dea2 560fc65
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:52:21 2017 -0500
+
+    Merge branch 'master' into dynamic_templating_feature
+
+commit 6a0dea23993b3df249d4f5193251aff6722b2de3
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:52:18 2017 -0500
+
+    did this work?
+
+commit 3e45f36a71d9cd03441812325a7a3c2db2761feb
+Merge: 9f82567 dada242
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 6 21:50:16 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit 9f82567dec965f1a19d6a2651b78d803af4b3478
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 6 21:50:12 2017 -0500
+
+    ffixed reference error
+
+commit dada2424d78788fe10a7ae56588165d4f9a27135
+Merge: 2f1e0e9 99619d4
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:47:04 2017 -0500
+
+    Merge remote-tracking branch 'origin/backend_models' into dynamic_templating_feature
+
+commit 2f1e0e9db2f5935439409b1bb6e194dacc6eba1a
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:46:08 2017 -0500
+
+    medium images fix
+
+commit 7bfd0930e0513643509d5889de14acfe7f1ee5fa
+Merge: f8938f7 ab602db
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:42:59 2017 -0500
+
+    free at last
+
+commit f8938f7e6791e184985eb648f8071b8610aa0b93
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:40:10 2017 -0500
+
+    stuff
+
+commit ab602dbf5db6792b134b482d9a9892bd38673ba7
+Merge: ea1bcf3 1c6d56b
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:37:09 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit ea1bcf3dab8694c99b2a6627c7f4e8ee6ed437ae
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:37:02 2017 -0500
+
+    james
+
+commit 99619d444a3ddb0b9ae2735106d843382f68dddf
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Apr 6 21:33:25 2017 -0500
+
+    autopep8 models
+
+commit 1c6d56be0812166269e1f5f01723029c6613e740
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 21:31:43 2017 -0500
+
+    api first try
+
+commit 7707d7138cbade33f1f935362b0536db67261ba1
+Merge: d1a6406 92a0fad
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:10:44 2017 -0500
+
+    Merge branch 'backend_models' into dynamic_templating_feature
+
+commit 92a0fad284d79b8f9e3490755ba677fde3548aef
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:09:38 2017 -0500
+
+    Corrected imports in models.py.
+
+commit 458138ed9354f3b1d1a6be9c0065669340ec68a8
+Merge: 5e9c996 02d2175
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 20:50:00 2017 -0500
+
+    pylint 10/10
+
+commit 5e9c996ea697c2f6b7a454dd78679f1e11ad9165
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 20:45:37 2017 -0500
+
+    pylint 10/10
+
+commit d1a640676045d48a7ff43209214f019c9c60d6f2
+Merge: 838175a 02d2175
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 6 20:37:31 2017 -0500
+
+    Merge pull request #39 from grahamjamesr7/backend_models
+    
+    James/Jesse merge
+
+commit 02d2175602d77f307a75ff0b4f96508562d4b66d
+Merge: c4317dd 838175a
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 6 20:37:06 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' into backend_models
+
+commit c4317dd2ae566c3b75a86bb41694f6598d87b599
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 20:27:30 2017 -0500
+
+    Removed TODO (now using Python 3.5, so resolved).
+
+commit 838175a14859f063e72299e34fe3a53308c3a968
+Merge: c0c3fce f774919
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 6 20:24:04 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit f8662a47516f43f03bc2138d9ba49bdc700efe1b
+Merge: 9b84138 d127008
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 20:23:54 2017 -0500
+
+    Merge branch 'backend_models' of https://github.com/grahamjamesr7/idb into backend_models
+
+commit c0c3fced0a13f1c1fad5b9dcfcf2f43ce5d6618e
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 6 20:23:54 2017 -0500
+
+    runs tests, although it doesn't actually work atm
+
+commit 9b84138c2cfecbea5c73baffd8b72ae4787e2ee2
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 20:23:35 2017 -0500
+
+    Updated Travis configuration to hopefully run tests correctly using nosetests. Moved code for building DB URI into a function inside a library-type utilities file. Renamed file used for generating database/date to avoid confusion. Updated String-type columns to be TEXT-type columns. Updated unit tests to properly use environment variables and a PostgreSQL database. Added documentation for models.py as generated by the ever crappy pydoc.
+
+commit f774919821f120c7d47068ddf5557ded88f0128f
+Merge: 9161a19 2129aab
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 20:21:35 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 9161a19f6bf02e37bd16716a4eba48328796bfb7
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 20:21:18 2017 -0500
+
+    minor fixes on about page css
+
+commit d127008c8fb6b5f6ba1626559174a4d9919e3384
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 20:15:42 2017 -0500
+
+    resolved couple pylint issues
+
+commit 2129aab806d73696c797c7853b596c038e4e7010
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 20:15:16 2017 -0500
+
+    dynamic media cards but NEEDS TO BE DEBUGGED ON REAL DB
+
+commit de51f31267ada219983a68d8992401ee13c946e8
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 20:10:00 2017 -0500
+
+    medium no date
+
+commit 4c2af1b31a5943973fc8a33f8ee9e553ec67f18d
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 19:58:41 2017 -0500
+
+    relationship attribute comments
+
+commit fd4b37ea4c22236928dc742ad0e3fb03c7eec654
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:47:18 2017 -0500
+
+    era query
+
+commit 30f877e2e6449cab2b528d8028af08b3080ffef3
+Merge: 94440cc 104434b
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:32:57 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 94440cc8e363a7f9f3e54b4955f87b1cc6358c3a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:32:41 2017 -0500
+
+    medium query float vals->strings
+
+commit 104434b345379d1fb518b6a99e29a54b83c65000
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 19:30:48 2017 -0500
+
+    added the new report pdf
+
+commit d304f3e63f9eee0e9ee8e720e0db6f3934eca414
+Merge: 1a1954a 833f564
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:25:41 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 1a1954a75bd7e42857813a45b8355f857e0aa993
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:25:21 2017 -0500
+
+    added medium query
+
+commit 833f5646fafcf159f7afb2cad417c2dc31abf051
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 19:15:35 2017 -0500
+
+    added limited documentation
+
+commit 5772389275064d7af724de897f8ad66489a89fa7
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 18:39:35 2017 -0500
+
+    moved navbar to single bar (sorry small screen users), moved it to the top, works page now queries
+
+commit 2b0f3b5cfbd1549e3c1df94dd1d0fe9a0856bc22
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 17:42:27 2017 -0500
+
+    Messed up the slash for path to tests.
+
+commit 513525a2bbb77326cb603c21e3a6f6128059bdc7
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 17:36:12 2017 -0500
+
+    Updated Travis configuration to use Trusty to support PostgreSQL.
+
+commit 44e726341e289707bf9f1cdc9f40c0a5d2134954
+Merge: f4e0d36 05f32f9
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 17:30:19 2017 -0500
+
+    Updated PostreSQL version Travis will use to match Cloud SQL instance. Updated nosetests script call for Travis to use correct path to tests.py.
+    
+    Merged front-end code and resolved conflicts. Tested against live production database with mostly success. Need to re-import database using new export from Stefan to add bios and to resolve issue I inadvertently made when trying to convert colors column to an array of strings. Updated requirements.txt to use correct Jinja and to verify that SQLAlchemy is installed and of correct version.
+
+commit 8142baad8b8d42eba677cb958c1c094c2a21fe18
+Merge: 9dc01d3 05f32f9
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 15:18:49 2017 -0500
+
+    merge conflict fix?
+
+commit 9dc01d3482290443bca8fd9a5a08f4f01c3783aa
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 15:09:45 2017 -0500
+
+    added new report text, still need to fix the UML Image but that can be done soon
+
+commit f4e0d3650516bc9139129991925470d554ca3c74
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 14:53:25 2017 -0500
+
+    Adding ignore for test file.
+
+commit d6cdc107f85c21e621bb946b81fc47f2fe65aba2
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 14:50:42 2017 -0500
+
+    For convenience, adding env directory to gitignore.
+
+commit afb94d6cfb14026ab2a5d2c7df4aa6433148b9b1
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 14:34:53 2017 -0500
+
+    Migrated to flexible environment for app engine. Testing so far works on my machine. The DB-connection portion has not been tested yet - will test when receive updated routing/front-end code that uses the DB.
+
+commit 05f32f9423280923edc015d5f8c9f5066f7c57d6
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 13:09:06 2017 -0500
+
+    work dimensions now strings
+
+commit ca3cfa22061412df0cbe8ecaa685963924eb6955
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 23:12:32 2017 -0500
+
+    fixed button disabling
+
+commit 7d92f6b067f8f700824d017b2571f27e94430887
+Merge: 4d1bea3 160d6cf
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 23:01:07 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 4d1bea3588492f7bc4c7ce3a99f4d816e1f86370
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 23:01:04 2017 -0500
+
+    little about fixes
+
+commit 160d6cfe15b9db55cb540de24c79d6bcf86ad097
+Merge: 0453d93 eaa9c9f
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:59:07 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit 0453d93fec40336f825a123837c1692e2e79f47c
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:56:41 2017 -0500
+
+    fixed unclosed script tag
+
+commit eaa9c9f822c9665084d93a92ddc408f363509f3e
+Merge: 16110db 0919119
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 22:54:52 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 16110dbfbfa925ce60ba413c1954ffe2a8ecd7a7
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 22:54:43 2017 -0500
+
+    added works query
+
+commit 0919119de69d2b4c621b6f76d0ebe6b7bcc0cef0
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:54:10 2017 -0500
+
+    fixed onload state setting
+
+commit 0b6becb0dac2d6a3677f5645f802a2b1a920ed56
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:53:02 2017 -0500
+
+    little jsx changes, about fixes
+
+commit 68387d9b5054dd6034304af5b597bbd4c7bf3087
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:37:52 2017 -0500
+
+    actually fixed merge conflict
+
+commit 136b4e341d38457cfbd8111a2ca4bd0b7d2d4206
+Merge: 574c686 62b055b
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:34:21 2017 -0500
+
+    fixed merge conflicts
+
+commit 574c686280109cbfebbbe764e6a8929767a489fe
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:32:22 2017 -0500
+
+    fixed props/state mixup
+
+commit 62b055b236de2b81c17c5d3209ced6c50016c734
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:24:46 2017 -0500
+
+    kyle's changes
+
+commit dbd33e38bde90d68e26c3f29f97e6d404327f23e
+Merge: fcedcfe 89eb245
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:13:58 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 89eb2457f6fc0c51a0a0174a863b4a0a16ca0cc6
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:13:39 2017 -0500
+
+    test-results-container
+
+commit fcedcfe7aeb96763074e50eff3185bcfb4f7ca65
+Merge: 4ff2383 53ba11c
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:12:37 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 4ff238337c95415387ef8b0bfdc903a44c174886
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:12:34 2017 -0500
+
+    little about fixes
+
+commit 53ba11cdbc4edf9ca486e476713090f301adb4f2
+Merge: 7598da4 159a437
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:12:01 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit 7598da42172b0e1b80128f8365a2aa1520c580b5
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:11:34 2017 -0500
+
+    fixed onload behavior
+
+commit 159a437054f2df6aa42fb65ed9763504f5799230
+Merge: 8d17ea3 d1eb6eb
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:05:49 2017 -0500
+
+    DYNAMIC CARDS ON THE ARTIST PAGEgit add -A (fixed merge conflict too)
+
+commit d1eb6ebe577bfc2109797f719a936f31fab8be91
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:52:38 2017 -0500
+
+    added dummy data for test runner
+
+commit 4a47f841c09beedd851ee4d84712804d5686d006
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:47:22 2017 -0500
+
+    fixed disabled
+
+commit bcd5e64375bf4dd14010e332a0de6d37e288bdeb
+Merge: b75d1b4 bb34673
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:40:58 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit b75d1b4ec359d41395fa46b834d004a686cafe34
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:40:47 2017 -0500
+
+    removed const
+
+commit bb346733ae71891c4b1e5feb306e78840f286155
+Merge: 1364b7b bc447fd
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 21:40:06 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 8d17ea303a14a62aa15872fc65abb6257ff824b3
+Merge: 6e40933 bc447fd
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 21:39:35 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 6e40933a3e324ced1c7874d495bfbcd261e1dc6d
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 21:39:33 2017 -0500
+
+    little fixes
+
+commit 1364b7b8a33a279d522bd883cbb0051dd76ba0a0
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 21:39:30 2017 -0500
+
+    made query usable by api
+
+commit bc447fd4e11f1a93ac71a333ea647627d5f5fe3b
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:36:52 2017 -0500
+
+    can run tests from the about page
+
+commit aa027427ff4be018a4fb07ba1f4296c0049f52e2
+Merge: 940fff5 e01a4be
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 21:16:42 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 940fff5ee215586c3f2584574061554b7f3cf7b2
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 21:16:39 2017 -0500
+
+    working on dynamic cards
+
+commit e01a4bed2f179a0701a9cd0cc3e0a137120a5282
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 21:13:01 2017 -0500
+
+    fixed name but no value params
+
+commit 59f89b0772e18573d9c6f3a0982e67ec051244e0
+Merge: cf5d09a 70c79ce
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 18:59:47 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit cf5d09a685617580e92a71e55dd77ad9128a06f3
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 18:59:13 2017 -0500
+
+    artist dynamic query
+
+commit 70c79ceb94f1c79d9949b6c98151d87b72efbc3b
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Wed Apr 5 15:35:13 2017 -0500
+
+    updated data models using file in master, we should avoid a merge conflict now
+
+commit 32fcc746608cafe6067205a771ee57055bd559a1
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 15:13:48 2017 -0500
+
+    added placeholder images, moved javascript to its own file, cleanup
+
+commit f08de1a0d94ea9ac346a3f4ed5f69ad635a4b6a2
+Merge: 8d2dee1 8f4c112
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 14:26:09 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 8d2dee18a97c36fd2ab3a1bc7e4dec254cef0626
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 14:25:57 2017 -0500
+
+    lots of frontend fixes, lots of javascript. Filter/sort bars on all pages, although lacking CSS.
+
+commit 8f4c11275107e8fc9fe0f6d23b22df0e9b369616
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Tue Apr 4 14:59:17 2017 -0500
+
+    updated description, added era search
+
+commit 874e1256bfaadfccd74794eb31c327a691062eec
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 14:41:16 2017 -0500
+
+    additional little fixes
+
+commit 69229d1a0c19bc804758225817f140ac91f2f0f5
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 14:40:13 2017 -0500
+
+    Forgot about artist connection to eras -- updated the artist page to have a list of eras
+
+commit ba6ff1b00a5ba67b9b6075c920c19c78597a1187
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 10:19:08 2017 -0500
+
+    era changed to eras in era cards page links
+
+commit fcf21da160e4799ce66613e4c6782b653f37bc2d
+Merge: 92de3fa eaba81d
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 10:17:31 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 92de3fa5ee6f6bd96b3746e20c0cc40fd1ff888a
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 10:17:07 2017 -0500
+
+    Added instance page for eras, fiddled with about page
+
+commit eaba81d9da51a5787bed8c33e5cde7e60f15bd1b
+Merge: 29b5903 55f738e
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:49:08 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 29b590362296d9f206328330f2deae387e91656a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:48:40 2017 -0500
+
+    added media and eras
+
+commit 55f738e853265557d7152aedcb0429fccc8229dc
+Merge: ff2f2e5 a99f9ba
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 00:42:34 2017 -0500
+
+    fixed merge conflict
+
+commit ff2f2e55341a5e18daf0355a37ae37331fb0b8e9
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 00:40:54 2017 -0500
+
+    medium_instance page complete for now
+
+commit a99f9ba7172f487d10c20e43242f5f83fa662b9a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:20:52 2017 -0500
+
+    added works
+
+commit 9d6820ec7aac816ea969020497238737ef9b462a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:08:53 2017 -0500
+
+    updated navbar to current naming scheme
+
+commit 11617edcc3f3fd12e414a68d1c9f1cef3d72e06c
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:06:52 2017 -0500
+
+    updated pathing
+
+commit 6a9b56f1e172ec243e4bf5140565de9fa58f8465
+Merge: 2a61468 a3e3255
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:57:57 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 2a6146846ef504e238bd94d167ec3f6d400c59a1
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:57:54 2017 -0500
+
+    working on instance pages
+
+commit a3e32559290754e002c4bec7ac579de7d0f5c1c0
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Mon Apr 3 23:56:13 2017 -0500
+
+    added views back in
+
+commit 122eea549c761df0690488c7e76b6eba5faf9c36
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Mon Apr 3 23:44:15 2017 -0500
+
+    removed extra folders in /templates
+
+commit 56688dc47b7677b8c89e18b4af9f88d002897110
+Merge: df3b53e 1fa44fb
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:32:37 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit df3b53e2b98066cc9e617013d4ebec82ff00a699
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:32:33 2017 -0500
+
+    working on medium instance page
+
+commit 1fa44fb2d5798c27dfcb40fdc3248de29a1d3cfb
+Merge: a851e22 a19540e
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Mon Apr 3 23:31:43 2017 -0500
+
+    fixed merge conflicts
+
+commit a851e22575e77797781e8129b5aea4e4a654b6f5
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Mon Apr 3 23:26:16 2017 -0500
+
+    finished cards
+
+commit a19540e3dfe4eeda227c0e2c5b7892ab199e8da5
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:02:13 2017 -0500
+
+    further work on instance pages/styling. Most links work now
+
+commit 1e1e234dfd0a58b597fa8a2792c7244f1479bfc8
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 21:54:31 2017 -0500
+
+    work_instance is done!
+
+commit 580368ed6df2dc562021504d35522fd3a490c0f1
+Merge: 047c551 d2f143b
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Mon Apr 3 20:23:39 2017 -0500
+
+    Merge pull request #33 from grahamjamesr7/backend_models
+    
+    Backend models merge with dynamic frontend
+
+commit d2f143bd66299dc72423895dd770690bb3dd7f5f
+Merge: 6aaf97c 047c551
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Mon Apr 3 20:22:37 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' into backend_models
+
+commit 6aaf97c128a2fc6cb111e13b996e8bda9217bcfb
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Mon Apr 3 20:18:28 2017 -0500
+
+    Added depth to generate_random_artist in database.py and updated database. Also, database has several-hundred artworks and artists (i.e., 500+), not a couple-hundred or about a hundred.
+
+commit 3d6d3a7aeab3c575ba3427c2fc4080c29d6e9bf4
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Mon Apr 3 20:09:53 2017 -0500
+
+    Updated __init__.py to use new SQLite database for test data (and removed unnecessary idb.models import). Updated database.py with new code used to generate random test data in the database and to reflect updated models. Added database with a couple-hundred rows of artworks, a hundred or so artists, and some era and media.
+
+commit 61789ba9fb065f64db47c694979f2726090671a2
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Mon Apr 3 20:07:38 2017 -0500
+
+    Updated models to reflect changes made for phase 2. Style has been replaced with Medium, and a few attributes have been added here and there.
+
+commit 047c5510c46db4c1126995f24c8323c42c3c4203
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 18:28:42 2017 -0500
+
+    working on work instance page, updated about page to work dynamically, standardized image sizes on the about page
+
+commit 38871bfbce6b81858f840c5afb8bc2ddf164567a
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 17:08:49 2017 -0500
+
+    forgot to move the CSS to its own file, fixed that
+
+commit 7b7372f3dba19492de61834e57a503632175abdd
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 17:05:45 2017 -0500
+
+    very basic artist page
+
+commit d0650889a4261105bd9be96cdfa3b7c93e4b02a9
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 11:48:50 2017 -0500
+
+    Modified navbar to reflect new routes, updated report page to work with templating engine.
+
+commit 3843d4398f6fb34daf453ac05691b10e084d50c5
+Merge: e02408c 57e77b0
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Sun Apr 2 23:27:18 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit e02408c6842c56a3d7c5b31b15c381355dc823b6
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Sun Apr 2 23:24:22 2017 -0500
+
+    CSS updates
+
+commit 57e77b0a5cd2a5364c78d27060b6b0a481ca0866
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Mar 30 22:35:25 2017 -0500
+
+    Updated report page with table of contents, bigger UML diagram
+
+commit 71f370fbeaee12054358e93c715026578d1b3801
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Mar 30 21:33:47 2017 -0500
+
+    began work on dynamicizing
+
+commit 560fc65710a0904f420864f2d90d9cc11aa85007
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Mar 30 21:11:21 2017 -0500
+
+    Updated data models
+
+commit 92d09a821d75d2387bee8a867f9811d3d7a913b5
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Mar 30 20:55:03 2017 -0500
+
+    updated models
+
+commit d793ad3ca16b25d98d3d24b9894b98d3d1121c4a
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 21:33:21 2017 -0500
+
+    Added log and updated stats.
+
 commit 4ef274cea7d3438976549fa6252b8287e22e9e5b
 Merge: a971219 12ec71d
 Author: James Graham <grahamjamesr7@gmail.com>
