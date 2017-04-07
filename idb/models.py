@@ -1,8 +1,14 @@
-from idb import db
+"""These models are used by the database"""
+
+from datetime import datetime
 from sqlalchemy import Column, Integer, Date, ForeignKey, Numeric
 from sqlalchemy.dialects.postgresql import TEXT
 from sqlalchemy.orm import validates
-from datetime import datetime
+from idb import db
+
+#pylint: disable=W0612,W0613,R0201,R0903,C0103, W0622
+# pylint warnings disabled because they conflict with proper usage of SQLAlchemy
+# (Ignore^ if using Python 3.3 or greater
 
 # These below allow for many-to-many relationships.
 # See http://flask-sqlalchemy.pocoo.org/2.2/models/ for reference.
@@ -81,18 +87,6 @@ _MEDIA_WORKS_RELATIONSHIP = db.Table('_media_works_relationship',
 """ A Table used to create a many-to-many database relationship
 between Medium instances and Era instances and vice versa. """
 
-
-# TODO: Remove circular nature of each Model's reference to each of the
-# other Models.
-# TODO: Add placeholder attributes in Model classes
-# for documenting attributes created by SQLAlchemy backrefs
-# TODO: Update data types to reflect actual content (e.g., lists, URIs,
-# etc.) for all Model attributes
-# TODO: Add index constructs on all Model classes' attributes where relevant
-#  and viable
-# TODO: Complete validation for all models' attributes and all ORM events,
-# especially construction
-# TODO: Look into query/tables w.r.t. speed and efficiency
 
 
 class Artist(db.Model):
@@ -238,7 +232,7 @@ class Work(db.Model):
         Called by the ORM. """
         assert not is_remove \
                and title is not None \
-               and not title == '', \
+               and not title, \
             "An artwork must have a title"
         return title
 
@@ -254,7 +248,6 @@ class Work(db.Model):
     def _validates_height(self, key, dimension):
         """ Validate the Work.height and Work.width attributes.
         Called by the ORM. """
-        # TODO: Assert types (since going into typed database)
         assert not dimension or dimension > 0, \
             "An artwork must have positive dimensions"
         return dimension
@@ -319,7 +312,6 @@ class Medium(db.Model):
     avg_depth = Column(Numeric)
     """ The average depth in centimeters of artwork for a given Medium. """
 
-    # TODO: Add avg_depth attribute
 
     images = Column(TEXT)
     """ A String representation of a list of image URIs associated with a
@@ -348,7 +340,7 @@ class Medium(db.Model):
         Called by the ORM. """
         assert not is_remove \
                and name is not None \
-               and not name == '', \
+               and not name, \
             "A medium must have a name"
         return name
 
@@ -356,7 +348,6 @@ class Medium(db.Model):
     def _validates_average_age(self, key, average_age):
         """ Validate the Medium.average_age attribute.
         Called by the ORM. """
-        # TODO: Convert average age to update on updates via trigger
         assert not average_age or average_age > 0, \
             "A medium must have a positive average age"
         return average_age
@@ -447,7 +438,7 @@ class Era(db.Model):
         Called by the ORM. """
         assert not is_remove \
                and name is not None \
-               and not name == '', \
+               and not name, \
             "An era must have a name"
         return name
 
@@ -455,10 +446,9 @@ class Era(db.Model):
     def validate_type(self, key, type, is_remove):
         """ Validate the Era.type attribute.
         Called by the ORM. """
-        # TODO: Make 'type' an Enum
         assert not is_remove \
                and type is not None \
-               and not type == '', \
+               and not type, \
             "An era must have a type"
         return type
 
