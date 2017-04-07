@@ -1,14 +1,25 @@
 sudo: false
-
+dist: trusty
 language: python
 
 python:
-   - "2.7"
+   - "3.5"
 
 before_install:
-    - pip install --upgrade pip
+   - pip install --upgrade pip
+   - psql -c 'create database test;' -U postgres
+
+addons:
+   postgresql: "9.6"
 
 install: true
 
 script:
-    make
+   - make
+   - nosetests idb.tests
+
+env:
+   - SQE_IDB_PGDB_TABLE_TEST="test"
+
+services:
+   - postgresql
