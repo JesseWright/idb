@@ -16,16 +16,9 @@
     {% endif %}
       <div class="row">
   {% endif %}
-        <div class="col-md-3">
-          <a href="/eras/{{era.id}}">
-            <div class="idb-card">
-              <img class="idb-era-img" src={{images[loop.index0] or "/static/img/vangogh.jpg"}}>
-
-              <div class="idb-era-name">{{era.name or "Anonymous"}}</div>
-            </div>
-          </a>
-
-        </div>
+      <div class="col-md-3">
+              <div id = "card-{{loop.index-1}}"></div>
+      </div>
 {% endfor %}
 
 {% if (eras|length is not divisibleby 4) %}
