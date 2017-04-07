@@ -13,6 +13,10 @@ def response(status, data, pages):
     ret = {"status":status,"pages":pages,"data":data}
     return jsonify(ret)
 
+"""
+########## Query Routes ##########
+"""
+
 @app.route("/query_artist")
 def url_query_artist():
     artists, page_count  = query_artist(request.args.to_dict())
@@ -41,7 +45,15 @@ def url_query_medium():
         medium["avg_depth"] = str(medium["avg_depth"])
     return response(200, serialized_models, page_count)
 
+@app.route("/query_era")
+def url_query_era():
+    eras, page_count  = query_era(request.args.to_dict())
+    serialized_models = list(map(lambda x: x.serialize(), eras))
+    return response(200, serialized_models, page_count)
 
+"""
+########## Data Retrieval Methods ##########
+"""
 
 def query_artist(args):
     artists = Artist.query
@@ -109,6 +121,18 @@ def query_medium(args):
 
     return media, page_count
 
+def query_era(args):
+    eras = Era.query
+    eras = eras.order_by("name")
+    eras = eras.all()
+    page_count = int(ceil(len(eras) / float(ITEMS_PER_PAGE)))
+    if "page" in args and args["page"]:
+        eras = eras[int(args["page"]) * ITEMS_PER_PAGE : (int(args["page"]) + 1) * ITEMS_PER_PAGE]
+    return eras, page_count
+
+"""
+########## Filtering Methods ##########
+"""
 
 def date_filter(models, func, attribute):
     filtered = []

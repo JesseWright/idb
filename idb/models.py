@@ -460,3 +460,18 @@ class Era(db.Model):
                                   artists,
                                   works,
                                   media)
+
+    def serialize(self):
+        """ Return JSON representation of era. """
+        artists = [[artist.id, artist.name] for artist in self.artists]
+        works = [[work.id, work.title] for work in self.works]
+        media = [[medium.id, medium.name] for medium in self.media]
+        return {
+            "id"   : self.id,
+            "name" : self.name,
+            "type" : self.type,
+            "countries" : self.countries,
+            "artists" : artists,
+            "works" : works,
+            "media" : media
+        }
