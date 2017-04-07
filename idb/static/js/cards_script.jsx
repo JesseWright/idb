@@ -76,11 +76,9 @@
                       return(
                         <a href={link_to_use}>
                             <div className="idb-card">
-                                <object className = "idb-medium-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
-                                    <img className = "idb-medium-img" src={this.props.image}/>
-                                </object>
+                                    <img className = "idb-medium-img" src={"" + this.props.image}/>
                               <div className = "idb-medium-name">{this.props.name}</div>
-                              <div className = "idb-medium-name">{this.props.dob}</div>
+
                             </div>
                         </a>
                       );
@@ -314,7 +312,6 @@
                 console.log(url);
                 if(status == 'success')
                 {
-                    console.log("data got");
                     update_cards(data,request_page);
                     ReactDOM.render(
                         React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),
@@ -386,8 +383,15 @@
                         */
                         name = d.name;
                         year = d.average_age;
-                        image = d.images.replace("[","").replace("]","").replace("'","").split(",")[0];
-                        console.log("image\n" + image);
+                        if (d.images)
+                        {
+                            console.log("I have an image!");
+                            image = d.images.replace("{","").replace("}","").replace("'","").replace(" ","").split(",")[0];
+
+                            if (image === "NULL")
+                                image = "https://placehold.it/200?text=No+image+available";
+                        }
+                        //console.log("image\n" + image);
                     }
                     ReactDOM.render(
                         React.createElement(card_to_render, {name:name,dob:year,'image':image,id:d.id,}, null),
