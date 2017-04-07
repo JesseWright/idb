@@ -1,6 +1,8 @@
 """These models are used by the database"""
+
 from datetime import datetime
-from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric
+from sqlalchemy import Column, Integer, Date, ForeignKey, Numeric
+from sqlalchemy.dialects.postgresql import TEXT
 from sqlalchemy.orm import validates
 from idb import db
 
