@@ -30,7 +30,7 @@ class TestApp(unittest.TestCase):
             build_db_connection_uri_string(username=_db_username_test,
                                            password=_db_username_test,
                                            address=_db_address_test,
-                                           table=_db_table_test,
+                                           name=_db_table_test,
                                            use_env_vars=False)
 
         self.app = app.test_client()
