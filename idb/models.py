@@ -133,8 +133,8 @@ class Artist(db.Model):
         """ Validate the Artist.name attribute.
         Called by the ORM. """
         assert not is_remove \
-            and name is not None \
-            and name != '', \
+               and name is not None \
+               and name != '', \
             "An artist must have a name"
         return name
 
@@ -228,8 +228,8 @@ class Work(db.Model):
         """ Validate the Work.title attribute.
         Called by the ORM. """
         assert not is_remove \
-            and title is not None \
-            and not title, \
+               and title is not None \
+               and not title, \
             "An artwork must have a title"
         return title
 
@@ -335,8 +335,8 @@ class Medium(db.Model):
         """ Validate the Medium.name attribute.
         Called by the ORM. """
         assert not is_remove \
-            and name is not None \
-            and not name, \
+               and name is not None \
+               and not name, \
             "A medium must have a name"
         return name
 
@@ -432,8 +432,8 @@ class Era(db.Model):
         """ Validate the Era.name attribute.
         Called by the ORM. """
         assert not is_remove \
-            and name is not None \
-            and not name, \
+               and name is not None \
+               and not name, \
             "An era must have a name"
         return name
 
@@ -442,8 +442,8 @@ class Era(db.Model):
         """ Validate the Era.type attribute.
         Called by the ORM. """
         assert not is_remove \
-            and type is not None \
-            and not type, \
+               and type is not None \
+               and not type, \
             "An era must have a type"
         return type
 

@@ -7,11 +7,10 @@ from idb.database_tools import build_db_connection_uri_string
 
 _test_string = 'test'
 
+# !-- Unit tests for the DB should NEVER connect to the production DB --! #
+# !-----      If they do, they could drop all of its tables!       -----! #
 _db_username_test = os.environ.get('SWE_IDB_PGDB_UN_TEST')
 _db_password_test = os.environ.get('SWE_IDB_PGDB_PW_TEST')
-
-# !-- These variables below should NEVER connect to the production DB --! #
-# !-----    If they do, they could drop all of its tables!         -----! #
 _db_address_test = os.environ.get('SWE_IDB_PGDB_ADDR_TEST')
 _db_table_test = os.environ.get('SQE_IDB_PGDB_TABLE_TEST')
 
