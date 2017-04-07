@@ -3,7 +3,7 @@ import os
 _db_driver_default = 'psycopg2'
 _db_uname_default = 'postgres'
 _db_pwrd_default = ''
-_db_addr_default = 'localhost:5432'
+_db_addr_default = 'localhost:3306'
 _db_table_default = 'postgres'
 
 
