@@ -22,7 +22,7 @@ var test_results = React.createClass({
     if(!this.state.buttonDisabled) {
       this.setState($.extend(
         this.state, {buttonDisabled: true, loadState: 'loading'}));
-      $.get('/artists/', this.handleLoad, 'json');
+      $.get('/tests/', this.handleLoad, 'text');
     }
 
   },
