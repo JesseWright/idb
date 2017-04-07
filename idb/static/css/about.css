@@ -35,3 +35,15 @@
   background-color: white;
   overflow-y: scroll;
 }
+
+.page-header {
+	padding-top: 30px;
+}
+
+a {
+	color: #FFA;
+}
+
+a:hover {
+	color: #FFF;
+}

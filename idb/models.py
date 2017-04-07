@@ -170,8 +170,7 @@ class Artist(db.Model):
                                           works)
 
     def serialize(self):
-        """ Return a formatted String representation
-        of a given Artist. """
+        """ Return JSON representation of artist. """
         works = [[work.id, work.title] for work in self.works]
         return {
             "id"   : self.id,
@@ -278,14 +277,12 @@ class Work(db.Model):
                                                             media)
 
     def serialize(self):
-        """ Return a formatted String representation
-        of a given Artist. """
+        """ Return JSON representation of work. """
         media = [[medium.id, medium.name] for medium in self.media]
         return {
             "id"   : self.id,
             "title" : self.title,
             "date" : self.date,
-            "colors" : self.colors,
             "colors" : self.colors,
             "height" : self.height,
             "width" : self.width,
@@ -389,6 +386,23 @@ class Medium(db.Model):
                                                              self.images,
                                                              artists)
 
+    def serialize(self):
+        """ Return JSON representation of medium. """
+        artists = [[artist.id, artist.name] for artist in self.artists]
+        return {
+            "id"   : self.id,
+            "name" : self.name,
+            "colors" : self.colors,
+            "average_age" : self.average_age,
+            "avg_height" : self.avg_height,
+            "avg_width" : self.avg_width,
+            "avg_depth" : self.avg_depth,
+            "countries" : self.countries,
+            "images" : self.images,
+            "artists" : artists
+        }
+
+
 
 class Era(db.Model):
     """ A Model that houses information on historical periods. """
@@ -462,3 +476,18 @@ class Era(db.Model):
                                   artists,
                                   works,
                                   media)
+
+    def serialize(self):
+        """ Return JSON representation of era. """
+        artists = [[artist.id, artist.name] for artist in self.artists]
+        works = [[work.id, work.title] for work in self.works]
+        media = [[medium.id, medium.name] for medium in self.media]
+        return {
+            "id"   : self.id,
+            "name" : self.name,
+            "type" : self.type,
+            "countries" : self.countries,
+            "artists" : artists,
+            "works" : works,
+            "media" : media
+        }
