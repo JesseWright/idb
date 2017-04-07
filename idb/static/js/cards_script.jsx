@@ -94,7 +94,7 @@
                           'dob' : "1899",
                           'image' : '/static/img/vangogh.jpg',
                           'id': 1,
-                          'link': "/media/"
+                          'link': "/eras/"
                       };
                   },
                   render: function() {
@@ -303,7 +303,7 @@
                 console.log(url);
                 if(status == 'success')
                 {
-
+                    console.log("data got");
                     update_cards(data,request_page);
                     ReactDOM.render(
                         React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),
