@@ -102,15 +102,11 @@ def query_work(args):
 def query_medium(args):
     media = Medium.query
     if "order_by" in args and args["order_by"]:
-        if args["order_by"] == "name" or  args["order_by"] == "date":
+        if args["order_by"] == "name":
             media = media.order_by(args["order_by"])
     media = media.all()
     if "name_filter" in args and args["name_filter"]:
         media = string_filter(media, "name", args["name_filter"])
-    if "date_after" in args and args["date_after"]:
-        media = date_filter(media, lambda x : x > int(args["date_after"]), "date")
-    if "date_before" in args and args["date_before"]:
-        media = date_filter(media, lambda x : x < int(args["date_before"]), "date")
     if "ascending" in args and args["ascending"] == "0":
         media = media[::-1]
 
