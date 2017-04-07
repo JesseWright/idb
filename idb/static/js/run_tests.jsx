@@ -4,7 +4,7 @@ var test_results = React.createClass({
   },
   render: function() {
     var state = this.state;
-    var btnClass = buttonDisabled ? 'btn-disabled' : '';
+    var btnClass = state.buttonDisabled ? 'btn-disabled' : '';
     return (
       <div>
       <button className="{btnClass}" onClick={this.handleClick}>Run Tests</button>
