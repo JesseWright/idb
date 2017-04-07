@@ -1,3 +1,117 @@
+commit 4ef274cea7d3438976549fa6252b8287e22e9e5b
+Merge: a971219 12ec71d
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Mar 24 20:59:03 2017 -0500
+
+    Merge branch 'master' of https://github.com/grahamjamesr7/idb
+
+commit a971219af98cd8c772127e5f40078ad48210d8da
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Mar 24 20:58:25 2017 -0500
+
+    updated the static about page with the stats
+
+commit 12ec71d4942af03b143061fb48ff4fb9fcf76346
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 20:45:26 2017 -0500
+
+    Updated report to correct missing image of UML diagram.
+
+commit 1fe9a6b580f76957dc16a82b9d61cfe25494abdf
+Merge: 45422dc fa2cbc5
+Author: Jesse Wright <JesseWright@users.noreply.github.com>
+Date:   Fri Mar 24 19:27:15 2017 -0500
+
+    Merge pull request #20 from grahamjamesr7/backend_models
+    
+    Backend models
+
+commit fa2cbc5f87a8b9039e4b5560762d0ace4221685c
+Merge: 74cc668 45422dc
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 19:24:01 2017 -0500
+
+    Merge branch 'master' into backend_models
+
+commit 74cc6680fafe99e9c2580c4b394eeea4041c6bda
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 19:20:56 2017 -0500
+
+    Updated documentation for models. Added check in appengine_config.py to resolve Windows development issues as per http://stackoverflow.com/questions/41783864/importerror-no-module-named-ctypes-google-app-engine-with-bokeh-plot. Added gitignore option for .idea files to ignore files generated locally for PyCharm. Added updated test.db database.
+
+commit 46db4e8a014cfbd453add296f519f808fb0d7074
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 19:16:57 2017 -0500
+
+    Added correctly named PDF file for UML diagram.
+
+commit 45422dc76ebd7c3257df9729fc9578223f424c13
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Mar 24 19:15:10 2017 -0500
+
+    added stats
+
+commit 9cc83c97aab70d89007451de84c3643438ce2c3b
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 18:42:52 2017 -0500
+
+    Cleaned up code lines and comments for style, etc.
+
+commit 3bb6c0aff9ea053ffdc4228c47cac24f2e8c5f05
+Merge: 45ae2c2 5fc6684
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 14:58:18 2017 -0500
+
+    Merge branch 'master' into backend_models
+
+commit 45ae2c223f0d0c52e3fc4ff1de111817ebf0d7d6
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 14:55:54 2017 -0500
+
+    Added two more unit tests to reach 15 total. Also added a few docstrings to explain what each suite is testing.
+
+commit b71ee9d03e90061a0bfe0a862b83ba583a61f37a
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 14:54:17 2017 -0500
+
+    Added docstrings to all methods and attributes in models.py.
+
+commit dda635b9418b36c5e781dd21492ad7c3624511d4
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 03:46:15 2017 -0500
+
+    Added initial validation to models in models.py and added unit tests for those models and validations in tests.py. Also removed duplicate assignment to SQLAlchemy configuration.
+
+commit 5fc66845a137414bae7270f7554a32df51ca1c48
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Fri Mar 24 03:11:57 2017 -0500
+
+    lint fixes and report.html
+
+commit 49b5dd0f6aa773f28705e261e59dd3e653ff2b6a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Fri Mar 24 02:15:23 2017 -0500
+
+    added model doc and import fix
+
+commit 460ceda00dc7260c0df5d040df2097934e90a5c2
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Fri Mar 24 00:28:23 2017 -0500
+
+    removed log
+
+commit ea201ea2776d163211d7d323e4f6638f8f95ea9a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Fri Mar 24 00:27:44 2017 -0500
+
+    changed gitlog to IDB1.log
+
+commit 7a577efc0ee77dbd6b52a9e7c3fcf1f41cc1ce5f
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Mar 23 22:08:38 2017 -0500
+
+    added log
+
 commit 5a45ed981875a71a39650114f6d97ec030905f46
 Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
 Date:   Thu Mar 23 21:53:12 2017 -0500
