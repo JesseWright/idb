@@ -13,6 +13,10 @@ def response(status, data, pages):
     ret = {"status":status,"pages":pages,"data":data}
     return jsonify(ret)
 
+"""
+########## Query Routes ##########
+"""
+
 @app.route("/query_artist")
 def url_query_artist():
     artists, page_count  = query_artist(request.args.to_dict())
@@ -41,7 +45,15 @@ def url_query_medium():
         medium["avg_depth"] = str(medium["avg_depth"])
     return response(200, serialized_models, page_count)
 
+@app.route("/query_era")
+def url_query_era():
+    eras, page_count  = query_era(request.args.to_dict())
+    serialized_models = list(map(lambda x: x.serialize(), eras))
+    return response(200, serialized_models, page_count)
 
+"""
+########## Data Retrieval Methods ##########
+"""
 
 def query_artist(args):
     artists = Artist.query
@@ -90,15 +102,11 @@ def query_work(args):
 def query_medium(args):
     media = Medium.query
     if "order_by" in args and args["order_by"]:
-        if args["order_by"] == "name" or  args["order_by"] == "date":
+        if args["order_by"] == "name":
             media = media.order_by(args["order_by"])
     media = media.all()
     if "name_filter" in args and args["name_filter"]:
         media = string_filter(media, "name", args["name_filter"])
-    if "date_after" in args and args["date_after"]:
-        media = date_filter(media, lambda x : x > int(args["date_after"]), "date")
-    if "date_before" in args and args["date_before"]:
-        media = date_filter(media, lambda x : x < int(args["date_before"]), "date")
     if "ascending" in args and args["ascending"] == "0":
         media = media[::-1]
 
@@ -109,6 +117,18 @@ def query_medium(args):
 
     return media, page_count
 
+def query_era(args):
+    eras = Era.query
+    eras = eras.order_by("name")
+    eras = eras.all()
+    page_count = int(ceil(len(eras) / float(ITEMS_PER_PAGE)))
+    if "page" in args and args["page"]:
+        eras = eras[int(args["page"]) * ITEMS_PER_PAGE : (int(args["page"]) + 1) * ITEMS_PER_PAGE]
+    return eras, page_count
+
+"""
+########## Filtering Methods ##########
+"""
 
 def date_filter(models, func, attribute):
     filtered = []
