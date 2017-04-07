@@ -76,8 +76,8 @@
                       return(
                         <a href={link_to_use}>
                             <div className="idb-card">
-                                <object className = "idb-work-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
-                                    <img className = "idb-work-img" src={this.props.image}/>
+                                <object className = "idb-medium-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
+                                    <img className = "idb-medium-img" src={this.props.image}/>
                                 </object>
                               <div className = "idb-medium-name">{this.props.name}</div>
                               <div className = "idb-medium-name">{this.props.dob}</div>
@@ -94,7 +94,7 @@
                           'dob' : "1899",
                           'image' : '/static/img/vangogh.jpg',
                           'id': 1,
-                          'link': "/media/"
+                          'link': "/eras/"
                       };
                   },
                   render: function() {
@@ -116,6 +116,7 @@
 
 
         var load = function(){
+            console.log(document.title);
             update(1,1,document.title);
         }
 
@@ -169,17 +170,25 @@
             6. get new card data
             7. update the cards based on that data
             */
-
-            name = document.getElementById('nameBox').value;
-            if (request_page != page_enum.MEDIA)
+            if (request_page != page_enum.ERAS)
             {
-                dateStart = document.getElementById('dateStart').value; //on the media page, this is the date delta
-                dateEnd = document.getElementById('dateEnd').value;
+                name = document.getElementById('nameBox').value;
+                if (request_page != page_enum.MEDIA)
+                {
+                    dateStart = document.getElementById('dateStart').value; //on the media page, this is the date delta
+                    dateEnd = document.getElementById('dateEnd').value;
+                }
+                else {
+                    dateStart = 1;
+                    dateEnd = 1;
+                }
             }
             else {
+                name = ""
                 dateStart = 1;
                 dateEnd = 1;
             }
+
 
 
             //first check to make sure neither date is zero
@@ -216,7 +225,8 @@
                     }
 
                     //clear the error text
-                    document.getElementById('errorText').textContent = "";
+                    if(request_page != page_enum.ERAS)
+                        document.getElementById('errorText').textContent = "";
                     var order_by = undefined;
                     var ascending = undefined;
 
@@ -288,6 +298,7 @@
 
             cur_page = page_num;
 
+            console.log("You are free now, my son...");
             return true;
 
         }
@@ -303,7 +314,7 @@
                 console.log(url);
                 if(status == 'success')
                 {
-
+                    console.log("data got");
                     update_cards(data,request_page);
                     ReactDOM.render(
                         React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),
@@ -331,8 +342,11 @@
                 card_to_render = artist_card;
             else if (request_page == page_enum.WORKS)
                 card_to_render = work_card;
-            else {
+            else if (request_page == page_enum.MEDIA){
                 card_to_render = medium_card;
+            }
+            else {
+                card_to_render = era_card;
             }
 
             if(data === undefined)
@@ -361,12 +375,12 @@
                         year = d.date;
                         image = d.image;
                     }
-                    else if (request_page == page_enum.ARTISTS){
+                    else if (request_page == page_enum.ARTISTS || request_page == page_enum.ERAS){
                         name = d.name;
                         year = d.dob;
                         image = d.image;
                     }
-                    else {
+                    else if (request_page == page_enum.MEDIA){
                         /*
                         ['http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVW…lNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0']
                         */
