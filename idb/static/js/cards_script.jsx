@@ -76,8 +76,8 @@
                       return(
                         <a href={link_to_use}>
                             <div className="idb-card">
-                                <object className = "idb-work-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
-                                    <img className = "idb-work-img" src={this.props.image}/>
+                                <object className = "idb-medium-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
+                                    <img className = "idb-medium-img" src={this.props.image}/>
                                 </object>
                               <div className = "idb-medium-name">{this.props.name}</div>
                               <div className = "idb-medium-name">{this.props.dob}</div>
