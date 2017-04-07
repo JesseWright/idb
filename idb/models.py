@@ -10,7 +10,7 @@ from datetime import datetime
 # These below allow for many-to-many relationships.
 # See http://flask-sqlalchemy.pocoo.org/2.2/models/ for reference.
 
-_artists_works_relationship = db.Table('artists_works_relationship',
+_ARTISTS_WORKS_RELATIONSHIP = db.Table('artists_works_relationship',
                                        Column('artist_id',
                                               Integer,
                                               ForeignKey('artist.id'),
@@ -24,7 +24,7 @@ _artists_works_relationship = db.Table('artists_works_relationship',
 between Artist instances and Work instances and vice versa.
 """
 
-_artists_media_relationship = db.Table('_artists_media_relationship',
+_ARTISTS_MEDIA_RELATIONSHIP = db.Table('_artists_media_relationship',
                                        Column('artist_id', Integer,
                                               ForeignKey('artist.id'),
                                               primary_key=True),
@@ -36,7 +36,7 @@ _artists_media_relationship = db.Table('_artists_media_relationship',
 """ A Table used to create a many-to-many database relationship
 between Artist instances and Medium instances and vice versa. """
 
-_artists_eras_relationship = db.Table('_artists_eras_relationship',
+_ARTISTS_ERAS_RELATIONSHIP = db.Table('_artists_eras_relationship',
                                       Column('artist_id', Integer,
                                              ForeignKey('artist.id'),
                                              primary_key=True),
@@ -48,7 +48,7 @@ _artists_eras_relationship = db.Table('_artists_eras_relationship',
 """ A Table used to create a many-to-many database relationship
 between Artist instances and Era instances and vice versa. """
 
-_works_eras_relationship = db.Table('_works_eras_relationship',
+_WORKS_ERAS_RELATIONSHIP = db.Table('_works_eras_relationship',
                                     Column('work_id', Integer,
                                            ForeignKey('work.id'),
                                            primary_key=True),
@@ -60,7 +60,7 @@ _works_eras_relationship = db.Table('_works_eras_relationship',
 """ A Table used to create a many-to-many database relationship
 between Work instances and Era instances and vice versa. """
 
-_media_eras_relationship = db.Table('_media_eras_relationship',
+_MEDIA_ERAS_RELATIONSHIP = db.Table('_media_eras_relationship',
                                     Column('medium_id', Integer,
                                            ForeignKey('medium.id'),
                                            primary_key=True),
@@ -72,7 +72,7 @@ _media_eras_relationship = db.Table('_media_eras_relationship',
 """ A Table used to create a many-to-many database relationship
 between Medium instances and Era instances and vice versa. """
 
-_media_works_relationship = db.Table('_media_works_relationship',
+_MEDIA_WORKS_RELATIONSHIP = db.Table('_media_works_relationship',
                                      Column('medium_id', Integer,
                                             ForeignKey('medium.id'),
                                             primary_key=True),
@@ -127,11 +127,17 @@ class Artist(db.Model):
     """ A text entry containing biographical information for an Artist. """
 
     works = db.relationship('Work',
-                            secondary=_artists_works_relationship,
+                            secondary=_ARTISTS_WORKS_RELATIONSHIP,
                             lazy=True,
                             backref=db.backref('artists', lazy=True))
     """ A many-to-many database relationship linking Artist instances
     to Work instances and vice versa. """
+    media = None
+    """ A many-to-many database relationship linking Artist instances
+    to Medium instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Artist instances
+    to era instances and vice versa. """
 
     @validates('name', include_removes=True)
     def __validates_name(self, key, name, is_remove):
@@ -139,7 +145,7 @@ class Artist(db.Model):
         Called by the ORM. """
         assert not is_remove \
                and name is not None \
-               and not name == '', \
+               and name != '', \
             "An artist must have a name"
         return name
 
@@ -218,11 +224,17 @@ class Work(db.Model):
     """ A String representation of a list of themes or items
     associated with or found in a given Work. """
 
-    media = db.relationship('Medium', secondary=_media_works_relationship,
+    media = db.relationship('Medium', secondary=_MEDIA_WORKS_RELATIONSHIP,
                             lazy=True,
                             backref=db.backref('works', lazy=True))
     """ A many-to-many database relationship linking Work instances
     to Medium instances and vice versa. """
+    artists = None
+    """ A many-to-many database relationship linking Work instances
+    to Artist instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Work instances
+    to Era instances and vice versa. """
 
     @validates('title', include_removes=True)
     def _validate_title(self, key, title, is_remove):
@@ -324,11 +336,17 @@ class Medium(db.Model):
     Medium. """
     media = None
     artists = db.relationship(Artist,
-                              secondary=_artists_media_relationship,
+                              secondary=_ARTISTS_MEDIA_RELATIONSHIP,
                               lazy=True,
                               backref=db.backref('media', lazy=True))
     """ A many-to-many database relationship linking Medium instances to
     Artist instances and vice versa. """
+    works = None
+    """ A many-to-many database relationship linking Medium instances
+    to Artist instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Medium instances
+    to Era instances and vice versa. """
 
     @validates('name', include_removes=True)
     def _validates_name(self, key, name, is_remove):
@@ -394,19 +412,19 @@ class Era(db.Model):
     with an Era. """
 
     artists = db.relationship(Artist,
-                              secondary=_artists_eras_relationship,
+                              secondary=_ARTISTS_ERAS_RELATIONSHIP,
                               lazy=True,
                               backref=db.backref('eras', lazy=True))
     """ A many-to-many database relationship linking Era instances
     to Artist instances and vice versa. """
 
-    works = db.relationship(Work, secondary=_works_eras_relationship,
+    works = db.relationship(Work, secondary=_WORKS_ERAS_RELATIONSHIP,
                             lazy=True,
                             backref=db.backref('eras', lazy=True))
     """ A many-to-many database relationship linking Era instances
     to Work instances and vice versa. """
 
-    media = db.relationship(Medium, secondary=_media_eras_relationship,
+    media = db.relationship(Medium, secondary=_MEDIA_ERAS_RELATIONSHIP,
                             lazy=True,
                             backref=db.backref('eras', lazy=True))
     """ A many-to-many database relationship linking Era instances
