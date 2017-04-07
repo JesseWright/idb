@@ -93,7 +93,7 @@ class Artist(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for an Artist. """
 
-    name = Column(String(255), nullable=False)
+    name = Column(TEXT, nullable=False)
     """ The unique name of a given Artist. Every Artist must have
     a non-empty name. """
 
@@ -103,16 +103,16 @@ class Artist(db.Model):
     dod = Column(Date)
     """ The date of death associated with a given Artist. """
 
-    nationality = Column(String(255))
+    nationality = Column(TEXT)
     """ The nationality associated with a given Artist. """
 
-    country = Column(String(255))
+    country = Column(TEXT)
     """ The country associated with a given Artist. """
 
-    image = Column(String(255))
+    image = Column(TEXT)
     """ A URI for an image associated with a given Work. """
 
-    bio = Column(String(255))
+    bio = Column(TEXT)
     """ A text entry containing biographical information for an Artist. """
 
     works = db.relationship('Work',
@@ -162,8 +162,7 @@ class Artist(db.Model):
                                           works)
 
     def serialize(self):
-        """ Return a formatted String representation
-        of a given Artist. """
+        """ Return JSON representation of artist. """
         works = [[work.id, work.title] for work in self.works]
         return {
             "id"   : self.id,
@@ -185,7 +184,7 @@ class Work(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for a Work. """
 
-    title = Column(String(255), nullable=False)
+    title = Column(TEXT, nullable=False)
     """ The unique name of a given Work.
     Every Work must have a non-empty title.
     """
@@ -202,14 +201,14 @@ class Work(db.Model):
     depth = Column(Numeric)
     """ The depth in centimeters of an artwork for a given Work. """
 
-    colors = Column(String(255))
+    colors = Column(TEXT)
     """ A String representation of a list of HTML-medium color
     representations associated with a Work. """
 
-    image = Column(String(255))
+    image = Column(TEXT)
     """ A URI for an image associated with a given Work. """
 
-    motifs = Column(String(255))
+    motifs = Column(TEXT)
     """ A String representation of a list of themes or items
     associated with or found in a given Work. """
 
@@ -269,8 +268,7 @@ class Work(db.Model):
                                                             media)
 
     def serialize(self):
-        """ Return a formatted String representation
-        of a given Artist. """
+        """ Return JSON representation of work. """
         media = [[medium.id, medium.name] for medium in self.media]
         return {
             "id"   : self.id,
@@ -292,11 +290,11 @@ class Medium(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for a Medium. """
 
-    name = Column(String(255), unique=True, nullable=False)
+    name = Column(TEXT, unique=True, nullable=False)
     """ The unique name of a given Era. Every Era must have a non-empty
     name. """
 
-    colors = Column(String(255))
+    colors = Column(TEXT)
     """ A String representation of a list of HTML-medium color
     representations associated with a Medium. """
 
@@ -313,14 +311,14 @@ class Medium(db.Model):
     """ The average depth in centimeters of artwork for a given Medium. """
 
 
-    images = Column(String(255))
+    images = Column(TEXT)
     """ A String representation of a list of image URIs associated with a
     Medium. """
 
-    countries = Column(String(255))
+    countries = Column(TEXT)
     """ A String representation of a list of countries associated with a
     Medium. """
-
+    media = None
     artists = db.relationship(Artist,
                               secondary=_ARTISTS_MEDIA_RELATIONSHIP,
                               lazy=True,
@@ -377,6 +375,23 @@ class Medium(db.Model):
                                                              self.images,
                                                              artists)
 
+    def serialize(self):
+        """ Return JSON representation of medium. """
+        artists = [[artist.id, artist.name] for artist in self.artists]
+        return {
+            "id"   : self.id,
+            "name" : self.name,
+            "colors" : self.colors,
+            "average_age" : self.average_age,
+            "avg_height" : self.avg_height,
+            "avg_width" : self.avg_width,
+            "avg_depth" : self.avg_depth,
+            "countries" : self.countries,
+            "images" : self.images,
+            "artists" : artists
+        }
+
+
 
 class Era(db.Model):
     """ A Model that houses information on historical periods. """
@@ -384,15 +399,15 @@ class Era(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for an Era. """
 
-    name = Column(String(255), nullable=False, unique=True)
+    name = Column(TEXT, nullable=False, unique=True)
     """ The unique name of a given Era.
     Every Era must have a non-empty name. """
 
-    type = Column(String(255), nullable=False)
+    type = Column(TEXT, nullable=False)
     """ The type description of an Era (e.g., "century").
     Every Era must have a non-empty type. """
 
-    countries = Column(String(255))
+    countries = Column(TEXT)
     """ A String representation of a list of countries associated
     with an Era. """
 
@@ -449,3 +464,18 @@ class Era(db.Model):
                                   artists,
                                   works,
                                   media)
+
+    def serialize(self):
+        """ Return JSON representation of era. """
+        artists = [[artist.id, artist.name] for artist in self.artists]
+        works = [[work.id, work.title] for work in self.works]
+        media = [[medium.id, medium.name] for medium in self.media]
+        return {
+            "id"   : self.id,
+            "name" : self.name,
+            "type" : self.type,
+            "countries" : self.countries,
+            "artists" : artists,
+            "works" : works,
+            "media" : media
+        }

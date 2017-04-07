@@ -1,8 +1,9 @@
-from idb.models import Work, Artist, Medium, Era
-from datetime import date, timedelta
 import datetime
 import random
 import uuid
+from idb.models import Work, Artist, Medium, Era
+from datetime import date, timedelta
+
 
 random.seed(datetime.datetime.now().microsecond)
 
@@ -182,7 +183,6 @@ def generate_random_medium(name=None):
                   avg_width=avg_width,
                   avg_depth=avg_depth,
                   images=images)
-
 
 
 def get_random_model_instances(count=1000, spread=0.3):
