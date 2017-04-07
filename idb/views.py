@@ -6,18 +6,26 @@ from flask import render_template
 from idb import app
 from idb.models import *
 
+
+""" Default route that renders the homepage using the template 'index.html'
+"""
 @app.route('/')
 def index():
     return render_template('index.html')
 
+""" route to render our about page
+"""
 @app.route('/about')
 def about():
     return render_template('about.html')
 
+""" Route to render the report page, although the actual report HTML is in 'report_text.html' and is rendered in an iFrame.
+"""
 @app.route('/report')
 def report():
     return render_template('report.html')
-
+"""
+"""
 @app.route('/artists')
 def artists():
     artists = Artist.query.all()
@@ -117,7 +125,7 @@ def era(id):
 def medium(id):
     medium = Medium.query.filter_by(id=id).first()
     medium._image = medium.images.replace("[","").replace("]","").replace("'","")
-    
+
     if len(medium.colors) > 6:
         colors = medium.colors.encode("ascii","replace").replace("[","").replace("]","").replace("'","").split(",")
     else:
