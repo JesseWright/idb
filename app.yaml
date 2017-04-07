@@ -1,7 +1,6 @@
 runtime: python
 env: flex
 api_version: 1
-entrypoint: gunicorn -c gunicorn.conf.py -b :$PORT
 entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
@@ -14,5 +13,4 @@ threadsafe: true
 #  us-central1:idb-artistree' for local DB testing with the Cloud SQL proxy
 
 beta_settings:
-  cloud_sql_instances: idb-artistree
   cloud_sql_instances: cs373-project-345:us-central1:idb-artistree
