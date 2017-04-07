@@ -131,6 +131,12 @@ class Artist(db.Model):
                             backref=db.backref('artists', lazy=True))
     """ A many-to-many database relationship linking Artist instances
     to Work instances and vice versa. """
+    media = None
+    """ A many-to-many database relationship linking Artist instances
+    to Medium instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Artist instances
+    to era instances and vice versa. """
 
     @validates('name', include_removes=True)
     def __validates_name(self, key, name, is_remove):
@@ -222,6 +228,12 @@ class Work(db.Model):
                             backref=db.backref('works', lazy=True))
     """ A many-to-many database relationship linking Work instances
     to Medium instances and vice versa. """
+    artists = None
+    """ A many-to-many database relationship linking Work instances
+    to Artist instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Work instances
+    to Era instances and vice versa. """
 
     @validates('title', include_removes=True)
     def _validate_title(self, key, title, is_remove):
@@ -328,6 +340,12 @@ class Medium(db.Model):
                               backref=db.backref('media', lazy=True))
     """ A many-to-many database relationship linking Medium instances to
     Artist instances and vice versa. """
+    works = None
+    """ A many-to-many database relationship linking Medium instances
+    to Artist instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Medium instances
+    to Era instances and vice versa. """
 
     @validates('name', include_removes=True)
     def _validates_name(self, key, name, is_remove):
