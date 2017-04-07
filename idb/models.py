@@ -1,4 +1,4 @@
-"""These models are used by the database"""
+"""Contains the definitions of each SQLAlchemy Model used in IDB."""
 
 from datetime import datetime
 from sqlalchemy import Column, Integer, Date, ForeignKey, Numeric
@@ -8,9 +8,8 @@ from idb import db
 
 # pylint: disable=W0612,W0613,R0201,R0903,C0103, W0622
 # pylint warnings disabled because they conflict with proper usage of SQLAlchemy
-# (Ignore^ if using Python 3.3 or greater
 
-# These below allow for many-to-many relationships.
+# The tables below allow for many-to-many relationships.
 # See http://flask-sqlalchemy.pocoo.org/2.2/models/ for reference.
 
 _ARTISTS_WORKS_RELATIONSHIP = db.Table('artists_works_relationship',
