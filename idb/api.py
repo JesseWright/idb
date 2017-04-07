@@ -13,7 +13,7 @@ from subprocess import call
 @app.route('api/artists/all')
 def artist_all():
     artists = Artist.query.all()
-    response(200, artist, 1)
+    response(200, artists, 1)
 
 @app.route('api/artists/<int:id>')
 def artist_one(id):
@@ -23,7 +23,7 @@ def artist_one(id):
 @app.route('api/works/all')
 def work_all():
     works = Work.query.all()
-    response(200, work, 1)
+    response(200, works, 1)
 
 @app.route('api/works/<int:id>')
 def work_one(id):
@@ -33,7 +33,7 @@ def work_one(id):
 @app.route('api/media/all')
 def work_all():
     works = Medium.query.all()
-    response(200, work, 1)
+    response(200, works, 1)
 
 @app.route('api/media/<int:id>')
 def work_one(id):
@@ -43,7 +43,7 @@ def work_one(id):
 @app.route('api/eras/all')
 def era_all():
     eras = Era.query.all()
-    response(200, era, 1)
+    response(200, eras, 1)
 
 @app.route('api/eras/<int:id>')
 def era_one(id):

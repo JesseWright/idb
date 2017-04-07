@@ -3,7 +3,7 @@ import os
 _db_driver_default = 'psycopg2'
 _db_uname_default = 'postgres'
 _db_pwrd_default = ''
-_db_addr_default = 'localhost:3306'
+_db_addr_default = 'localhost:5432'
 _db_table_default = 'postgres'
 
 
@@ -31,28 +31,28 @@ def build_db_connection_uri_string(driver=None, username=None,
     db_table = table
 
     if use_env_vars:
-        db_driver = db_driver or os.environ.get('SWE_IDB_GPDB_DRVR')
-        db_username = db_username or os.environ.get('SWE_IDB_PGDB_UN')
-        db_password = db_password or os.environ.get('SWE_IDB_PGDB_PW')
-        db_address = db_address or os.environ.get('SWE_IDB_PGDB_ADDR')
-        db_table = db_table or os.environ.get('SQE_IDB_PGDB_TABLE')
+        if db_driver is None: db_driver = os.environ.get('SWE_IDB_GPDB_DRVR')
+        if db_username is None: db_username = os.environ.get('SWE_IDB_PGDB_UN')
+        if db_password is None: db_password = os.environ.get('SWE_IDB_PGDB_PW')
+        if db_address is None: db_address = os.environ.get('SWE_IDB_PGDB_ADDR')
+        if db_table is None: db_table = os.environ.get('SQE_IDB_PGDB_TABLE')
 
     if use_defaults:
-        db_driver = db_driver or _db_driver_default
-        db_username = db_username or _db_uname_default
-        db_password = db_password or _db_pwrd_default
-        db_address = db_address or _db_addr_default
-        db_table = db_table or _db_table_default
+        if db_driver is None: db_driver = _db_driver_default
+        if db_username is None: db_username = _db_uname_default
+        if db_password is None: db_password = _db_pwrd_default
+        if db_address is None: db_address = _db_addr_default
+        if db_table is None: db_table = _db_table_default
 
-    db_driver = db_driver or ''
-    db_username = db_username or ''
-    db_password = db_password or ''
-    db_address = db_address or ''
-    db_table = db_table or ''
+    if db_driver is None: db_driver = ''
+    if db_username is None: db_username = ''
+    if db_password is None: db_password = ''
+    if db_address is None: db_address = ''
+    if db_table is None: db_table = ''
 
-    _db_uri_format_str = 'postgresql+%s://%s:%s@%s/%s'
-    return (_db_uri_format_str % (db_driver,
-                                  db_username,
-                                  db_password,
-                                  db_address,
-                                  db_table))
+    return ('postgresql+%s://%s:%s@%s/%s'
+            % (db_driver,
+               db_username,
+               db_password,
+               db_address,
+               db_table))
