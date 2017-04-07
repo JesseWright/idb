@@ -16,10 +16,10 @@ install: true
 
 script:
    - make
-   - nosetests tests/tests.py
+   - nosetests idb.tests
 
 env:
-   - SQE_IDB_PGDB_TABLE="test"
+   - SQE_IDB_PGDB_TABLE_TEST="test"
 
 services:
    - postgresql

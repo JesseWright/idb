@@ -1,5 +1,6 @@
 from idb import db
-from sqlalchemy import Column, String, Integer, Date, ForeignKey, Numeric
+from sqlalchemy import Column, Integer, Date, ForeignKey, Numeric
+from sqlalchemy.dialects.postgresql import TEXT
 from sqlalchemy.orm import validates
 from datetime import datetime
 
@@ -103,7 +104,7 @@ class Artist(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for an Artist. """
 
-    name = Column(String(255), nullable=False)
+    name = Column(TEXT, nullable=False)
     """ The unique name of a given Artist. Every Artist must have
     a non-empty name. """
 
@@ -113,16 +114,16 @@ class Artist(db.Model):
     dod = Column(Date)
     """ The date of death associated with a given Artist. """
 
-    nationality = Column(String(255))
+    nationality = Column(TEXT)
     """ The nationality associated with a given Artist. """
 
-    country = Column(String(255))
+    country = Column(TEXT)
     """ The country associated with a given Artist. """
 
-    image = Column(String(255))
+    image = Column(TEXT)
     """ A URI for an image associated with a given Work. """
 
-    bio = Column(String(255))
+    bio = Column(TEXT)
     """ A text entry containing biographical information for an Artist. """
 
     works = db.relationship('Work',
@@ -189,7 +190,7 @@ class Work(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for a Work. """
 
-    title = Column(String(255), nullable=False)
+    title = Column(TEXT, nullable=False)
     """ The unique name of a given Work.
     Every Work must have a non-empty title.
     """
@@ -206,14 +207,14 @@ class Work(db.Model):
     depth = Column(Numeric)
     """ The depth in centimeters of an artwork for a given Work. """
 
-    colors = Column(String(255))
+    colors = Column(TEXT)
     """ A String representation of a list of HTML-medium color
     representations associated with a Work. """
 
-    image = Column(String(255))
+    image = Column(TEXT)
     """ A URI for an image associated with a given Work. """
 
-    motifs = Column(String(255))
+    motifs = Column(TEXT)
     """ A String representation of a list of themes or items
     associated with or found in a given Work. """
 
@@ -292,11 +293,11 @@ class Medium(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for a Medium. """
 
-    name = Column(String(255), unique=True, nullable=False)
+    name = Column(TEXT, unique=True, nullable=False)
     """ The unique name of a given Era. Every Era must have a non-empty
     name. """
 
-    colors = Column(String(255))
+    colors = Column(TEXT)
     """ A String representation of a list of HTML-medium color
     representations associated with a Medium. """
 
@@ -314,14 +315,14 @@ class Medium(db.Model):
 
     # TODO: Add avg_depth attribute
 
-    images = Column(String(255))
+    images = Column(TEXT)
     """ A String representation of a list of image URIs associated with a
     Medium. """
 
-    countries = Column(String(255))
+    countries = Column(TEXT)
     """ A String representation of a list of countries associated with a
     Medium. """
-
+    media = None
     artists = db.relationship(Artist,
                               secondary=_artists_media_relationship,
                               lazy=True,
@@ -380,15 +381,15 @@ class Era(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for an Era. """
 
-    name = Column(String(255), nullable=False, unique=True)
+    name = Column(TEXT, nullable=False, unique=True)
     """ The unique name of a given Era.
     Every Era must have a non-empty name. """
 
-    type = Column(String(255), nullable=False)
+    type = Column(TEXT, nullable=False)
     """ The type description of an Era (e.g., "century").
     Every Era must have a non-empty type. """
 
-    countries = Column(String(255))
+    countries = Column(TEXT)
     """ A String representation of a list of countries associated
     with an Era. """
 

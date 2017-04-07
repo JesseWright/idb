@@ -1,5 +1,19 @@
-import unittest, models, datetime, os
+import os
+import unittest
+import datetime
 from idb import app, db
+import idb.models as models
+from idb.database_tools import build_db_connection_uri_string
+
+_test_string = 'test'
+
+_db_username_test = os.environ.get('SWE_IDB_PGDB_UN_TEST')
+_db_password_test = os.environ.get('SWE_IDB_PGDB_PW_TEST')
+
+# !-- These variables below should NEVER connect to the production DB --! #
+# !-----    If they do, they could drop all of its tables!         -----! #
+_db_address_test = os.environ.get('SWE_IDB_PGDB_ADDR_TEST')
+_db_table_test = os.environ.get('SQE_IDB_PGDB_TABLE_TEST')
 
 
 class TestApp(unittest.TestCase):
@@ -12,6 +26,12 @@ class TestApp(unittest.TestCase):
         as a test client and create an empty testing database. """
         app.config['TESTING'] = True
         app.config['DEBUG'] = False
+        app.config['SQLALCHEMY_DATABASE_URI'] = \
+            build_db_connection_uri_string(username=_db_username_test,
+                                           password=_db_username_test,
+                                           address=_db_address_test,
+                                           table=_db_table_test,
+                                           use_env_vars=False)
 
         self.app = app.test_client()
         db.drop_all()
@@ -36,12 +56,12 @@ class TestArtistModel(TestApp):
                           name='')
 
     def test_assign_name_null(self):
-        models.Artist(name=test_string)
+        models.Artist(name=_test_string)
         with self.assertRaises(Exception):
             models.Artist.name = ''
 
     def test_update_name_null(self):
-        test_artist = models.Artist(name=test_string)
+        test_artist = models.Artist(name=_test_string)
         db.session.add(test_artist)
         db.session.commit()
         with self.assertRaises(Exception):
@@ -50,13 +70,13 @@ class TestArtistModel(TestApp):
     def test_future_dob(self):
         self.assertRaises(Exception,
                           models.Artist,
-                          name=test_string,
+                          name=_test_string,
                           dob=self.future_date)
 
     def test_future_dod(self):
         self.assertRaises(Exception,
                           models.Artist,
-                          name=test_string,
+                          name=_test_string,
                           dod=self.future_date)
 
 
@@ -74,12 +94,12 @@ class TestWorkModel(TestApp):
                           title='')
 
     def test_assign_title_null(self):
-        models.Work(title=test_string)
+        models.Work(title=_test_string)
         with self.assertRaises(Exception):
             models.Work.title = ''
 
     def test_update_title_null(self):
-        test_work = models.Work(title=test_string)
+        test_work = models.Work(title=_test_string)
         db.session.add(test_work)
         db.session.commit()
         with self.assertRaises(Exception):
@@ -88,31 +108,31 @@ class TestWorkModel(TestApp):
     def test_future_date(self):
         self.assertRaises(Exception,
                           models.Work,
-                          title=test_string,
+                          title=_test_string,
                           date=self.future_date)
 
     def test_zero_height(self):
         self.assertRaises(Exception,
                           models.Work,
-                          title=test_string,
+                          title=_test_string,
                           height=0)
 
     def test_negative_height(self):
         self.assertRaises(Exception,
                           models.Work,
-                          title=test_string,
+                          title=_test_string,
                           height=-1)
 
     def test_zero_width(self):
         self.assertRaises(Exception,
                           models.Work,
-                          title=test_string,
+                          title=_test_string,
                           width=0)
 
     def test_negative_width(self):
         self.assertRaises(Exception,
                           models.Work,
-                          title=test_string,
+                          title=_test_string,
                           width=-1)
 
 
