@@ -76,11 +76,9 @@
                       return(
                         <a href={link_to_use}>
                             <div className="idb-card">
-                                <object className = "idb-medium-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
-                                    <img className = "idb-medium-img" src={this.props.image}/>
-                                </object>
+                                    <img className = "idb-medium-img" src={"" + this.props.image}/>
                               <div className = "idb-medium-name">{this.props.name}</div>
-                              <div className = "idb-medium-name">{this.props.dob}</div>
+
                             </div>
                         </a>
                       );
@@ -91,8 +89,7 @@
                   getDefaultProps: function(){
                       return {
                           'name': "default",
-                          'dob' : "1899",
-                          'image' : '/static/img/vangogh.jpg',
+                          'type': "century",
                           'id': 1,
                           'link': "/eras/"
                       };
@@ -101,12 +98,8 @@
                       var link_to_use = ""+ this.props.link + this.props.id;
                       return(
                         <a href={link_to_use}>
-                            <div className="idb-card">
-                                <object className = "idb-era-img" data="https://placehold.it/200?text=No+image+available" type="image/png">
-                                    <img className = "idb-era-img" src={this.props.image}/>
-                                </object>
-                              <div className = "idb-era-name">{this.props.name}</div>
-                              <div className = "idb-era-name">{this.props.dob}</div>
+                            <div className="idb-era-card">
+                              <div className = "idb-era-name">{this.props.name} {this.props.type}</div>
                             </div>
                         </a>
                       );
@@ -314,7 +307,6 @@
                 console.log(url);
                 if(status == 'success')
                 {
-                    console.log("data got");
                     update_cards(data,request_page);
                     ReactDOM.render(
                         React.createElement(page_ident, {page_num:page_num,max_page_num:(data.pages) }, null),
@@ -375,10 +367,18 @@
                         year = d.date;
                         image = d.image;
                     }
-                    else if (request_page == page_enum.ARTISTS || request_page == page_enum.ERAS){
+                    else if (request_page == page_enum.ARTISTS){
                         name = d.name;
                         year = d.dob;
                         image = d.image;
+                    }
+                    else if(request_page == page_enum.ERAS){
+                        name = d.name;
+
+                        if (d.name.length > 5)
+                            type = "";
+                        else
+                            type = d.type;
                     }
                     else if (request_page == page_enum.MEDIA){
                         /*
@@ -386,13 +386,27 @@
                         */
                         name = d.name;
                         year = d.average_age;
-                        image = d.images.replace("[","").replace("]","").replace("'","").split(",")[0];
-                        console.log("image\n" + image);
+                        if (d.images)
+                        {
+                            console.log("I have an image!");
+                            image = d.images.replace("{","").replace("}","").replace("'","").replace(" ","").split(",")[0];
+
+                            if (image === "NULL")
+                                image = "https://placehold.it/200?text=No+image+available";
+                        }
+                        //console.log("image\n" + image);
                     }
-                    ReactDOM.render(
-                        React.createElement(card_to_render, {name:name,dob:year,'image':image,id:d.id,}, null),
-                        document.getElementById('card-' + i)
-                    );
+                    if(request_page != page_enum.ERAS)
+                        ReactDOM.render(
+                            React.createElement(card_to_render, {name:name,dob:year,'image':image,id:d.id,}, null),
+                            document.getElementById('card-' + i)
+                        );
+                    else {
+                        ReactDOM.render(
+                            React.createElement(card_to_render, {name:name,type:type,id:d.id,}, null),
+                            document.getElementById('card-' + i)
+                        );
+                    }
                 }
                 for(j = i; j < 16; j ++)
                 {

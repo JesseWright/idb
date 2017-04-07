@@ -5,7 +5,7 @@
 from flask import render_template
 from idb import app
 from idb.models import *
-from subprocess import call
+import subprocess
 
 
 """ Default route that renders the homepage using the template 'index.html'
@@ -149,6 +149,9 @@ def report_text():
 	return render_template('report_text.html')
 
 
-@app.route('/tests')
+@app.route('/getResults/tests/')
 def tests():
-    return subprocess.check_output("python -m unittest idb.models")
+    sb = subprocess.check_output(['python','-m','unittest','idb.models'],stderr=subprocess.STDOUT).decode("utf-8")
+    print(sb)
+    return sb
+    #return subprocess.check_output("python -m unittest idb.models")

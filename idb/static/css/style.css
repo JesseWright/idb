@@ -71,6 +71,21 @@ h1, h2, h3, h4, h5 {
 
 }
 
+.idb-era-card {
+    background-color: #DDD;
+    padding: 7%;
+    text-align: center;
+    border-style: hidden;
+    border-radius: 8px;
+    height: 100%;
+    min-height: 100px;
+    line-height: 100px;
+    font-size: 20px;
+}
+.idb-era-card:hover {
+  background-color: #F8F8F8;
+
+}
 
 .idb-card:hover {
   background-color: #F8F8F8;
