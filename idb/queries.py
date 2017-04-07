@@ -34,6 +34,11 @@ def url_query_work():
 def url_query_medium():
     media, page_count  = query_medium(request.args.to_dict())
     serialized_models = list(map(lambda x: x.serialize(), media))
+    for medium in serialized_models:
+        medium["average_age"] = str(medium["average_age"])
+        medium["avg_height"] = str(medium["avg_height"])
+        medium["avg_width"] = str(medium["avg_width"])
+        medium["avg_depth"] = str(medium["avg_depth"])
     return response(200, serialized_models, page_count)
 
 
