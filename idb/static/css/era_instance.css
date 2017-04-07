@@ -1,0 +1,37 @@
+.idb-era-title {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 72px;
+    color: #fff;
+    padding-top: 50px;
+}
+.idb-era-data-container {
+    margin: 0 auto;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+.idb-country-desc {
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: red;
+    text-decoration: underline;
+}

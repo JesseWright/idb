@@ -1,44 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      <!-- jQuery -->
-      <script src="https://code.jquery.com/jquery-latest.js"></script>
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 
-      <!-- Bootstrap -->
-      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
-      <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="https://cs373-project-345.appspot.com/static/css/style.css">
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+<script type = "text/jsx" src= "/static/js/run_tests.jsx"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/about.css">
+<style>
+.idb-std-image {
+    width: 255px;
+    height: 265px;
+}
+</style>
+{% endblock %}
 
-      <!-- fonts -->
-      <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans' rel='stylesheet' type='text/css'>
-
-      <!-- style -->
-      <link rel="stylesheet" type="text/css" href="static/css/style.css">
-
-    </head>
-    <body style="background-color:#252525">
-      <nav class="navbar navbar-custom">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Rijksmuseum</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/templates/artists/index.html">Artists</a></li>
-            <li><a href="/templates/styles/index.html">Styles</a></li>
-            <li><a href="/templates/works/index.html">Works</a></li>
-            <li><a href="/templates/centuries/index.html">Centuries</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/report.html">Report</a></li>
-          </ul>
-        </div>
-      </nav>
-      
-      <!-- adapated from Start Bootstrap example: https://startbootstrap.com/template-overviews/round-about/ -->
-      
-      <div class="container">
+{% block content %}
+<div class="container">
 
           <div class="row">
               <div class="col-lg-12">
@@ -53,7 +36,7 @@
                   <h2 class="page-header">Our Team</h2>
               </div>
               <div class="col-lg-4 col-sm-6 text-center">
-                  <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+                  <img class="img-circle idb-std-image img-responsive img-center" src="../static/img/walter.jpg" alt="">
                   <h3>Walter Sagehorn
                   </h3>
                   <p>Backend dev, routing</p>
@@ -61,7 +44,7 @@
                   <p>2 commits, 5 issues, 0 unit tests</p>
               </div>
               <div class="col-lg-4 col-sm-6 text-center">
-                  <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+                  <img class="img-circle idb-std-image img-responsive img-center" src="/static/img/stefan.png" alt="">
                   <h3>Stefan Grasu
                   </h3>
                   <p>Documentation and technical writing</p>
@@ -69,7 +52,7 @@
                   <p>0 commits, 4 issues, 0 unit tests</p>
               </div>
               <div class="col-lg-4 col-sm-6 text-center">
-                  <img class="img-circle img-responsive img-center" src="/static/images/kyle.png" alt="">
+                  <img class="img-circle idb-std-image img-responsive img-center" src="/static/img/kyle.png" alt="">
                   <h3>Kyle Wiley
                   </h3>
                   <p>Front end dev, model and instance pages</p>
@@ -77,15 +60,14 @@
                   <p>31 commits, 3 issues, 0 unit tests</p>
               </div>
               <div class="col-lg-4 col-sm-6 text-center">
-                  <img class="img-circle img-responsive img-center" src="/static/images/jesse.png" alt="">
+                  <img class="img-circle idb-std-image img-responsive img-center" src="/static/img/jesse.png" alt="">
                   <h3>Jesse Wright</h3>
-                  <p>Phase 1 team leader</p>
                   <p>Backend dev, database</p>
                   <p>A senior very ready to graduate.</p>
                   <p>18 commits, 6 issues, 15 unit tests</p>
               </div>
               <div class="col-lg-4 col-sm-6 text-center">
-                  <img class="img-circle img-responsive img-center" src="/static/images/james.png" alt="">
+                  <img class="img-circle idb-std-image img-responsive img-center" src="/static/img/james.png" alt="">
                   <h3>James Graham
                   </h3>
                   <p>Project managment and technical writing</p>
@@ -93,14 +75,14 @@
                   <p>12 commits, 2 issues, 0 unit tests</p>
               </div>
               <div class="col-lg-4 col-sm-6 text-center">
-                  <img class="img-circle img-responsive img-center" src="/static/images/carson.jpg" alt="">
+                  <img class="img-circle idb-std-image img-responsive img-center" src="/static/img/carson.jpg" alt="">
                   <h3>Carson Moore</h3>
                   <p>Front end dev, splash and about page</p>
-                  <p>My <\head> is full with code</p>
+                  <p>My &lt;\head&gt; is full with code</p>
                   <p>11 commits, 5 issues, 0 unit tests</p>
               </div>
           </div>
-          
+
           <div class="col-lg-12">
             <h2 class="page-header">Stats</h2>
             <p>Total no. of commits: 109</p>
@@ -110,22 +92,30 @@
             <p><a href="https://github.com/grahamjamesr7/idb/issues">Issues</a></p>
             <p><a href="https://github.com/grahamjamesr7/idb">Github Repo</a></p>
           </div>
-          
+
           <div class="col-lg-12">
             <h2 class="page-header">Data</h2>
             <p>The Rijksmuseum museum has an <a href="https://www.rijksmuseum.nl/en/api">API</a>
-               that can be queried for information about the collection.</p>
+               that can be query for information about the collection.</p>
             <p>We also used Wikipedia to fill in some additional information about works/artists</p>
           </div>
-          
+
           <div class="col-lg-12">
             <h2 class="page-header">Tools</h2>
             <p>Boostrap - HTML, CSS, and JS framework used for frontend</p>
             <p>Flask - Python web framework for our backend</p>
             <p>GCP - Google Cloud Platform for hosting</p>
-            <p>TravisCI - integrats with GitHub repo to automatically test and build</p>
+            <p>TravisCI - integrates with GitHub repo to automatically test and build</p>
+          </div>
+
+          <div class="col-lg-12">
+            <h2 class="page-header">Tests</h2>
+            <div id="test"></div>
+          </div>
+
+          <div class="col-lg-12">
+            <h2 class="page-header">Attributions</h2>
+            <p>Loading spinner from <a href="http://www.mytreedb.com/">mytreedb</a></p>
           </div>
       </div>
-    </body>
-    
-</html>
+{% endblock %}

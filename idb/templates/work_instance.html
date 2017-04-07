@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/css/work_instance.css">
+{% endblock %}
+
+{% block content %}
+
+{% if work._image %}
+    <img class = "idb-work-instance-image" src = "{{work._image}}"></img>
+{% else %}
+    <img class = "idb-work-instance-image" src = "https://placehold.it/400?txtsize=36&text=No+image+available"></img>
+{% endif %}
+
+<div class= "idb-work-info-container">
+    <div class = "idb-name">{{work.title}}</div>
+    <div class = "idb-dates">{{work.date}}</div>
+
+    <div style = "padding-bottom: 20px">{{work.height}}cm x {{work.width}}cm</div>
+
+
+    <div> Created by: </div>
+    {% for artist in artists %}
+    <div><a href = "/artist/{{artist.id}}">{{artist.name}}</a></div>
+    {% endfor %}
+
+    {% if lendict['media'] == 1 %}
+    <div style = "font-style: italic; padding-bottom: 20px;">Unfortunately, this work does not have medium data available.</div>
+    {% else %}
+    <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">This work is made from:</div>
+        {% for medium in work.media %}
+        <div><a href="/media/{{medium.id}}">{{medium.name}}</a></div>
+        {% endfor %}
+    {% endif %}
+
+
+    {% if lendict['colors'] == 1 %}
+        <div style = "font-style: italic; padding-top: 20px; padding-bottom: 20px;">Unfortunately, this work does not have color data available.</div>
+    {% else %}
+        <div style= "font-size: medium; padding-top: 20px; padding-bottom: 20px">Some of the colors used in this work:</div>
+        {% for color in colors %}
+        <div class = "idb-color-card" style = "background-color: {{color}}"></div>
+        {% endfor %}
+    {% endif %}
+
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

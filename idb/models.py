@@ -1,12 +1,18 @@
-from idb import db
-from sqlalchemy import Column, String, Integer, Date, Float, ForeignKey
-from sqlalchemy.orm import validates
-from datetime import datetime
+"""Contains the definitions of each SQLAlchemy Model used in IDB."""
 
-# These below allow for many-to-many relationships.
+from datetime import datetime
+from sqlalchemy import Column, Integer, Date, ForeignKey, Numeric
+from sqlalchemy.dialects.postgresql import TEXT
+from sqlalchemy.orm import validates
+from idb import db
+
+# pylint: disable=W0612,W0613,R0201,R0903,C0103, W0622
+# pylint warnings disabled because they conflict with proper usage of SQLAlchemy
+
+# The tables below allow for many-to-many relationships.
 # See http://flask-sqlalchemy.pocoo.org/2.2/models/ for reference.
 
-_artists_works_relationship = db.Table('artists_works_relationship',
+_ARTISTS_WORKS_RELATIONSHIP = db.Table('artists_works_relationship',
                                        Column('artist_id',
                                               Integer,
                                               ForeignKey('artist.id'),
@@ -16,24 +22,23 @@ _artists_works_relationship = db.Table('artists_works_relationship',
                                               primary_key=True),
                                        db.PrimaryKeyConstraint('artist_id',
                                                                'work_id'))
-"""
-A Table used to create a many-to-many database relationship
+""" A Table used to create a many-to-many database relationship
 between Artist instances and Work instances and vice versa.
 """
 
-_artists_styles_relationship = db.Table('_artists_styles_relationship',
-                                        Column('artist_id', Integer,
-                                               ForeignKey('artist.id'),
-                                               primary_key=True),
-                                        Column('style_id', Integer,
-                                               ForeignKey('style.id'),
-                                               primary_key=True),
-                                        db.PrimaryKeyConstraint('artist_id',
-                                                                'style_id'))
+_ARTISTS_MEDIA_RELATIONSHIP = db.Table('_artists_media_relationship',
+                                       Column('artist_id', Integer,
+                                              ForeignKey('artist.id'),
+                                              primary_key=True),
+                                       Column('medium_id', Integer,
+                                              ForeignKey('medium.id'),
+                                              primary_key=True),
+                                       db.PrimaryKeyConstraint('artist_id',
+                                                               'medium_id'))
 """ A Table used to create a many-to-many database relationship
-between Artist instances and Style instances and vice versa. """
+between Artist instances and Medium instances and vice versa. """
 
-_artists_eras_relationship = db.Table('_artists_eras_relationship',
+_ARTISTS_ERAS_RELATIONSHIP = db.Table('_artists_eras_relationship',
                                       Column('artist_id', Integer,
                                              ForeignKey('artist.id'),
                                              primary_key=True),
@@ -45,41 +50,50 @@ _artists_eras_relationship = db.Table('_artists_eras_relationship',
 """ A Table used to create a many-to-many database relationship
 between Artist instances and Era instances and vice versa. """
 
-works_eras_relationship = db.Table('works_eras_relationship',
-                                   Column('work_id', Integer,
-                                          ForeignKey('work.id'),
-                                          primary_key=True),
-                                   Column('era_id', Integer,
-                                          ForeignKey('era.id'),
-                                          primary_key=True),
-                                   db.PrimaryKeyConstraint('work_id',
-                                                           'era_id'))
-""" A Table used to create a many-to-many database relationship
-between Work instances and Era instances and vice versa. """
-
-styles_eras_relationship = db.Table('styles_eras_relationship',
-                                    Column('style_id', Integer,
-                                           ForeignKey('style.id'),
+_WORKS_ERAS_RELATIONSHIP = db.Table('_works_eras_relationship',
+                                    Column('work_id', Integer,
+                                           ForeignKey('work.id'),
                                            primary_key=True),
                                     Column('era_id', Integer,
                                            ForeignKey('era.id'),
                                            primary_key=True),
-                                    db.PrimaryKeyConstraint('style_id',
+                                    db.PrimaryKeyConstraint('work_id',
                                                             'era_id'))
 """ A Table used to create a many-to-many database relationship
-between Style instances and Era instances and vice versa. """
+between Work instances and Era instances and vice versa. """
+
+_MEDIA_ERAS_RELATIONSHIP = db.Table('_media_eras_relationship',
+                                    Column('medium_id', Integer,
+                                           ForeignKey('medium.id'),
+                                           primary_key=True),
+                                    Column('era_id', Integer,
+                                           ForeignKey('era.id'),
+                                           primary_key=True),
+                                    db.PrimaryKeyConstraint('medium_id',
+                                                            'era_id'))
+""" A Table used to create a many-to-many database relationship
+between Medium instances and Era instances and vice versa. """
+
+_MEDIA_WORKS_RELATIONSHIP = db.Table('_media_works_relationship',
+                                     Column('medium_id', Integer,
+                                            ForeignKey('medium.id'),
+                                            primary_key=True),
+                                     Column('work_id', Integer,
+                                            ForeignKey('work.id'),
+                                            primary_key=True),
+                                     db.PrimaryKeyConstraint('medium_id',
+                                                             'work_id'))
+""" A Table used to create a many-to-many database relationship
+between Medium instances and Era instances and vice versa. """
 
 
 class Artist(db.Model):
     """ A Model that houses information on artists. """
 
-    # TODO: Update data types to reflect actual content
-    # (e.g., lists, URIs, etc.)
-
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for an Artist. """
 
-    name = Column(String(100), nullable=False)
+    name = Column(TEXT, nullable=False)
     """ The unique name of a given Artist. Every Artist must have
     a non-empty name. """
 
@@ -89,44 +103,78 @@ class Artist(db.Model):
     dod = Column(Date)
     """ The date of death associated with a given Artist. """
 
-    nationality = Column(String(100))
+    nationality = Column(TEXT)
     """ The nationality associated with a given Artist. """
 
-    country = Column(String(50))
+    country = Column(TEXT)
     """ The country associated with a given Artist. """
 
-    image = Column(String(100))
+    image = Column(TEXT)
     """ A URI for an image associated with a given Work. """
 
-    # TODO: Look into query/tables w.r.t. speed and efficiency and con
+    bio = Column(TEXT)
+    """ A text entry containing biographical information for an Artist. """
+
     works = db.relationship('Work',
-                            secondary=_artists_works_relationship,
+                            secondary=_ARTISTS_WORKS_RELATIONSHIP,
                             lazy=True,
                             backref=db.backref('artists', lazy=True))
     """ A many-to-many database relationship linking Artist instances
     to Work instances and vice versa. """
+    media = None
+    """ A many-to-many database relationship linking Artist instances
+    to Medium instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Artist instances
+    to era instances and vice versa. """
 
     @validates('name', include_removes=True)
     def __validates_name(self, key, name, is_remove):
         """ Validate the Artist.name attribute.
         Called by the ORM. """
         assert not is_remove \
-               and name is not None \
-               and not name == '', \
+            and name is not None \
+            and name != '', \
             "An artist must have a name"
+        return name
 
     @validates('dob', 'dod')
     def _validates_dates(self, key, date):
         """ Validate the Artist.dob and Artist.dod attributes.
         Called by the ORM. """
-        assert date <= datetime.now(), \
+        assert not date or date <= datetime.now().date(), \
             "A date cannot be in the future"
+        return date
 
     def __repr__(self):
         """ Return a formatted String representation
         of a given Artist. """
-        return "{} ({}:{}), {}".format(self.name, self.dob, self.dod,
-                                       self.nationality)
+        works = [(work.id, work.title) for work in self.works]
+        return "<Artist: {}> {} ({}:{}), {} [Country:{}, Image:{}, " \
+               "Bio:{}, Works:{}]".format(self.id,
+                                          self.name,
+                                          self.dob,
+                                          self.dod,
+                                          self.nationality,
+                                          self.country,
+                                          self.image,
+                                          self.bio,
+                                          works)
+
+    def serialize(self):
+        """ Return JSON representation of artist. """
+        works = [[work.id, work.title] for work in self.works]
+        return {
+            "id": self.id,
+            "name": self.name,
+            "dob": self.dob,
+            "dod": self.dod,
+            "nationality": self.nationality,
+            "country": self.country,
+            "image": self.image,
+            "bio": self.bio,
+            "works": works
+        }
 
 
 class Work(db.Model):
@@ -135,7 +183,7 @@ class Work(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for a Work. """
 
-    title = Column(String(100), nullable=False)
+    title = Column(TEXT, nullable=False)
     """ The unique name of a given Work.
     Every Work must have a non-empty title.
     """
@@ -143,115 +191,203 @@ class Work(db.Model):
     date = Column(Date)
     """ The date associated with a given Work. """
 
-    medium = Column(String(100))
-    """ The primary type of medium associated with a given ork. """
-
-    height = Column(Float)
+    height = Column(Numeric)
     """ The height in centimeters of artwork of a given Work. """
 
-    width = Column(Float)
+    width = Column(Numeric)
     """ The width in centimeters of artwork for a given Work. """
 
-    colors = Column(String(100))
-    """ A String representation of a list of HTML-style color
+    depth = Column(Numeric)
+    """ The depth in centimeters of an artwork for a given Work. """
+
+    colors = Column(TEXT)
+    """ A String representation of a list of HTML-medium color
     representations associated with a Work. """
 
-    image = Column(String(100))
+    image = Column(TEXT)
     """ A URI for an image associated with a given Work. """
+
+    motifs = Column(TEXT)
+    """ A String representation of a list of themes or items
+    associated with or found in a given Work. """
+
+    media = db.relationship('Medium', secondary=_MEDIA_WORKS_RELATIONSHIP,
+                            lazy=True,
+                            backref=db.backref('works', lazy=True))
+    """ A many-to-many database relationship linking Work instances
+    to Medium instances and vice versa. """
+    artists = None
+    """ A many-to-many database relationship linking Work instances
+    to Artist instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Work instances
+    to Era instances and vice versa. """
 
     @validates('title', include_removes=True)
     def _validate_title(self, key, title, is_remove):
         """ Validate the Work.title attribute.
         Called by the ORM. """
         assert not is_remove \
-               and title is not None \
-               and not title == '', \
+            and title is not None \
+            and not title, \
             "An artwork must have a title"
+        return title
 
     @validates('date')
     def _validate_date(self, key, date):
         """ Validate the Work.date attribute.
         Called by the ORM. """
-        assert date <= datetime.now(), \
+        assert not date or date <= datetime.now().date(), \
             "An artwork cannot have a future date"
+        return date
 
     @validates('height', 'width')
     def _validates_height(self, key, dimension):
         """ Validate the Work.height and Work.width attributes.
         Called by the ORM. """
-        # TODO: Assert types (since going into typed database)
-        assert dimension > 0, \
+        assert not dimension or dimension > 0, \
             "An artwork must have positive dimensions"
+        return dimension
 
     def __repr__(self):
         """ Return a formatted String representation
         of a given Work. """
-        return "\"{}\", by {} ({})".format(self.title, self.artists, self.date)
+        media = [(medium.id, medium.name) for medium in self.media]
+        return "<Work: {}> \"{}\", by {} ({}) [Colors:{}, Dimensions:[{}, {}" \
+               "{}], Image:{}, Motifs:{}, Media:{}]".format(self.id,
+                                                            self.title,
+                                                            self.artists,
+                                                            self.date,
+                                                            self.colors,
+                                                            self.height,
+                                                            self.width,
+                                                            self.depth,
+                                                            self.image,
+                                                            self.motifs,
+                                                            media)
+
+    def serialize(self):
+        """ Return JSON representation of work. """
+        media = [[medium.id, medium.name] for medium in self.media]
+        return {
+            "id": self.id,
+            "title": self.title,
+            "date": self.date,
+            "colors": self.colors,
+            "height": self.height,
+            "width": self.width,
+            "depth": self.depth,
+            "image": self.image,
+            "motifs": self.motifs,
+            "media": media
+        }
 
 
-class Style(db.Model):
-    """ A Model that houses information on artistic styles. """
+class Medium(db.Model):
+    """ A Model that houses information on artistic media. """
 
     id = Column(Integer, primary_key=True)
-    """ The unique identifier and primary key for a Style. """
+    """ The unique identifier and primary key for a Medium. """
 
-    name = Column(String(50), unique=True, nullable=False)
+    name = Column(TEXT, unique=True, nullable=False)
     """ The unique name of a given Era. Every Era must have a non-empty
     name. """
 
-    colors = Column(String(100))
-    """ A String representation of a list of HTML-style color
-    representations associated with a Style. """
+    colors = Column(TEXT)
+    """ A String representation of a list of HTML-medium color
+    representations associated with a Medium. """
 
-    average_age = Column(Float)
-    """ The average age in years of artwork for a given Style. """
+    average_age = Column(Numeric)
+    """ The average age in years of artwork for a given Medium. """
 
-    avg_height = Column(Float)
-    """ The average height in centimeters of artwork for a given Style. """
+    avg_height = Column(Numeric)
+    """ The average height in centimeters of artwork for a given Medium. """
 
-    avg_width = Column(Float)
-    """ The average width in centimeters of artwork for a given Style. """
+    avg_width = Column(Numeric)
+    """ The average width in centimeters of artwork for a given Medium. """
 
-    images = Column(String(250))
+    avg_depth = Column(Numeric)
+    """ The average depth in centimeters of artwork for a given Medium. """
+
+    images = Column(TEXT)
     """ A String representation of a list of image URIs associated with a
-    Style. """
+    Medium. """
 
+    countries = Column(TEXT)
+    """ A String representation of a list of countries associated with a
+    Medium. """
+    media = None
     artists = db.relationship(Artist,
-                              secondary=_artists_styles_relationship,
+                              secondary=_ARTISTS_MEDIA_RELATIONSHIP,
                               lazy=True,
-                              backref=db.backref('styles', lazy=True))
-    """ A many-to-many database relationship linking Style instances to
+                              backref=db.backref('media', lazy=True))
+    """ A many-to-many database relationship linking Medium instances to
     Artist instances and vice versa. """
+    works = None
+    """ A many-to-many database relationship linking Medium instances
+    to Artist instances and vice versa. """
+    eras = None
+    """ A many-to-many database relationship linking Medium instances
+    to Era instances and vice versa. """
 
     @validates('name', include_removes=True)
     def _validates_name(self, key, name, is_remove):
-        """ Validate the Style.name attribute.
+        """ Validate the Medium.name attribute.
         Called by the ORM. """
         assert not is_remove \
-               and name is not None \
-               and not name == '', \
-            "A style must have a name"
+            and name is not None \
+            and not name, \
+            "A medium must have a name"
+        return name
 
     @validates('average_age')
     def _validates_average_age(self, key, average_age):
-        """ Validate the Style.average_age attribute.
+        """ Validate the Medium.average_age attribute.
         Called by the ORM. """
-        # TODO: Convert average age to update on trigger
-        assert average_age > 0, \
-            "A style must have a positive average age"
+        assert not average_age or average_age > 0, \
+            "A medium must have a positive average age"
+        return average_age
 
-    @validates('avg_height', 'avg_width')
+    @validates('avg_height', 'avg_width', 'avg_depth')
     def _validates_dimensions(self, key, dimension):
-        """ Validate the Style.avg_height and Style.avg_width
+        """ Validate the Medium.avg_height and Medium.avg_width
         attributes. Called by the ORM. """
-        assert dimension > 0, \
-            "A style must have positive average dimensions"
+        assert not dimension or dimension > 0, \
+            "A medium must have positive average dimensions"
+        return dimension
 
     def __repr__(self):
         """
-        :return: A formatted String representation of a given Style
+        :return: A formatted String representation of a given Medium
         """
-        return "{}".format(self.name)
+        artists = [(artist.id, artist.name) for artist in self.artists]
+        return "<Medium: {}> {} [Colors:{}, Averages:[{}, {}, {}, {}], " \
+               "Countries:{}, Images:{}, Artists:{}]".format(self.id,
+                                                             self.name,
+                                                             self.colors,
+                                                             self.average_age,
+                                                             self.avg_height,
+                                                             self.avg_width,
+                                                             self.avg_depth,
+                                                             self.countries,
+                                                             self.images,
+                                                             artists)
+
+    def serialize(self):
+        """ Return JSON representation of medium. """
+        artists = [[artist.id, artist.name] for artist in self.artists]
+        return {
+            "id": self.id,
+            "name": self.name,
+            "colors": self.colors,
+            "average_age": self.average_age,
+            "avg_height": self.avg_height,
+            "avg_width": self.avg_width,
+            "avg_depth": self.avg_depth,
+            "countries": self.countries,
+            "images": self.images,
+            "artists": artists
+        }
 
 
 class Era(db.Model):
@@ -260,61 +396,83 @@ class Era(db.Model):
     id = Column(Integer, primary_key=True)
     """ The unique identifier and primary key for an Era. """
 
-    name = Column(String(50), nullable=False, unique=True)
+    name = Column(TEXT, nullable=False, unique=True)
     """ The unique name of a given Era.
     Every Era must have a non-empty name. """
 
-    type = Column(String(50), nullable=False)
+    type = Column(TEXT, nullable=False)
     """ The type description of an Era (e.g., "century").
     Every Era must have a non-empty type. """
 
-    countries = Column(String(250))
+    countries = Column(TEXT)
     """ A String representation of a list of countries associated
     with an Era. """
 
-    media = Column(String(250))
-    """ A String representation of a list of different types
-    of art media associated with an Era. """
-
     artists = db.relationship(Artist,
-                              secondary=_artists_eras_relationship,
+                              secondary=_ARTISTS_ERAS_RELATIONSHIP,
                               lazy=True,
                               backref=db.backref('eras', lazy=True))
     """ A many-to-many database relationship linking Era instances
     to Artist instances and vice versa. """
 
-    works = db.relationship(Work, secondary=works_eras_relationship,
+    works = db.relationship(Work, secondary=_WORKS_ERAS_RELATIONSHIP,
                             lazy=True,
                             backref=db.backref('eras', lazy=True))
     """ A many-to-many database relationship linking Era instances
     to Work instances and vice versa. """
 
-    styles = db.relationship(Style, secondary=styles_eras_relationship,
-                             lazy=True,
-                             backref=db.backref('eras', lazy=True))
+    media = db.relationship(Medium, secondary=_MEDIA_ERAS_RELATIONSHIP,
+                            lazy=True,
+                            backref=db.backref('eras', lazy=True))
     """ A many-to-many database relationship linking Era instances
-    to Style instances and vice versa. """
+    to Medium instances and vice versa. """
 
     @validates('name', include_removes=True)
     def _validates_name(self, key, name, is_remove):
         """ Validate the Era.name attribute.
         Called by the ORM. """
         assert not is_remove \
-               and name is not None \
-               and not name == '', \
+            and name is not None \
+            and not name, \
             "An era must have a name"
+        return name
 
     @validates('type', include_removes=True)
     def validate_type(self, key, type, is_remove):
         """ Validate the Era.type attribute.
         Called by the ORM. """
-        # TODO: Make 'type' an Enum
         assert not is_remove \
-               and type is not None \
-               and not type == '', \
+            and type is not None \
+            and not type, \
             "An era must have a type"
+        return type
 
     def __repr__(self):
         """ Return a formatted String representation
         of a given Era. """
-        return "{} ({})".format(self.name, self.type)
+        artists = [(artist.id, artist.name) for artist in self.artists]
+        works = [(work.id, work.title) for work in self.works]
+        media = [(medium.id, medium.name) for medium in self.media]
+        return "<Era: {}> {} ({}) [Countries:{}, Artists:{}, Works:{}, " \
+               "Media:{}]".format(self.id,
+                                  self.name,
+                                  self.type,
+                                  self.countries,
+                                  artists,
+                                  works,
+                                  media)
+
+    def serialize(self):
+        """ Return JSON representation of era. """
+        artists = [[artist.id, artist.name] for artist in self.artists]
+        works = [[work.id, work.title] for work in self.works]
+        media = [[medium.id, medium.name] for medium in self.media]
+        return {
+            "id": self.id,
+            "name": self.name,
+            "type": self.type,
+            "countries": self.countries,
+            "artists": artists,
+            "works": works,
+            "media": media
+        }

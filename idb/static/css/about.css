@@ -1,0 +1,49 @@
+.test-results {
+	height: 600px;
+}
+
+.test-results .overlay {
+	display:none;
+}
+
+.test-results.running .overlay {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+}
+
+.test-results .overlay .spinner {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+}
+
+.test-results .overlay .spinner img {
+	position:relative;
+	left: -24px;
+	top: -24px;
+}
+
+.test-results pre {
+  height: 100%;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.page-header {
+	padding-top: 30px;
+}
+
+a {
+	color: #FFA;
+}
+
+a:hover {
+	color: #FFF;
+}

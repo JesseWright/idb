@@ -2,3 +2,6 @@
 .idea
 venv/
 .venv
+env/
+requirements_test.txt
+ ss.py

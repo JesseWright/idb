@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/css/artist_instance.css">
+{% endblock %}
+
+{% block content %}
+
+
+<img class= "idb-artist-instance-portrait" src = "{{artist.image or 'https://placehold.it/400?txtsize=36&text=No+image+available'}}"></img>
+
+<div class= "idb-artist-info-container">
+    <div class = "idb-name">{{artist.name}}</div>
+    <div class = "idb-dates">{{artist.dob}} to {{artist.dod}}</div>
+    <div style = "font-size: medium; ">Originally from: {{artist.country or "Unavailable"}}</div>
+
+    {% if artist.bio %}
+    <div class = "idb-bio" style="font-size: large; padding-top: 10px; padding-bottom:5px">Artist Biography:</div>
+    <div class = "idb-bio" >{{artist.bio}}</div>
+    {% else %}
+    <div style = "font-size: medium; padding-top:5px"><i>No bio is available for this artist.</i></div>
+    {% endif %}
+
+    {% if artist.works %}
+    <div style= "font-size: large; padding-top: 20px; padding-bottom: 20px">This artist has produced such works as:</div>
+        {% for work in works %}
+        <div><a href="/work/{{work.id}}">{{work.title}}</a></div>
+        {% endfor %}
+    {% else %}
+    <div style = "font-size: medium; padding-top:5px"><i>No bio is available for this artist.</i></div>
+    {% endif %}
+
+    {% if artist.media %}
+    <div style= "font-size: large; padding-top: 20px; padding-bottom: 10px">This artist has produced works in the following media:</div>
+        {% for medium in media %}
+        <div style= "font-size: medium"><a href="/media/{{medium.id}}">{{medium.name}}</a></div>
+        {% endfor %}
+    {% else %}
+    <div style = "font-size: medium; padding-top:10px"><i>No medium data is available for this artist.</i></div>
+    {% endif %}
+
+    {% if artist.eras %}
+    <div style= "font-size: large; padding-top: 20px; padding-bottom: 10px">This artist is known for their work in such eras or periods as:</div>
+        {% for era in artist.eras %}
+        <div style= "font-size: medium"><a href="/eras/{{era.id}}">{{era.name}}</a></div>
+        {% endfor %}
+        <div style:"padding-bottom: 20px">   </div>
+    {% else %}
+    <div style = "font-size: medium; padding-top:10px"><i>No data is available about the eras or periods when this artist worked.</i></div>
+    <div style:"padding-bottom: 20px">   </div>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}

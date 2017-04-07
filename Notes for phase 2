@@ -1,0 +1,59 @@
+Notes for phase 2
+
+
+What we did well:
+
+- Turned around a good product in time
+- Adaptable
+- Everybody did their part 
+- Assignments were good
+- Worked in teams
+- Everything got done
+
+
+What we need to improve:
+
+- Communication could be a little better
+- Growing pains
+- Google Cloud pipeline
+- Didn't start early enough
+- Getting more involvement in the technical report
+- Pipeline/process/organization
+- Walk through spec before the end
+- More documentation
+- Regular meetings
+
+
+Phase 2 implementation notes:
+
+Database
+- Populate the database
+- Choose a database implementation
+- Model the data
+
+Dynamic content loading
+- Pipe data through backend
+- Improved UI functionality
+- General UI improvements
+
+Our own API
+- Investigate google cloud options
+- SQL Alchemy?
+- Improve the data in some way
+- Look at the spec for possible information about improving the data
+- Wikipedia scraping?
+
+Fixing the domain name
+
+Data scraping
+- Somewhere to actually PUT the data
+
+Data planning meeting
+
+Steps:
+
+1. What data CAN we get
+2. What data SHOULD we get
+3. What data do we want to serve
+4. How do we form the data
+5. How do we serve the data 

@@ -1,0 +1,28 @@
+
+{% extends "card_base.html" %}
+{% block head %}
+<title>era</title>
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/static/css/eras.css">
+{% endblock %}
+
+{% block content %}
+
+
+{% for era in eras %}
+  {% if (loop.index-1) is divisibleby 4 %}
+    {% if (loop.index-1) is not equalto 0 %}
+  </div>
+    {% endif %}
+      <div class="row">
+  {% endif %}
+      <div class="col-md-3">
+              <div id = "card-{{loop.index-1}}"></div>
+      </div>
+{% endfor %}
+
+{% if (eras|length is not divisibleby 4) %}
+  </div>
+{% endif %}
+
+{% endblock %}
