@@ -9,7 +9,6 @@ _db_socket_file_default = '/cloudsql/'
 _db_cloudsql_instance_default = 'cs373-project-345:us-central1:idb-artistree'
 
 
-
 def build_db_connection_uri_string(driver=None, username=None,
                                    password=None, address=None,
                                    name=None, socket_file=None,
@@ -48,7 +47,8 @@ def build_db_connection_uri_string(driver=None, username=None,
         if db_password is None: db_password = os.environ.get('SWE_IDB_PGDB_PW')
         if db_address is None: db_address = os.environ.get('SWE_IDB_PGDB_ADDR')
         if db_name is None: db_name = os.environ.get('SWE_IDB_PGDB_NAME')
-        if db_socket_file is None: db_socket_file = os.environ.get('SWE_IDB_PGDB_SOCKET')
+        if db_socket_file is None: db_socket_file = \
+            os.environ.get('SWE_IDB_PGDB_SOCKET')
         if db_cloudsql_instance is None: db_cloudsql_instance = \
             os.environ.get('SWE_IDB_PGDB_CLOUDSQL_INSTANCE')
 
@@ -59,7 +59,8 @@ def build_db_connection_uri_string(driver=None, username=None,
         if db_password is None: db_password = _db_pwrd_default
         if db_address is None: db_address = _db_addr_default
         if db_name is None: db_name = _db_name_default
-        if db_socket_file is None: db_socket_file = _db_socket_file_default
+        if db_socket_file is None: db_socket_file = \
+            _db_socket_file_default
         if db_cloudsql_instance is None: db_cloudsql_instance = \
             _db_cloudsql_instance_default
 
@@ -73,8 +74,7 @@ def build_db_connection_uri_string(driver=None, username=None,
     if db_cloudsql_instance is None: db_cloudsql_instance = ''
 
     socket_prefix = '?host='
-    # Sockets start with a single question mark
-    if db_socket_file: # and not db_socket_file.startswith(socket_prefix):
+    if db_socket_file:
         db_socket_file = socket_prefix + db_socket_file
 
     return ('postgresql+%s://%s:%s@%s/%s%s%s'

@@ -1,16 +1,15 @@
 runtime: python
 env: flex
-api_version: 1
 entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
   python_version: 3
 
-threadsafe: true
-
-# Set the password environment variable on local machine to prevent exposing
-# Use '?unix_socket=/cloudsql/cs373-project-345:us-central1:idb-artistree:
-#  us-central1:idb-artistree' for local DB testing with the Cloud SQL proxy
+# Use env_variables locally to set a password via environment variables
+#  or do so manually by setting an environment variable in console or globally
+# Please do not put passwords in source control
+# env_variables:
+#   SWE_IDB_PGDB_PW: '<PASSWORD>'
 
 beta_settings:
   cloud_sql_instances: cs373-project-345:us-central1:idb-artistree

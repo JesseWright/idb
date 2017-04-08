@@ -6,8 +6,9 @@ from sqlalchemy.dialects.postgresql import TEXT
 from sqlalchemy.orm import validates
 from idb import db
 
+# pylint warnings disabled because they conflict
+#  with proper usage of SQLAlchemy and declarative Models:
 # pylint: disable=W0612,W0613,R0201,R0903,C0103, W0622
-# pylint warnings disabled because they conflict with proper usage of SQLAlchemy
 
 # The tables below allow for many-to-many relationships.
 # See http://flask-sqlalchemy.pocoo.org/2.2/models/ for reference.
@@ -133,8 +134,8 @@ class Artist(db.Model):
         """ Validate the Artist.name attribute.
         Called by the ORM. """
         assert not is_remove \
-            and name is not None \
-            and name != '', \
+               and name is not None \
+               and name != '', \
             "An artist must have a name"
         return name
 
@@ -228,8 +229,8 @@ class Work(db.Model):
         """ Validate the Work.title attribute.
         Called by the ORM. """
         assert not is_remove \
-            and title is not None \
-            and not title, \
+               and title is not None \
+               and title, \
             "An artwork must have a title"
         return title
 
@@ -335,8 +336,7 @@ class Medium(db.Model):
         """ Validate the Medium.name attribute.
         Called by the ORM. """
         assert not is_remove \
-            and name is not None \
-            and not name, \
+               and name, \
             "A medium must have a name"
         return name
 
@@ -431,9 +431,7 @@ class Era(db.Model):
     def _validates_name(self, key, name, is_remove):
         """ Validate the Era.name attribute.
         Called by the ORM. """
-        assert not is_remove \
-            and name is not None \
-            and not name, \
+        assert not is_remove and name, \
             "An era must have a name"
         return name
 
@@ -441,9 +439,7 @@ class Era(db.Model):
     def validate_type(self, key, type, is_remove):
         """ Validate the Era.type attribute.
         Called by the ORM. """
-        assert not is_remove \
-            and type is not None \
-            and not type, \
+        assert not is_remove and type, \
             "An era must have a type"
         return type
 

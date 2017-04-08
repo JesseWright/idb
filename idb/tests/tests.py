@@ -1,19 +1,32 @@
 import os
 import unittest
 import datetime
-from idb import app, db
 import idb.models as models
+from idb import app
 from idb.database_tools import build_db_connection_uri_string
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import exc
 
 _test_string = 'test'
 
+###########################################################################
+# !-- Unit tests for the DB should NEVER connect to the production DB --! #
+# !-----      If they do, they could drop all of its tables!       -----! #
+###########################################################################
+
+# These optional environment variables may be used to configure a testing DB
 _db_username_test = os.environ.get('SWE_IDB_PGDB_UN_TEST')
 _db_password_test = os.environ.get('SWE_IDB_PGDB_PW_TEST')
-
-# !-- These variables below should NEVER connect to the production DB --! #
-# !-----    If they do, they could drop all of its tables!         -----! #
 _db_address_test = os.environ.get('SWE_IDB_PGDB_ADDR_TEST')
-_db_table_test = os.environ.get('SQE_IDB_PGDB_TABLE_TEST')
+_db_table_test = os.environ.get('SWE_IDB_PGDB_TABLE_TEST')
+_db_uri = build_db_connection_uri_string(username=_db_username_test,
+                                         password=_db_password_test,
+                                         address=_db_address_test,
+                                         name=_db_table_test,
+                                         socket_file='',
+                                         cloudsql_instance='',
+                                         use_env_vars=False,
+                                         use_defaults=True)
 
 
 class TestApp(unittest.TestCase):
@@ -23,23 +36,23 @@ class TestApp(unittest.TestCase):
 
     def setUp(self):
         """ Set up and configures the application
-        as a test client and create an empty testing database. """
+        as a test client and create a testing database. """
         app.config['TESTING'] = True
         app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = \
-            build_db_connection_uri_string(username=_db_username_test,
-                                           password=_db_username_test,
-                                           address=_db_address_test,
-                                           name=_db_table_test,
-                                           use_env_vars=False)
+        app.config['SQLALCHEMY_DATABASE_URI'] = _db_uri
 
         self.app = app.test_client()
-        db.drop_all()
-        db.create_all()
+        self.db = SQLAlchemy(app)
 
-    def tearDown(self):
-        """ Reset the testing database. """
-        db.drop_all()
+        try:
+            # Setup will attempt to drop all tables
+            #  but will ignore exceptions to respect possible DB restrictions
+            self.db.drop_all()
+        except exc.SQLAlchemyError:
+            # Failures here are ignored to make local testing easier
+            print('WARNING: Could not drop tables in test database.')
+
+        self.db.create_all()
 
 
 class TestArtistModel(TestApp):
@@ -62,8 +75,8 @@ class TestArtistModel(TestApp):
 
     def test_update_name_null(self):
         test_artist = models.Artist(name=_test_string)
-        db.session.add(test_artist)
-        db.session.commit()
+        self.db.session.add(test_artist)
+        self.db.session.commit()
         with self.assertRaises(Exception):
             models.Artist.query.get(test_artist.id).update(dict(name=''))
 
@@ -100,8 +113,8 @@ class TestWorkModel(TestApp):
 
     def test_update_title_null(self):
         test_work = models.Work(title=_test_string)
-        db.session.add(test_work)
-        db.session.commit()
+        self.db.session.add(test_work)
+        self.db.session.commit()
         with self.assertRaises(Exception):
             models.Artist.query.get(test_work.id).update(dict(title=''))
 
