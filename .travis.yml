@@ -16,7 +16,7 @@ install: true
 
 script:
    - make
-   - nose
+   - nosetests
 
 env:
    - SQE_IDB_PGDB_TABLE_TEST="test"
