@@ -230,7 +230,7 @@ class Work(db.Model):
         Called by the ORM. """
         assert not is_remove \
                and title is not None \
-               and not title, \
+               and title, \
             "An artwork must have a title"
         return title
 
@@ -336,8 +336,7 @@ class Medium(db.Model):
         """ Validate the Medium.name attribute.
         Called by the ORM. """
         assert not is_remove \
-               and name is not None \
-               and not name, \
+               and name, \
             "A medium must have a name"
         return name
 
@@ -432,9 +431,7 @@ class Era(db.Model):
     def _validates_name(self, key, name, is_remove):
         """ Validate the Era.name attribute.
         Called by the ORM. """
-        assert not is_remove \
-               and name is not None \
-               and not name, \
+        assert not is_remove and name, \
             "An era must have a name"
         return name
 
@@ -442,9 +439,7 @@ class Era(db.Model):
     def validate_type(self, key, type, is_remove):
         """ Validate the Era.type attribute.
         Called by the ORM. """
-        assert not is_remove \
-               and type is not None \
-               and not type, \
+        assert not is_remove and type, \
             "An era must have a type"
         return type
 
