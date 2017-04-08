@@ -15,8 +15,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = \
                                    use_env_vars=True,
                                    use_defaults=True)
 
-print('DB URI used: ' + str(app.config['SQLALCHEMY_DATABASE_URI']))
-
 db = SQLAlchemy(app)
 
 # Setup routes for Flask

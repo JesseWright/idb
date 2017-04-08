@@ -6,8 +6,9 @@ from sqlalchemy.dialects.postgresql import TEXT
 from sqlalchemy.orm import validates
 from idb import db
 
+# pylint warnings disabled because they conflict
+#  with proper usage of SQLAlchemy and declarative Models:
 # pylint: disable=W0612,W0613,R0201,R0903,C0103, W0622
-# pylint warnings disabled because they conflict with proper usage of SQLAlchemy
 
 # The tables below allow for many-to-many relationships.
 # See http://flask-sqlalchemy.pocoo.org/2.2/models/ for reference.
