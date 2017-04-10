@@ -20,3 +20,4 @@ db = SQLAlchemy(app)
 # Setup routes for Flask
 import idb.views
 import idb.queries
+import idb.api
