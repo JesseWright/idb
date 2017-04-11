@@ -55,6 +55,26 @@ This call just provides a list of all the artists we have in our database. (This
             }
         ]
 
+## Get specific artist [/artists/<id>]
+
+### Retrieve specific artist by id [GET]
+
+This call retrieves a specific artist by its id, found through /artists/all. Returns a list with a single artist object.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Vincent VanGogh",
+                "dateOfBirth": "1853-3-30",
+                "dateOfDeath": "1890-7-29",
+                "nationality": "Dutch",
+                "countryOfOrigin": "The Netherlands",
+                "image": "",
+                "bio":"lorem ipsum"
+            }
+        ]
+
 ## Get Specific Artist [/artists/search/]
 
 ### Retrieve a specific artist [POST]
@@ -173,8 +193,48 @@ Returns a list of all our artworks.
             }
         ]
 
+## Get specific work of art [/works/<id>]
 
-## Get a specifc work of art [/works/search]
+### Retrieve specific work of art by id [GET]
+
+This call retrieves a specific work of art by its id, found through /works/all. Returns a list with a single work object.
+
++ Response 200 (application/json)
+
+        [
+            {
+            "name":"Night Watch",
+            "physicalMedium": "oil on canvas",
+            "year": 1642,
+            "style": "",
+            "dimensions": [
+              {
+                "unit": "cm",
+                "type": "height",
+                "part": null,
+                "value": "379.5"
+              },
+              {
+                "unit": "cm",
+                "type": "width",
+                "part": null,
+                "value": "453.5"
+              }
+            ],
+            "colors": [
+              "#261808",
+              " #5E3C14",
+              " #9C8238",
+              " #885617",
+              " #AF9F6B",
+              " #6C6238",
+              " #D7CB9E"
+            ],
+            "image": "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0"
+            }
+        ]
+
+## Get a specific work of art [/works/search]
 
 ### Get a specific work of art [POST]
 
@@ -315,6 +375,36 @@ Gives you all the data we have for the different eras/periods.
                 ]
             }
         ]
+
+## Get specific era [/eras/<id>]
+
+### Retrieve a specific era by id [GET]
+
+This call retrieves an era by its id, found through /eras/all. Returns a list with a single era object.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "era":"17th century",
+                "artists": [
+                  "Rembrandt Harmensz. van Rijn",
+                  "Johannes Vermeer"
+                ],
+                "works": [
+                  "The Milkmaid",
+                  "Night Watch"
+                ],
+                "countries": [
+                  "Dutch Republic",
+                  "Italy"
+                ],
+                "mediums": [
+                  "oil on canvas",
+                  "painting"
+                ]
+            }
+        ]
         
 ## Get a specific era [/eras/search]
 
@@ -365,6 +455,7 @@ Gives you all the data we have for the different eras/periods.
                           "painting"
                         ]
                     }
+                ]
             }
         ]
         
@@ -452,3 +543,51 @@ Returns a list of all of the mediums of art represented in our database.
             }
         
         ]
+
+
+## Get specific medium [/mediums/<id>]
+
+### Retrieve specific medium by id [GET]
+
+This call retrieves a medium by its id, found through /mediums/all. Returns a list with a single medium object.
+
++ Response 200 (application/json)
+
+        [
+            {
+              "name": "Sculpture",
+              "colors": [
+                " #261808",
+                " #5E3C14",
+                " #9C8238",
+                " #885617",
+                " #AF9F6B",
+                " #6C6238",
+                " #D7CB9E"
+              ],
+              "averageage": "312",
+              "artists": [
+                "Rembrandt Harmensz. van Rijn"
+              ],
+              "avgdimensions": [
+                {
+                  "unit": "cm",
+                  "type": "height",
+                  "part": null,
+                  "value": "359.5"
+                },
+                {
+                  "unit": "cm",
+                  "type": "width",
+                  "part": null,
+                  "value": "253.5"
+                }
+              ],
+              "images": [
+                "http://lh6.ggpht.com/ZYWwML8mVFonXzbmg2rQBulNuCSr3rAaf5ppNcUc2Id8qXqudDL1NSYxaqjEXyDLSbeNFzOHRu0H7rbIws0Js4d7s_M=s0",
+                "http://lh3.ggpht.com/XUw3NdeiA0MsT-mygp8NT1oPUd17GB3BK2nSRYvyTAY-N64KwsLOO5QU3muSDEk2AdMzonIVLgjge581mOobVqsQrA=s0"
+                
+              ]
+            }
+        ]
+
