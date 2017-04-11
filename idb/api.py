@@ -1,7 +1,3 @@
-# pylint: disable = bad-whitespace
-# pylint: disable = invalid-name
-# pylint: disable = missing-docstring
-
 from flask import render_template
 from idb import app
 from idb.models import *
@@ -31,12 +27,12 @@ def work_one(id):
     return response(200, work, 1)
 
 @app.route('/api/media/all')
-def work_all():
+def media_all():
     works = Medium.query.all()
     response(200, works, 1)
 
 @app.route('/api/media/<int:id>')
-def work_one(id):
+def media_one(id):
     work = Medium.query.filter_by(id=id).first()
     return response(200, work, 1)
 

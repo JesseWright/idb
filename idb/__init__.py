@@ -11,8 +11,7 @@ app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = build_db_connection_uri_string()
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = \
-    build_db_connection_uri_string(address='',
-                                   use_env_vars=True,
+    build_db_connection_uri_string(use_env_vars=True,
                                    use_defaults=True)
 
 db = SQLAlchemy(app)
