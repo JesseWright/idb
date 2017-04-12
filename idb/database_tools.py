@@ -1,18 +1,26 @@
 import os
 
+# Define environment variables' keys used
+db_envvar_key_prefix = 'SWE_IDB_PGDB_'
+db_driver_evkey = db_envvar_key_prefix + 'DRVR'
+db_username_evkey = db_envvar_key_prefix + 'UN'
+db_password_evkey = db_envvar_key_prefix + 'PW'
+db_address_evkey = db_envvar_key_prefix + 'ADDR'
+db_name_evkey = db_envvar_key_prefix + 'NAME'
+db_options_evkey = db_envvar_key_prefix + 'OPTS'
+
+# Define internal defaults
 _db_driver_default = 'psycopg2'
 _db_uname_default = 'postgres'
 _db_pwrd_default = ''
-_db_addr_default = 'localhost:5432'
+_db_addr_default = 'localhost:3306'
 _db_name_default = 'postgres'
-_db_socket_file_default = '/cloudsql/'
-_db_cloudsql_instance_default = 'cs373-project-345:us-central1:idb-artistree'
+_db_opts_default = ''
 
 
 def build_db_connection_uri_string(driver=None, username=None,
                                    password=None, address=None,
-                                   name=None, socket_file=None,
-                                   cloudsql_instance=None,
+                                   name=None, options=None,
                                    use_env_vars=False, use_defaults=False):
     """ Generates a URI to the database according to the parameters given, 
     using environment variables for any parameters given as None if 
@@ -27,30 +35,28 @@ def build_db_connection_uri_string(driver=None, username=None,
         - SWE_IDB_PGDB_PW:    <password for DB>
         - SWE_IDB_PGDB_ADDR:  'localhost:3306'
     
+    Do not commit passwords to source control!
+    
     Return string in the form of 
         'postgresql+{driver}://
-            {username}:{password}@
-            {address}/{name}{?host=socket_file}{cloudsql_instance}'.
+            {username}:{password}@{address}/{name}{/options}'.
     """
     db_driver = driver
     db_username = username
     db_password = password
     db_address = address
     db_name = name
-    db_socket_file = socket_file
-    db_cloudsql_instance = cloudsql_instance
+    db_options = options
 
     if use_env_vars:
         # Overwrite any None-types with environment variables
-        if db_driver is None: db_driver = os.environ.get('SWE_IDB_GPDB_DRVR')
-        if db_username is None: db_username = os.environ.get('SWE_IDB_PGDB_UN')
-        if db_password is None: db_password = os.environ.get('SWE_IDB_PGDB_PW')
-        if db_address is None: db_address = os.environ.get('SWE_IDB_PGDB_ADDR')
-        if db_name is None: db_name = os.environ.get('SWE_IDB_PGDB_NAME')
-        if db_socket_file is None: db_socket_file = \
-            os.environ.get('SWE_IDB_PGDB_SOCKET')
-        if db_cloudsql_instance is None: db_cloudsql_instance = \
-            os.environ.get('SWE_IDB_PGDB_CLOUDSQL_INSTANCE')
+        if db_driver is None: db_driver = os.environ.get(db_driver_evkey)
+        if db_username is None: db_username = os.environ.get(db_username_evkey)
+        if db_password is None: db_password = os.environ.get(db_password_evkey)
+        if db_address is None: db_address = os.environ.get(db_address_evkey)
+        if db_name is None: db_name = os.environ.get(db_name_evkey)
+        if db_options is None: db_options = \
+            os.environ.get(db_options_evkey)
 
     if use_defaults:
         # Overwrite any None-types with defaults
@@ -59,10 +65,8 @@ def build_db_connection_uri_string(driver=None, username=None,
         if db_password is None: db_password = _db_pwrd_default
         if db_address is None: db_address = _db_addr_default
         if db_name is None: db_name = _db_name_default
-        if db_socket_file is None: db_socket_file = \
-            _db_socket_file_default
-        if db_cloudsql_instance is None: db_cloudsql_instance = \
-            _db_cloudsql_instance_default
+        if db_options is None: db_options = \
+            _db_opts_default
 
     # Convert any None types to empty strings
     if db_driver is None: db_driver = ''
@@ -70,18 +74,12 @@ def build_db_connection_uri_string(driver=None, username=None,
     if db_password is None: db_password = ''
     if db_address is None: db_address = ''
     if db_name is None: db_name = ''
-    if db_socket_file is None: db_socket_file = ''
-    if db_cloudsql_instance is None: db_cloudsql_instance = ''
+    if db_options is None: db_options = ''
 
-    socket_prefix = '?host='
-    if db_socket_file:
-        db_socket_file = socket_prefix + db_socket_file
-
-    return ('postgresql+%s://%s:%s@%s/%s%s%s'
+    return ('postgresql+%s://%s:%s@%s/%s%s'
             % (db_driver,
                db_username,
                db_password,
                db_address,
                db_name,
-               db_socket_file,
-               db_cloudsql_instance))
+               db_options))

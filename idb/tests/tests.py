@@ -9,22 +9,24 @@ from sqlalchemy import exc
 
 _test_string = 'test'
 
+# These optional environment variables may be used to configure a testing DB
+# (Only certain environment variables might need to be set - the default
+#  values in database_tools.py might suffice for some or all DB options.)
+_db_username_test = os.environ.get('SWE_IDB_PGDB_UN_TEST')
+_db_password_test = os.environ.get('SWE_IDB_PGDB_PW_TEST')
+_db_address_test = os.environ.get('SWE_IDB_PGDB_ADDR_TEST')
+_db_table_test = os.environ.get('SWE_IDB_PGDB_TABLE_TEST')
+
 ###########################################################################
 # !-- Unit tests for the DB should NEVER connect to the production DB --! #
 # !-----      If they do, they could drop all of its tables!       -----! #
 ###########################################################################
 
-# These optional environment variables may be used to configure a testing DB
-_db_username_test = os.environ.get('SWE_IDB_PGDB_UN_TEST')
-_db_password_test = os.environ.get('SWE_IDB_PGDB_PW_TEST')
-_db_address_test = os.environ.get('SWE_IDB_PGDB_ADDR_TEST')
-_db_table_test = os.environ.get('SWE_IDB_PGDB_TABLE_TEST')
 _db_uri = build_db_connection_uri_string(username=_db_username_test,
                                          password=_db_password_test,
                                          address=_db_address_test,
                                          name=_db_table_test,
-                                         socket_file='',
-                                         cloudsql_instance='',
+                                         options='',
                                          use_env_vars=False,
                                          use_defaults=True)
 
