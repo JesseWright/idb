@@ -11,6 +11,17 @@
             MEDIA: 'medium',
             ERAS: 'era'
         };
+        function getYear(dateString, justYear = false){
+            if(dateString != null){
+                date = new Date(Date.parse(dateString))
+                if(justYear){
+                    return date.getFullYear();
+                }
+                else return date.toDateString();
+
+            }
+            else return "Year Unknown"
+        }
         var new_card_data = undefined;
 
         var artist_card = React.createClass({
@@ -364,12 +375,12 @@
                     if (request_page == page_enum.WORKS)
                     {
                         name = d.title;
-                        year = d.date;
+                        year = getYear(d.date, justYear = true);
                         image = d.image;
                     }
                     else if (request_page == page_enum.ARTISTS){
                         name = d.name;
-                        year = d.dob;
+                        year = getYear(d.dob);
                         image = d.image;
                     }
                     else if(request_page == page_enum.ERAS){
