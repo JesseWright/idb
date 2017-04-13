@@ -14,16 +14,17 @@
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script>
         var onResize = function() {
+            console.log('functiongotrun');
             // apply dynamic padding at the top of the body according to the fixed navbar height
-            $("body").css("padding-top", $(".navbar-fixed-top").height()+$(".navbar-default").height());
+            $(".navbar-default").css("margin-top",$(".navbar-custom").height())
+            $("body").css("padding-top",$(".navbar-default").height()+$(".navbar-custom").height());
           };
 
           // attach the function to the window resize event
-          $(window).resize(onResize);
-
+        $(window).resize(onResize);
           // call it also when the page is ready after load or reload
-          $(function() {
-            onResize();
+        $(function() {
+          onResize();
           });
       </script>
       <!-- fonts -->
@@ -36,7 +37,7 @@
 
 
     <body>
-      <nav class="navbar navbar-custom navbar-fixed-top navbar-absolute">
+      <nav class="navbar navbar-custom navbar-fixed-top ">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand active" href="/">Artistree</a>

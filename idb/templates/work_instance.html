@@ -16,7 +16,7 @@
     <div class = "idb-name">{{work.title}}</div>
     <div class = "idb-dates">{{getYear(work.date, True)}}</div>
 
-    <div style = "padding-bottom: 20px">{{work.height}}cm x {{work.width}}cm</div>
+    <div style = "padding-bottom: 20px">{{work.height or 'unknown'}} cm x {{work.width or 'unknown'}} cm</div>
 
 
     <div> Created by: </div>

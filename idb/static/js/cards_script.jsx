@@ -87,7 +87,7 @@
                       return(
                         <a href={link_to_use}>
                             <div className="idb-card">
-                                    <img className = "idb-medium-img" src={"" + this.props.image}/>
+                              <img className = "idb-medium-img" src={"" + this.props.image}/>
                               <div className = "idb-medium-name">{this.props.name}</div>
 
                             </div>
@@ -407,19 +407,25 @@
                         }
                         //console.log("image\n" + image);
                     }
-                    if(request_page != page_enum.ERAS)
+                    if(request_page != page_enum.ERAS){
+                            if(image == null){
+                        image = "/static/img/noimg.jpg";
+                            }
                         ReactDOM.render(
                             React.createElement(card_to_render, {name:name,dob:year,'image':image,id:d.id,}, null),
                             document.getElementById('card-' + i)
                         );
+                        k=16
+                    }
                     else {
                         ReactDOM.render(
                             React.createElement(card_to_render, {name:name,type:type,id:d.id,}, null),
                             document.getElementById('card-' + i)
                         );
+                        k=12
                     }
                 }
-                for(j = i; j < 16; j ++)
+                for(j = i; j < k; j ++)
                 {
                     ReactDOM.render(
                         React.createElement('div', null, null),

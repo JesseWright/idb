@@ -9,3 +9,8 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
 <script type = "text/jsx" src= "/static/js/cards_script.jsx"></script>
 {% endblock %}
+{% block content %}
+<div id="cards-content" class="container-fluid no-padding">
+            {% block cards_content %}{% endblock %}
+        </div>
+{% endblock %}
