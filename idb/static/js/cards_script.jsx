@@ -160,6 +160,7 @@
                 update(1,cur_page,request_page);
             else
                 console.log("Tried to go to invalid page!");
+            window.scrollTo(0,0);
         }
 
         function update(sort_order,page_num,request_page)

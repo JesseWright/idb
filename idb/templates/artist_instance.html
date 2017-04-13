@@ -12,7 +12,7 @@
 <div class= "idb-artist-info-container">
     <div class = "idb-name">{{artist.name}}</div>
     <div class = "idb-dates">{{getYear(artist.dob)}} to {{getYear(artist.dod)}}</div>
-    <div style = "font-size: medium; ">Originally from: {{artist.country or "Unavailable"}}</div>
+    <div style = "font-size: medium; ">Originally from: {{artist.country or "Unknown"}}</div>
 
     {% if artist.bio %}
     <div class = "idb-bio" style="font-size: large; padding-top: 10px; padding-bottom:5px">Artist Biography:</div>
