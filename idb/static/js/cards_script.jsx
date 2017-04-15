@@ -11,6 +11,9 @@
             MEDIA: 'medium',
             ERAS: 'era'
         };
+        var old_sort_order = 1;
+
+
         function getYear(dateString, justYear = false){
             if(dateString != null){
                 date = new Date(Date.parse(dateString))
@@ -157,7 +160,7 @@
                     cur_page = cur_page + 1;
             }
             if (prev_page !== cur_page)
-                update(1,cur_page,request_page);
+                update(old_sort_order,cur_page,request_page);
             else
                 console.log("Tried to go to invalid page!");
             window.scrollTo(0,0);
@@ -166,7 +169,6 @@
         function update(sort_order,page_num,request_page)
         {
             /*
-            //steps to do what I actually want to do
             1. get the values we're going to need
             2. check for errors
                 a. if there were no errors, build the filters
@@ -180,8 +182,15 @@
                 name = document.getElementById('nameBox').value;
                 if (request_page != page_enum.MEDIA)
                 {
-                    dateStart = document.getElementById('dateStart').value; //on the media page, this is the date delta
+                    dateStart = document.getElementById('dateStart').value;
                     dateEnd = document.getElementById('dateEnd').value;
+
+                    //assumes that we want useful defaults if you leave a field blank
+                    if(dateStart == "")
+                        dateStart = "0"
+                    if(dateEnd == "")
+                        dateEnd = "2017";
+
                 }
                 else {
                     dateStart = 1;
@@ -283,12 +292,13 @@
                 }
             }
 
-            if (!first_run && (old_name !== name || old_startDate !== dateStart || old_endDate !== dateEnd))
+            if (!first_run && (old_name !== name || old_startDate !== dateStart || old_endDate !== dateEnd || old_sort_order !== sort_order))
             {
                 page_num = 1;
                 old_name = name;
                 old_startDate = dateStart;
                 old_endDate = dateEnd;
+                old_sort_order = sort_order;
             }
             //need this block to prevent weird page number jumps on the first new page request
             if (first_run)
@@ -302,8 +312,8 @@
 
 
             cur_page = page_num;
+            console.log("Update finished successfully!");
 
-            console.log("You are free now, my son...");
             return true;
 
         }
@@ -400,7 +410,7 @@
                         year = d.average_age;
                         if (d.images)
                         {
-                            console.log("I have an image!");
+
                             image = d.images.replace("{","").replace("}","").replace("'","").replace(" ","").split(",")[0];
 
                             if (image === "NULL")

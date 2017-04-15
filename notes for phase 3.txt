@@ -1,0 +1,17 @@
+Notes for phase 3
+
+
+things we did well:
+- Well defined roles
+- communicated a bit better
+
+
+Things to improve:
+- Merge to master more often / shorter branch time
+- deploy earlier and more often
+- tail end rush
+- actually start earlier
+- more in person meetings
+- adding deadlines
+- better about using Trello
+
