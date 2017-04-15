@@ -41,9 +41,9 @@
 }
 
 a {
-	color: #FFA;
+	color: #aaa;
 }
 
 a:hover {
-	color: #FFF;
+	color: red;
 }
