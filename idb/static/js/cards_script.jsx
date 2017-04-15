@@ -14,6 +14,8 @@
         var old_sort_order = 1;
 
 
+
+
         function getYear(dateString, justYear = false){
             if(dateString != null){
                 date = new Date(Date.parse(dateString))
@@ -449,3 +451,15 @@
         function get_page_enum(){
             return page_enum;
         }
+
+        $(document).keypress(function(event){
+            if(event.keyCode == 13){
+                /*
+                I'm assuming that if you hit the enter key you must not care
+                about sorting, otherwise you'd hit a sort key.
+                */
+                update(1,1,document.title);
+                //keeps the page from reloading when you hit enter
+                event.preventDefault();
+            }
+        });
