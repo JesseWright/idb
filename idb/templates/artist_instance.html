@@ -11,8 +11,8 @@
 
 <div class= "idb-artist-info-container">
     <div class = "idb-name">{{artist.name}}</div>
-    <div class = "idb-dates">{{artist.dob}} to {{artist.dod}}</div>
-    <div style = "font-size: medium; ">Originally from: {{artist.country or "Unavailable"}}</div>
+    <div class = "idb-dates">{{getYear(artist.dob)}} to {{getYear(artist.dod)}}</div>
+    <div style = "font-size: medium; ">Originally from: {{artist.country or "Unknown"}}</div>
 
     {% if artist.bio %}
     <div class = "idb-bio" style="font-size: large; padding-top: 10px; padding-bottom:5px">Artist Biography:</div>
@@ -42,7 +42,7 @@
     {% if artist.eras %}
     <div style= "font-size: large; padding-top: 20px; padding-bottom: 10px">This artist is known for their work in such eras or periods as:</div>
         {% for era in artist.eras %}
-        <div style= "font-size: medium"><a href="/eras/{{era.id}}">{{era.name}}</a></div>
+        <div style= "font-size: medium"><a href="/eras/{{era.id}}">{{'The ' + era.name + ' Century'}}</a></div>
         {% endfor %}
         <div style:"padding-bottom: 20px">   </div>
     {% else %}
