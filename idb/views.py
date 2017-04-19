@@ -161,6 +161,8 @@ def search():
     search_terms = args["term"].split(" ")
     # filter out empty strings
     search_terms = filter(lambda x : x, search_terms)
+    print("searching for ", end="")
+    print(search_terms)
 
     # collect all objects from each model
     results = []
@@ -169,12 +171,10 @@ def search():
         results += model.query.all()
     print("collected models. ")
 
-
     # filter out items with 0 relevance
     print("filtering... ", end="")
-    results = filter(lambda x : x.relevance(search_terms) > 0, results)
+    results = filter(lambda x : x.relevance(search_terms) > 1, results)
     print("filtered.")
-
 
     # sort items by relevance
     print("sorting... ", end="")
