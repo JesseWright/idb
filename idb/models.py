@@ -419,9 +419,9 @@ class Medium(db.Model):
             "name": self.name,
             "colors": self.colors,
             "average_age": self.average_age,
-            "avg_height": self.avg_height,
-            "avg_width": self.avg_width,
-            "avg_depth": self.avg_depth,
+            "avg_height": str(self.avg_height),
+            "avg_width": str(self.avg_width),
+            "avg_depth": str(self.avg_depth),
             "countries": self.countries,
             "images": self.images,
             "artists": artists
