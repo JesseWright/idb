@@ -1,12 +1,13 @@
 from flask import render_template
 from idb import app
 from idb.models import *
+from idb.queries import *
 import subprocess
 
 
 @app.route('/')
 def index():
-    """Default route that renders the homepage using 
+    """Default route that renders the homepage using
     the template 'index.html'
     """
     return render_template('index.html')
@@ -146,6 +147,14 @@ def medium(id):
 
     return render_template('medium_instance.html', medium=medium,
                            colors=colors)
+
+@app.route('/search/')
+def search():
+    args = request.args.to_dict()
+
+def search_json(model, terms):
+    for model in models:
+        pass
 
 
 @app.route('/report_text')

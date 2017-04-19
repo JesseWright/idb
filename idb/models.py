@@ -177,6 +177,23 @@ class Artist(db.Model):
             "works": works
         }
 
+    def relevance(self, search_terms):
+        """ Return (integer) relevancy of artist to search terms"""
+        NAME_WEIGHT = 5
+        PROP_WEIGHT = 3
+        BIO_WEIGHT  = 1
+        WORK_WEIGHT = 2
+        works_str = " ".join([work.title for work in self.works])
+
+        score = 0
+        for term in search_terms:
+            term = term.lower()
+            score += NAME_WEIGHT * self.name.lower().count(term)
+            score += PROP_WEIGHT * self.nationality.lower().count(term)
+            score += PROP_WEIGHT * self.country.lower().count(term)
+            score += BIO_WEIGHT  * self.bio.lower().count(term)
+            score += WORK_WEIGHT * works_str.lower().count(term)
+        return score
 
 class Work(db.Model):
     """ A Model that houses information on artworks. """
@@ -282,6 +299,21 @@ class Work(db.Model):
             "motifs": self.motifs,
             "media": media
         }
+
+    def relevance(self, search_terms):
+        """ Return (integer) relevancy of artist to search terms"""
+        TITLE_WEIGHT = 5
+        MOTIF_WEIGHT = 3
+        MEDIA_WEIGHT = 1
+        media_str = " ".join([medium.name for medium in self.media])
+
+        score = 0
+        for term in search_terms:
+            term = term.lower()
+            score += TITLE_WEIGHT * self.title.lower().count(term)
+            score += MOTIF_WEIGHT * self.motifs.lower().count(term)
+            score += MEDIA_WEIGHT * media_str.lower().count(term)
+        return score
 
 
 class Medium(db.Model):
@@ -389,6 +421,21 @@ class Medium(db.Model):
             "artists": artists
         }
 
+    def relevance(self, search_terms):
+        """ Return (integer) relevancy of artist to search terms"""
+        NAME_WEIGHT = 5
+        COUNTRY_WEIGHT = 2
+        ARTIST_WEIGHT = 1
+        artists_str = " ".join([artist.name for artist in self.artists])
+
+        score = 0
+        for term in search_terms:
+            term = term.lower()
+            score += NAME_WEIGHT    * self.name.lower().count(term)
+            score += COUNTRY_WEIGHT * self.country.lower().count(term)
+            score += ARTIST_WEIGHT  * artists_str.lower().count(term)
+        return score
+
 
 class Era(db.Model):
     """ A Model that houses information on historical periods. """
@@ -472,3 +519,24 @@ class Era(db.Model):
             "works": works,
             "media": media
         }
+
+    def relevance(self, search_terms):
+        """ Return (integer) relevancy of artist to search terms"""
+        NAME_WEIGHT = 5
+        COUNTRIES_WEIGHT = 2
+        ARTIST_WEIGHT = 1
+        WORK_WEIGHT = 1
+        MEDIA_WEIGHT = 1
+        artists_str = " ".join([artist.name for artist in self.artists])
+        works_str = " ".join([work.title for work in self.works])
+        media_str = " ".join([medium.name for medium in self.media])
+
+        score = 0
+        for term in search_terms:
+            term = term.lower()
+            score += NAME_WEIGHT      * self.name.lower().count(term)
+            score += COUNTRIES_WEIGHT * self.countries.lower().count(term)
+            score += ARTIST_WEIGHT    * artists_str.lower().count(term)
+            score += WORK_WEIGHT      * works_str.lower().count(term)
+            score += MEDIA_WEIGHT     * media_str.lower().count(term)
+        return score
