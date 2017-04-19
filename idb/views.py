@@ -148,6 +148,11 @@ def medium(id):
     return render_template('medium_instance.html', medium=medium,
                            colors=colors)
 
+
+@app.route('/search_results/<terms>')
+def search_results(terms):
+    return render_template('search_results.html',terms=terms)
+
 @app.route('/search/')
 def search():
     args = request.args.to_dict()

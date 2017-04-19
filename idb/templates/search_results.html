@@ -16,13 +16,24 @@
 <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans'
       rel='stylesheet' type='text/css'>
 
+<script>
+
+
+
+var load = function(){
+    variable = document.getElementById("termsDiv").innerHTML
+    
+}
+$(document).ready(load);
+</script>
+
 {% endblock %}
 
 
 {% block content %}
 
 <div>
-    <p>Hello Walter!</p>
+    <div id="termsDiv" style="display: none">{{terms}}</div>
 </div>
 
 
