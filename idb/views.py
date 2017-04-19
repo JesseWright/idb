@@ -160,7 +160,7 @@ def search():
     # seperate search terms into words
     search_terms = args["term"].split(" ")
     # filter out empty strings
-    search_terms = filter(lambda x : x, search_terms)
+    search_terms = list(filter(lambda x : x, search_terms))
     print("searching for ", end="")
     print(search_terms)
 
@@ -169,12 +169,12 @@ def search():
     print("collecting models... ", end="")
     for model in [Artist, Work, Medium, Era]:
         results += model.query.all()
-    print("collected models. ")
+    print("collected {} models.".format(len(results)))
 
     # filter out items with 0 relevance
     print("filtering... ", end="")
-    results = filter(lambda x : x.relevance(search_terms) > 1, results)
-    print("filtered.")
+    results = list(filter(lambda x : x.relevance(search_terms) > 1, results))
+    print("filtered. {} models.".format(len(results)))
 
     # sort items by relevance
     print("sorting... ", end="")
