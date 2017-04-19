@@ -24,3 +24,9 @@
 .idb-work-date {
   font-size: 10px;
 }
+.navbar-default{
+  display: none;
+  line-height:0;
+  height: 0;
+  overflow: hidden;
+}

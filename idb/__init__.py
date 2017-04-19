@@ -11,9 +11,25 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = \
     build_db_connection_uri_string(use_env_vars=True,
                                    use_defaults=True)
-print app.config['SQLALCHEMY_DATABASE_URI']
 db = SQLAlchemy(app)
+#### Jinja2 templating functions ###
+def getYear(date, justYear = False):
+    if(date != None):
+        if(justYear):
+            return date.year
 
+        else:
+            return date.strftime("%b %d, %Y")
+    else:
+        return "Year Unknown"
+def strNumFormatter(num):
+    if(num != None):
+        return '%0.2f' % float(num)
+    else:
+        return "Unavailable"
+
+app.jinja_env.globals.update(getYear=getYear)
+app.jinja_env.globals.update(strNumFormatter=strNumFormatter)
 # Setup routes for Flask
 import idb.views
 import idb.queries

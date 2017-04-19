@@ -161,4 +161,4 @@ def string_filter(models, attribute, search_string):
         return models
     return list(filter(
         lambda x: x.__dict__[attribute] is not None
-                  and x.__dict__[attribute].find(search_string) != -1, models))
+                  and x.__dict__[attribute].lower().find(search_string.lower()) != -1, models))
