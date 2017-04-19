@@ -187,7 +187,7 @@ def search():
         results = results[int(args["page"]) * ITEMS_PER_PAGE : (int(
             args["page"]) + 1) * ITEMS_PER_PAGE]
 
-    return reponse(200, results, page_count)
+    return response(200, results, page_count)
 
 
 @app.route('/report_text')
