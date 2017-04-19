@@ -156,7 +156,7 @@ def search_results(terms):
 def search():
     ITEMS_PER_PAGE = 16
     args = request.args.to_dict()
-    
+
     # seperate search terms into words
     search_terms = args["term"].split(" ")
     # filter out empty strings
@@ -164,13 +164,22 @@ def search():
 
     # collect all objects from each model
     results = []
+    print("collecting models... ", end="")
     for model in [Artist, Work, Medium, Era]:
         results += model.query.all()
+    print("collected models. ")
+
 
     # filter out items with 0 relevance
+    print("filtering... ", end="")
     results = filter(lambda x : x.relevance(search_terms) > 0, results)
+    print("filtered.")
+
+
     # sort items by relevance
+    print("sorting... ", end="")
     results = sorted(results, key=lambda x : x.relevance(search_terms))
+    print("sorted.")
 
     # page count method from query.py
     page_count = int(ceil(len(results) / float(ITEMS_PER_PAGE)))
