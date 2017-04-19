@@ -188,10 +188,14 @@ class Artist(db.Model):
         score = 0
         for term in search_terms:
             term = term.lower()
-            score += NAME_WEIGHT * self.name.lower().count(term)
-            score += PROP_WEIGHT * self.nationality.lower().count(term)
-            score += PROP_WEIGHT * self.country.lower().count(term)
-            score += BIO_WEIGHT  * self.bio.lower().count(term)
+            if self.name:
+                score += NAME_WEIGHT * self.name.lower().count(term)
+            if self.nationality:
+                score += PROP_WEIGHT * self.nationality.lower().count(term)
+            if self.country:
+                score += PROP_WEIGHT * self.country.lower().count(term)
+            if self.bio:
+                score += BIO_WEIGHT  * self.bio.lower().count(term)
             score += WORK_WEIGHT * works_str.lower().count(term)
         return score
 
@@ -310,8 +314,10 @@ class Work(db.Model):
         score = 0
         for term in search_terms:
             term = term.lower()
-            score += TITLE_WEIGHT * self.title.lower().count(term)
-            score += MOTIF_WEIGHT * self.motifs.lower().count(term)
+            if self.title:
+                score += TITLE_WEIGHT * self.title.lower().count(term)
+            if self.motifs:
+                score += MOTIF_WEIGHT * self.motifs.lower().count(term)
             score += MEDIA_WEIGHT * media_str.lower().count(term)
         return score
 
@@ -431,8 +437,10 @@ class Medium(db.Model):
         score = 0
         for term in search_terms:
             term = term.lower()
-            score += NAME_WEIGHT    * self.name.lower().count(term)
-            score += COUNTRY_WEIGHT * self.country.lower().count(term)
+            if self.name:
+                score += NAME_WEIGHT    * self.name.lower().count(term)
+            if self.country:
+                score += COUNTRY_WEIGHT * self.country.lower().count(term)
             score += ARTIST_WEIGHT  * artists_str.lower().count(term)
         return score
 
@@ -524,19 +532,12 @@ class Era(db.Model):
         """ Return (integer) relevancy of artist to search terms"""
         NAME_WEIGHT = 5
         COUNTRIES_WEIGHT = 2
-        ARTIST_WEIGHT = 1
-        WORK_WEIGHT = 1
-        MEDIA_WEIGHT = 1
-        artists_str = " ".join([artist.name for artist in self.artists])
-        works_str = " ".join([work.title for work in self.works])
-        media_str = " ".join([medium.name for medium in self.media])
 
         score = 0
         for term in search_terms:
             term = term.lower()
-            score += NAME_WEIGHT      * self.name.lower().count(term)
-            score += COUNTRIES_WEIGHT * self.countries.lower().count(term)
-            score += ARTIST_WEIGHT    * artists_str.lower().count(term)
-            score += WORK_WEIGHT      * works_str.lower().count(term)
-            score += MEDIA_WEIGHT     * media_str.lower().count(term)
+            if self.name:
+                score += NAME_WEIGHT      * self.name.lower().count(term)
+            if self.countries:
+                score += COUNTRIES_WEIGHT * self.countries.lower().count(term)
         return score

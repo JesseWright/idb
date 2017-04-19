@@ -155,11 +155,17 @@ def search_results():
 def search():
     ITEMS_PER_PAGE = 16
     args = request.args.to_dict()
-    search_terms = args["term"]
+    
+    # seperate search terms into words
+    search_terms = args["term"].split(" ")
+    # filter out empty strings
+    search_terms = filter(lambda x : x, search_terms)
 
+    # collect all objects from each model
     results = []
     for model in [Artist, Work, Medium, Era]:
         results += model.query.all()
+
     # filter out items with 0 relevance
     results = filter(lambda x : x.relevance(search_terms) > 0, results)
     # sort items by relevance
