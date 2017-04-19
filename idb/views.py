@@ -187,6 +187,8 @@ def search():
         results = results[int(args["page"]) * ITEMS_PER_PAGE : (int(
             args["page"]) + 1) * ITEMS_PER_PAGE]
 
+    # serialize and return the results
+    results = list(map(lambda x: x.serialize(), results))
     return response(200, results, page_count)
 
 
