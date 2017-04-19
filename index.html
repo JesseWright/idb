@@ -23,7 +23,7 @@
 <body>
 
 <!-- load the d3.js library -->	
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
 <script>
 
 var baseUrl = "https://crossorigin.me/http://ggnoswe.me/api/"
@@ -44,11 +44,21 @@ var deferred = {
   "reviews": []
 };
 
+function spamRequest(url, callback) {
+  d3.json(url, function(error, data) {
+    if(!data) {
+      spamRequest(url, callback);
+    } else {
+      callback(data);
+    }
+  })
+}
+
 function makeUrl(type, id) {
   return baseUrl + type + "/" + id;
 }
 
-d3.json(baseUrl + "platforms", function(data) {
+spamRequest(baseUrl + "platforms", function(data) {
   var treeData =
   {
     "name": "Platforms",
@@ -70,7 +80,7 @@ d3.json(baseUrl + "platforms", function(data) {
 });
 
 function loadList(type) {
-  d3.json(baseUrl + type, function(data) {
+  spamRequest(baseUrl + type, function(data) {
     var map = {};
 
     for (var i = 0; i < data.length; i++) {
@@ -271,7 +281,9 @@ function drawTree(treeData) {
     }
 
     function populateChildren(childType, childIds, depth, parent) {
-      console.log(childIds);
+      if(!childIds.length) {
+        return undefined;
+      }
       var children = [];
       for(var i = 0; i < childIds.length && i < 50; i++) {
         var id = childIds[i];
@@ -293,7 +305,7 @@ function drawTree(treeData) {
       if (d.data.loaded) {
         toggle(d);
       } else {
-        d3.json(d.data.url, function(error, data) {
+        spamRequest(d.data.url, function(data) {
           var childType = childTypes[d.data.type];
           if(childType) {
             d.children = populateChildren(childType, data[childType], d.depth + 1, d);
