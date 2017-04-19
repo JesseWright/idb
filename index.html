@@ -35,8 +35,10 @@ var childTypes = {
   "games" : "reviews"
 };
 
+// Maps from id to names for each data type.
 var maps = {};
 
+// Holds callback data that depends on the data in maps which may not be loaded.
 var deferred = {
   "platforms": [],
   "studios" : [],
@@ -44,6 +46,7 @@ var deferred = {
   "reviews": []
 };
 
+// Retry on failed requests.
 function spamRequest(url, callback) {
   d3.json(url, function(error, data) {
     if(!data) {
@@ -63,7 +66,8 @@ spamRequest(baseUrl + "platforms", function(data) {
   {
     "name": "Platforms",
     "children": [],
-    "loaded": true
+    "loaded": true,
+    "image" : "https://tse4.mm.bing.net/th?id=OIP.TqYMofMsl5gcjFLcRbmPjAEsDa&w=285&h=198&c=7&qlt=90&o=4&pid=1.7"
   };
   
  for (var i = 0; i < data.length; i += 5){
@@ -72,14 +76,15 @@ spamRequest(baseUrl + "platforms", function(data) {
       "name": d.name,
       "url": makeUrl("platforms", d.id),
       "type": "platforms",
-      "loaded" : false
+      "loaded" : false,
+      "image" : "https://tse4.mm.bing.net/th?id=OIP.TqYMofMsl5gcjFLcRbmPjAEsDa&w=285&h=198&c=7&qlt=90&o=4&pid=1.7"
     });
   }
   
   drawTree(treeData);
 });
 
-function loadList(type) {
+function loadMap(type) {
   spamRequest(baseUrl + type, function(data) {
     var map = {};
 
@@ -93,9 +98,9 @@ function loadList(type) {
     }
   });
 }
-loadList("studios");
-loadList("games");
-loadList("reviews");
+loadMap("studios");
+loadMap("games");
+loadMap("reviews");
 
 function drawTree(treeData) {
   // Set the dimensions and margins of the diagram
@@ -198,6 +203,7 @@ function drawTree(treeData) {
     nodeUpdate.select('circle.node')
       .attr('r', 10)
       .style("fill", function(d) {
+
           return d._children ? "lightsteelblue" : "#fff";
       })
       .attr('cursor', 'pointer');
@@ -290,7 +296,8 @@ function drawTree(treeData) {
           "name": maps[childType][id],
           "url": makeUrl(childType, id),
           "type": childType,
-          "loaded" : false
+          "loaded" : false,
+          "image" : "https://tse4.mm.bing.net/th?id=OIP.TqYMofMsl5gcjFLcRbmPjAEsDa&w=285&h=198&c=7&qlt=90&o=4&pid=1.7"
         });
         obj.depth = depth;
         obj.parent = parent;
