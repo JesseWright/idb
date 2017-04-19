@@ -430,7 +430,7 @@ class Medium(db.Model):
     def relevance(self, search_terms):
         """ Return (integer) relevancy of artist to search terms"""
         NAME_WEIGHT = 5
-        COUNTRY_WEIGHT = 2
+        COUNTRIES_WEIGHT = 2
         ARTIST_WEIGHT = 1
         artists_str = " ".join([artist.name for artist in self.artists])
 
@@ -439,8 +439,8 @@ class Medium(db.Model):
             term = term.lower()
             if self.name:
                 score += NAME_WEIGHT    * self.name.lower().count(term)
-            if self.country:
-                score += COUNTRY_WEIGHT * self.country.lower().count(term)
+            if self.countries:
+                score += COUNTRIES_WEIGHT * self.countries.lower().count(term)
             score += ARTIST_WEIGHT  * artists_str.lower().count(term)
         return score
 
