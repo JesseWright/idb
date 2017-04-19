@@ -93,7 +93,6 @@ function loadList(type) {
     }
   });
 }
-loadList("platforms");
 loadList("studios");
 loadList("games");
 loadList("reviews");
@@ -305,14 +304,22 @@ function drawTree(treeData) {
       if (d.data.loaded) {
         toggle(d);
       } else {
-        spamRequest(d.data.url, function(data) {
-          var childType = childTypes[d.data.type];
-          if(childType) {
-            d.children = populateChildren(childType, data[childType], d.depth + 1, d);
-          }
-          d.data.loaded = true;
-          update(d);
-        });
+        var childType = childTypes[d.data.type];
+        var callback = function() {
+          spamRequest(d.data.url, function(data) {
+            if(childType) {
+              d.children = populateChildren(childType, data[childType], d.depth + 1, d);
+            }
+            d.data.loaded = true;
+            update(d);
+          });
+        };
+
+        if (maps[childType]) {
+          callback();
+        } else {
+          deferred[childType].push(callback);
+        }
       }
     }
   }
