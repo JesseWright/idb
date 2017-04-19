@@ -60,6 +60,11 @@ def media():
     return render_template('media.html', media=first_page)
 
 
+@app.route('/visualization')
+def visualization():
+    return render_template('visualization.html')
+
+
 @app.route('/artist/<int:id>')
 def artist(id):
     artist = Artist.query.filter_by(id=id).first()
