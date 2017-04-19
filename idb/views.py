@@ -147,9 +147,10 @@ def medium(id):
 
     return render_template('medium_instance.html', medium=medium,
                            colors=colors)
-@app.route('/search-results/')
-def search_results():
-    return render_template('search_results.html')
+
+@app.route('/search_results/<terms>')
+def search_results(terms):
+    return render_template('search_results.html',terms=terms)
 
 @app.route('/search/')
 def search():
@@ -191,3 +192,7 @@ def tests():
                                  stderr=subprocess.STDOUT).decode("utf-8")
     print(sb)
     return sb
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("404.html")
