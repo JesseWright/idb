@@ -160,7 +160,7 @@ def search():
 
     results = []
     for model in [Artist, Work, Medium, Era]:
-        results.append(model.query.all())
+        results += model.query.all()
     # filter out items with 0 relevance
     results = filter(lambda x : x.relevance(search_terms) > 0, results)
     # sort items by relevance
