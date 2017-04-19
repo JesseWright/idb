@@ -147,14 +147,31 @@ def medium(id):
 
     return render_template('medium_instance.html', medium=medium,
                            colors=colors)
+@app.route('/search-results/')
+def search_results():
+    return render_template('search_results.html')
 
 @app.route('/search/')
 def search():
+    ITEMS_PER_PAGE = 16
     args = request.args.to_dict()
+    search_terms = args["term"]
 
-def search_json(model, terms):
-    for model in models:
-        pass
+    results = []
+    for model in [Artist, Work, Medium, Era]:
+        results.append(model.query.all())
+    # filter out items with 0 relevance
+    results = filter(lambda x : x.relevance(search_terms) > 0, results)
+    # sort items by relevance
+    results = sorted(results, key=lambda x : x.relevance(search_terms))
+
+    # page count method from query.py
+    page_count = int(ceil(len(results) / float(ITEMS_PER_PAGE)))
+    if "page" in args and args["page"]:
+        results = results[int(args["page"]) * ITEMS_PER_PAGE : (int(
+            args["page"]) + 1) * ITEMS_PER_PAGE]
+
+    return reponse(200, results, page_count)
 
 
 @app.route('/report_text')
