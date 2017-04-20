@@ -1,12 +1,14 @@
 from flask import render_template
 from idb import app
 from idb.models import *
+from idb.queries import *
 import subprocess
+import time
 
 
 @app.route('/')
 def index():
-    """Default route that renders the homepage using 
+    """Default route that renders the homepage using
     the template 'index.html'
     """
     return render_template('index.html')
@@ -152,6 +154,66 @@ def medium(id):
     return render_template('medium_instance.html', medium=medium,
                            colors=colors)
 
+@app.route('/search_results/<terms>')
+def search_results(terms):
+    return render_template('search_results.html',terms=terms)
+
+@app.route('/search/')
+def search():
+    total_start = time.time()
+    ITEMS_PER_PAGE = 16
+    args = request.args.to_dict()
+
+    # seperate search terms into words
+    search_terms = args["term"].split(" ")
+    # filter out empty strings
+    search_terms = list(filter(lambda x : x, search_terms))
+    print("searching for ", end="")
+    print(search_terms)
+
+    # collect all objects from each model
+    results = []
+    print("collecting models... ", end="")
+    for model in [Artist, Work, Medium, Era]:
+        results += model.query.all()
+    print("collected {} models.".format(len(results)))
+
+    # transform results into more basic structures
+    print("transforming... ", end="")
+    start = time.time()
+    results = list(map(lambda x : {
+        "name"      : x.title if isinstance(x, Work) else x.name,
+        "id"        : x.id,
+        "type"      : type(x).__name__,
+        "relevance" : x.relevance(search_terms)
+        #"object"    : x.serialize()   TODO: uncomment when merged
+    }, results))
+    print("transformed. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
+
+    # filter out items with 0 relevance
+    print("filtering... ", end="")
+    start = time.time()
+    results = list(filter(lambda x : x["relevance"] > 1, results))
+    print("filtered. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
+
+    # sort items by relevance
+    print("sorting... ", end="")
+    start = time.time()
+    results = sorted(results, key=lambda x : x["relevance"], reverse=True)
+    print("sorted. {} seconds elapsed.".format(time.time() - start))
+
+    # page count method from query.py
+    page_count = int(ceil(len(results) / float(ITEMS_PER_PAGE)))
+    if "page" in args and args["page"]:
+        results = results[int(args["page"]) * ITEMS_PER_PAGE : (int(
+            args["page"]) + 1) * ITEMS_PER_PAGE]
+
+    # serialize and return the results
+    #results = list(map(lambda x : x.serialize(), results))
+    end = time.time()
+    print("Total elapsed time: " + str((end-total_start)) + " seconds.")
+    return response(200, results, page_count)
+
 
 @app.route('/report_text')
 def report_text():
@@ -164,3 +226,7 @@ def tests():
                                  stderr=subprocess.STDOUT).decode("utf-8")
     print(sb)
     return sb
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("404.html")
