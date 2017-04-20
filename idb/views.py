@@ -155,7 +155,7 @@ def search_results(terms):
 
 @app.route('/search/')
 def search():
-    start = time.time()
+    total_start = time.time()
     ITEMS_PER_PAGE = 16
     args = request.args.to_dict()
 
@@ -173,15 +173,27 @@ def search():
         results += model.query.all()
     print("collected {} models.".format(len(results)))
 
+    # transform results into more basic structures
+    print("transforming... ", end="")
+    start = time.time()
+    results = list(map(lambda x : {
+        "name"      : x.title if isinstance(x, Work) else x.name,
+        "type"      : type(x),
+        "relevance" : x.relevance(search_terms)
+    }, results))
+    print("transformed. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
+
     # filter out items with 0 relevance
     print("filtering... ", end="")
-    results = list(filter(lambda x : x.relevance(search_terms) > 1, results))
-    print("filtered. {} models.".format(len(results)))
+    start = time.time()
+    results = list(filter(lambda x : x["relevance"] > 1, results))
+    print("filtered. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
 
     # sort items by relevance
     print("sorting... ", end="")
-    results = sorted(results, key=lambda x : x.relevance(search_terms))
-    print("sorted.")
+    start = time.time()
+    results = sorted(results, key=lambda x : x.["relevance"])
+    print("sorted. {} seconds elapsed.".format(time.time() - start))
 
     # page count method from query.py
     page_count = int(ceil(len(results) / float(ITEMS_PER_PAGE)))
@@ -190,9 +202,9 @@ def search():
             args["page"]) + 1) * ITEMS_PER_PAGE]
 
     # serialize and return the results
-    results = list(map(lambda x: x.serialize(), results))
+    #results = list(map(lambda x : x.serialize(), results))
     end = time.time()
-    print("Elapsed time: " + str((end-start)/60) + " minutes.")
+    print("Total elapsed time: " + str((end-total_start)/60) + " minutes.")
     return response(200, results, page_count)
 
 

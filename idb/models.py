@@ -182,8 +182,8 @@ class Artist(db.Model):
         NAME_WEIGHT = 5
         PROP_WEIGHT = 3
         BIO_WEIGHT  = 1
-        WORK_WEIGHT = 2
-        works_str = " ".join([work.title for work in self.works])
+        #WORK_WEIGHT = 2
+        #works_str = " ".join([work.title for work in self.works])
 
         score = 0
         for term in search_terms:
@@ -196,7 +196,7 @@ class Artist(db.Model):
                 score += PROP_WEIGHT * self.country.lower().count(term)
             if self.bio:
                 score += BIO_WEIGHT  * self.bio.lower().count(term)
-            score += WORK_WEIGHT * works_str.lower().count(term)
+            #score += WORK_WEIGHT * works_str.lower().count(term)
         return score
 
 class Work(db.Model):
@@ -308,8 +308,8 @@ class Work(db.Model):
         """ Return (integer) relevancy of artist to search terms"""
         TITLE_WEIGHT = 5
         MOTIF_WEIGHT = 3
-        MEDIA_WEIGHT = 1
-        media_str = " ".join([medium.name for medium in self.media])
+        #MEDIA_WEIGHT = 1
+        #media_str = " ".join([medium.name for medium in self.media])
 
         score = 0
         for term in search_terms:
@@ -318,7 +318,7 @@ class Work(db.Model):
                 score += TITLE_WEIGHT * self.title.lower().count(term)
             if self.motifs:
                 score += MOTIF_WEIGHT * self.motifs.lower().count(term)
-            score += MEDIA_WEIGHT * media_str.lower().count(term)
+            #score += MEDIA_WEIGHT * media_str.lower().count(term)
         return score
 
 
@@ -431,8 +431,8 @@ class Medium(db.Model):
         """ Return (integer) relevancy of artist to search terms"""
         NAME_WEIGHT = 5
         COUNTRIES_WEIGHT = 2
-        ARTIST_WEIGHT = 1
-        artists_str = " ".join([artist.name for artist in self.artists])
+        #ARTIST_WEIGHT = 1
+        #artists_str = " ".join([artist.name for artist in self.artists])
 
         score = 0
         for term in search_terms:
@@ -441,7 +441,7 @@ class Medium(db.Model):
                 score += NAME_WEIGHT    * self.name.lower().count(term)
             if self.countries:
                 score += COUNTRIES_WEIGHT * self.countries.lower().count(term)
-            score += ARTIST_WEIGHT  * artists_str.lower().count(term)
+            #score += ARTIST_WEIGHT  * artists_str.lower().count(term)
         return score
 
 
