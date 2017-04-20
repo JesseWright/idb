@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-latest.js"></script>
 
@@ -18,28 +18,18 @@
     <!-- style -->
     <link rel="stylesheet" type="text/css"
           href="https://cs373-project-345.appspot.com/static/css/style.css">
+  <link rel="stylesheet" type="text/css"
+        href="https://cs373-project-345.appspot.com/static/css/about.css">
+    <style>
+    .idb-std-image {
+        width: 255px;
+        height: 265px;
+    }
+    </style>
+{% endblock %}
 
-</head>
-<body style="background-color:#252525">
-<nav class="navbar navbar-custom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Rijksmuseum</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/artists">Artists</a></li>
-            <li><a href="/media">Media</a></li>
-            <li><a href="/works">Works</a></li>
-            <li><a href="/eras">Centuries</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/report.html">Report</a></li>
-        </ul>
-    </div>
-</nav>
+{% block content %}
+
 
 <!-- adapated from Start Bootstrap example: https://startbootstrap.com/template-overviews/round-about/ -->
 
@@ -63,8 +53,8 @@
             <h2 class="page-header">Our Team</h2>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
-            <img class="img-circle img-responsive img-center"
-                 src="/static/img/walter.png" alt="">
+            <img class="idb-std-image img-circle img-responsive img-center"
+                 src="/static/img/walter.jpg" alt="">
             <h3>Walter Sagehorn
             </h3>
             <p>Backend dev, routing</p>
@@ -72,7 +62,7 @@
             <p>29 commits, 13 issues, 0 unit tests</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
-            <img class="img-circle img-responsive img-center"
+            <img class="idb-std-image img-circle img-responsive img-center"
                  src="/static/img/stefan.png" alt="">
             <h3>Stefan Grasu
             </h3>
@@ -81,7 +71,7 @@
             <p>9 commits, 7 issues, 0 unit tests</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
-            <img class="img-circle img-responsive img-center"
+            <img class="idb-std-image img-circle img-responsive img-center"
                  src="/static/img/kyle.png" alt="">
             <h3>Kyle Wiley
             </h3>
@@ -92,7 +82,7 @@
             <p>45 commits, 10 issues, 0 unit tests</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
-            <img class="img-circle img-responsive img-center"
+            <img class="idb-std-image img-circle img-responsive img-center"
                  src="/static/img/jesse.png" alt="">
             <h3>Jesse Wright</h3>
             <p>Backend dev, database</p>
@@ -100,7 +90,7 @@
             <p>43 commits, 9 issues, 15 unit tests</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
-            <img class="img-circle img-responsive img-center"
+            <img class="idb-std-image img-circle img-responsive img-center"
                  src="/static/img/james.png" alt="">
             <h3>James Graham
             </h3>
@@ -111,7 +101,7 @@
             <p>58 commits, 14 issues, 0 unit tests</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
-            <img class="img-circle img-responsive img-center"
+            <img class="idb-std-image img-circle img-responsive img-center"
                  src="/static/img/carson.jpg" alt="">
             <h3>Carson Moore</h3>
             <p>Front end dev, splash and about page</p>
@@ -188,10 +178,4 @@
         <div id="tests">
         </div>
     </div>
-
-    <div>
-        <h2 class="page-header"><a href="/visualization">Visualization</h2>
-    </div>
-</body>
-
-</html>
+{% endblock %}
