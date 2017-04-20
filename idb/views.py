@@ -181,6 +181,7 @@ def search():
         "id"        : x.id,
         "type"      : type(x).__name__,
         "relevance" : x.relevance(search_terms)
+        #"object"    : x.serialize()   TODO: uncomment when merged
     }, results))
     print("transformed. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
 
