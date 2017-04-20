@@ -16,16 +16,6 @@
 <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans'
       rel='stylesheet' type='text/css'>
 
-<script>
-
-
-
-var load = function(){
-    variable = document.getElementById("termsDiv").innerHTML
-    
-}
-$(document).ready(load);
-</script>
 
 {% endblock %}
 
@@ -33,7 +23,30 @@ $(document).ready(load);
 {% block content %}
 
 <div>
+    <nav class="navbar navbar-default navbar-fixed-top" style = "margin-top: 45px">
+      <div class="container-fluid">
+          <div>
+               <p class = "navbar-text navbar-left idb-no-form-padding"><b id ="termText">Showing results for "search term"</b></p>
+               <!-- right elements -->
+               <button type="button" class="btn btn-default navbar-btn navbar-right" id = "next-button" onclick="handle_page_change(0)">Next Page</button>
+               <div id = "page-identifier" class = "navbar-text navbar-right"></div>
+               <button type="button" class="btn btn-default navbar-btn navbar-right" id = "prev-button" onclick="handle_page_change(1)">Previous page</button>
+
+
+          </div>
+      </div>
+    </nav>
     <div id="termsDiv" style="display: none">{{terms}}</div>
+    <div id= "loadingDiv" style="visibility: hidden">
+        <img src="http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_orange_512.gif"></img>
+    </div>
+
+    <div id = "resultsContainer" style="color: #fff">
+        {% for _ in range(16) %}
+        <div id = "result-holder-{{loop.index-1}}"></div>
+        {% endfor %}
+
+    </div>
 </div>
 
 

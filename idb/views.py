@@ -3,6 +3,7 @@ from idb import app
 from idb.models import *
 from idb.queries import *
 import subprocess
+import time
 
 
 @app.route('/')
@@ -154,6 +155,7 @@ def search_results(terms):
 
 @app.route('/search/')
 def search():
+    start = time.time()
     ITEMS_PER_PAGE = 16
     args = request.args.to_dict()
 
@@ -189,6 +191,8 @@ def search():
 
     # serialize and return the results
     results = list(map(lambda x: x.serialize(), results))
+    end = time.time()
+    print("Elapsed time: " + str((end-start)/60) + " minutes.")
     return response(200, results, page_count)
 
 
