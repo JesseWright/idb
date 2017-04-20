@@ -189,13 +189,17 @@ class Artist(db.Model):
         for term in search_terms:
             term = term.lower()
             if self.name:
-                score += NAME_WEIGHT * self.name.lower().count(term)
+                score += NAME_WEIGHT * self.name.lower().count(term) /\
+                    len(self.name.split(" "))
             if self.nationality:
-                score += PROP_WEIGHT * self.nationality.lower().count(term)
+                score += PROP_WEIGHT * self.nationality.lower().count(term) /\
+                    len(self.nationality.split(" "))
             if self.country:
-                score += PROP_WEIGHT * self.country.lower().count(term)
+                score += PROP_WEIGHT * self.country.lower().count(term) /\
+                    len(self.country.split(" "))
             if self.bio:
-                score += BIO_WEIGHT  * self.bio.lower().count(term)
+                score += BIO_WEIGHT  * self.bio.lower().count(term) /\
+                    len(self.bio.split(" "))
             #score += WORK_WEIGHT * works_str.lower().count(term)
         return score
 
@@ -315,9 +319,11 @@ class Work(db.Model):
         for term in search_terms:
             term = term.lower()
             if self.title:
-                score += TITLE_WEIGHT * self.title.lower().count(term)
+                score += TITLE_WEIGHT * self.title.lower().count(term) /\
+                    len(self.title.split(" "))
             if self.motifs:
-                score += MOTIF_WEIGHT * self.motifs.lower().count(term)
+                score += MOTIF_WEIGHT * self.motifs.lower().count(term) /\
+                    len(self.motifs.split(" "))
             #score += MEDIA_WEIGHT * media_str.lower().count(term)
         return score
 
@@ -438,9 +444,11 @@ class Medium(db.Model):
         for term in search_terms:
             term = term.lower()
             if self.name:
-                score += NAME_WEIGHT    * self.name.lower().count(term)
+                score += NAME_WEIGHT      * self.name.lower().count(term) /\
+                    len(self.name.split(" "))
             if self.countries:
-                score += COUNTRIES_WEIGHT * self.countries.lower().count(term)
+                score += COUNTRIES_WEIGHT * self.countries.lower().count(term) /\
+                    len(self.countries.split(" "))
             #score += ARTIST_WEIGHT  * artists_str.lower().count(term)
         return score
 
@@ -537,7 +545,9 @@ class Era(db.Model):
         for term in search_terms:
             term = term.lower()
             if self.name:
-                score += NAME_WEIGHT      * self.name.lower().count(term)
+                score += NAME_WEIGHT      * self.name.lower().count(term) /\
+                    len(self.name.split(" "))
             if self.countries:
-                score += COUNTRIES_WEIGHT * self.countries.lower().count(term)
+                score += COUNTRIES_WEIGHT * self.countries.lower().count(term) /\
+                    len(self.countries.split(" "))
         return score
