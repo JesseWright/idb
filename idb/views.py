@@ -206,7 +206,7 @@ def search():
     # serialize and return the results
     #results = list(map(lambda x : x.serialize(), results))
     end = time.time()
-    print("Total elapsed time: " + str((end-total_start)/60) + " minutes.")
+    print("Total elapsed time: " + str((end-total_start)) + " seconds.")
     return response(200, results, page_count)
 
 

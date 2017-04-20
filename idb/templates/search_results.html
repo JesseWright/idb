@@ -15,6 +15,40 @@
 <!-- fonts -->
 <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans'
       rel='stylesheet' type='text/css'>
+<style>
+.idb-result-link {
+    color: #000;
+    text-decoration: none;
+}
+.idb-result-card{
+    background-color: #DDD;
+    margin-top: 1%;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    border-style: hidden;
+    border-radius: 8px;
+    color: #410000;
+    display: block;
+    width: 90%;
+    margin-left: 1%;
+    margin-right: auto;
+}
+h1 {
+    margin-left: 2%;
+}
+h4 {
+    margin-left: 2%;
+}
+.idb-no-results-card{
+    font-size: 64px;
+    text-align: center;
+    margin-top: 10%;
+}
+.idb-maybe-text{
+    font-size: 24px;
+    font-style: italic;
+}
+</style>
 
 
 {% endblock %}
@@ -27,9 +61,10 @@
       <div class="container-fluid">
           <div>
                <p class = "navbar-text navbar-left idb-no-form-padding"><b id ="termText">Showing results for "search term"</b></p>
+               <div id="loadingDiv" class = "navbar-text navbar-left idb-no-form-padding">  <i>Loading your results, give me a sec...</i></div>
                <!-- right elements -->
                <button type="button" class="btn btn-default navbar-btn navbar-right" id = "next-button" onclick="handle_page_change(0)">Next Page</button>
-               <div id = "page-identifier" class = "navbar-text navbar-right"></div>
+               <div id = "page-identifier" class = "navbar-text navbar-right" style="padding-right:20px"></div>
                <button type="button" class="btn btn-default navbar-btn navbar-right" id = "prev-button" onclick="handle_page_change(1)">Previous page</button>
 
 
@@ -37,11 +72,9 @@
       </div>
     </nav>
     <div id="termsDiv" style="display: none">{{terms}}</div>
-    <div id= "loadingDiv" style="visibility: hidden">
-        <img src="http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_orange_512.gif"></img>
-    </div>
 
     <div id = "resultsContainer" style="color: #fff">
+        <div id ="noResultsContainer"></div>
         {% for _ in range(16) %}
         <div id = "result-holder-{{loop.index-1}}"></div>
         {% endfor %}

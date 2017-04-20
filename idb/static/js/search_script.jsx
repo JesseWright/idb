@@ -21,23 +21,36 @@ var page_ident = React.createClass({
       }
       });
 
+var no_results_card = React.createClass({
+      render: function() {
+        return (
+            <div className = "idb-no-results-card">
+                Sorry, there are no results for your search.
+                <div className= "idb-maybe-text">Maybe try something else?</div>
+            </div>);
+    }
+    });
+
 var result_row = React.createClass({
       getDefaultProps: function(){
           return {
               'name': "default",
               'id': 1,
-              'link': "/null/"
+              'link': "/null/",
+              'type': 'default'
           };
       },
       render: function() {
           var link_to_use = ""+ this.props.link + this.props.id;
           return(
-              <a href = {link_to_use}>
                   <div className = "row">
-                      <h1>{this.props.name}</h1>
-                      <hr></hr>
+                    <a href = {link_to_use}>
+                        <div className = "idb-result-card">
+                          <h1><b>{this.props.name}</b> - ({this.props.type})</h1>
+                          <h4><i>context will go here</i></h4>
+                        </div>
+                    </a>
                   </div>
-              </a>
           );
       }
     });
@@ -92,44 +105,50 @@ function update_results(page)
     console.log(url);
     $.get(url,function(data,status)
     {
-        console.log(url);
+
 
 
         if(status == 'success')
         {
-
-
+            if(data.data.length == 0)
+            {
+                ReactDOM.render(
+                    React.createElement(no_results_card, null, null),
+                    document.getElementById("noResultsContainer")
+                );
+            }
+            else {
+                ReactDOM.render(
+                    React.createElement('div', null, null),
+                    document.getElementById("noResultsContainer")
+                );
+            }
             for(i = 0; i < data.data.length; i++)
             {
                 d = data.data[i]
-                if(d.bio) //artist
+                if(d.type == "Artist") //artist
                 {
-                    console.log("found artist!");
                     ReactDOM.render(
-                        React.createElement(result_row, {name:d.name,link:"/artist/",id:d.id}, null),
+                        React.createElement(result_row, {name:d.name,link:"/artist/",id:d.id,type:d.type}, null),
                         document.getElementById('result-holder-' + i)
                     );
                 }
-                else if(d.average_age) //medium
+                else if(d.type == "Medium") //medium
                 {
-                    console.log("found Media!");
                     ReactDOM.render(
-                        React.createElement(result_row, {name:d.name,link:"/media/",id:d.id}, null),
+                        React.createElement(result_row, {name:d.name,link:"/media/",id:d.id,type:d.type}, null),
                         document.getElementById('result-holder-' + i)
                     );
                 }
                 else //work
                 {
-                    console.log(d);
-                    console.log("found work!");
                     ReactDOM.render(
-                        React.createElement(result_row, {name:d.title,link:"/work/",id:d.id}, null),
+                        React.createElement(result_row, {name:d.name,link:"/work/",id:d.id,type:d.type}, null),
                         document.getElementById('result-holder-' + i)
                     );
                 }
             }
             max_page = data.pages;
-
             ReactDOM.render(
                 React.createElement(page_ident, {page_num:cur_page,max_page_num:max_page }, null),
                 document.getElementById('page-identifier')
