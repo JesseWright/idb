@@ -1,9 +1,11 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS, cross_origin
 from idb.database_tools import build_db_connection_uri_string
 import os
 
 app = Flask(__name__)
+CORS(app)
 app.config['TESTING'] = False
 app.config['DEBUG'] = True
 
