@@ -1,3 +1,7 @@
+.h1 {
+  fill: #fff;
+}
+
 .node circle {
   fill: #fff;
   stroke: darkred;
