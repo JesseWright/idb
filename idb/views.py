@@ -178,7 +178,8 @@ def search():
     start = time.time()
     results = list(map(lambda x : {
         "name"      : x.title if isinstance(x, Work) else x.name,
-        "type"      : type(x),
+        "id"        : x.id,
+        "type"      : type(x).__name__,
         "relevance" : x.relevance(search_terms)
     }, results))
     print("transformed. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
@@ -192,7 +193,7 @@ def search():
     # sort items by relevance
     print("sorting... ", end="")
     start = time.time()
-    results = sorted(results, key=lambda x : x.["relevance"])
+    results = sorted(results, key=lambda x : x["relevance"], reverse=True)
     print("sorted. {} seconds elapsed.".format(time.time() - start))
 
     # page count method from query.py
