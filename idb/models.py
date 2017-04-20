@@ -150,21 +150,18 @@ class Artist(db.Model):
     def __repr__(self):
         """ Return a formatted String representation
         of a given Artist. """
-        works = [(work.id, work.title) for work in self.works]
         return "<Artist: {}> {} ({}:{}), {} [Country:{}, Image:{}, " \
-               "Bio:{}, Works:{}]".format(self.id,
-                                          self.name,
-                                          self.dob,
-                                          self.dod,
-                                          self.nationality,
-                                          self.country,
-                                          self.image,
-                                          self.bio,
-                                          works)
+               "Bio:{}]".format(self.id,
+                                self.name,
+                                self.dob,
+                                self.dod,
+                                self.nationality,
+                                self.country,
+                                self.image,
+                                self.bio)
 
     def serialize(self):
         """ Return JSON representation of artist. """
-        works = [[work.id, work.title] for work in self.works]
         return {
             "id": self.id,
             "name": self.name,
@@ -173,8 +170,7 @@ class Artist(db.Model):
             "nationality": self.nationality,
             "country": self.country,
             "image": self.image,
-            "bio": self.bio,
-            "works": works
+            "bio": self.bio
         }
 
     def relevance(self, search_terms):
@@ -242,9 +238,11 @@ class Work(db.Model):
                             backref=db.backref('works', lazy=True))
     """ A many-to-many database relationship linking Work instances
     to Medium instances and vice versa. """
+
     artists = None
     """ A many-to-many database relationship linking Work instances
     to Artist instances and vice versa. """
+
     eras = None
     """ A many-to-many database relationship linking Work instances
     to Era instances and vice versa. """
@@ -278,34 +276,30 @@ class Work(db.Model):
     def __repr__(self):
         """ Return a formatted String representation
         of a given Work. """
-        media = [(medium.id, medium.name) for medium in self.media]
         return "<Work: {}> \"{}\", by {} ({}) [Colors:{}, Dimensions:[{}, {}" \
-               "{}], Image:{}, Motifs:{}, Media:{}]".format(self.id,
-                                                            self.title,
-                                                            self.artists,
-                                                            self.date,
-                                                            self.colors,
-                                                            self.height,
-                                                            self.width,
-                                                            self.depth,
-                                                            self.image,
-                                                            self.motifs,
-                                                            media)
+               "{}], Image:{}, Motifs:{}]".format(self.id,
+                                                  self.title,
+                                                  self.artists,
+                                                  self.date,
+                                                  self.colors,
+                                                  self.height,
+                                                  self.width,
+                                                  self.depth,
+                                                  self.image,
+                                                  self.motifs)
 
     def serialize(self):
         """ Return JSON representation of work. """
-        media = [[medium.id, medium.name] for medium in self.media]
         return {
             "id": self.id,
             "title": self.title,
             "date": self.date,
             "colors": self.colors,
-            "height": self.height,
-            "width": self.width,
-            "depth": self.depth,
+            "height": float(self.height) if self.height else None,
+            "width": float(self.width) if self.width else None,
+            "depth": float(self.depth) if self.depth else None,
             "image": self.image,
-            "motifs": self.motifs,
-            "media": media
+            "motifs": self.motifs
         }
 
     def relevance(self, search_terms):
@@ -361,16 +355,18 @@ class Medium(db.Model):
     countries = Column(TEXT)
     """ A String representation of a list of countries associated with a
     Medium. """
-    media = None
+
     artists = db.relationship(Artist,
                               secondary=_ARTISTS_MEDIA_RELATIONSHIP,
                               lazy=True,
                               backref=db.backref('media', lazy=True))
     """ A many-to-many database relationship linking Medium instances to
     Artist instances and vice versa. """
+
     works = None
     """ A many-to-many database relationship linking Medium instances
     to Artist instances and vice versa. """
+
     eras = None
     """ A many-to-many database relationship linking Medium instances
     to Era instances and vice versa. """
@@ -404,33 +400,29 @@ class Medium(db.Model):
         """
         :return: A formatted String representation of a given Medium
         """
-        artists = [(artist.id, artist.name) for artist in self.artists]
         return "<Medium: {}> {} [Colors:{}, Averages:[{}, {}, {}, {}], " \
-               "Countries:{}, Images:{}, Artists:{}]".format(self.id,
-                                                             self.name,
-                                                             self.colors,
-                                                             self.average_age,
-                                                             self.avg_height,
-                                                             self.avg_width,
-                                                             self.avg_depth,
-                                                             self.countries,
-                                                             self.images,
-                                                             artists)
+               "Countries:{}, Images:{}]".format(self.id,
+                                                 self.name,
+                                                 self.colors,
+                                                 self.average_age,
+                                                 self.avg_height,
+                                                 self.avg_width,
+                                                 self.avg_depth,
+                                                 self.countries,
+                                                 self.images)
 
     def serialize(self):
         """ Return JSON representation of medium. """
-        artists = [[artist.id, artist.name] for artist in self.artists]
         return {
             "id": self.id,
             "name": self.name,
             "colors": self.colors,
-            "average_age": self.average_age,
-            "avg_height": str(self.avg_height),
-            "avg_width": str(self.avg_width),
-            "avg_depth": str(self.avg_depth),
-            "countries": self.countries,
-            "images": self.images,
-            "artists": artists
+            "average_age": float(self.average_age) if self.average_age \
+                else None,
+            "avg_height": float(self.avg_height) if self.avg_height else None,
+            "avg_width":  float(self.avg_width) if self.avg_width else None,
+            "avg_depth": float(self.avg_depth),
+            "countries": self.countries
         }
 
     def relevance(self, search_terms):
@@ -509,32 +501,20 @@ class Era(db.Model):
     def __repr__(self):
         """ Return a formatted String representation
         of a given Era. """
-        artists = [(artist.id, artist.name) for artist in self.artists]
-        works = [(work.id, work.title) for work in self.works]
-        media = [(medium.id, medium.name) for medium in self.media]
-        return "<Era: {}> {} ({}) [Countries:{}, Artists:{}, Works:{}, " \
-               "Media:{}]".format(self.id,
-                                  self.name,
-                                  self.type,
-                                  self.countries,
-                                  artists,
-                                  works,
-                                  media)
+        return "<Era: {}> {} ({}) [Countries:{}]".format(self.id,
+                                                         self.name,
+                                                         self.type,
+                                                         self.countries)
 
     def serialize(self):
         """ Return JSON representation of era. """
-        artists = [[artist.id, artist.name] for artist in self.artists]
-        works = [[work.id, work.title] for work in self.works]
-        media = [[medium.id, medium.name] for medium in self.media]
         return {
             "id": self.id,
             "name": self.name,
             "type": self.type,
-            "countries": self.countries,
-            "artists": artists,
-            "works": works,
-            "media": media
+            "countries": self.countries
         }
+
 
     def relevance(self, search_terms):
         """ Return (integer) relevancy of artist to search terms"""
@@ -551,3 +531,23 @@ class Era(db.Model):
                 score += COUNTRIES_WEIGHT * self.countries.lower().count(term) /\
                     len(self.countries.split(" "))
         return score
+
+
+def callback(conn, cursor, statement, parameters, context, executeMany):
+    import idb
+    idb.db_query_count += 1
+    count = idb.db_query_count
+    if count < 25 or not (count % 25):
+        print('Executing query ' + str(count) + ': ' + str(statement))
+
+import sqlalchemy
+sqlalchemy.event.listen(sqlalchemy.engine.Engine,
+                        'before_cursor_execute',
+                        lambda conn, cursor, statement, parameters,
+                               context, executeMany: callback(conn,
+                                                              cursor,
+                                                              statement,
+                                                              parameters,
+                                                              context,
+                                                              executeMany))
+

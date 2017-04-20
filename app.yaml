@@ -10,9 +10,9 @@ runtime_config:
 # Please do not put passwords in source control
 env_variables:
   SWE_IDB_PGDB_ADDR: ''
-  SWE_IDB_PGDB_PW: uB6b5eFnexydPnm1
-  SWE_IDB_PGDB_OPTS: /?host=/cloudsql/
-    cs373-project-345:us-central1:idb-artistree
+  SWE_IDB_PGDB_PW: 'uB6b5eFnexydPnm1'
+  SWE_IDB_PGDB_OPTS: >-
+    ?host=/cloudsql/cs373-project-345:us-central1:idb-artistree
 
 beta_settings:
   cloud_sql_instances: cs373-project-345:us-central1:idb-artistree
