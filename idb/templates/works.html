@@ -6,25 +6,11 @@
 <title>work</title>
 {% endblock %}
 
-{% block content %}
+{% block cards_content %}
 
-<div id = "container" onload="load">
-    {% for work in works %}
-      {% if (loop.index-1) is divisibleby 4 %}
-        {% if (loop.index-1) is not equalto 0 %}
-      </div>
-        {% endif %}
-          <div class="row">
-      {% endif %}
-          <div class="col-md-3">
-                  <div id = "card-{{loop.index-1}}"></div>
-          </div>
-    {% endfor %}
-</div>
-{% if (works|length is not divisibleby 4) %}
-  </div>
-{% endif %}
-
+{% for work in works %}
+                <div id = "card-{{loop.index-1}}" class="cards-container"></div>
+{% endfor %}
 <nav class="navbar navbar-default navbar-fixed-top" style = "margin-top: 45px">
   <div class="container-fluid">
       <div>

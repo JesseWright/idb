@@ -7,32 +7,19 @@
 <title>medium</title>
 {% endblock %}
 
-{% block content %}
-
+{% block cards_content %}
 
 {% for medium in media %}
-  {% if (loop.index-1) is divisibleby 4 %}
-    {% if (loop.index-1) is not equalto 0 %}
-  </div>
-    {% endif %}
-      <div class="row">
-  {% endif %}
-      <div class="col-md-3">
-              <div id = "card-{{loop.index-1}}"></div>
-      </div>
+                <div id = "card-{{loop.index-1}}" class="cards-container"></div>
 {% endfor %}
-
-{% if (media|length is not divisibleby 4) %}
-  </div>
-{% endif %}
 
 <nav class="navbar navbar-default navbar-fixed-top" style = "margin-top: 45px">
   <div class="container-fluid">
       <div>
           <p class = "navbar-text navbar-left idb-no-form-padding"> Filter by: </p>
-          <form class="navbar-form navbar-left">
+          <form class="navbar-form navbar-left" id="name-form">
            <div class="form-group">
-             <input id = "nameBox" type="text" class="form-control" placeholder="Part/all of a medium's name" style = "max-width: 210px">
+             <input id = "nameBox" type="text" class="form-control" placeholder="Part/all of a medium's name" style = "width: 210px">
            </div>
          </form>
 

@@ -1,11 +1,16 @@
+.h1 {
+  fill: #fff;
+}
+
 .node circle {
   fill: #fff;
-  stroke: steelblue;
+  stroke: darkred;
   stroke-width: 3px;
 }
 
 .node text {
   font: 12px sans-serif;
+  fill: #fff
 }
 
 .link {

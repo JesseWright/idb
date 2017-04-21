@@ -1,3 +1,4 @@
+import decimal
 from math import ceil
 from flask import render_template, request, jsonify
 from idb import app
@@ -9,9 +10,12 @@ ITEMS_PER_PAGE = 16
 def response(status, data, pages):
     ret = {"status": status, "pages": pages, "data": data}
     return jsonify(ret)
+
+
 """
 ########## Query Routes ##########
 """
+
 
 @app.route("/query_artist")
 def url_query_artist():
@@ -24,7 +28,7 @@ def url_query_artist():
 def url_query_work():
     works, page_count = query_work(request.args.to_dict())
     serialized_models = list(map(lambda x: x.serialize(), works))
-    #convert to strings to avoid float conversion errors
+    # convert to strings to avoid float conversion errors
     for work in serialized_models:
         work["height"] = str(work["height"])
         work["width"] = str(work["width"])
@@ -43,15 +47,18 @@ def url_query_medium():
         medium["avg_depth"] = str(medium["avg_depth"])
     return response(200, serialized_models, page_count)
 
+
 @app.route("/query_era")
 def url_query_era():
-    eras, page_count  = query_era(request.args.to_dict())
+    eras, page_count = query_era(request.args.to_dict())
     serialized_models = list(map(lambda x: x.serialize(), eras))
     return response(200, serialized_models, page_count)
+
 
 """
 ########## Data Retrieval Methods ##########
 """
+
 
 def query_artist(args):
     artists = Artist.query
@@ -121,7 +128,8 @@ def query_medium(args):
     page_count = int(ceil(len(media) / float(ITEMS_PER_PAGE)))
 
     if "page" in args and args["page"]:
-        media = media[int(args["page"]) * ITEMS_PER_PAGE : (int(args["page"]) + 1) * ITEMS_PER_PAGE]
+        media = media[int(args["page"]) * ITEMS_PER_PAGE: (int(
+            args["page"]) + 1) * ITEMS_PER_PAGE]
 
     return media, page_count
 
@@ -132,8 +140,8 @@ def query_era(args):
     eras = eras.all()
     page_count = int(ceil(len(eras) / float(ITEMS_PER_PAGE)))
     if "page" in args and args["page"]:
-
-        eras = eras[int(args["page"]) * ITEMS_PER_PAGE : (int(args["page"]) + 1) * ITEMS_PER_PAGE]
+        eras = eras[int(args["page"]) * ITEMS_PER_PAGE: (int(
+            args["page"]) + 1) * ITEMS_PER_PAGE]
     return eras, page_count
 
 
@@ -156,9 +164,10 @@ def date_filter(models, func, attribute):
 
 
 def string_filter(models, attribute, search_string):
-    print (attribute, search_string)
+    print(attribute, search_string)
     if not search_string:
         return models
     return list(filter(
         lambda x: x.__dict__[attribute] is not None
-                  and x.__dict__[attribute].find(search_string) != -1, models))
+                  and x.__dict__[attribute].lower().find(
+            search_string.lower()) != -1, models))

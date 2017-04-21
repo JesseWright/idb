@@ -37,13 +37,9 @@
 }
 
 .page-header {
-	padding-top: 30px;
+	padding-top: 300px;
 }
 
 a {
-	color: #FFA;
-}
-
-a:hover {
-	color: #FFF;
+	color: #e8d8c3;
 }

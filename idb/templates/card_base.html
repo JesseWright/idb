@@ -1,55 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      {% block head %}
-
-      <!-- jQuery -->
-      <script src="https://code.jquery.com/jquery-latest.js"></script>
-
-      <!-- maybe add angular dependency here? -->
-
-      <!-- Bootstrap -->
-      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-      <script src="https://unpkg.com/react@15/dist/react.js"></script>
-      <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-      <script type = "text/jsx" src= "/static/js/cards_script.jsx"></script>
-
-      <!-- fonts -->
-      <link href='https://fonts.googleapis.com/css?family=VT323|Open+Sans' rel='stylesheet' type='text/css'>
-
-      <!-- style -->
-      <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-        {% endblock %}
-    </head>
-
-
-    <body>
-      <nav class="navbar navbar-custom navbar-fixed-top navbar-absolute">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Artistree</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/artists">Artists</a></li>
-            <li><a href="/works">Works</a></li>
-            <li><a href="/media">Media</a></li>
-            <li><a href="/eras">Eras</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/report">Report</a></li>
-          </ul>
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+<script type = "text/jsx" src= "/static/js/cards_script.jsx"></script>
+{% endblock %}
+{% block content %}
+<div id="cards-content" class="container-fluid no-padding">
+            {% block cards_content %}{% endblock %}
         </div>
-      </nav>
-      <div style = "padding-top: 50px"></div>
-        <div id="content" class="container-fluid no-padding">
-            {% block content %}{% endblock %}
-        </div>
-    </body>
-
-</html>
+{% endblock %}
