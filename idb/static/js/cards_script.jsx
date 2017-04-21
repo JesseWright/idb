@@ -387,13 +387,8 @@
                     d = data.data[i];
                     
                     var image = undefined;
-                    if (d.images)
-                        {
-                            image = d.images.replace("{","").replace("}","").replace("'","").replace(" ","").split(",")[0];
-
-                            if (image === "NULL")
-                                image = "https://placehold.it/200?text=No+image+available";
-                        }
+                    image = d.image;
+                    
                     if (request_page == page_enum.WORKS)
                     {
                         name = d.title;
@@ -419,7 +414,7 @@
                         */
                         name = d.name;
                         year = d.average_age;
-                        
+ 
                         //console.log("image\n" + image);
                     }
                     if(request_page != page_enum.ERAS){
