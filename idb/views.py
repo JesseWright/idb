@@ -188,13 +188,15 @@ def search():
         "relevance" : x.relevance(search_terms),
         "object"    : x.serialize()
     }, results))
-    print("transformed. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
+    print("transformed. {} models. {} seconds elapsed."
+          .format(len(results), time.time() - start))
 
     # filter out items with 0 relevance
     print("filtering... ", end="")
     start = time.time()
     results = list(filter(lambda x : x["relevance"] > 1, results))
-    print("filtered. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
+    print("filtered. {} models. {} seconds elapsed."
+          .format(len(results), time.time() - start))
 
     # sort items by relevance
     print("sorting... ", end="")
