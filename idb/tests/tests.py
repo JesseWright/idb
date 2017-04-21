@@ -149,7 +149,60 @@ class TestWorkModel(TestApp):
                           models.Work,
                           title=_test_string,
                           width=-1)
+class TestMediaModel(TestApp):
+    """ A test suite to verify ``Medium`` models """
 
+    def test_null_name(self):
+        self.assertRaises(Exception,
+                          models.Medium,
+                          name=None)
+
+    def test_empty_name(self):
+        self.assertRaises(Exception,
+                          models.Medium,
+                          name='')
+
+    def test_assign_name_null(self):
+        models.Medium(name=_test_string)
+        with self.assertRaises(Exception):
+            models.Medium.name = ''
+
+    def test_update_name_null(self):
+        test_Medium = models.Medium(name=_test_string)
+        self.db.session.add(test_Medium)
+        self.db.session.commit()
+        with self.assertRaises(Exception):
+            models.Artist.query.get(test_Medium.id).update(dict(name=''))
+
+    def test_future_age(self):
+        self.assertRaises(Exception,
+                          models.Medium,
+                          name=_test_string,
+                          age=self.future_date)
+
+    def test_zero_avg_height(self):
+        self.assertRaises(Exception,
+                          models.Medium,
+                          name=_test_string,
+                          avg_height=0)
+
+    def test_negative_avg_height(self):
+        self.assertRaises(Exception,
+                          models.Medium,
+                          name=_test_string,
+                          avg_height=-1)
+
+    def test_zero_avg_width(self):
+        self.assertRaises(Exception,
+                          models.Medium,
+                          name=_test_string,
+                          avg_width=0)
+
+    def test_negative_avg_width(self):
+        self.assertRaises(Exception,
+                          models.Medium,
+                          name=_test_string,
+                          avg_width=-1)
 
 # TODO: Fix issue with validation of name attributes on Model creation
 # TODO: Test for expected successes as well
