@@ -1,0 +1,2340 @@
+commit be638a9ca383b0eb0951648acd5867a0355be8d3
+Merge: faff426 75559be
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 20 21:46:28 2017 -0500
+
+    Merge pull request #85 from grahamjamesr7/frontend_fixes
+    
+    Frontend fixes
+
+commit 75559bebe5ab6a50cce2dc1867405d163679fc56
+Merge: 7bacb76 faff426
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 20 21:46:20 2017 -0500
+
+    Merge branch 'master' into frontend_fixes
+
+commit faff4262561633d01bdb19a0e1b396f48f6fe23c
+Merge: dcb6df2 4c5332d
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 20 21:45:32 2017 -0500
+
+    Merge pull request #84 from grahamjamesr7/visualization_fix
+    
+    Visualization fix
+
+commit 4c5332d9193a580fe0cb2f3c16d6dca95f0b135d
+Merge: 467c178 24cd6c1
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 20 21:44:22 2017 -0500
+
+    Merge branch 'visualization_fix' of https://github.com/grahamjamesr7/idb into visualization_fix
+
+commit 467c17889b8218748576718060eb3e4c624a743e
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 20 21:43:24 2017 -0500
+
+    Corrected function name for secondary visualization.
+
+commit 24cd6c18eba186d8325b273b6cd48b07ee4eabee
+Merge: 211ebc3 dcb6df2
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 20 21:43:15 2017 -0500
+
+    Merge branch 'master' into visualization_fix
+
+commit 211ebc3cc5e8e6932ef26f4ef917f7e473ad634e
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 20 21:41:04 2017 -0500
+
+    removed old html
+
+commit d430beb668420e53d84e41670316687d6e037b80
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 20 21:38:44 2017 -0500
+
+    added vis
+
+commit 7bacb76c0319f8ed2b19a723bf5924a596dfdaab
+Merge: e727e64 6bc371c
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 20 21:37:03 2017 -0500
+
+    Merge branch 'frontend_fixes' of https://github.com/grahamjamesr7/idb into frontend_fixes
+
+commit e727e6480e803961954e8e57018dc93310f651a0
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 20 21:36:50 2017 -0500
+
+    Removed some debug code and updated some formatting.
+
+commit 30007cae06d7a7e91077a31ecc1e9b4ca9b3e306
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 20 21:34:28 2017 -0500
+
+    Added updated technical report files and some coverage files.
+
+commit 6bc371c286d1dd71314a85b284e9f0ac55e341bb
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 20 21:19:16 2017 -0500
+
+    little fixes
+
+commit dcb6df22a073c20cbac21acd295d63bc8ff9cd56
+Merge: e395b0b e17e6f6
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 20 20:52:29 2017 -0500
+
+    Merge pull request #83 from grahamjamesr7/aboutfix
+    
+    restored script to about page
+
+commit c02041f4f36a1fd5676e4dfde8f496ac58d8768b
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 20 20:34:30 2017 -0500
+
+    search
+
+commit d5f38caec12e023ac7b0c1d9bad7b79525fbe825
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 20 19:38:10 2017 -0500
+
+    Corrected serialize method for Medium.
+
+commit 532f58265f0d98dc8e94938b0130708fc1c5139a
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Apr 20 19:29:52 2017 -0500
+
+    medium images testing
+
+commit 93419f1883f4d990142f96c4d6df9a08b19a84a6
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Apr 20 19:25:18 2017 -0500
+
+    Fixing the fix
+
+commit 25e129d989b0c7e4cffe51b46d8d9dd462a0d341
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Apr 20 19:14:26 2017 -0500
+
+    Bug fix media page
+
+commit e6218e14d7d4b484c3fb0fa6a57b74a7f8fb1227
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 20 19:01:32 2017 -0500
+
+    working on context
+
+commit e17e6f6d67b0bdb6d3de1bb35b26f2fcbe769513
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 20 18:27:44 2017 -0500
+
+    restored script to about page
+
+commit e395b0be0cec8a98a15646a7206346546eb38316
+Merge: 1485fce aaeff39
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 20 14:59:32 2017 -0500
+
+    Merge pull request #81 from grahamjamesr7/search_backend
+    
+    Search backend into master
+
+commit 1485fcea1e409309e14a4536609bc9becd92056f
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 20 14:55:50 2017 -0500
+
+    Delete notes for phase 3.txt
+
+commit 482c8435ba24b2f87b31864256e31e3127c95aba
+Merge: bf1d710 171e325
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 20 14:54:44 2017 -0500
+
+    Merge pull request #82 from grahamjamesr7/adding-cors
+    
+    added CORS
+
+commit 171e325ba1937ec645afea8c368e6b0417b80080
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 20 14:49:59 2017 -0500
+
+    added CORS
+
+commit aaeff3926a3a627d8cda0001c6064e63ca8e8983
+Merge: f2b7859 42154a5
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 20 14:47:03 2017 -0500
+
+    Merge branch 'search_backend' of https://github.com/grahamjamesr7/idb into search_backend
+
+commit f2b7859465188c43f14e71a7f69b0412f0001641
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 20 14:46:59 2017 -0500
+
+    search results page is pretty much good to go -- aside from the context of the results
+
+commit 42154a5942333ec61affb401a7c724cf4d6171bf
+Merge: 837b111 bf1d710
+Author: Walter Sagehorn <w.sagehorn@gmail.com>
+Date:   Thu Apr 20 14:19:59 2017 -0500
+
+    Merge branch 'master' into search_backend
+
+commit 837b1114da99bd6359b27b8bd1bb2ac4b4f12c5b
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 20 00:19:14 2017 -0500
+
+    added todo
+
+commit d978bd2bb13273ac6fb2d67004af35803e50867d
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 20 00:09:14 2017 -0500
+
+    revised relevancy calculations, now more accurate
+
+commit 23da3e1b325252c96e92375e67a5506a25be8b1d
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 23:49:01 2017 -0500
+
+    returns most relevant first, fixed name error
+
+commit bf1d7104f33f3c2bba3323e39515b1d9a0958ff4
+Merge: 0e312e0 cd33f5c
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Wed Apr 19 23:15:00 2017 -0500
+
+    Merge pull request #80 from grahamjamesr7/production-api-fixes
+    
+    Production api fixes
+
+commit cd33f5c732026ea5e0b6f039edf3c77b91ba2fb7
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Wed Apr 19 23:13:14 2017 -0500
+
+    Added debug code for number of queries sent to database.
+    Removed all repr/serialize functions' use of association tables to prevent hundreds of queries.
+    Corrected API code to return response (missing return on some routes).
+    Updated serializing to handle decimal types.
+
+commit 57e7696c78cfcbe795f19b60384f75d11ac99ab0
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Wed Apr 19 22:24:20 2017 -0500
+
+    Fixed URI string (had extra slash at beginning). Added some useful logging for DB URI stuff.
+    
+    Password's still in repo :/
+
+commit 61afe32644c98631d9bb86afee07bf122cb75d9d
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 21:35:43 2017 -0500
+
+    transformation and no recursive searching
+
+commit 0e312e0fd40e7dcac5d98094d0a09ad61c14bdb6
+Merge: 9cf4bf9 de2b7db
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Wed Apr 19 21:13:08 2017 -0500
+
+    Merge pull request #78 from grahamjamesr7/visualization
+    
+    Visualization
+
+commit de2b7db82a18cca4136bac6ec2c471a4fa1013c5
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 20:52:24 2017 -0500
+
+    removed test tags
+
+commit 01f4c7a0ea653da47d9cc1f491674cf716d60a82
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 20:46:50 2017 -0500
+
+    adding svg to proper div
+
+commit 32ecb6c2bc48ec012cd4cbea198ae9d0d368f237
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 20:39:36 2017 -0500
+
+    Trying to figure out positioning of data vis
+
+commit 3fb5cbfcb6bea3744840e4daa61ab8c05dedaef6
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 19 20:36:25 2017 -0500
+
+    Pagination for search results, basic search should work I think.
+
+commit 070b07af65cc6c63278867b997607842489cbde6
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 20:34:10 2017 -0500
+
+    more css changes
+
+commit 6f9f8da00d088e6d9db9d864ec8aad4723e20c98
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 20:21:12 2017 -0500
+
+    fixed positioning of visualization and text color
+
+commit 206cac0a473fa692efd2fe353d53de4238aa9b79
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 20:11:24 2017 -0500
+
+    added visualization page to navbar
+
+commit acd49833e066ae55874e99f737d6c5c503194c70
+Merge: cc988b2 869061c
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 19:56:45 2017 -0500
+
+    Merge branch 'visualization' of https://github.com/grahamjamesr7/idb into visualization
+
+commit cc988b288696e3c3fdce015c46a7bca3e47c9c13
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 19:51:07 2017 -0500
+
+    preparing for master merge
+
+commit d1d4b9e0c95f9898ffee65dbc2d886669ec9d2ff
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 22:02:11 2017 -0500
+
+    added visualization to the site in the about page
+
+commit 360e67be61be9af71098512bf73ece359168e512
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 21:54:45 2017 -0500
+
+    added a few comments
+
+commit 7e364427456f45c131f755b174019cb221faedd0
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 21:18:32 2017 -0500
+
+    waits on lists to load before building tree, should have no async errors now
+
+commit 5a10f116ba698593dc67f3500f980d81dc21965d
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 21:10:42 2017 -0500
+
+    retries failed requests
+
+commit 6c5983bc94b75849e81ad32fcfb4133226cf625c
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 21:00:04 2017 -0500
+
+    basic dynamic loading, still buggy
+
+commit 6e839805b2044537b5555acb273060e1284671c4
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Apr 13 19:42:57 2017 -0500
+
+    added simple example to get add platforms to tree
+
+commit 869061c9b41ee54cef31656241c9863a09d29c25
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Apr 19 19:51:07 2017 -0500
+
+    preparing for master merge
+
+commit f1d87bbf7ce592c1d35b4e8f4db5b4cefb20b485
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 13:57:40 2017 -0500
+
+    fixed json decimals
+
+commit b029f71777e1a33f6686b5631397253b9db67082
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 13:39:47 2017 -0500
+
+    serializing results
+
+commit 0693d4cfc0a3f8c0601c33ab7789eb897d0a33aa
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 13:29:43 2017 -0500
+
+    fixed response typo
+
+commit e6ddf608bbbb77c3b8686c57a3aa14280938d0d9
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 13:25:07 2017 -0500
+
+    fixed country typo
+
+commit ef67d06e9309adeed252b00e80d838e5acc3d5eb
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 12:48:55 2017 -0500
+
+    fixed filters
+
+commit 3a13538f3fe750ecd5a96cbe6136069f62b1594a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 12:37:37 2017 -0500
+
+    more printing, changed filter threshold
+
+commit f122c71bb6492b624e3517dfdf22d4c8ed151eb9
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 12:30:04 2017 -0500
+
+    added print statements to find bottlenecks
+
+commit 7e4112172086564096757c9c890f2f0b64c94004
+Merge: 91ef517 523ed7d
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 12:24:22 2017 -0500
+
+    Merge branch 'search_backend' of https://github.com/grahamjamesr7/idb into search_backend
+
+commit 91ef517bc6b77b1e6f89113d08727bdd1b271d38
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 19 12:24:12 2017 -0500
+
+    minor fixes on search
+
+commit 523ed7d63cc93a5834f8d994e1821207eec8b54d
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 18 23:15:52 2017 -0500
+
+    added 404 page
+
+commit 0ce1f4ecc94c9cad79ed3352491e46b63212b405
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 22:02:11 2017 -0500
+
+    added visualization to the site in the about page
+
+commit 2cb2b04e90171a31c2971dc2eba343dec8949bde
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 21:54:45 2017 -0500
+
+    added a few comments
+
+commit 2f167dc0d4ea196bd71df4e7e7b9ae8fb11c85ef
+Merge: e79a3f5 c09fc55
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 18 21:39:01 2017 -0500
+
+    Merge branch 'search_backend' of https://github.com/grahamjamesr7/idb into search_backend
+
+commit e79a3f509a2ee17019ce126142fde2895f4e5f77
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 18 21:38:58 2017 -0500
+
+    still working on search
+
+commit c09fc5501d4e1841932d2fb528720c23164a58e6
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 18 21:37:41 2017 -0500
+
+    fixed adding lists instead of elements
+
+commit 585304cad7cfd9a497bf903b53e832b4f5b0bf34
+Merge: f9898d4 c0a6626
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 18 21:30:43 2017 -0500
+
+    Merge branch 'search_backend' of https://github.com/grahamjamesr7/idb into search_backend
+
+commit f9898d4506902cca436da96d17de132e9a5878f3
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 18 21:30:41 2017 -0500
+
+    beginnings of actual searching
+
+commit 672653961a84455c662a362df51fe2145e8177bc
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 21:18:32 2017 -0500
+
+    waits on lists to load before building tree, should have no async errors now
+
+commit 39e6ffb2c5e5aade89e52774ecd6fb1ef72d117d
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 21:10:42 2017 -0500
+
+    retries failed requests
+
+commit c0a66269595e9e0f11685e8357cf10989a0fa101
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 18 21:04:23 2017 -0500
+
+    added search functionality
+
+commit 1122b5d5bab9ecc82285a9718602bba2f92f2df3
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Tue Apr 18 21:00:04 2017 -0500
+
+    basic dynamic loading, still buggy
+
+commit a522bc2ebf0f0f81fb8768916bb29c183bd47dbd
+Merge: 7dedd9b 5b1b422
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Tue Apr 18 20:51:13 2017 -0500
+
+    Merge pull request #77 from grahamjamesr7/bugSquash
+    
+    Bug squash merge into search_backend
+
+commit 5b1b4224a3a20fd59a733300cb88c02d0bc6bc47
+Merge: 422d08e 7dedd9b
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Tue Apr 18 20:51:05 2017 -0500
+
+    Merge branch 'search_backend' into bugSquash
+
+commit 7dedd9bbf52a7e731ae434613feb57b5fab37b39
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 18 19:48:11 2017 -0500
+
+    added relevence methods to models
+
+commit 9cf4bf9482b5fca876e2e6ffcec85e8edd4063a4
+Merge: 3388d41 422d08e
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Tue Apr 18 14:36:33 2017 -0500
+
+    Merge pull request #76 from grahamjamesr7/bugSquash
+    
+    Bug squash
+
+commit 422d08ee318d78d15ceee07d78cba9c7afe7ebe4
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 18 14:33:20 2017 -0500
+
+    Preparing for merging with the search backend stuff
+    
+    - added basic template for search results page
+    - search bar appears on all pages
+
+commit fbd5e1c8a28f515a7715ece149da0676d446d0b9
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Apr 14 22:23:40 2017 -0500
+
+    fixed about CSS
+
+commit 1f4b0e87fdb40d178616632ea79e2db5e95f03d4
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Apr 14 21:43:54 2017 -0500
+
+    Added enter keypress functionality on grid pages
+
+commit 2d8c301ba6f51ff4462523e4e407b5cc30bcb882
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Apr 14 20:22:49 2017 -0500
+
+    Little bug squashing by James
+    
+    - Fixed sorting to work across page changes
+    - added default value to the date fields so that it works if you only enter one or the other
+    - Made the width of the name box on the media page slightly longer to fit the placeholder text
+
+commit 16feb3c39568958326f1c72eba7e0619f4ee17e0
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Apr 13 19:42:57 2017 -0500
+
+    added simple example to get add platforms to tree
+
+commit 069267971cf8c6a0a718cf8966cf373776964047
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 13 18:07:58 2017 -0500
+
+    hopefully restored init
+
+commit 8b50252b0a0b808f52bd2f4d19c054be01fdd7a5
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 13 17:22:18 2017 -0500
+
+    reset to top of page on page change and case indifferent filtering. Close #55 close #51
+
+commit c44614b3a54d9975faab77ffdd71756ad7c2b117
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 13 16:53:45 2017 -0500
+
+    fixed cardsizes and other UI tweaks. Close #52 close #69 close #71
+
+commit afae423bdad64a709fcec1cd9a229bf98c377fd8
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Wed Apr 12 18:53:51 2017 -0500
+
+    vabody padding now dynamically resizes based on navbars height
+
+commit 7fd5a2970bc8cbf70969537afe54083671947a12
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Wed Apr 12 18:38:24 2017 -0500
+
+    various s UI bug fixes, close #70 close #62
+
+commit 1683ba84cdebaec8038a6d642505f52186acb526
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Wed Apr 12 14:06:19 2017 -0500
+
+    upfixes in about page, closes #68 closes #67 closes #61 closes #48
+
+commit 3388d41ab73294d06c20485d2f291f29c6ffc5c4
+Merge: 8031cad 0403bd8
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Tue Apr 11 21:36:57 2017 -0500
+
+    Merge pull request #75 from grahamjamesr7/backend-database
+    
+    Update use of environment variables and creation of DB URI string
+
+commit 0403bd8750ef8999a88eaee9c9606dd8b9e71c41
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Tue Apr 11 20:54:44 2017 -0500
+
+    - database_tools.py:
+       * Updated to use simpler URI components by merging the fields for a socket and a Cloud SQL instance into one field to match the general structure of a URI for SQLAlchemy.
+       * Changed the default value of that new field to be blank so that development environments have to set fewer environment variables to test the app locally.
+       * Created central definition for environment variables' keys and the prefix used for those keys.
+    - app.yaml:
+       * Updated to contain an environment variable with the DB option field that will point to the production site's local socket for the database.
+    - __init__.py:
+       * Removed duplicate and outdated call to database_tools.py's build_db_connection_uri_string function (pretty sure it was an artifact from a bad merge).
+    - test.db:
+       * Removed old SQLite database altogether since we no longer use it for the site, for development, or for testing.
+    - tests.py:
+       * Updated use of fields for database_tools.py's build_db_connection_uri_string function.
+       * Added/modified comments about not having unit tests connect to the production database.
+
+commit 8031cad91a766b673fe6c10720476f212229a79c
+Merge: 556d373 6ed97d6
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Tue Apr 11 09:55:54 2017 -0500
+
+    Merge pull request #74 from grahamjamesr7/MasterUpdate_4-10-17
+    
+    Master update 4 10 17
+
+commit 6ed97d6e0890d0c45fd8f6ec273dca1e01860886
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Mon Apr 10 21:58:02 2017 -0500
+
+    Corrected reference to about.html (route itself should just be 'about' rather than 'about.html')
+
+commit 5cc5a6a26136dabf74f321cf2a538f47cb55cf18
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Mon Apr 10 21:41:17 2017 -0500
+
+    Cleaned up views.py and corrected misnamed functions and removed defunct code. Updated about with current statistics after phase 2 as well as text describing the process for our scraping data. Removed old static files that shouldn't be used anymore. Corrected URI string for DB. Added apiary updates. Moved UML image to correct folder.
+
+commit 556d373efba3db1b1673e7fb4332cf97eb410675
+Merge: 9162376 77c4a1c
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Sun Apr 9 22:11:15 2017 -0500
+
+    Merge pull request #73 from grahamjamesr7/api_hotfix
+    
+    fixed api
+
+commit 77c4a1c05687f2ec906b4f2d4417d4273f8e9272
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Sun Apr 9 21:58:48 2017 -0500
+
+    fixed api
+
+commit 9162376b8775daa9f25b0ceb2cee7bc0d43a61f9
+Merge: a8ec958 a16d8da
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Fri Apr 7 20:24:47 2017 -0500
+
+    Merge pull request #43 from grahamjamesr7/backend_models
+    
+    Backend models
+
+commit a16d8da95be55c6b144c570bbeab4ee7bb77cb98
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 20:22:52 2017 -0500
+
+    Corrected some unit tests
+
+commit edb1b7a5d8b7058b5c11bc54d61a8d2e2c6f5477
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 20:11:08 2017 -0500
+
+    Updated Travis configuration again
+
+commit 926c070c7697156a5aaed7c1273017d2df70fcac
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 20:08:59 2017 -0500
+
+    Updated Travis configuration for running unit tests
+
+commit 7aaaa5c088909f4ba4b64aa72a30ed961baacacf
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 20:06:18 2017 -0500
+
+    Updated unit tests to (hopefully) correctly use a new testing database rather than the database set up inside idb.__init__.py
+
+commit a8ec958bfc8232bc09666e18e4d41a4559a02250
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Fri Apr 7 18:44:23 2017 -0500
+
+    update
+
+commit 99a50701ba58476d081a11de28942b18b0088e92
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 18:20:38 2017 -0500
+
+    Removed app.yaml configuration options that were only for standard app-engine environments.
+
+commit 60bbad505125f897c995ee301f2bee1e46912649
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 18:07:29 2017 -0500
+
+    Minor comment update
+
+commit af26b5c45509436ec8d36876c0093d0da4e6c863
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 18:05:29 2017 -0500
+
+    Minor comment and formatting updates.
+
+commit 7b892739c16e9b0a7631af5bb1a7861f7a75d42b
+Merge: 4d98428 49094c2
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Fri Apr 7 18:03:12 2017 -0500
+
+    Merge pull request #42 from grahamjamesr7/backend_models
+    
+    GCloud and phase 2 code
+
+commit 49094c252fce067c4f67248df56cd3f8bebcdacd
+Merge: d7dce53 609f4b8
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Fri Apr 7 18:00:58 2017 -0500
+
+    GCloud fix with frontend fixes
+    
+    GCloud needed the connection settings change in order for cloudSQL to work properly. Check the changes to database.py and __init__.py
+
+commit 609f4b8701636571bb532b2c7e3f0f9733f65ca7
+Merge: 7f3ff78 d7dce53
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Fri Apr 7 17:59:26 2017 -0500
+
+    Merge branch 'backend_models' into dynamic_templating_feature
+
+commit 7f3ff787e3365673c793e3ea5b1d22d727146f2d
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Apr 7 17:54:18 2017 -0500
+
+    removed password lol
+
+commit f09c774797db0986c6b7d8f8a78fbdc2f9b1ae8a
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Apr 7 17:41:45 2017 -0500
+
+    changed era cards
+
+commit d7dce534458de69a87fb130493a00764f1953ef4
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 17:25:11 2017 -0500
+
+    Corrected URI for database (hopefully) and updated database_tools.py accordingly.
+
+commit 2a1dee86ca85d5a4dab1764472f65f09da64ac42
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Apr 7 17:10:04 2017 -0500
+
+    fixed about page piping to the wrong place
+
+commit e0635e00b84cf4048b018ef3d9c475beb61805b7
+Merge: 71fc230 31a366a
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Apr 7 16:29:09 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 71fc23017ca644708651ca91648a2229d39e61e3
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Apr 7 16:29:05 2017 -0500
+
+    fixed media page
+
+commit 682664f8d07f2f7604bb512c9568c45a528ecd8e
+Merge: 99619d4 31a366a
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 15:58:32 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' into backend_models
+
+commit 31a366ab1c0dc158bb6fecc1b627c31e2e6f2c6d
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 15:57:21 2017 -0500
+
+    Missed line removals in previous commit.
+
+commit d0eb604164f94a8e7df15c96e0f9f0756375a908
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Apr 7 15:56:08 2017 -0500
+
+    Updated api.yy to correct minor errors with certain variable-name uses. Updated init file to use what was alleged to be the correct URI for Cloud SQL instances used in
+    App Engine. Updated database_tools.py to not override empty strings (only None types). Corrected two minor issues in app.yaml that had major effects.
+
+commit c6c266e74d40c2ccadc0f4e31a7bd8c4f68b2ddb
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:56:58 2017 -0500
+
+    log
+
+commit 2e8ccf2918ea982d456d0e201faaaa9a649f0e47
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:54:59 2017 -0500
+
+    import
+
+commit c2b7cb0d45decec5b6930ba166b9b4783832b0dd
+Merge: 7e39167 3e45f36
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:52:52 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 7e39167829cd33d945b0e6b65da28eab955d31f0
+Merge: 6a0dea2 560fc65
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:52:21 2017 -0500
+
+    Merge branch 'master' into dynamic_templating_feature
+
+commit 6a0dea23993b3df249d4f5193251aff6722b2de3
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:52:18 2017 -0500
+
+    did this work?
+
+commit 3e45f36a71d9cd03441812325a7a3c2db2761feb
+Merge: 9f82567 dada242
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 6 21:50:16 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit 9f82567dec965f1a19d6a2651b78d803af4b3478
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 6 21:50:12 2017 -0500
+
+    ffixed reference error
+
+commit dada2424d78788fe10a7ae56588165d4f9a27135
+Merge: 2f1e0e9 99619d4
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:47:04 2017 -0500
+
+    Merge remote-tracking branch 'origin/backend_models' into dynamic_templating_feature
+
+commit 2f1e0e9db2f5935439409b1bb6e194dacc6eba1a
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:46:08 2017 -0500
+
+    medium images fix
+
+commit 7bfd0930e0513643509d5889de14acfe7f1ee5fa
+Merge: f8938f7 ab602db
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:42:59 2017 -0500
+
+    free at last
+
+commit f8938f7e6791e184985eb648f8071b8610aa0b93
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:40:10 2017 -0500
+
+    stuff
+
+commit ab602dbf5db6792b134b482d9a9892bd38673ba7
+Merge: ea1bcf3 1c6d56b
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:37:09 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit ea1bcf3dab8694c99b2a6627c7f4e8ee6ed437ae
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 21:37:02 2017 -0500
+
+    james
+
+commit 99619d444a3ddb0b9ae2735106d843382f68dddf
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Apr 6 21:33:25 2017 -0500
+
+    autopep8 models
+
+commit 1c6d56be0812166269e1f5f01723029c6613e740
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 21:31:43 2017 -0500
+
+    api first try
+
+commit 7707d7138cbade33f1f935362b0536db67261ba1
+Merge: d1a6406 92a0fad
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:10:44 2017 -0500
+
+    Merge branch 'backend_models' into dynamic_templating_feature
+
+commit 92a0fad284d79b8f9e3490755ba677fde3548aef
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 21:09:38 2017 -0500
+
+    Corrected imports in models.py.
+
+commit 458138ed9354f3b1d1a6be9c0065669340ec68a8
+Merge: 5e9c996 02d2175
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 20:50:00 2017 -0500
+
+    pylint 10/10
+
+commit 5e9c996ea697c2f6b7a454dd78679f1e11ad9165
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 20:45:37 2017 -0500
+
+    pylint 10/10
+
+commit d1a640676045d48a7ff43209214f019c9c60d6f2
+Merge: 838175a 02d2175
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 6 20:37:31 2017 -0500
+
+    Merge pull request #39 from grahamjamesr7/backend_models
+    
+    James/Jesse merge
+
+commit 02d2175602d77f307a75ff0b4f96508562d4b66d
+Merge: c4317dd 838175a
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 6 20:37:06 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' into backend_models
+
+commit 4d984287778cd09851496ffa52e8f60a6856989f
+Merge: 57ebeb6 7881f71
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 6 20:30:33 2017 -0500
+
+    Merge pull request #37 from grahamjamesr7/sgrasu-patch-2
+    
+    updatd UML png
+
+commit 57ebeb69e153715de0b25246d6aa231037e64da0
+Merge: b9b613a dab2ecd
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 6 20:30:22 2017 -0500
+
+    Merge pull request #38 from grahamjamesr7/carson
+    
+    updated UML pdf
+
+commit c4317dd2ae566c3b75a86bb41694f6598d87b599
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 20:27:30 2017 -0500
+
+    Removed TODO (now using Python 3.5, so resolved).
+
+commit 838175a14859f063e72299e34fe3a53308c3a968
+Merge: c0c3fce f774919
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 6 20:24:04 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit f8662a47516f43f03bc2138d9ba49bdc700efe1b
+Merge: 9b84138 d127008
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 20:23:54 2017 -0500
+
+    Merge branch 'backend_models' of https://github.com/grahamjamesr7/idb into backend_models
+
+commit c0c3fced0a13f1c1fad5b9dcfcf2f43ce5d6618e
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Apr 6 20:23:54 2017 -0500
+
+    runs tests, although it doesn't actually work atm
+
+commit 9b84138c2cfecbea5c73baffd8b72ae4787e2ee2
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 20:23:35 2017 -0500
+
+    Updated Travis configuration to hopefully run tests correctly using nosetests. Moved code for building DB URI into a function inside a library-type utilities file. Renamed file used for generating database/date to avoid confusion. Updated String-type columns to be TEXT-type columns. Updated unit tests to properly use environment variables and a PostgreSQL database. Added documentation for models.py as generated by the ever crappy pydoc.
+
+commit f774919821f120c7d47068ddf5557ded88f0128f
+Merge: 9161a19 2129aab
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 20:21:35 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 9161a19f6bf02e37bd16716a4eba48328796bfb7
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 20:21:18 2017 -0500
+
+    minor fixes on about page css
+
+commit d127008c8fb6b5f6ba1626559174a4d9919e3384
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 20:15:42 2017 -0500
+
+    resolved couple pylint issues
+
+commit 2129aab806d73696c797c7853b596c038e4e7010
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 20:15:16 2017 -0500
+
+    dynamic media cards but NEEDS TO BE DEBUGGED ON REAL DB
+
+commit de51f31267ada219983a68d8992401ee13c946e8
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 20:10:00 2017 -0500
+
+    medium no date
+
+commit 4c2af1b31a5943973fc8a33f8ee9e553ec67f18d
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 19:58:41 2017 -0500
+
+    relationship attribute comments
+
+commit fd4b37ea4c22236928dc742ad0e3fb03c7eec654
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:47:18 2017 -0500
+
+    era query
+
+commit dab2ecdb7abafdb7302eb0f3527199343de09596
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Apr 6 19:36:52 2017 -0500
+
+    updated UML pdf
+
+commit 30f877e2e6449cab2b528d8028af08b3080ffef3
+Merge: 94440cc 104434b
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:32:57 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 94440cc8e363a7f9f3e54b4955f87b1cc6358c3a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:32:41 2017 -0500
+
+    medium query float vals->strings
+
+commit 104434b345379d1fb518b6a99e29a54b83c65000
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 19:30:48 2017 -0500
+
+    added the new report pdf
+
+commit d304f3e63f9eee0e9ee8e720e0db6f3934eca414
+Merge: 1a1954a 833f564
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:25:41 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 1a1954a75bd7e42857813a45b8355f857e0aa993
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 19:25:21 2017 -0500
+
+    added medium query
+
+commit 833f5646fafcf159f7afb2cad417c2dc31abf051
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 19:15:35 2017 -0500
+
+    added limited documentation
+
+commit 7881f719d2bf7aec842cddb3c86a4483c0ef9818
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 19:11:48 2017 -0500
+
+    Add files via upload
+
+commit b9b613a5fa8afbcbfb38d7199b9c1e3a9f06aa5f
+Merge: a57d6ee 81ada5b
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Apr 6 19:10:26 2017 -0500
+
+    Merge pull request #36 from grahamjamesr7/sgrasu-patch-1
+    
+    updated yUML
+
+commit 81ada5bdcefae56edb2ec8406c33b9c277ab0810
+Author: Stefan Grasu <sgrasu@utexas.edu>
+Date:   Thu Apr 6 19:09:08 2017 -0500
+
+    updated yUML
+
+commit 5772389275064d7af724de897f8ad66489a89fa7
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 18:39:35 2017 -0500
+
+    moved navbar to single bar (sorry small screen users), moved it to the top, works page now queries
+
+commit 2b0f3b5cfbd1549e3c1df94dd1d0fe9a0856bc22
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 17:42:27 2017 -0500
+
+    Messed up the slash for path to tests.
+
+commit 513525a2bbb77326cb603c21e3a6f6128059bdc7
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 17:36:12 2017 -0500
+
+    Updated Travis configuration to use Trusty to support PostgreSQL.
+
+commit 44e726341e289707bf9f1cdc9f40c0a5d2134954
+Merge: f4e0d36 05f32f9
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 17:30:19 2017 -0500
+
+    Updated PostreSQL version Travis will use to match Cloud SQL instance. Updated nosetests script call for Travis to use correct path to tests.py.
+    
+    Merged front-end code and resolved conflicts. Tested against live production database with mostly success. Need to re-import database using new export from Stefan to add bios and to resolve issue I inadvertently made when trying to convert colors column to an array of strings. Updated requirements.txt to use correct Jinja and to verify that SQLAlchemy is installed and of correct version.
+
+commit 8142baad8b8d42eba677cb958c1c094c2a21fe18
+Merge: 9dc01d3 05f32f9
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 15:18:49 2017 -0500
+
+    merge conflict fix?
+
+commit 9dc01d3482290443bca8fd9a5a08f4f01c3783aa
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Apr 6 15:09:45 2017 -0500
+
+    added new report text, still need to fix the UML Image but that can be done soon
+
+commit f4e0d3650516bc9139129991925470d554ca3c74
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 14:53:25 2017 -0500
+
+    Adding ignore for test file.
+
+commit d6cdc107f85c21e621bb946b81fc47f2fe65aba2
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 14:50:42 2017 -0500
+
+    For convenience, adding env directory to gitignore.
+
+commit afb94d6cfb14026ab2a5d2c7df4aa6433148b9b1
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Apr 6 14:34:53 2017 -0500
+
+    Migrated to flexible environment for app engine. Testing so far works on my machine. The DB-connection portion has not been tested yet - will test when receive updated routing/front-end code that uses the DB.
+
+commit 05f32f9423280923edc015d5f8c9f5066f7c57d6
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Apr 6 13:09:06 2017 -0500
+
+    work dimensions now strings
+
+commit ca3cfa22061412df0cbe8ecaa685963924eb6955
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 23:12:32 2017 -0500
+
+    fixed button disabling
+
+commit 7d92f6b067f8f700824d017b2571f27e94430887
+Merge: 4d1bea3 160d6cf
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 23:01:07 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 4d1bea3588492f7bc4c7ce3a99f4d816e1f86370
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 23:01:04 2017 -0500
+
+    little about fixes
+
+commit 160d6cfe15b9db55cb540de24c79d6bcf86ad097
+Merge: 0453d93 eaa9c9f
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:59:07 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit 0453d93fec40336f825a123837c1692e2e79f47c
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:56:41 2017 -0500
+
+    fixed unclosed script tag
+
+commit eaa9c9f822c9665084d93a92ddc408f363509f3e
+Merge: 16110db 0919119
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 22:54:52 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 16110dbfbfa925ce60ba413c1954ffe2a8ecd7a7
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 22:54:43 2017 -0500
+
+    added works query
+
+commit 0919119de69d2b4c621b6f76d0ebe6b7bcc0cef0
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:54:10 2017 -0500
+
+    fixed onload state setting
+
+commit 0b6becb0dac2d6a3677f5645f802a2b1a920ed56
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:53:02 2017 -0500
+
+    little jsx changes, about fixes
+
+commit 68387d9b5054dd6034304af5b597bbd4c7bf3087
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:37:52 2017 -0500
+
+    actually fixed merge conflict
+
+commit 136b4e341d38457cfbd8111a2ca4bd0b7d2d4206
+Merge: 574c686 62b055b
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:34:21 2017 -0500
+
+    fixed merge conflicts
+
+commit 574c686280109cbfebbbe764e6a8929767a489fe
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:32:22 2017 -0500
+
+    fixed props/state mixup
+
+commit 62b055b236de2b81c17c5d3209ced6c50016c734
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:24:46 2017 -0500
+
+    kyle's changes
+
+commit dbd33e38bde90d68e26c3f29f97e6d404327f23e
+Merge: fcedcfe 89eb245
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:13:58 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 89eb2457f6fc0c51a0a0174a863b4a0a16ca0cc6
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:13:39 2017 -0500
+
+    test-results-container
+
+commit fcedcfe7aeb96763074e50eff3185bcfb4f7ca65
+Merge: 4ff2383 53ba11c
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:12:37 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 4ff238337c95415387ef8b0bfdc903a44c174886
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:12:34 2017 -0500
+
+    little about fixes
+
+commit 53ba11cdbc4edf9ca486e476713090f301adb4f2
+Merge: 7598da4 159a437
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:12:01 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit 7598da42172b0e1b80128f8365a2aa1520c580b5
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 22:11:34 2017 -0500
+
+    fixed onload behavior
+
+commit 159a437054f2df6aa42fb65ed9763504f5799230
+Merge: 8d17ea3 d1eb6eb
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 22:05:49 2017 -0500
+
+    DYNAMIC CARDS ON THE ARTIST PAGEgit add -A (fixed merge conflict too)
+
+commit d1eb6ebe577bfc2109797f719a936f31fab8be91
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:52:38 2017 -0500
+
+    added dummy data for test runner
+
+commit 4a47f841c09beedd851ee4d84712804d5686d006
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:47:22 2017 -0500
+
+    fixed disabled
+
+commit bcd5e64375bf4dd14010e332a0de6d37e288bdeb
+Merge: b75d1b4 bb34673
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:40:58 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of github.com:grahamjamesr7/idb into dynamic_templating_feature
+
+commit b75d1b4ec359d41395fa46b834d004a686cafe34
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:40:47 2017 -0500
+
+    removed const
+
+commit bb346733ae71891c4b1e5feb306e78840f286155
+Merge: 1364b7b bc447fd
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 21:40:06 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 8d17ea303a14a62aa15872fc65abb6257ff824b3
+Merge: 6e40933 bc447fd
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 21:39:35 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 6e40933a3e324ced1c7874d495bfbcd261e1dc6d
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 21:39:33 2017 -0500
+
+    little fixes
+
+commit 1364b7b8a33a279d522bd883cbb0051dd76ba0a0
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 21:39:30 2017 -0500
+
+    made query usable by api
+
+commit bc447fd4e11f1a93ac71a333ea647627d5f5fe3b
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Wed Apr 5 21:36:52 2017 -0500
+
+    can run tests from the about page
+
+commit aa027427ff4be018a4fb07ba1f4296c0049f52e2
+Merge: 940fff5 e01a4be
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 21:16:42 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 940fff5ee215586c3f2584574061554b7f3cf7b2
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 21:16:39 2017 -0500
+
+    working on dynamic cards
+
+commit e01a4bed2f179a0701a9cd0cc3e0a137120a5282
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 21:13:01 2017 -0500
+
+    fixed name but no value params
+
+commit 59f89b0772e18573d9c6f3a0982e67ec051244e0
+Merge: cf5d09a 70c79ce
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 18:59:47 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit cf5d09a685617580e92a71e55dd77ad9128a06f3
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Apr 5 18:59:13 2017 -0500
+
+    artist dynamic query
+
+commit 70c79ceb94f1c79d9949b6c98151d87b72efbc3b
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Wed Apr 5 15:35:13 2017 -0500
+
+    updated data models using file in master, we should avoid a merge conflict now
+
+commit 32fcc746608cafe6067205a771ee57055bd559a1
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 15:13:48 2017 -0500
+
+    added placeholder images, moved javascript to its own file, cleanup
+
+commit f08de1a0d94ea9ac346a3f4ed5f69ad635a4b6a2
+Merge: 8d2dee1 8f4c112
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 14:26:09 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 8d2dee18a97c36fd2ab3a1bc7e4dec254cef0626
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Apr 5 14:25:57 2017 -0500
+
+    lots of frontend fixes, lots of javascript. Filter/sort bars on all pages, although lacking CSS.
+
+commit 8f4c11275107e8fc9fe0f6d23b22df0e9b369616
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Tue Apr 4 14:59:17 2017 -0500
+
+    updated description, added era search
+
+commit 874e1256bfaadfccd74794eb31c327a691062eec
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 14:41:16 2017 -0500
+
+    additional little fixes
+
+commit 69229d1a0c19bc804758225817f140ac91f2f0f5
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 14:40:13 2017 -0500
+
+    Forgot about artist connection to eras -- updated the artist page to have a list of eras
+
+commit ba6ff1b00a5ba67b9b6075c920c19c78597a1187
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 10:19:08 2017 -0500
+
+    era changed to eras in era cards page links
+
+commit fcf21da160e4799ce66613e4c6782b653f37bc2d
+Merge: 92de3fa eaba81d
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 10:17:31 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 92de3fa5ee6f6bd96b3746e20c0cc40fd1ff888a
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 10:17:07 2017 -0500
+
+    Added instance page for eras, fiddled with about page
+
+commit eaba81d9da51a5787bed8c33e5cde7e60f15bd1b
+Merge: 29b5903 55f738e
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:49:08 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 29b590362296d9f206328330f2deae387e91656a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:48:40 2017 -0500
+
+    added media and eras
+
+commit 55f738e853265557d7152aedcb0429fccc8229dc
+Merge: ff2f2e5 a99f9ba
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 00:42:34 2017 -0500
+
+    fixed merge conflict
+
+commit ff2f2e55341a5e18daf0355a37ae37331fb0b8e9
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Tue Apr 4 00:40:54 2017 -0500
+
+    medium_instance page complete for now
+
+commit a99f9ba7172f487d10c20e43242f5f83fa662b9a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:20:52 2017 -0500
+
+    added works
+
+commit 9d6820ec7aac816ea969020497238737ef9b462a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:08:53 2017 -0500
+
+    updated navbar to current naming scheme
+
+commit 11617edcc3f3fd12e414a68d1c9f1cef3d72e06c
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Tue Apr 4 00:06:52 2017 -0500
+
+    updated pathing
+
+commit 6a9b56f1e172ec243e4bf5140565de9fa58f8465
+Merge: 2a61468 a3e3255
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:57:57 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit 2a6146846ef504e238bd94d167ec3f6d400c59a1
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:57:54 2017 -0500
+
+    working on instance pages
+
+commit a3e32559290754e002c4bec7ac579de7d0f5c1c0
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Mon Apr 3 23:56:13 2017 -0500
+
+    added views back in
+
+commit 122eea549c761df0690488c7e76b6eba5faf9c36
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Mon Apr 3 23:44:15 2017 -0500
+
+    removed extra folders in /templates
+
+commit 56688dc47b7677b8c89e18b4af9f88d002897110
+Merge: df3b53e 1fa44fb
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:32:37 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit df3b53e2b98066cc9e617013d4ebec82ff00a699
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:32:33 2017 -0500
+
+    working on medium instance page
+
+commit 1fa44fb2d5798c27dfcb40fdc3248de29a1d3cfb
+Merge: a851e22 a19540e
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Mon Apr 3 23:31:43 2017 -0500
+
+    fixed merge conflicts
+
+commit a851e22575e77797781e8129b5aea4e4a654b6f5
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Mon Apr 3 23:26:16 2017 -0500
+
+    finished cards
+
+commit a19540e3dfe4eeda227c0e2c5b7892ab199e8da5
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 23:02:13 2017 -0500
+
+    further work on instance pages/styling. Most links work now
+
+commit 1e1e234dfd0a58b597fa8a2792c7244f1479bfc8
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 21:54:31 2017 -0500
+
+    work_instance is done!
+
+commit 580368ed6df2dc562021504d35522fd3a490c0f1
+Merge: 047c551 d2f143b
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Mon Apr 3 20:23:39 2017 -0500
+
+    Merge pull request #33 from grahamjamesr7/backend_models
+    
+    Backend models merge with dynamic frontend
+
+commit d2f143bd66299dc72423895dd770690bb3dd7f5f
+Merge: 6aaf97c 047c551
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Mon Apr 3 20:22:37 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' into backend_models
+
+commit 6aaf97c128a2fc6cb111e13b996e8bda9217bcfb
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Mon Apr 3 20:18:28 2017 -0500
+
+    Added depth to generate_random_artist in database.py and updated database. Also, database has several-hundred artworks and artists (i.e., 500+), not a couple-hundred or about a hundred.
+
+commit 3d6d3a7aeab3c575ba3427c2fc4080c29d6e9bf4
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Mon Apr 3 20:09:53 2017 -0500
+
+    Updated __init__.py to use new SQLite database for test data (and removed unnecessary idb.models import). Updated database.py with new code used to generate random test data in the database and to reflect updated models. Added database with a couple-hundred rows of artworks, a hundred or so artists, and some era and media.
+
+commit 61789ba9fb065f64db47c694979f2726090671a2
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Mon Apr 3 20:07:38 2017 -0500
+
+    Updated models to reflect changes made for phase 2. Style has been replaced with Medium, and a few attributes have been added here and there.
+
+commit 047c5510c46db4c1126995f24c8323c42c3c4203
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 18:28:42 2017 -0500
+
+    working on work instance page, updated about page to work dynamically, standardized image sizes on the about page
+
+commit 38871bfbce6b81858f840c5afb8bc2ddf164567a
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 17:08:49 2017 -0500
+
+    forgot to move the CSS to its own file, fixed that
+
+commit 7b7372f3dba19492de61834e57a503632175abdd
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 17:05:45 2017 -0500
+
+    very basic artist page
+
+commit d0650889a4261105bd9be96cdfa3b7c93e4b02a9
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Mon Apr 3 11:48:50 2017 -0500
+
+    Modified navbar to reflect new routes, updated report page to work with templating engine.
+
+commit 3843d4398f6fb34daf453ac05691b10e084d50c5
+Merge: e02408c 57e77b0
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Sun Apr 2 23:27:18 2017 -0500
+
+    Merge branch 'dynamic_templating_feature' of https://github.com/grahamjamesr7/idb into dynamic_templating_feature
+
+commit e02408c6842c56a3d7c5b31b15c381355dc823b6
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Sun Apr 2 23:24:22 2017 -0500
+
+    CSS updates
+
+commit a57d6ee6ca93e17343ad7d9982450e0c5fca13e0
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Sun Apr 2 10:30:24 2017 -0500
+
+    Updated api docs
+
+commit f00d0b4e689620c135f4dcc36474f9ce08639bdd
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Sun Apr 2 10:28:04 2017 -0500
+
+    Updated models to reflect new models for phase 2
+
+commit 57e77b0a5cd2a5364c78d27060b6b0a481ca0866
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Thu Mar 30 22:35:25 2017 -0500
+
+    Updated report page with table of contents, bigger UML diagram
+
+commit 71f370fbeaee12054358e93c715026578d1b3801
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Mar 30 21:33:47 2017 -0500
+
+    began work on dynamicizing
+
+commit 560fc65710a0904f420864f2d90d9cc11aa85007
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Mar 30 21:11:21 2017 -0500
+
+    Updated data models
+
+commit 92d09a821d75d2387bee8a867f9811d3d7a913b5
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Mar 30 20:55:03 2017 -0500
+
+    updated models
+
+commit d793ad3ca16b25d98d3d24b9894b98d3d1121c4a
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 21:33:21 2017 -0500
+
+    Added log and updated stats.
+
+commit 4ef274cea7d3438976549fa6252b8287e22e9e5b
+Merge: a971219 12ec71d
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Mar 24 20:59:03 2017 -0500
+
+    Merge branch 'master' of https://github.com/grahamjamesr7/idb
+
+commit a971219af98cd8c772127e5f40078ad48210d8da
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Mar 24 20:58:25 2017 -0500
+
+    updated the static about page with the stats
+
+commit 12ec71d4942af03b143061fb48ff4fb9fcf76346
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 20:45:26 2017 -0500
+
+    Updated report to correct missing image of UML diagram.
+
+commit 1fe9a6b580f76957dc16a82b9d61cfe25494abdf
+Merge: 45422dc fa2cbc5
+Author: Jesse Wright <JesseWright@users.noreply.github.com>
+Date:   Fri Mar 24 19:27:15 2017 -0500
+
+    Merge pull request #20 from grahamjamesr7/backend_models
+    
+    Backend models
+
+commit fa2cbc5f87a8b9039e4b5560762d0ace4221685c
+Merge: 74cc668 45422dc
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 19:24:01 2017 -0500
+
+    Merge branch 'master' into backend_models
+
+commit 74cc6680fafe99e9c2580c4b394eeea4041c6bda
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 19:20:56 2017 -0500
+
+    Updated documentation for models. Added check in appengine_config.py to resolve Windows development issues as per http://stackoverflow.com/questions/41783864/importerror-no-module-named-ctypes-google-app-engine-with-bokeh-plot. Added gitignore option for .idea files to ignore files generated locally for PyCharm. Added updated test.db database.
+
+commit 46db4e8a014cfbd453add296f519f808fb0d7074
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 19:16:57 2017 -0500
+
+    Added correctly named PDF file for UML diagram.
+
+commit 45422dc76ebd7c3257df9729fc9578223f424c13
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Fri Mar 24 19:15:10 2017 -0500
+
+    added stats
+
+commit 9cc83c97aab70d89007451de84c3643438ce2c3b
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 18:42:52 2017 -0500
+
+    Cleaned up code lines and comments for style, etc.
+
+commit 3bb6c0aff9ea053ffdc4228c47cac24f2e8c5f05
+Merge: 45ae2c2 5fc6684
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 14:58:18 2017 -0500
+
+    Merge branch 'master' into backend_models
+
+commit 45ae2c223f0d0c52e3fc4ff1de111817ebf0d7d6
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 14:55:54 2017 -0500
+
+    Added two more unit tests to reach 15 total. Also added a few docstrings to explain what each suite is testing.
+
+commit b71ee9d03e90061a0bfe0a862b83ba583a61f37a
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 14:54:17 2017 -0500
+
+    Added docstrings to all methods and attributes in models.py.
+
+commit dda635b9418b36c5e781dd21492ad7c3624511d4
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Fri Mar 24 03:46:15 2017 -0500
+
+    Added initial validation to models in models.py and added unit tests for those models and validations in tests.py. Also removed duplicate assignment to SQLAlchemy configuration.
+
+commit 5fc66845a137414bae7270f7554a32df51ca1c48
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Fri Mar 24 03:11:57 2017 -0500
+
+    lint fixes and report.html
+
+commit 49b5dd0f6aa773f28705e261e59dd3e653ff2b6a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Fri Mar 24 02:15:23 2017 -0500
+
+    added model doc and import fix
+
+commit 460ceda00dc7260c0df5d040df2097934e90a5c2
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Fri Mar 24 00:28:23 2017 -0500
+
+    removed log
+
+commit ea201ea2776d163211d7d323e4f6638f8f95ea9a
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Fri Mar 24 00:27:44 2017 -0500
+
+    changed gitlog to IDB1.log
+
+commit 7a577efc0ee77dbd6b52a9e7c3fcf1f41cc1ce5f
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Mar 23 22:08:38 2017 -0500
+
+    added log
+
+commit 5a45ed981875a71a39650114f6d97ec030905f46
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 21:53:12 2017 -0500
+
+    final version of report
+
+commit 823142fdb18d30af96d8c07c9dc7736d10911c7f
+Merge: e66e1cb 9555586
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 21:47:41 2017 -0500
+
+    Merge branch 'master' of github.com:grahamjamesr7/idb
+
+commit e66e1cbc339c536292761404d799e6af767053b8
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 21:47:35 2017 -0500
+
+    walter/stefan pictures and report
+
+commit 955558680f6e09ca7b571f4b301e8520242f6079
+Merge: 8801e68 7fa4a7e
+Author: Jesse Wright <JesseWright@users.noreply.github.com>
+Date:   Thu Mar 23 21:40:01 2017 -0500
+
+    Merge pull request #19 from grahamjamesr7/backend_models
+    
+    Backend models
+
+commit 7fa4a7eb85b711f0bc7f5011de73a9616d2deabf
+Merge: 2521f58 8801e68
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Mar 23 21:39:20 2017 -0500
+
+    Merge conflict - resolution to clear way for PR.
+
+commit 2521f58b154567689275be3414e4019a0ede6a68
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Mar 23 21:21:09 2017 -0500
+
+    Added all models in models.py and verified correctness in new database. Added new database with test data. Added database.py to handle database creation (mainly included for reference).
+
+commit 8801e68ad8e56a285b20231390b01b423a75835a
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 21:18:31 2017 -0500
+
+    loaloading css directly from appspot since .me wasn't working
+
+commit 29cbca06efe5ee7a6433de4217425f5176828d77
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 21:02:14 2017 -0500
+
+    fixed broken self reference in index.html
+
+commit 21bb20c96ca2adbd5fd386190b58743c1297157b
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 20:55:20 2017 -0500
+
+    fixed missed link in home
+
+commit af47e4eb04ef13e336fc8a2d894817b3d4832d2f
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 20:46:44 2017 -0500
+
+    about and report point to static files
+
+commit a3b514bef1dae8196bb8136b9eeafea6cc2acfb4
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 20:40:19 2017 -0500
+
+    hopefully actually finished the static migration
+
+commit ce1730b13136892637e18c1df0ac54792952a563
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 20:34:54 2017 -0500
+
+    finished static file migration
+
+commit 0d20832817a75158b37776f0a41902fcd9a3f55e
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 20:27:01 2017 -0500
+
+    moving templates to static temporarily
+
+commit 696281677f4dbd62525f3bf894b6fb9988516462
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 20:09:01 2017 -0500
+
+    added kyle and jesse pictures to about page
+
+commit 6d99f35897b9384a21747fd03ed5bfd5e9af0b3f
+Merge: 1fc0636 5079610
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 20:07:42 2017 -0500
+
+    Merge branch 'master' of github.com:grahamjamesr7/idb
+
+commit 1fc0636bebf48f123daa58913431e51c442a95c3
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 20:07:33 2017 -0500
+
+    added kkyle's and jesse's pictures
+
+commit 5079610e562df677294f0a31efac04b3641e5acb
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Mar 23 20:02:23 2017 -0500
+
+    added yUML picture
+
+commit f72d7f5f9377efd93869d7e8a569c34172299441
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Thu Mar 23 20:01:57 2017 -0500
+
+    Created yUML file in case we need this later
+
+commit 8e5bb06ebbf38b64e3df236ef5c90fb65030713a
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 19:51:07 2017 -0500
+
+    moved index.html into templates
+
+commit 884be3ce2dedeb3d75a45b597cb886644038e1be
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 19:47:04 2017 -0500
+
+    Added responsibilities and stefan's bio
+
+commit 35591b8e5e964c7845adf9394252e648897a0026
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 19:40:32 2017 -0500
+
+    added james's picture to the about page
+
+commit 30aa6972979cb272f846a698399551226cc64b01
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 19:39:35 2017 -0500
+
+    added james's picture
+
+commit c67d51a72427dce6862dfa81f8635956fb0a38b3
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 19:16:46 2017 -0500
+
+    added navbar too model pages
+
+commit 9da8627ab9082ed44a5e61fbcfc69b263664b9dd
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 19:14:49 2017 -0500
+
+    added links to navbar
+
+commit cf66fb8aea858f7fd06d43d132356a7509518ad5
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 19:11:46 2017 -0500
+
+    removed old 17th/18th/19th century files
+
+commit 4a6a3d0d7127eedbfa6888e0df2ef24aaf6270f3
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 19:10:39 2017 -0500
+
+    moved styles to stylesheet
+
+commit 43ab46aeb14127693ceeff0370219306cfc8b8f0
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 18:53:53 2017 -0500
+
+    Added picture for Carson
+
+commit b9a26d5e7ca14ae330e9046c5f4cccca3c856ada
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 18:53:15 2017 -0500
+
+    fixed weirdness with merge
+
+commit bbfaf063d67df6571bb9afaab00fc600485bcaf5
+Merge: 10e77aa aa2f006
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 18:48:33 2017 -0500
+
+    Merge branch 'frontend_dev' of https://github.com/grahamjamesr7/idb
+
+commit 10e77aac35051f52308e42674f331ad10dd69f72
+Merge: 9e253f9 cfdbf05
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 18:48:19 2017 -0500
+
+    Merge branch 'master' of https://github.com/grahamjamesr7/idb
+
+commit 9e253f97a77d4431ff38f6995f4c6d8889127050
+Merge: 369f875 cf88065
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 18:47:48 2017 -0500
+
+    Merge attempt
+
+commit aa2f0066e437803b45a5918a03859cca8ab7965d
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 18:45:13 2017 -0500
+
+    added category page for works
+
+commit cf88065ccb6919e7d037fa4a0b4f86fabd8d983e
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 18:41:40 2017 -0500
+
+    Added report page
+
+commit 4d4d12b490475ce340a8e39b8dae68f473b41fc1
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 18:39:22 2017 -0500
+
+    adding category page for styles
+
+commit 5a19bb1a646f8d4cad1af97a57282a5c59e14033
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 18:30:05 2017 -0500
+
+    added centuries category file
+
+commit 122c2500ff16db34f840fc3fef3dec9a218391bb
+Merge: ed2b605 ce28ed0
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 18:21:25 2017 -0500
+
+    Merge branch 'frontend_dev' of github.com:grahamjamesr7/idb into frontend_dev
+
+commit ed2b605e1afa6ae9200d4bea4d2b2d47c30d9ad4
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 18:21:19 2017 -0500
+
+    added artists category page
+
+commit ce28ed0dd93c192456492726f616353e9d3868ae
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 18:06:15 2017 -0500
+
+    Finished putting information on about page
+
+commit cfdbf05c9cdc3625391dbfaed00227d148949dfc
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Thu Mar 23 17:18:14 2017 -0500
+
+    Removed examples, apiary is good now
+
+commit 56620406fea4da11a7366655f91332d605f82505
+Merge: b084144 8853f9c
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 17:09:12 2017 -0500
+
+    Merge branch 'frontend_dev' of github.com:grahamjamesr7/idb into frontend_dev
+
+commit b084144a06cadc06ab824557fb872597c1eba905
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 17:09:08 2017 -0500
+
+    updated missed link for style
+
+commit 46bf384d362e4a9030ab5413b93d7385adcf3eb5
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 17:04:16 2017 -0500
+
+    added links to centuries
+
+commit 8853f9c136622a6a2ade206255299c25665c8f05
+Merge: c809e6f b77d0e7
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 17:00:13 2017 -0500
+
+    Merge branch 'frontend_dev' of https://github.com/grahamjamesr7/idb into frontend_dev
+
+commit 1060cf138e481718ce556c94b2ec28500896bf5a
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 17:00:13 2017 -0500
+
+    added links to styles
+
+commit c809e6fb7966fcbc77b0aa412ef9c19626a579de
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 16:59:48 2017 -0500
+
+    Added about page
+
+commit b77d0e7ebe869ebada7b2e4868c8402768968d7f
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 16:56:06 2017 -0500
+
+    added links for artists and works
+
+commit e6586b6e5ac14ccd05a4871cf9521ed069add58f
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 16:39:50 2017 -0500
+
+    added instance pages for works of art
+
+commit 1feb05c326f3f726767d753daa1227a5cd0638a3
+Merge: bfaa4a5 496e49c
+Author: Walter Sagehorn <w.sagehorn@gmail.com>
+Date:   Thu Mar 23 14:55:50 2017 -0500
+
+    Merge pull request #18 from grahamjamesr7/dev_walter
+    
+    added example template
+
+commit 496e49c9b2c127cd2a54fd3b007174f0f90eb73d
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Thu Mar 23 14:51:52 2017 -0500
+
+    wow i didn't actually commit example view, sorry
+
+commit c9acedc77e90fbdd278690305ec3208072159338
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 14:35:23 2017 -0500
+
+    added instance pages for artists
+
+commit c58d41a40f11058ebf583475c9550081956c4bca
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 14:16:17 2017 -0500
+
+    added static pages for styles
+
+commit 1d1e408c72dea8c21d3be13add916456f994941c
+Author: Kyle Wiley <kyle.l.wiley@utexas.edu>
+Date:   Thu Mar 23 13:55:44 2017 -0500
+
+    added centuries and blank files for other models
+
+commit bfaa4a50ea7d6ee5e831980ea9cbf50f0be52a6f
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Thu Mar 23 12:01:40 2017 -0500
+
+    working on Apiary (should be final)
+
+commit 273ef57d7e4c027505abb69a5e632aced855bdb0
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Thu Mar 23 11:49:53 2017 -0500
+
+    Further work on Apiary. Most of the calls are in, some notes were added as well, (which should help with the technical report.)
+
+commit cfb96303ada4e035a75d3bccb70001a9e178f09f
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Thu Mar 23 11:17:21 2017 -0500
+
+    Further work on Apiary
+
+commit 90945f7ce5828ceed70d467f5f3bd61ec5d144d0
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Thu Mar 23 09:21:46 2017 -0500
+
+    Basic Apiary testing
+
+commit b3a9ab10885399fb2a84961923ae632dc20e8000
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Mar 23 04:54:36 2017 -0500
+
+    Added basic set of models in model.py as per directions here: http://flask-sqlalchemy.pocoo.org/2.2/models/.
+    
+    Four basic models are included, each with basic columns, a few of which have been given relationships. In the future, I plan to add more columns, more relationships, more models, probably more tables, possibly triggers (if supported), and a variety of functions for each model for derived attributes.
+
+commit fc803e53968b1277bc761303b41a5cb7af5de4cd
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Mar 23 04:50:41 2017 -0500
+
+    Added SQLAlchemy setup in __init__.py as shown here: http://flask-sqlalchemy.pocoo.org/2.2/quickstart/#a-minimal-application.
+
+commit 96118a2b21ef9be7ee0967c379895ab29a6e67cb
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Mar 23 02:10:19 2017 -0500
+
+    Installed Flask-SQLAlchemy package to lib folder for making SQLAlchemy models in models.py.
+
+commit 55aaec50f7a4bb874e0f6e3b83b6a3e7f207ce5e
+Merge: afb40b8 beec868
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Thu Mar 23 01:31:36 2017 -0500
+
+    Merge remote-tracking branch 'refs/remotes/origin/master' into backend_models
+
+commit f0cf7d6e9e1d70da85117a0bfc6333b45fa5458b
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 01:14:49 2017 -0500
+
+    Red nav bar
+
+commit d36dd518b3bb506a81db5561d128f058309b2a1d
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 00:39:31 2017 -0500
+
+    Fixing broken images
+
+commit e8204313dd4326efb5a5aa8c9eba913daae14139
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 00:35:54 2017 -0500
+
+    Simple nav bar and carousel finished
+
+commit 369f875b13cbbf56f325a41831980a3762a1c4ba
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Thu Mar 23 00:30:05 2017 -0500
+
+    Simple navbar and title text
+
+commit f6d6ad810ff16642545721f0ea196e6a06b6e441
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Mar 22 23:42:22 2017 -0500
+
+    Finished carousel on splash page
+
+commit 6b831765e37314f78e62adb4e6e8db715bc343fa
+Merge: dd16a17 a24e478
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Mar 22 23:29:43 2017 -0500
+
+    Merge branch 'frontend_dev' of https://github.com/grahamjamesr7/idb
+
+commit dd16a177fe0c131ee019164dddf4f8b11bbe84bb
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Mar 22 21:19:23 2017 -0500
+
+    forgot to update travis.yml, fixed that
+
+commit 76d79859323c5f078f86facc3a1015b8b9fddbd9
+Merge: a3114cb 6d79b6f
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Mar 22 21:18:39 2017 -0500
+
+    Merge branch 'master' of https://github.com/grahamjamesr7/idb
+
+commit a3114cbfed2dd928e48f8c3dd3134e7c82a3701b
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Mar 22 21:18:31 2017 -0500
+
+    added blank makefile for now. We'll need to update this to be a more useful file once our Python code is more robust and we have actual unit tests to run. For now, it doesn't do anything.
+
+commit 6d79b6ff40e0b50df30a9febce7ce78a63961699
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Wed Mar 22 20:54:08 2017 -0500
+
+    fixing travis file
+
+commit d517c6870cd3239eecea420a0c77bb3b80767dc7
+Author: James Graham <grahamjamesr7@gmail.com>
+Date:   Wed Mar 22 20:50:37 2017 -0500
+
+    added travis.yml
+
+commit a24e4789e4dc7f2fa369330adff427ba872ef141
+Author: Carson Moore <cmm6234@cs.utexas.edu>
+Date:   Wed Mar 22 18:32:29 2017 -0500
+
+    directory structure set up
+
+commit beec8680545c8473ac5388d44db08c1ccacba709
+Author: James Graham <grahamjamesr@yahoo.com>
+Date:   Wed Mar 22 16:11:36 2017 -0500
+
+    Linking Apiary
+
+commit afb40b864f9f3274ea5263e2b1a0ab4b1f5314d5
+Merge: b0efc1b 899190f
+Author: Walter Sagehorn <w.sagehorn@gmail.com>
+Date:   Wed Mar 22 15:42:14 2017 -0500
+
+    Merge pull request #17 from grahamjamesr7/dev_walter
+    
+    Dev walter
+
+commit 899190fd894bac06c722ebda235108d307f143d6
+Merge: 84a757e b0efc1b
+Author: Walter Sagehorn <w.sagehorn@gmail.com>
+Date:   Wed Mar 22 15:42:05 2017 -0500
+
+    Merge branch 'master' into dev_walter
+
+commit 84a757ec22967d813f82cc73d2bacb18227df776
+Author: Walter Sagehorn <wsagehorn@gmail.com>
+Date:   Wed Mar 22 15:37:37 2017 -0500
+
+    fixed basic app config
+
+commit b0efc1b8561d8b931de489c5c410f452c9c2f8bf
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Wed Mar 22 15:11:32 2017 -0500
+
+    Rverting app.yaml to tutorial version
+    
+    Because of deployment issues with python3 and jinja2, we're reverting to
+    the original app.yaml file from the Google tutorial. This seems to mean
+    we'll be using python2.7.
+
+commit 9d1df0a9221bb1aa1b6ac8bb9c1c817141eeb2e4
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Wed Mar 22 15:09:50 2017 -0500
+
+    Revert "Updated app.yaml"
+    
+    This reverts commit 7f4e09ff514fc6d789026b947174d757cf87c7c1.
+
+commit b672905da623a61cf8e318325901d752114e064b
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Wed Mar 22 15:07:07 2017 -0500
+
+    Reverted Jinja2 to version 2.6
+    
+    Changed Jinja2 to version 2.7 earlier, but 2.7 drops support for Python3
+    versions earlier than 3.3. Since Jinja2 version 2.6 was the original
+    include, we'll revert to that unless otherwise needed.
+
+commit 7f4e09ff514fc6d789026b947174d757cf87c7c1
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Wed Mar 22 15:00:39 2017 -0500
+
+    Updated app.yaml
+    
+    Followed Google tutorial
+    (https://codelabs.developers.google.com/codelabs/cloud-vision-app-engine/index.html?index=..%2F..%2Fio2016#8)
+    and updated app.yaml accordingly in hopes that Google will stop failing
+    the deployment due to version issues with Jinja2.
+
+commit b0c339e1f1e93d7ba06ace5eee5f4b8598a87fcb
+Merge: 6fcae90 6510081
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Mar 22 14:51:16 2017 -0500
+
+    Merge branch 'master' of https://github.com/grahamjamesr7/idb
+
+commit 6fcae908611113fbbf03d89cc847ca90c9ed506c
+Author: Carson Moore <carsonatxmoore@gmail.com>
+Date:   Wed Mar 22 14:50:24 2017 -0500
+
+    Added json models, Closes #1
+
+commit 65100811797a2a814df3cab45aadae0fc05079b1
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Wed Mar 22 14:50:22 2017 -0500
+
+    Removed markupsafe from app.yaml
+    
+    maekupsafe was carried over from the tutotial files but is not something
+    we use. It isn't compatible with python3, so we're removing it to deploy
+    on gcloud successfully.
+
+commit a231882e2a138a295a70f303ea05b6a16f94a3bb
+Author: Jesse Wright <jesse.wright@utexas.edu>
+Date:   Wed Mar 22 14:40:03 2017 -0500
+
+    Added app.yaml
+    
+    Added a basic app.yaml based on the included yaml file in the
+    python-gae-quickstart tutorial repository. The only change I made was
+    switching the runtime from python2.7 to python3.
+
+commit 78a09eb108cc16fbf37619229ef151274634fb52
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Wed Mar 22 13:54:00 2017 -0500
+
+    added google doc link
+
+commit a0474780ce41df0fd16237991c8f396933860b47
+Author: Walter Sagehorn <w.sagehorn@gmail.com>
+Date:   Wed Mar 22 13:17:46 2017 -0500
+
+    Basically following GCP python tutorial, trying to get minimal functional site
+
+commit 8fbb38e0796fd92695f16f4e4c00c7633ff2e16c
+Author: Walter Sagehorn <w.sagehorn@gmail.com>
+Date:   Tue Mar 21 22:57:48 2017 -0500
+
+    Committing bc it's been a while, run mechanism not final
+    
+    I think filenames pretty much describe what the things do. lmk if there
+    are any questions. Also I added some basics to base.hmtl, which serves
+    as a parent html doc to all others. (Jinja allows inheritance, you can
+    write all the site-wide stuff like navbars and footers once instead of
+    on each page)
+
+commit 6464bd5ce6383e5908184a65744e0d0d56ef4707
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Mon Mar 20 22:02:27 2017 -0500
+
+    made the models more readable + learning markdown
+
+commit 144853e33f222bcdb46847f1702d7b05c9f277fe
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Mon Mar 20 22:00:10 2017 -0500
+
+    testing markdown, updating readme
+
+commit fce987a2959e3790a1e8935d7b2be45f23634505
+Author: James Graham <grahamjamesr7@users.noreply.github.com>
+Date:   Mon Mar 20 21:59:14 2017 -0500
+
+    testing markdown + adding models to readme
