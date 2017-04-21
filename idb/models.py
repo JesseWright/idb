@@ -422,7 +422,8 @@ class Medium(db.Model):
             "avg_height": float(self.avg_height) if self.avg_height else None,
             "avg_width":  float(self.avg_width) if self.avg_width else None,
             "avg_depth": float(self.avg_depth) if self.avg_depth else None,
-            "countries": self.countries
+            "countries": self.countries,
+            "images" : self.images
         }
 
     def relevance(self, search_terms):
