@@ -385,6 +385,9 @@
             {
                 for (i = 0; i < data.data.length; i++){
                     d = data.data[i];
+                    
+                    var image = undefined;
+
                     if (request_page == page_enum.WORKS)
                     {
                         name = d.title;
@@ -410,6 +413,7 @@
                         */
                         name = d.name;
                         year = d.average_age;
+                        
                         if (d.images)
                         {
 
@@ -418,7 +422,8 @@
                             if (image === "NULL")
                                 image = "https://placehold.it/200?text=No+image+available";
                         }
-                        //console.log("image\n" + image);
+ 
+                        console.log("image\n" + image);
                     }
                     if(request_page != page_enum.ERAS){
                             if(image == null){

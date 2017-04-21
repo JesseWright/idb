@@ -1,4 +1,4 @@
-var baseUrl = "https://crossorigin.me/http://ggnoswe.me/api/"
+var baseUrl = "http://ggnoswe.me/api/"
 
 var childTypes = {
   "platforms": "studios",
@@ -17,11 +17,29 @@ var deferred = {
   "reviews": []
 };
 
+
+var fail = function(){
+    $("#errorDiv").show();
+    return false;
+}
+
+var load = function(){
+    $('#errorDiv').hide();
+}
+$(document).ready(load);
+
 // Retry on failed requests.
-function spamRequest(url, callback) {
+function spamRequest(url, callback, counter) {
+  if(!counter)
+    counter = 0;
   d3.json(url, function(error, data) {
     if(!data) {
-      spamRequest(url, callback);
+      if(counter < 5)
+        spamRequest(url, callback,counter+1);
+      else {
+          //console.log("API Server failed. Sorry about that.");
+          fail();
+      }
     } else {
       callback(data);
     }
@@ -40,7 +58,7 @@ spamRequest(baseUrl + "platforms", function(data) {
     "loaded": true,
     "image" : "https://tse4.mm.bing.net/th?id=OIP.TqYMofMsl5gcjFLcRbmPjAEsDa&w=285&h=198&c=7&qlt=90&o=4&pid=1.7"
   };
-  
+
  for (var i = 0; i < data.length; i += 5){
     var d = data[i];
     treeData.children.push({
@@ -51,7 +69,7 @@ spamRequest(baseUrl + "platforms", function(data) {
       "image" : "https://tse4.mm.bing.net/th?id=OIP.TqYMofMsl5gcjFLcRbmPjAEsDa&w=285&h=198&c=7&qlt=90&o=4&pid=1.7"
     });
   }
-  
+
   drawTree(treeData);
 });
 
@@ -166,7 +184,7 @@ function drawTree(treeData) {
     // Transition to the proper position for the node
     nodeUpdate.transition()
       .duration(duration)
-      .attr("transform", function(d) { 
+      .attr("transform", function(d) {
           return "translate(" + d.y + "," + d.x + ")";
        });
 

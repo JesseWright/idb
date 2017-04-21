@@ -10,6 +10,17 @@ $('#searchForm').submit(function () {
     return false;
 });
 
+var load = function(){
+    $("#loadingDiv").hide();
+    terms = document.getElementById("termsDiv").innerHTML;
+    document.getElementById("termText").innerHTML = ('Showing results for "' + terms + '"');
+    ReactDOM.render(
+        React.createElement(page_ident, {page_num:1,max_page_num:1 }, null),
+        document.getElementById('page-identifier')
+    );
+    update_results(cur_page);
+}
+
 var page_ident = React.createClass({
         getDefaultProps: function(){
             return {
@@ -37,7 +48,8 @@ var result_row = React.createClass({
               'name': "default",
               'id': 1,
               'link': "/null/",
-              'type': 'default'
+              'type': 'default',
+              'context': "default_context"
           };
       },
       render: function() {
@@ -47,7 +59,7 @@ var result_row = React.createClass({
                     <a href = {link_to_use}>
                         <div className = "idb-result-card">
                           <h1><b>{this.props.name}</b> - ({this.props.type})</h1>
-                          <h4><i>context will go here</i></h4>
+                          <h4><i>{this.props.context}</i></h4>
                         </div>
                     </a>
                   </div>
@@ -57,6 +69,7 @@ var result_row = React.createClass({
 
 function handle_page_change(isPrev)
 {
+
     var prev_page = cur_page;
     if (isPrev)
     {
@@ -70,24 +83,16 @@ function handle_page_change(isPrev)
         if(cur_page + 1 <= max_page)
             cur_page = cur_page + 1;
     }
-    if (prev_page !== cur_page)
+    if (prev_page !== cur_page){
+        console.log("cur "+ cur_page);
         update_results(cur_page);
+
+    }
     else
         console.log("Tried to go to invalid page!");
     window.scrollTo(0,0);
 }
 
-
-var load = function(){
-    $("#loadingDiv").hide();
-    terms = document.getElementById("termsDiv").innerHTML;
-    document.getElementById("termText").innerHTML = ('Showing results for "' + terms + '"');
-    ReactDOM.render(
-        React.createElement(page_ident, {page_num:1,max_page_num:1 }, null),
-        document.getElementById('page-identifier')
-    );
-    update_results(0);
-}
 
 $(document)
   .ajaxStart(function () {
@@ -101,7 +106,8 @@ $(document).ready(load);
 
 function update_results(page)
 {
-    var url = "/search/?term=" + terms + "&page=" + page;
+    console.log(page);
+    var url = "/search/?term=" + terms + "&page=" + (page-1);
     console.log(url);
     $.get(url,function(data,status)
     {
@@ -110,6 +116,8 @@ function update_results(page)
 
         if(status == 'success')
         {
+            //console.log(data.data.length);
+            console.log(data.pages);
             if(data.data.length == 0)
             {
                 ReactDOM.render(
@@ -123,27 +131,30 @@ function update_results(page)
                     document.getElementById("noResultsContainer")
                 );
             }
-            for(i = 0; i < data.data.length; i++)
+            for(var i = 0; i < data.data.length; i++)
             {
                 d = data.data[i]
                 if(d.type == "Artist") //artist
                 {
+                    terms_context = search_model_for_context(d.type,d.object);
                     ReactDOM.render(
-                        React.createElement(result_row, {name:d.name,link:"/artist/",id:d.id,type:d.type}, null),
+                        React.createElement(result_row, {name:d.name,link:"/artist/",id:d.id,type:d.type,context:terms_context}, null),
                         document.getElementById('result-holder-' + i)
                     );
                 }
                 else if(d.type == "Medium") //medium
                 {
+                    terms_context = search_model_for_context(d.type,d.object);
                     ReactDOM.render(
-                        React.createElement(result_row, {name:d.name,link:"/media/",id:d.id,type:d.type}, null),
+                        React.createElement(result_row, {name:d.name,link:"/media/",id:d.id,type:d.type,context:terms_context}, null),
                         document.getElementById('result-holder-' + i)
                     );
                 }
                 else //work
                 {
+                    terms_context = search_model_for_context(d.type,d.object);
                     ReactDOM.render(
-                        React.createElement(result_row, {name:d.name,link:"/work/",id:d.id,type:d.type}, null),
+                        React.createElement(result_row, {name:d.name,link:"/work/",id:d.id,type:d.type,context:terms_context}, null),
                         document.getElementById('result-holder-' + i)
                     );
                 }
@@ -153,6 +164,7 @@ function update_results(page)
                 React.createElement(page_ident, {page_num:cur_page,max_page_num:max_page }, null),
                 document.getElementById('page-identifier')
             );
+            $('i').wrapInTag({"words":terms.split(" ")});
         }
         else
         {
@@ -163,3 +175,78 @@ function update_results(page)
     });
 
 }
+
+
+function search_model_for_context(type,model)
+{
+    var ret_string = "";
+    search_terms = document.getElementById("termsDiv").innerHTML.split(" ");
+    if(type == "Artist")
+    {
+        for(var index = 0; index < search_terms.length; index++)
+        {
+            term = search_terms[index].toLowerCase();
+            if(model.name && model.name.toLowerCase().indexOf(term) !== -1)
+                ret_string+= "in name: " + model.name + " ";
+            if(model.nationality && model.nationality.toLowerCase().indexOf(term) !== -1)
+                ret_string+= "in nationality: " + model.nationality + " ";
+            if(model.country && model.country.toLowerCase().indexOf(term) !== -1)
+                ret_string+= "in country: "+ model.country + " ";
+            if(model.bio && model.bio.toLowerCase().indexOf(term) !== -1)
+                ret_string += "in bio: " + model.bio.substring(model.bio.toLowerCase().indexOf(term),model.bio.toLowerCase().indexOf(term)+20) + "";
+        }
+    }
+    else if(type == "Medium")
+    {
+        for(var index = 0; index < search_terms.length; index++)
+        {
+            term = search_terms[index].toLowerCase();
+            if(model.name && model.name.toLowerCase().indexOf(term) !== -1)
+                ret_string+= "in name: " + model.name + " ";
+            if(model.countries && model.countries.toLowerCase().indexOf(term) !== -1)
+                ret_string+= "in countries: "+ model.countries + " ";
+        }
+    }
+    else
+    {
+        for(var index = 0; index < search_terms.length; index++)
+        {
+            term = search_terms[index].toLowerCase();
+            if(model.title && model.title.toLowerCase().indexOf(term) !== -1)
+                ret_string+= "in title: " + model.title + " ";
+            if(model.motifs && model.motifs.toLowerCase().indexOf(term) !== -1)
+                ret_string+= "in motifs: " + model.motifs + " ";
+
+        }
+    }
+
+    if(ret_string !== "")
+        return "Found the search terms " + ret_string;
+    else
+        return "no context?";
+}
+
+// http://stackoverflow.com/a/9795091
+$.fn.wrapInTag = function (opts) {
+    // http://stackoverflow.com/a/1646618
+    function getText(obj) {
+        return obj.textContent ? obj.textContent : obj.innerText;
+    }
+
+    var tag = opts.tag || 'strong',
+        words = opts.words || [],
+        regex = RegExp(words.join('|'), 'gi'),
+        replacement = '<' + tag + '>$&</' + tag + '>';
+
+    // http://stackoverflow.com/a/298758
+    $(this).contents().each(function () {
+        if (this.nodeType === 3) //Node.TEXT_NODE
+        {
+            // http://stackoverflow.com/a/7698745
+            $(this).replaceWith(getText(this).replace(regex, replacement));
+        }
+        else if (!opts.ignoreChildNodes) {
+            $(this).wrapInTag(opts);
+        }
+    });
+};

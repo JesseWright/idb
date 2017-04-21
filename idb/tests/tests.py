@@ -1,6 +1,7 @@
 import os
 import unittest
 import datetime
+import idb
 import idb.models as models
 from idb import app
 from idb.database_tools import build_db_connection_uri_string
@@ -17,10 +18,6 @@ _db_password_test = os.environ.get('SWE_IDB_PGDB_PW_TEST')
 _db_address_test = os.environ.get('SWE_IDB_PGDB_ADDR_TEST')
 _db_table_test = os.environ.get('SWE_IDB_PGDB_TABLE_TEST')
 
-###########################################################################
-# !-- Unit tests for the DB should NEVER connect to the production DB --! #
-# !-----      If they do, they could drop all of its tables!       -----! #
-###########################################################################
 
 _db_uri = build_db_connection_uri_string(username=_db_username_test,
                                          password=_db_password_test,
@@ -29,6 +26,8 @@ _db_uri = build_db_connection_uri_string(username=_db_username_test,
                                          options='',
                                          use_env_vars=False,
                                          use_defaults=True)
+
+print(_db_uri)
 
 
 class TestApp(unittest.TestCase):
@@ -41,7 +40,8 @@ class TestApp(unittest.TestCase):
         as a test client and create a testing database. """
         app.config['TESTING'] = True
         app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = _db_uri
+        # app.config['SQLALCHEMY_DATABASE_URI'] = _db_uri
+        print(app.config['SQLALCHEMY_DATABASE_URI'])
 
         self.app = app.test_client()
         self.db = SQLAlchemy(app)

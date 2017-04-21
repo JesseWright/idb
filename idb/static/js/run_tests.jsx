@@ -7,7 +7,7 @@ var test_results = React.createClass({
     var btnClass = state.buttonDisabled ? 'btn-disabled' : '';
     return (
       <div>
-      <button className="{btnClass}" onClick={this.handleClick}>Run Tests</button>
+      <button className="btnClass" onClick={this.handleClick}>Run Tests</button>
         <div className="test-results {state.loadState}">
           <div className="overlay">
             <div className="spinner">
