@@ -13,14 +13,14 @@
     {% else %}
         <img class = "idb-medium-image" src = "https://placehold.it/400?txtsize=36&text=No+image+available"></img>
     {% endif %}
-    <div class = "idb-medium-data-container" style = "padding-top: 20px"> Average age of a work in this medium:{{medium.average_age or "Unavailable"}}</div>
-    <div class = "idb-medium-data-container">Average height of a work in this medium: {{medium.avg_height or "Unavailable"}}</div>
-    <div class = "idb-medium-data-container">Average width of a work in this medium: {{medium.avg_width or "Unavailable"}}</div>
-    <div class = "idb-medium-data-container">Average depth of a work in this medium: {{medium.avg_depth or "Unavailable"}}</div>
+    <div class = "idb-medium-data-container" style = "padding-top: 20px"> Average age of a work in this medium:{{strNumFormatter(medium.average_age)}}</div>
+    <div class = "idb-medium-data-container">Average height of a work in this medium: {{strNumFormatter(medium.avg_height)}}</div>
+    <div class = "idb-medium-data-container">Average width of a work in this medium: {{strNumFormatter(medium.avg_width)}}</div>
+    <div class = "idb-medium-data-container">Average depth of a work in this medium: {{strNumFormatter(medium.avg_depth)}}</div>
 
-    {% if medium.countries %}
+    {% if medium.countries|length >2 %}
     <div class = "idb-country-desc"> This century saw artworks and artists from the following countries:</div>
-    <div class = "idb-medium-data-container">{{medium.countries}}</div>
+    <div class = "idb-medium-data-container">{{medium.countries|replace('{','')|replace('}','')}}</div>
     {% else %}
     <div class = "idb-medium-data-container" style = "padding-top: 50px"><i>Unfortunately, there is no data for where this medium was prominent.</i></div>
     {% endif %}

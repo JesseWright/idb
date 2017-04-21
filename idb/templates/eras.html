@@ -1,28 +1,16 @@
 
 {% extends "card_base.html" %}
 {% block head %}
-<title>era</title>
 {{ super() }}
 <link rel="stylesheet" type="text/css" href="/static/css/eras.css">
+<title>era</title>
 {% endblock %}
 
-{% block content %}
-
+{% block cards_content %}
 
 {% for era in eras %}
-  {% if (loop.index-1) is divisibleby 4 %}
-    {% if (loop.index-1) is not equalto 0 %}
-  </div>
-    {% endif %}
-      <div class="row">
-  {% endif %}
-      <div class="col-md-3">
-              <div id = "card-{{loop.index-1}}"></div>
-      </div>
+                <div id = "card-{{loop.index-1}}" class="cards-container"></div>
 {% endfor %}
-
-{% if (eras|length is not divisibleby 4) %}
-  </div>
-{% endif %}
-
+<!--fake Nav to make dynamic top-margin sizing of body work -->
+<nav class="navbar navbar-default navbar-fixed-top"></nav>
 {% endblock %}
