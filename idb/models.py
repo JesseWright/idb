@@ -526,28 +526,9 @@ class Era(db.Model):
         for term in search_terms:
             term = term.lower()
             if self.name:
-                score += NAME_WEIGHT      * self.name.lower().count(term) /\
-                    len(self.name.split(" "))
+                score += NAME_WEIGHT      * self.name.lower().count(
+                    term) / len(self.name.split(" "))
             if self.countries:
-                score += COUNTRIES_WEIGHT * self.countries.lower().count(term) /\
-                    len(self.countries.split(" "))
+                score += COUNTRIES_WEIGHT * self.countries.lower().count(
+                    term) / len(self.countries.split(" "))
         return score
-
-
-def callback(conn, cursor, statement, parameters, context, executeMany):
-    import idb
-    idb.db_query_count += 1
-    count = idb.db_query_count
-    if count < 25 or not (count % 25):
-        print('Executing query ' + str(count) + ': ' + str(statement))
-
-import sqlalchemy
-sqlalchemy.event.listen(sqlalchemy.engine.Engine,
-                        'before_cursor_execute',
-                        lambda conn, cursor, statement, parameters,
-                               context, executeMany: callback(conn,
-                                                              cursor,
-                                                              statement,
-                                                              parameters,
-                                                              context,
-                                                              executeMany))
