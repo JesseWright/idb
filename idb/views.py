@@ -185,8 +185,8 @@ def search():
         "name"      : x.title if isinstance(x, Work) else x.name,
         "id"        : x.id,
         "type"      : type(x).__name__,
-        "relevance" : x.relevance(search_terms)
-        #"object"    : x.serialize()   TODO: uncomment when merged
+        "relevance" : x.relevance(search_terms),
+        "object"    : x.serialize()
     }, results))
     print("transformed. {} models. {} seconds elapsed.".format(len(results), time.time() - start))
 

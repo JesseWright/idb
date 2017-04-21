@@ -421,7 +421,7 @@ class Medium(db.Model):
                 else None,
             "avg_height": float(self.avg_height) if self.avg_height else None,
             "avg_width":  float(self.avg_width) if self.avg_width else None,
-            "avg_depth": float(self.avg_depth),
+            "avg_depth": float(self.avg_depth) if self.avg_depth else None,
             "countries": self.countries
         }
 
@@ -550,4 +550,3 @@ sqlalchemy.event.listen(sqlalchemy.engine.Engine,
                                                               parameters,
                                                               context,
                                                               executeMany))
-
