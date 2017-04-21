@@ -7,7 +7,12 @@
 {% endblock %}
 
 {% block content %}
-<div>
+<div style="padding-top:50px;">
+
+    <div id = "errorDiv" style = "font-size: 72px; color: #fff; text-align: center; padding-top:20%;">
+        <div>API server responded with error.</div>
+        <div style = "font-size: 24px;"><i>Sorry about that. (Refresh to try again!)</i></div>
+    </div>
     <script src="/static/js/visualization.js"></script>
 </div>
 {% endblock %}

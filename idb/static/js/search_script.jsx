@@ -18,7 +18,7 @@ var load = function(){
         React.createElement(page_ident, {page_num:1,max_page_num:1 }, null),
         document.getElementById('page-identifier')
     );
-    update_results(0);
+    update_results(cur_page);
 }
 
 var page_ident = React.createClass({
@@ -69,6 +69,7 @@ var result_row = React.createClass({
 
 function handle_page_change(isPrev)
 {
+
     var prev_page = cur_page;
     if (isPrev)
     {
@@ -82,8 +83,11 @@ function handle_page_change(isPrev)
         if(cur_page + 1 <= max_page)
             cur_page = cur_page + 1;
     }
-    if (prev_page !== cur_page)
+    if (prev_page !== cur_page){
+        console.log("cur "+ cur_page);
         update_results(cur_page);
+
+    }
     else
         console.log("Tried to go to invalid page!");
     window.scrollTo(0,0);
@@ -102,7 +106,8 @@ $(document).ready(load);
 
 function update_results(page)
 {
-    var url = "/search/?term=" + terms + "&page=" + page;
+    console.log(page);
+    var url = "/search/?term=" + terms + "&page=" + (page-1);
     console.log(url);
     $.get(url,function(data,status)
     {
@@ -111,6 +116,8 @@ function update_results(page)
 
         if(status == 'success')
         {
+            //console.log(data.data.length);
+            console.log(data.pages);
             if(data.data.length == 0)
             {
                 ReactDOM.render(
@@ -126,12 +133,10 @@ function update_results(page)
             }
             for(var i = 0; i < data.data.length; i++)
             {
-                console.log("loop" + i);
                 d = data.data[i]
                 if(d.type == "Artist") //artist
                 {
                     terms_context = search_model_for_context(d.type,d.object);
-                    console.log(terms_context);
                     ReactDOM.render(
                         React.createElement(result_row, {name:d.name,link:"/artist/",id:d.id,type:d.type,context:terms_context}, null),
                         document.getElementById('result-holder-' + i)
