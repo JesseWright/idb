@@ -66,6 +66,10 @@ def media():
 def visualization():
     return render_template('visualization.html')
 
+@app.route('/visualization2')
+def visualization2():
+    return render_template('visualization2.html')
+
 
 @app.route('/artist/<int:id>')
 def artist(id):
