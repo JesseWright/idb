@@ -84,7 +84,7 @@ function drawTree(treeData) {
   console.log(treeData);
   // Set the dimensions and margins of the diagram
   var margin = {top: 20, right: 90, bottom: 30, left: 90},
-      width = 960 - margin.left - margin.right,
+      width = 1900 - margin.left - margin.right,
       height = 900 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
@@ -96,7 +96,6 @@ function drawTree(treeData) {
     .append("g")
       .attr("transform", "translate("
             + margin.left + "," + margin.top + ")");
-  console.log("thing");
   var i = 0,
       duration = 750,
       root;
@@ -117,9 +116,9 @@ function drawTree(treeData) {
   // Collapse the node and all it's children
   function collapse(d) {
     if(d.children) {
-      d._children = d.children
-      d._children.forEach(collapse)
-      d.children = null
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
     }
   }
 
@@ -182,8 +181,10 @@ function drawTree(treeData) {
     nodeUpdate.select('circle.node')
       .attr('r', 10)
       .style("fill", function(d) {
+          var hasNoChildren = (!d._children || !d._children.length) && (!d.children || d.children);
+          var empty = d.data.loaded && hasNoChildren;
 
-          return d._children ? "lightsteelblue" : "#fff";
+          return empty? "#bbb" : (d._children ? "lightsteelblue" : "#fff");
       })
       .attr('cursor', 'pointer');
 
